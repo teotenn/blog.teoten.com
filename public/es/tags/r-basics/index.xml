@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>R basics on My New Hugo Site</title>
+    <link>http://example.org/es/tags/r-basics/</link>
+    <description>Recent content in R basics on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>es</language>
+    <lastBuildDate>Tue, 29 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://example.org/es/tags/r-basics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>EDA de datos de INEGI</title>
+      <link>http://example.org/es/posts/2022/eda_inegi_datos/</link>
+      <pubDate>Tue, 29 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/es/posts/2022/eda_inegi_datos/</guid>
+      <description>Introducción El análisis exploratorio de datos (EDA en inglés, &amp;ldquo;Exploratory Data Analysis&amp;rdquo;) es una de las herramientas más útiles en varias áreas de análisis de datos. El concepto de EDA ha sido utilizado popularmente en los últimos años para referirse a los procesos de exploración primaria de un grupo de datos.</description>
+    </item>
+    
+  </channel>
+</rss>

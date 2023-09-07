@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>docker on My New Hugo Site</title>
+    <link>http://example.org/tags/docker/</link>
+    <description>Recent content in docker on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 11 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://example.org/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Reference: Dockerizing shinny apps</title>
+      <link>http://example.org/posts/2023/reference_dockerizing_shinny_apps/</link>
+      <pubDate>Sat, 11 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/posts/2023/reference_dockerizing_shinny_apps/</guid>
+      <description>Andrew Couch has a nice video about deploying a shiny app using docker. He goes from the very basics, that asume no knowledge of docker whatsoever, which is the position of many R users like myself. I&amp;rsquo;ve been working in some shiny app lately, and although I&amp;rsquo;ve never needed docker so far, I decided to start learning it because I can already foresee the future when it won&amp;rsquo;t be the case.</description>
+    </item>
+    
+    <item>
+      <title>Referencia: Dockerizando shinny apps</title>
+      <link>http://example.org/es/posts/2023/referencia_dockerizar_shinny_apps/</link>
+      <pubDate>Sat, 11 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/es/posts/2023/referencia_dockerizar_shinny_apps/</guid>
+      <description>Andrew Couch tiene un video genial sobre como poner una aplicación shiny en docker. El video está en inglés, pero bien vale la pena. Va desde lo más básico, sin asumir ningún conocimiento de docker, lo cual es la situación de muchos usuarios de R como yo mismo. Últimamente he estado trabajando en unas aplicaciones Shiny y a pesar de que nunca he necesitado de Docker, ya puedo preveer el momento en que esto cambiará, por lo que decidí comenzar a aprender como usarlo.</description>
+    </item>
+    
+  </channel>
+</rss>

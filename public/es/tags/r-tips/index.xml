@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>R tips on My New Hugo Site</title>
+    <link>http://example.org/es/tags/r-tips/</link>
+    <description>Recent content in R tips on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>es</language>
+    <lastBuildDate>Sat, 11 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://example.org/es/tags/r-tips/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Referencia: Dockerizando shinny apps</title>
+      <link>http://example.org/es/posts/2023/referencia_dockerizar_shinny_apps/</link>
+      <pubDate>Sat, 11 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/es/posts/2023/referencia_dockerizar_shinny_apps/</guid>
+      <description>Andrew Couch tiene un video genial sobre como poner una aplicación shiny en docker. El video está en inglés, pero bien vale la pena. Va desde lo más básico, sin asumir ningún conocimiento de docker, lo cual es la situación de muchos usuarios de R como yo mismo. Últimamente he estado trabajando en unas aplicaciones Shiny y a pesar de que nunca he necesitado de Docker, ya puedo preveer el momento en que esto cambiará, por lo que decidí comenzar a aprender como usarlo.</description>
+    </item>
+    
+    <item>
+      <title>EDA de datos de INEGI</title>
+      <link>http://example.org/es/posts/2022/eda_inegi_datos/</link>
+      <pubDate>Tue, 29 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/es/posts/2022/eda_inegi_datos/</guid>
+      <description>Introducción El análisis exploratorio de datos (EDA en inglés, &amp;ldquo;Exploratory Data Analysis&amp;rdquo;) es una de las herramientas más útiles en varias áreas de análisis de datos. El concepto de EDA ha sido utilizado popularmente en los últimos años para referirse a los procesos de exploración primaria de un grupo de datos.</description>
+    </item>
+    
+    <item>
+      <title>Mini tutorial: hacer tipo lógico cualquier texto</title>
+      <link>http://example.org/es/posts/2022/minitut_hacer_bool/</link>
+      <pubDate>Sun, 18 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/es/posts/2022/minitut_hacer_bool/</guid>
+      <description>Acerca de este post. Este es mi primer post en español. Es en realidad la traducción de un post que escribí originalmente en inglés hace un par de meses. Pueden ver el post original aqui. Espero que sea útil para la comunidad hispanohablante de usuarios de R.
+Este post se basa en un trabajo reciente donde mi tarea fue la revisión y depuración de piezas de código pequeñas o simples que pueden resultar en consejos prácticos y rápidos para otros usuarios de R, especialmente principiantes o personas sin mucha experiencia en el uso de R.</description>
+    </item>
+    
+  </channel>
+</rss>

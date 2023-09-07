@@ -1,0 +1,112 @@
+---
+author: "Manuel Teodoro Tenango"
+title: "Adding a website next to your Shiny server"
+image: ""
+draft: false
+date: 2023-09-07
+description: "Add a website next to your Shiny server using Nginx"
+tags: ["minitutorial", "R shiny"]
+categories: ["R"]
+archives: ["2023"]
+---
+
+I have been off from the blog lately due to a big load of personal projects. Just lately I got a few days off and found time to work on my personal website, to be ready soon. That made me get more into Nginx configuration, where I consider myself a total rookie. However, I was mainly adding a few domains that are intended for different purposes. That is incredibly easy to do using Nginx even with minimal knowledge, and that's what I want to show here.
+
+Basically I want to have my shiny apps under one domain, and some other sites under different domains, but using only one server. I also decided to add my own customized 404 error page. There are different ways to accomplish that, here are just a couple of them. I hope they can be of use.
+
+** Using sites-enabled
+
+If you followed my previous post about how to [[https://blog.rwhitedwarf.com/post/deploy_shiny_on_debian/][deploy your own shiny app]] in your own server using Nginx, the next step to deploy a new website with a different domain in the same server is very easy. Nginx uses the concept of server blocks that use the =server_name= and listen directives to bind to tcp sockets.
+
+Go to you Nginx file where we placed the details for the Shiny server in =/etc/nginx/sites-enabled/default= and add a new server block at the very end of the file. It can be something like below.
+
+#+begin_example
+server {
+    root /var/www/example/;
+    server_name example.mydomain.com;
+
+    index index.html;
+
+    location / {
+        try_files $uri $uri/ uri.html =404;
+    }
+
+}
+#+end_example
+
+Direct the =root= to the path where your public website files are, and =server_name= to your domain. Remember that you also have to direct your domain to the public IP address of your server, this means the same where your shiny app is. Finally restart Nginx =sudo systemctl reload nginx= and your new address should show the =index.html= file stored in your path.
+
+** Using nginx.conf
+
+Another option is to configure directly =/etc/nginx/nginx.conf= and add as many server blocks as you need, within the http block. Here is the example used above alongside the shiny server. Remember to add the=map= parameter before the shiny block.
+
+#+begin_example
+http{
+    ## Leave anything above untouch, add your blocks at the end
+
+    ## Example server
+    server {
+        root /var/www/example/;
+        server_name example.mydomain.com;
+
+        index index.html;
+
+        location / {
+            try_files $uri $uri/ uri.html =404;
+        }
+    }
+
+    ## Shiny server
+    map $http_upgrade $connection_upgrade {
+        default upgrade;
+        ''      close;
+    }
+
+    server {
+        root /var/www/shiny/; ## Don't forget to create the folder
+        index index.html index.htm index.nginx-debian.html;
+
+        server_name shiny.myomain.com;
+
+        location /shiny/ {
+            proxy_pass http://127.0.0.1:3838/;
+            proxy_http_version 1.1;
+            proxy_set_header Upgrade $http_upgrade;
+            proxy_set_header Connection "upgrade";
+            rewrite ^(/shiny/[^/]+)$ $1/ permanent;
+        }
+}
+#+end_example
+
+** Adding a custom 404 page
+
+To add a custom 404 error page (or basically any error page) we could create it as part of our site and point Nginx to it. However, we can as well create and maintain only one page and share it for all or some of our domains.
+
+You can create a some file like =custom_404.html= in the path =/usr/share/nginx/html/=, edit it to your liking and then add it to each server block where you want to use it. The Nginx code goes something like this:
+
+#+begin_example
+error_page 404 /custom_404.html;
+    location = /custom_404.html {
+    root /usr/share/nginx/html;
+    internal;
+}
+#+end_example
+
+We can also cover several errors by listing them to the parameter =error_page=. Here is an example to cover several 500 errors.
+
+#+begin_example
+
+error_page 500 502 503 504 /custom_50x.html;
+    location = /custom_50x.html {
+    root /usr/share/nginx/html;
+    internal;
+}
+#+end_example
+
+In this case, Nginx will use whatever we have in =/usr/share/nginx/html/csutom_50x.html= to show when the errors 500, 502, 503 and 504 appear.
+
+** Final considerations
+
+Whichever steps you take, don't forget to execute =sudo nginx -t= when you make modifications to ensure that your configuration files and syntax are correct. The more often you run it, the easier will be to identify potential problems. 
+
+Also, don't forget to check the [[https://nginx.org/en/docs/][Nginx documentation]], it has a [[https://nginx.org/en/docs/beginners_guide.html][beginner's guide]] and my favorite, a [[https://www.nginx.com/resources/wiki/start/#][getting started]] site with tons of examples.

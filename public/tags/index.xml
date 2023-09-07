@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on My New Hugo Site</title>
+    <link>http://example.org/tags/</link>
+    <description>Recent content in Tags on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 07 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://example.org/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>minitutorial</title>
+      <link>http://example.org/tags/minitutorial/</link>
+      <pubDate>Thu, 07 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/tags/minitutorial/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R shiny</title>
+      <link>http://example.org/tags/r-shiny/</link>
+      <pubDate>Thu, 07 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/tags/r-shiny/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>maps-app</title>
+      <link>http://example.org/tags/maps-app/</link>
+      <pubDate>Wed, 19 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/tags/maps-app/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R functions</title>
+      <link>http://example.org/tags/r-functions/</link>
+      <pubDate>Wed, 19 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/tags/r-functions/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R maps</title>
+      <link>http://example.org/tags/r-maps/</link>
+      <pubDate>Wed, 19 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/tags/r-maps/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>database</title>
+      <link>http://example.org/tags/database/</link>
+      <pubDate>Fri, 24 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/tags/database/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R funciones</title>
+      <link>http://example.org/tags/r-funciones/</link>
+      <pubDate>Fri, 24 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/tags/r-funciones/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R mapas</title>
+      <link>http://example.org/tags/r-mapas/</link>
+      <pubDate>Fri, 24 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/tags/r-mapas/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>recursion</title>
+      <link>http://example.org/tags/recursion/</link>
+      <pubDate>Fri, 24 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/tags/recursion/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>web-scrap</title>
+      <link>http://example.org/tags/web-scrap/</link>
+      <pubDate>Fri, 24 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/tags/web-scrap/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>docker</title>
+      <link>http://example.org/tags/docker/</link>
+      <pubDate>Sat, 11 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R tips</title>
+      <link>http://example.org/tags/r-tips/</link>
+      <pubDate>Sat, 11 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/tags/r-tips/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R-dev</title>
+      <link>http://example.org/tags/r-dev/</link>
+      <pubDate>Sat, 11 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/tags/r-dev/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>references</title>
+      <link>http://example.org/tags/references/</link>
+      <pubDate>Sat, 11 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/tags/references/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>referencias</title>
+      <link>http://example.org/tags/referencias/</link>
+      <pubDate>Sat, 11 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/tags/referencias/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>emacs</title>
+      <link>http://example.org/tags/emacs/</link>
+      <pubDate>Thu, 29 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/tags/emacs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R basics</title>
+      <link>http://example.org/tags/r-basics/</link>
+      <pubDate>Thu, 29 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/tags/r-basics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>data analysis</title>
+      <link>http://example.org/tags/data-analysis/</link>
+      <pubDate>Tue, 29 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/tags/data-analysis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ggplot2</title>
+      <link>http://example.org/tags/ggplot2/</link>
+      <pubDate>Tue, 29 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/tags/ggplot2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Code Visuals</title>
+      <link>http://example.org/tags/code-visuals/</link>
+      <pubDate>Fri, 04 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/tags/code-visuals/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

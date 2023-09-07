@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>R functions on My New Hugo Site</title>
+    <link>http://example.org/tags/r-functions/</link>
+    <description>Recent content in R functions on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 19 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://example.org/tags/r-functions/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Map any region in the world with R - Part III: Programming with ggplot2</title>
+      <link>http://example.org/posts/2023/map_any_region_with_ggplot2_part_iii/</link>
+      <pubDate>Wed, 19 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/posts/2023/map_any_region_with_ggplot2_part_iii/</guid>
+      <description>You can find all the posts on this series under the tag maps-app (including the Spanish versions).
+You can also find the current state of the project under my GitHub repo mapic.
+Scope of this post We are creating maps of data showing changes over a span of time for different countries and pointing at all kinds of cities.</description>
+    </item>
+    
+    <item>
+      <title>Webscrap and iteration in R</title>
+      <link>http://example.org/posts/2023/webscrap_and_iteration_in_r/</link>
+      <pubDate>Fri, 24 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/posts/2023/webscrap_and_iteration_in_r/</guid>
+      <description>About this post We are creating maps of data showing changes over a span of time for different countries and pointing at all kinds of cities. That basically means that we need to map any region of the world with R. Today there are all kinds of packages and techniques to do that.</description>
+    </item>
+    
+    <item>
+      <title>Map any region in the world with R - Part II: Obtaining the coordinates</title>
+      <link>http://example.org/posts/2022/map_any_region_with_ggplot2_part_ii/</link>
+      <pubDate>Fri, 04 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/posts/2022/map_any_region_with_ggplot2_part_ii/</guid>
+      <description>You can find all the posts on this series under the tag maps-app (including the Spanish versions).
+You can also find the current state of the project under my GitHub repo mapic.
+Scope of this post This is the second part of the series to create a map of any region of the world with R.</description>
+    </item>
+    
+    <item>
+      <title>Mapa de cualquier región del mundo con R - Parte II: obteniendo las coordenadas.</title>
+      <link>http://example.org/es/posts/2022/map_any_region_with_ggplot2_part_ii/</link>
+      <pubDate>Fri, 04 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/es/posts/2022/map_any_region_with_ggplot2_part_ii/</guid>
+      <description>Pueden encontrar todas las publicaciones en este tema bajo la etiqueta maps-app (incluyendo las versiones en inglés).
+También pueden encontrar el estado actual del proyecto en mi GitHub repo mapic.
+Sobre este post Esta es la segunda parte de las series de cómo crear mapas de cualquier región del mundo con R.</description>
+    </item>
+    
+    <item>
+      <title>Map any region in the world with R - Part I: The basic map</title>
+      <link>http://example.org/posts/2022/map_any_region_with_ggplot2_part_i/</link>
+      <pubDate>Sat, 08 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/posts/2022/map_any_region_with_ggplot2_part_i/</guid>
+      <description>You can find all the posts on this series under the tag maps-app.
+You can also find the current state of the project under my GitHub repo mapic (including the Spanish versions).
+Scope of this post When you prepare for a job interview one of the questions they always tell you to prepare is &amp;ldquo;What are you most proud of?</description>
+    </item>
+    
+    <item>
+      <title>Minitutorial: make_logical any string</title>
+      <link>http://example.org/posts/2022/minitut_makebool/</link>
+      <pubDate>Sun, 18 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/posts/2022/minitut_makebool/</guid>
+      <description>Welcome to R minitutorials of R White Dwarf Since the beginning of this year I&amp;rsquo;ve been forced to abandon completely the blog for countless and rather abstract personal reasons that include personal health, family matters and changes in my daily activities including volunteer work as well as main job. As part of the last, I finally got hired for a position as R developer, which brings great joy to me.</description>
+    </item>
+    
+    <item>
+      <title>R function to fill in merged cells</title>
+      <link>http://example.org/posts/2021/fill_merged_cells/</link>
+      <pubDate>Sun, 05 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/posts/2021/fill_merged_cells/</guid>
+      <description>This post is part of our series on functions in R. You can see our previous post if you want to understand the basics but it is not strictly necessary. Here we will go into detail about for loops and if statements in R, two key elements of any function. We are going to define a process, map it in a step-by-step approach and wrape it in a function that can repeat it automatically.</description>
+    </item>
+    
+    <item>
+      <title>Functions in R</title>
+      <link>http://example.org/posts/2021/functions/</link>
+      <pubDate>Tue, 30 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/posts/2021/functions/</guid>
+      <description>Background This is the first post of R with White Dwarf and I decided to start this blog with a basic tutorial. There is already a lot of information in the web about getting started with R. With a simple google search you can easily find info on how to install it, how to use R studio or other text editor, learn about the basic functions and concepts, what is a vector, a data frame, how to use them, etc.</description>
+    </item>
+    
+  </channel>
+</rss>
