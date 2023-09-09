@@ -131,7 +131,7 @@ hasCJKLanguage = false
         name = "Categories"
         url = "/categories"
         weight = 3
-        pre = "<i class='fa fa-folder-open'></i>"
+        pre = "<i class='fas fa-photo-video'></i>"
     [[menus.main]]
         name = "Tags"
         url = "/tags"
@@ -250,7 +250,7 @@ hasCJKLanguage = false
             name = "Categories"
             url = "/categories"
             weight = 3
-            pre = "<i class='fa fa-folder-open'></i>"
+            pre = "<i class='fas fa-photo-video'></i>"
         [[languages.en.menus.main]]
             name = "Series"
             url = "/series"
@@ -309,7 +309,7 @@ hasCJKLanguage = false
             name = "Categorias"
             url = "/es/categories"
             weight = 3
-            pre = "<i class='fa fa-folder-open'></i>"
+            pre = "<i class='fas fa-photo-video'></i>"
         [[languages.es.menus.main]]
             name = "Series"
             url = "/es/series"
