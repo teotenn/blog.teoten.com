@@ -22,9 +22,9 @@
       <pubDate>Wed, 19 Apr 2023 00:00:00 +0000</pubDate>
       
       <guid>https://blog.teoten.com/posts/2023/map_any_region_with_ggplot2_part_iii/</guid>
-      <description>You can find all the posts on this series under the tag maps-app (including the Spanish versions).
+      <description>This post is part of the series maps-app.
 You can also find the current state of the project under my GitHub repo mapic.
-Scope of this post We are creating maps of data showing changes over a span of time for different countries and pointing at all kinds of cities.</description>
+Scope of this post We are creating maps of data showing changes over a span of time for different countries and pointing at all kinds of cities. That basically means that we need to map any region of the world with R.</description>
     </item>
     
     <item>
@@ -38,10 +38,10 @@ Scope of this post We are creating maps of data showing changes over a span of t
     
     <item>
       <title>Webscrap e iteraciones con R</title>
-      <link>https://blog.teoten.com/es/posts/2023/webscrap_e_iteracion_con_r/</link>
+      <link>https://blog.teoten.com/es/posts/2023/webscrap_and_iteration_in_r/</link>
       <pubDate>Fri, 24 Mar 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.teoten.com/es/posts/2023/webscrap_e_iteracion_con_r/</guid>
+      <guid>https://blog.teoten.com/es/posts/2023/webscrap_and_iteration_in_r/</guid>
       <description>Sobre este post Estamos creando mapas de datos que muestran los cambios durante un período de tiempo para diferentes países y orientado a todo tipo de ciudades. Esto básicamente significa que necesitamos mapear cualquier región del mundo con R. Hoy en día existen todo tipo de paquetes y técnicas para hacerlo.</description>
     </item>
     
@@ -56,10 +56,10 @@ Scope of this post We are creating maps of data showing changes over a span of t
     
     <item>
       <title>Referencia: Dockerizando shinny apps</title>
-      <link>https://blog.teoten.com/es/posts/2023/referencia_dockerizar_shinny_apps/</link>
+      <link>https://blog.teoten.com/es/posts/2023/reference_dockerizing_shinny_apps/</link>
       <pubDate>Sat, 11 Feb 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.teoten.com/es/posts/2023/referencia_dockerizar_shinny_apps/</guid>
+      <guid>https://blog.teoten.com/es/posts/2023/reference_dockerizing_shinny_apps/</guid>
       <description>Andrew Couch tiene un video genial sobre como poner una aplicación shiny en docker. El video está en inglés, pero bien vale la pena. Va desde lo más básico, sin asumir ningún conocimiento de docker, lo cual es la situación de muchos usuarios de R como yo mismo. Últimamente he estado trabajando en unas aplicaciones Shiny y a pesar de que nunca he necesitado de Docker, ya puedo preveer el momento en que esto cambiará, por lo que decidí comenzar a aprender como usarlo.</description>
     </item>
     
@@ -96,9 +96,10 @@ Scope of this post We are creating maps of data showing changes over a span of t
       <pubDate>Fri, 04 Nov 2022 00:00:00 +0000</pubDate>
       
       <guid>https://blog.teoten.com/posts/2022/map_any_region_with_ggplot2_part_ii/</guid>
-      <description>You can find all the posts on this series under the tag maps-app (including the Spanish versions).
+      <description>This post is part of the series maps-app.
 You can also find the current state of the project under my GitHub repo mapic.
-Scope of this post This is the second part of the series to create a map of any region of the world with R.</description>
+Scope of this post This is the second part of the series to create a map of any region of the world with R.
+We are creating maps of data showing changes over a span of time for different countries and pointing at all kinds of cities.</description>
     </item>
     
     <item>
@@ -107,9 +108,9 @@ Scope of this post This is the second part of the series to create a map of any 
       <pubDate>Fri, 04 Nov 2022 00:00:00 +0000</pubDate>
       
       <guid>https://blog.teoten.com/es/posts/2022/map_any_region_with_ggplot2_part_ii/</guid>
-      <description>Pueden encontrar todas las publicaciones en este tema bajo la etiqueta maps-app (incluyendo las versiones en inglés).
+      <description>Pueden encontrar todas las publicaciones en este tema bajo las series maps-app.
 También pueden encontrar el estado actual del proyecto en mi GitHub repo mapic.
-Sobre este post Esta es la segunda parte de las series de cómo crear mapas de cualquier región del mundo con R.</description>
+Sobre este post Esta es la segunda parte de las series de cómo crear mapas de cualquier región del mundo con R. De antemano me disculpo por detalles que puedan encontrar en la traducción, el post original lo creé en Inglés y el trabajo de traducción puede ser excesivo si voy a cada detalle.</description>
     </item>
     
     <item>
@@ -127,28 +128,28 @@ Sobre este post Esta es la segunda parte de las series de cómo crear mapas de c
       <pubDate>Sat, 08 Oct 2022 00:00:00 +0000</pubDate>
       
       <guid>https://blog.teoten.com/posts/2022/map_any_region_with_ggplot2_part_i/</guid>
-      <description>You can find all the posts on this series under the tag maps-app.
+      <description>This post is part of the series maps-app.
 You can also find the current state of the project under my GitHub repo mapic (including the Spanish versions).
 Scope of this post When you prepare for a job interview one of the questions they always tell you to prepare is &amp;ldquo;What are you most proud of?</description>
     </item>
     
     <item>
       <title>Mapa de cualquier región del mundo con R - Parte I: El mapa base</title>
-      <link>https://blog.teoten.com/es/posts/2022/mapa_de_cualquier_region_con_ggplot2_i/</link>
+      <link>https://blog.teoten.com/es/posts/2022/map_any_region_with_ggplot2_part_i/</link>
       <pubDate>Sat, 08 Oct 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.teoten.com/es/posts/2022/mapa_de_cualquier_region_con_ggplot2_i/</guid>
-      <description>Pueden encontrar todas las publicaciones en este tema bajo la etiqueta maps-app (incluyendo las versiones en inglés).
+      <guid>https://blog.teoten.com/es/posts/2022/map_any_region_with_ggplot2_part_i/</guid>
+      <description>Pueden encontrar todas las publicaciones en este tema bajo las series maps-app.
 También pueden encontrar el estado actual del proyecto en mi GitHub repo mapic.
 Sobre esta entrada Cuando nos preparamos para una entrevista de trabajo, una de las preguntas que más recomiendan preparar es &amp;ldquo;Menciona el proyecto del que estés más orgulloso?</description>
     </item>
     
     <item>
       <title>Mini tutorial: hacer tipo lógico cualquier texto</title>
-      <link>https://blog.teoten.com/es/posts/2022/minitut_hacer_bool/</link>
+      <link>https://blog.teoten.com/es/posts/2022/minitut_makebool/</link>
       <pubDate>Sun, 18 Sep 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.teoten.com/es/posts/2022/minitut_hacer_bool/</guid>
+      <guid>https://blog.teoten.com/es/posts/2022/minitut_makebool/</guid>
       <description>Acerca de este post. Este es mi primer post en español. Es en realidad la traducción de un post que escribí originalmente en inglés hace un par de meses. Pueden ver el post original aqui. Espero que sea útil para la comunidad hispanohablante de usuarios de R.
 Este post se basa en un trabajo reciente donde mi tarea fue la revisión y depuración de piezas de código pequeñas o simples que pueden resultar en consejos prácticos y rápidos para otros usuarios de R, especialmente principiantes o personas sin mucha experiencia en el uso de R.</description>
     </item>
@@ -177,7 +178,7 @@ Este post se basa en un trabajo reciente donde mi tarea fue la revisión y depur
       <pubDate>Sun, 05 Dec 2021 00:00:00 +0000</pubDate>
       
       <guid>https://blog.teoten.com/posts/2021/fill_merged_cells/</guid>
-      <description>This post is part of our series on functions in R. You can see our previous post if you want to understand the basics but it is not strictly necessary. Here we will go into detail about for loops and if statements in R, two key elements of any function. We are going to define a process, map it in a step-by-step approach and wrape it in a function that can repeat it automatically.</description>
+      <description>This post continues the topic of functions in R. You can see our previous post if you want to understand the basics but it is not strictly necessary. Here we will go into detail about for loops and if statements in R, two key elements of any function. We are going to define a process, map it in a step-by-step approach and wrape it in a function that can repeat it automatically.</description>
     </item>
     
     <item>

@@ -5,7 +5,8 @@ image: ""
 draft: false
 date: 2023-03-24
 description: "Parte de cómo hacer mapas de cualquier región del mundo utilizando las librerías ggplot2 y maps"
-tags: ["maps-app", "R mapas", "R funciones", "web-scrap", "database", "recursion"]
+tags: ["R maps", "R functions", "database", "recursion"]
+series: ["maps-app"]
 categories: ["R"]
 archives: ["2023"]
 ---
@@ -16,7 +17,7 @@ Estamos creando mapas de datos que muestran los cambios durante un período de t
 
 Estas publicaciones comparten mi camino en la creación de la aplicación Shiny. Es un proyecto vivo en el que estoy trabajando actualmente y decidí compartir mis experiencias durante el proceso de creación. Estas publicaciones no son sólo acerca de Shiny apps, si no más bien sobre la creación del paquete detrás, incluyendo temas sobre la generación de funciones, creación de los mapas, clases de objetos, entre otros, incluyendo cualquier tema interesante que aparezca en el camino. Es mi manera de contribuir a la comunidad de R y al mismo tiempo documentar el proyecto en si mismo.
 
-Pueden encontrar todas las publicaciones en este tema bajo la etiqueta [maps-app](https://blog.rwhitedwarf.com/tags/maps-app/) (incluyendo las versiones en inglés).
+Pueden encontrar todas las publicaciones en este tema bajo las series [maps-app](/tags/maps-app/) (incluyendo las versiones en inglés).
 
 También pueden encontrar el estado actual del proyecto en [mi GitHub](https://github.com/teotenn) repo [mapic](https://github.com/teotenn/mapic).
 
@@ -34,7 +35,7 @@ Por este motivo había querido hacer cambios para adecuar las funciones a paradi
 
 Sin embargo, para bien o para mal, 2022 fue un año lleno de cambios y retos para mi y mi familia, lo que me obligó a dejar de lado el proyecto por un tiempo, resignar mi posición como director de la división, y enfocarme únicamente a mi carrera, mi salud y mi familia. Esto resultó en que, al recuperar la estabilidad en mi vida, me encontré con mas tiempo libre y menos obligaciones para re pensar el código y trabajar en ello. Adicionalmente, mi trabajo principal tuvo un giro que fue de la estadística a mas orientado a la programación en R, lo cual me ha dado mas herramientas para mejorar el código, y me ha motivado a retomar viejas lecciones sobre programación funcional y, sobre todo, iteración. 
 
-Esto me permitió mejorar las dos funciones principales: la encargada del webscrapping y la que manda los datos a SQLite. Puedes encontrar las funciones originales en el post anterior [Mapa de cualquier región del mundo con R - Parte I: El mapa base](https://blog.rwhitedwarf.com/es/post/2022/mapa_de_cualquier_region_con_ggplot2_i/) y compararlos con las nuevas funciones mejoradas en este.
+Esto me permitió mejorar las dos funciones principales: la encargada del webscrapping y la que manda los datos a SQLite. Puedes encontrar las funciones originales en el post anterior [Mapa de cualquier región del mundo con R - Parte I: El mapa base](/es/post/2022/mapa_de_cualquier_region_con_ggplot2_i/) y compararlos con las nuevas funciones mejoradas en este.
 
 ## Webscrapp a SQLite
 La función `webscrap_to_sqlite` se encarga de enviar las coordenadas encontradas por Open Street Map a nuestra base de datos. La función como está definida originalmente es poco efectiva, ya que hace cada operación línea por línea. También es muy rígida en la forma en la que dirige los valores de las regiones, tanto su petición a la API como la colocación de los valores en la base de datos, lo que hace cualquier extensión o modificación muy complicada.

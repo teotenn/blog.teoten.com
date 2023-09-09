@@ -18,10 +18,10 @@
     
     <item>
       <title>Webscrap e iteraciones con R</title>
-      <link>https://blog.teoten.com/es/posts/2023/webscrap_e_iteracion_con_r/</link>
+      <link>https://blog.teoten.com/es/posts/2023/webscrap_and_iteration_in_r/</link>
       <pubDate>Fri, 24 Mar 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.teoten.com/es/posts/2023/webscrap_e_iteracion_con_r/</guid>
+      <guid>https://blog.teoten.com/es/posts/2023/webscrap_and_iteration_in_r/</guid>
       <description>Sobre este post Estamos creando mapas de datos que muestran los cambios durante un período de tiempo para diferentes países y orientado a todo tipo de ciudades. Esto básicamente significa que necesitamos mapear cualquier región del mundo con R. Hoy en día existen todo tipo de paquetes y técnicas para hacerlo.</description>
     </item>
     

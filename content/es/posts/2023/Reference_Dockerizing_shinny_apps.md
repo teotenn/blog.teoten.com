@@ -5,7 +5,7 @@ image: ""
 draft: false
 date: 2023-02-11
 description: "Una referencia a un par de fuentes explicando como dockerizar una aplicación Shiny"
-tags: ["referencias", "R-dev", "R shiny", "R tips","docker"]
+tags: ["references", "R-dev", "R shiny", "docker"]
 categories: ["R"]
 archives: ["2023"]
 ---

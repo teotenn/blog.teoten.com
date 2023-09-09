@@ -5,8 +5,8 @@ image: ""
 draft: false
 date: 2023-01-22
 description: "Deploy your own Shiny apps in a Debian-based server"
-tags: ["minitutorial", "R-dev", "R shiny", "R tips"]
-categories: ["R"]
+tags: ["minitutorial", "R-dev", "R shiny"]
+categories: ["R", "web-dev"]
 archives: ["2023"]
 format: hugo-md
 execute:

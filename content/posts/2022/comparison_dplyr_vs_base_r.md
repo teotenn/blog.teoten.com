@@ -5,7 +5,7 @@ image: "/post/2022/comparison_dplyr_vs_base_r/Langs_compare.png"
 draft: false
 date: 2022-10-20
 description: "Monte carlo simulations to compare time efficiency of a function created with dplyr and tidyr vs base R"
-tags: ["R-dev", "R tips"]
+tags: ["R-dev"]
 categories: ["R"]
 archives: ["2022"]
 ---

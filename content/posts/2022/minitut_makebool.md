@@ -5,7 +5,7 @@ image:
 draft: false
 date: 2022-09-18
 description: "First minitutorial: A function that makes any string into logical"
-tags: ["minitutorial", "R functions", "R tips"]
+tags: ["minitutorial", "R functions"]
 categories: ["R"]
 archives: ["2022"]
 ---

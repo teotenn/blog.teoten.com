@@ -5,14 +5,14 @@ image:
 draft: false
 date: 2022-09-18
 description: "Primer mini tutorial: Una función que toma cualquier string de texto y lo convierte en tipo lógico"
-tags: ["minitutorial", "R funciones", "R tips"]
+tags: ["minitutorial", "R functions"]
 categories: ["R"]
 archives: ["2022"]
 ---
 
 ## Acerca de este post.
 
-Este es mi primer post en español. Es en realidad la traducción de un post que escribí originalmente en inglés hace un par de meses. Pueden ver el post original [aqui](https://blog.rwhitedwarf.com/post/minitut_makebool/). Espero que sea útil para la comunidad hispanohablante de usuarios de R. 
+Este es mi primer post en español. Es en realidad la traducción de un post que escribí originalmente en inglés hace un par de meses. Pueden ver el post original [aqui](/post/minitut_makebool/). Espero que sea útil para la comunidad hispanohablante de usuarios de R. 
 
 Este post se basa en un trabajo reciente donde mi tarea fue la revisión y depuración de piezas de código pequeñas o simples que pueden resultar en consejos prácticos y rápidos para otros usuarios de R, especialmente principiantes o personas sin mucha experiencia en el uso de R.
 

@@ -6,7 +6,7 @@ draft: false
 date: 2023-09-07
 description: "Add a website next to your Shiny server using Nginx"
 tags: ["minitutorial", "R shiny"]
-categories: ["R"]
+categories: ["R", "web-dev"]
 archives: ["2023"]
 ---
 
@@ -16,7 +16,7 @@ Basically I want to have my shiny apps under one domain, and some other sites un
 
 ** Using sites-enabled
 
-If you followed my previous post about how to [[https://blog.rwhitedwarf.com/post/deploy_shiny_on_debian/][deploy your own shiny app]] in your own server using Nginx, the next step to deploy a new website with a different domain in the same server is very easy. Nginx uses the concept of server blocks that use the =server_name= and listen directives to bind to tcp sockets.
+If you followed my previous post about how to [[/post/deploy_shiny_on_debian/][deploy your own shiny app]] in your own server using Nginx, the next step to deploy a new website with a different domain in the same server is very easy. Nginx uses the concept of server blocks that use the =server_name= and listen directives to bind to tcp sockets.
 
 Go to you Nginx file where we placed the details for the Shiny server in =/etc/nginx/sites-enabled/default= and add a new server block at the very end of the file. It can be something like below.
 

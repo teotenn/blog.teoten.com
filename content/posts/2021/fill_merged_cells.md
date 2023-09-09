@@ -4,19 +4,20 @@ title: "R function to fill in merged cells"
 image: "/post/2021/fill_merged_cells/Screenshot_fill_merged_cells.png"
 draft: false
 date: 2021-12-05
+lastmod: 2023-08-30
 description: "For loops and if statements to create a useful function"
-tags: ["R tips", "R basics", "R functions"]
+tags: ["R basics", "R functions"]
 categories: ["R"]
 archives: ["2021"]
 ---
 
-This post is part of our series on [functions in R](https://blog.rwhitedwarf.com/tags/r-functions). You can see our [previous post](https://blog.rwhitedwarf.com/post/2021/functions/) if you want to understand the basics but it is not strictly necessary. Here we will go into detail about for loops and if statements in R, two key elements of any function. We are going to define a process, map it in a step-by-step approach and wrape it in a function that can repeat it automatically. Even if you have a very basic understanding of R you should be able to follow this tutorial without problem. 
+This post continues the topic of [functions in R](/tags/r-functions). You can see our [previous post](/post/2021/functions/) if you want to understand the basics but it is not strictly necessary. Here we will go into detail about for loops and if statements in R, two key elements of any function. We are going to define a process, map it in a step-by-step approach and wrape it in a function that can repeat it automatically. Even if you have a very basic understanding of R you should be able to follow this tutorial without problem. 
 
 Our outcome will be an R function that by calling it, is able to fill in empty rows generated from imported sheets (like excel) when it contains merged cells. If you are only **interested in the function itself** you can go to the end of the post and find it in the section [Final remarks]({{< ref "fill_merged_cells.md#final" >}}).
 
 ### Description of the problem
 
-In our [previous post](https://blog.rwhitedwarf.com/post/2021/functions/) we saw the basics for creating functions, yet using silly examples with not much of practical usage. Now we are ready to write a function that can have more practical use. 
+In our [previous post](/post/2021/functions/) we saw the basics for creating functions, yet using silly examples with not much of practical usage. Now we are ready to write a function that can have more practical use. 
 
 There are different ways how to import data sheets (i.e. from excel) to R. Regardless of its limitations, these sheets are widely used in data analysis today. If you are used to do data analysis with a different software you should be familiar with the complications of sorting your data imported from sheets when there are merged cells in the rows. Usually, a file like below
 
@@ -260,7 +261,7 @@ fill_merged(my.table, "Specie")
 ```
 The R console will print, one by one, each of the values contained in the column `Specie` (I have 120 rows, it makes no sense to take space to show it in the post, but you can go ahead and try it yourself).
 
-If the last two pieces of code are not clear for you, I recommend you to read our previous post about [functions in R](https://blog.rwhitedwarf.com/post/2021/functions/).
+If the last two pieces of code are not clear for you, I recommend you to read our previous post about [functions in R](/post/2021/functions/).
 
 
 ### How to use If statement in R

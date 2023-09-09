@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>web-dev on Teoten&#39;s Blog</title>
+    <link>https://blog.teoten.com/categories/web-dev/</link>
+    <description>Recent content in web-dev on Teoten&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 07 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.teoten.com/categories/web-dev/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Adding a website next to your Shiny server</title>
+      <link>https://blog.teoten.com/posts/2023/adding_website_to_siny/</link>
+      <pubDate>Thu, 07 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.teoten.com/posts/2023/adding_website_to_siny/</guid>
+      <description>I have been off from the blog lately due to a big load of personal projects. Just lately I got a few days off and found time to work on my personal website, to be ready soon. That made me get more into Nginx configuration, where I consider myself a total rookie.</description>
+    </item>
+    
+    <item>
+      <title>Deploy your own Shiny app server with debian</title>
+      <link>https://blog.teoten.com/posts/2023/deploy_shiny_on_debian/</link>
+      <pubDate>Sun, 22 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.teoten.com/posts/2023/deploy_shiny_on_debian/</guid>
+      <description>A few weeks ago I opened an account on Digital Ocean to start my own cloud server. Not long after that I took a workshop on Shiny and, although it was too technical with nothing new for me, I learn a couple of things unrelated to R. The speaker was talking about the importance of making your portfolio showing your apps instead of sharing the link to your code as most of us do.</description>
+    </item>
+    
+  </channel>
+</rss>

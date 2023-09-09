@@ -5,7 +5,7 @@ image: "img/Screenshot_functions_in_R_fragment.png"
 draft: false
 date: 2021-11-30
 description: "Basic description of functions in R"
-tags: ["R tips", "R basics", "R functions"]
+tags: ["R basics", "R functions"]
 categories: ["R"]
 archives: ["2021"]
 ---

@@ -9,10 +9,10 @@
     <lastBuildDate>Sat, 11 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.teoten.com/es/tags/r-dev/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Referencia: Dockerizando shinny apps</title>
-      <link>https://blog.teoten.com/es/posts/2023/referencia_dockerizar_shinny_apps/</link>
+      <link>https://blog.teoten.com/es/posts/2023/reference_dockerizing_shinny_apps/</link>
       <pubDate>Sat, 11 Feb 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.teoten.com/es/posts/2023/referencia_dockerizar_shinny_apps/</guid>
+      <guid>https://blog.teoten.com/es/posts/2023/reference_dockerizing_shinny_apps/</guid>
       <description>Andrew Couch tiene un video genial sobre como poner una aplicación shiny en docker. El video está en inglés, pero bien vale la pena. Va desde lo más básico, sin asumir ningún conocimiento de docker, lo cual es la situación de muchos usuarios de R como yo mismo. Últimamente he estado trabajando en unas aplicaciones Shiny y a pesar de que nunca he necesitado de Docker, ya puedo preveer el momento en que esto cambiará, por lo que decidí comenzar a aprender como usarlo.</description>
     </item>
     

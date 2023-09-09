@@ -16,5 +16,23 @@
       <description></description>
     </item>
     
+    <item>
+      <title>web-dev</title>
+      <link>https://blog.teoten.com/categories/web-dev/</link>
+      <pubDate>Thu, 07 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.teoten.com/categories/web-dev/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>emacs</title>
+      <link>https://blog.teoten.com/categories/emacs/</link>
+      <pubDate>Thu, 29 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.teoten.com/categories/emacs/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

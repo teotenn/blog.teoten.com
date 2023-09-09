@@ -5,12 +5,13 @@ image: "/post/2022/map_any_region_with_ggplot2_part_I/maps_DrawingMap.png"
 draft: false
 date: 2022-10-08
 description: "Parte I para hacer mapas de cualquier región del mundo con R utilizando las librerías ggplot2 y maps"
-tags: ["maps-app", "R mapas", "ggplot2", "Code Visuals", "R funciones"]
+tags: ["R maps", "ggplot2", "R functions"]
+series: ["maps-app"]
 categories: ["R"]
 archives: ["2022"]
 ---
 
-Pueden encontrar todas las publicaciones en este tema bajo la etiqueta [maps-app](https://blog.rwhitedwarf.com/tags/maps-app/) (incluyendo las versiones en inglés).
+Pueden encontrar todas las publicaciones en este tema bajo las series [maps-app](/tags/maps-app/).
 
 También pueden encontrar el estado actual del proyecto en [mi GitHub](https://github.com/teotenn) repo [mapic](https://github.com/teotenn/mapic).
 

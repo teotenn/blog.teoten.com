@@ -22,9 +22,9 @@
       <pubDate>Wed, 19 Apr 2023 00:00:00 +0000</pubDate>
       
       <guid>https://blog.teoten.com/posts/2023/map_any_region_with_ggplot2_part_iii/</guid>
-      <description>You can find all the posts on this series under the tag maps-app (including the Spanish versions).
+      <description>This post is part of the series maps-app.
 You can also find the current state of the project under my GitHub repo mapic.
-Scope of this post We are creating maps of data showing changes over a span of time for different countries and pointing at all kinds of cities.</description>
+Scope of this post We are creating maps of data showing changes over a span of time for different countries and pointing at all kinds of cities. That basically means that we need to map any region of the world with R.</description>
     </item>
     
     <item>
@@ -69,9 +69,10 @@ Scope of this post We are creating maps of data showing changes over a span of t
       <pubDate>Fri, 04 Nov 2022 00:00:00 +0000</pubDate>
       
       <guid>https://blog.teoten.com/posts/2022/map_any_region_with_ggplot2_part_ii/</guid>
-      <description>You can find all the posts on this series under the tag maps-app (including the Spanish versions).
+      <description>This post is part of the series maps-app.
 You can also find the current state of the project under my GitHub repo mapic.
-Scope of this post This is the second part of the series to create a map of any region of the world with R.</description>
+Scope of this post This is the second part of the series to create a map of any region of the world with R.
+We are creating maps of data showing changes over a span of time for different countries and pointing at all kinds of cities.</description>
     </item>
     
     <item>
@@ -89,7 +90,7 @@ Scope of this post This is the second part of the series to create a map of any 
       <pubDate>Sat, 08 Oct 2022 00:00:00 +0000</pubDate>
       
       <guid>https://blog.teoten.com/posts/2022/map_any_region_with_ggplot2_part_i/</guid>
-      <description>You can find all the posts on this series under the tag maps-app.
+      <description>This post is part of the series maps-app.
 You can also find the current state of the project under my GitHub repo mapic (including the Spanish versions).
 Scope of this post When you prepare for a job interview one of the questions they always tell you to prepare is &amp;ldquo;What are you most proud of?</description>
     </item>
@@ -118,7 +119,7 @@ Scope of this post When you prepare for a job interview one of the questions the
       <pubDate>Sun, 05 Dec 2021 00:00:00 +0000</pubDate>
       
       <guid>https://blog.teoten.com/posts/2021/fill_merged_cells/</guid>
-      <description>This post is part of our series on functions in R. You can see our previous post if you want to understand the basics but it is not strictly necessary. Here we will go into detail about for loops and if statements in R, two key elements of any function. We are going to define a process, map it in a step-by-step approach and wrape it in a function that can repeat it automatically.</description>
+      <description>This post continues the topic of functions in R. You can see our previous post if you want to understand the basics but it is not strictly necessary. Here we will go into detail about for loops and if statements in R, two key elements of any function. We are going to define a process, map it in a step-by-step approach and wrape it in a function that can repeat it automatically.</description>
     </item>
     
     <item>

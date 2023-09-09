@@ -5,7 +5,7 @@ image: "/post/2022/EDA_INEGI_data/INEGI.jpg"
 draft: false
 date: 2022-11-29
 description: "Análisis exploratorio de datos obtenidos de INEGI"
-tags: ["ggplot2", "R basics", "R funciones", "R tips", "data analysis"]
+tags: ["ggplot2", "R basics", "R functions", "data analysis"]
 categories: ["R"]
 archives: ["2022"]
 ---

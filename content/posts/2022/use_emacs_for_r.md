@@ -5,8 +5,8 @@ image: "/post/2022/use_emacs_for_r/learning-editors.jpg"
 draft: false
 date: 2022-12-29
 description: "Emacs is an easy to use text editor that, combined with ESS can make a powerful IDE for working with R"
-tags: ["R basics", "R tips", "emacs"]
-categories: ["R"]
+tags: ["R basics", "emacs"]
+categories: ["R", "emacs"]
 archives: ["2022"]
 ---
 
