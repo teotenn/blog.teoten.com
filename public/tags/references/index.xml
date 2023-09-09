@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>references on My New Hugo Site</title>
-    <link>http://example.org/tags/references/</link>
-    <description>Recent content in references on My New Hugo Site</description>
+    <title>references on Teoten&#39;s Blog</title>
+    <link>https://blog.teoten.com/tags/references/</link>
+    <description>Recent content in references on Teoten&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 11 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://example.org/tags/references/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 11 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.teoten.com/tags/references/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Reference: Dockerizing shinny apps</title>
-      <link>http://example.org/posts/2023/reference_dockerizing_shinny_apps/</link>
+      <link>https://blog.teoten.com/posts/2023/reference_dockerizing_shinny_apps/</link>
       <pubDate>Sat, 11 Feb 2023 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/posts/2023/reference_dockerizing_shinny_apps/</guid>
+      <guid>https://blog.teoten.com/posts/2023/reference_dockerizing_shinny_apps/</guid>
       <description>Andrew Couch has a nice video about deploying a shiny app using docker. He goes from the very basics, that asume no knowledge of docker whatsoever, which is the position of many R users like myself. I&amp;rsquo;ve been working in some shiny app lately, and although I&amp;rsquo;ve never needed docker so far, I decided to start learning it because I can already foresee the future when it won&amp;rsquo;t be the case.</description>
     </item>
     

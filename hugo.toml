@@ -1,4 +1,4 @@
-baseURL = 'http://example.org/'
+baseURL = 'https://blog.teoten.com'
 languageCode = 'en-us'
 title = "Teoten's Blog"
 theme = "NewBee"
@@ -19,10 +19,10 @@ hasCJKLanguage = false
 
 [author]
     name = "teoten"
-    description = "Be Water, My Friend."
+    description = "Promoting and using Free and Open Source Software."
     # profile photo of author in author card
     # 作者头像
-    image = "/images/author.jpeg"
+    image = "/img/avatars.png"
     # link of followme in author card and footer
     # 作者卡片里 followme 和页脚作者的链接
     link = "https://github.com/teotenn"
@@ -43,16 +43,17 @@ hasCJKLanguage = false
     [params.page]
         # top image in home page, note that the "/" in path is necessary, the same applies below
         # 主页的顶部图，路径开头”/“是必需的。下同
-        homeTopImg = "/images/home.jpg"
+        # homeTopImg = "/images/home.jpg"
+	homeTopImg = "/img/deer_and_a_misty_morning_by_cassandraknight-dbdatib.jpg"
         # title in home top image, support Markdown
         # 主页标题，支持Markdown语法
-        homeTitle = "XIOYITO"
+        homeTitle = "TEOTEN"
         # font size(px)
         # 主页标题字号（单位：px）
         homeTitleFontSize = 40
         # content in home top image, support Markdown
         # 主页内容，支持Markdown语法
-        homeContent = "Be Water, My Friend"
+        homeContent = "Promoting and using Free and Open Source Software."
         # font size(px)
         # 主页内容字号（单位：px）
         homeContentFontSize = 20
@@ -147,7 +148,7 @@ hasCJKLanguage = false
     [[menus.social]]
         name = "GitHub"
         url = "https://github.com/teotenn"
-        pre = "<i class='fa fa-github'></i>"
+        pre = "<i class='fab fa-github'></i>"
         weight = 1
     [[menus.social]]
         name = "Mastodon"
@@ -254,7 +255,7 @@ hasCJKLanguage = false
             name = "Series"
             url = "/series"
             weight = 4
-            pre = "<i class='fa fa-gears'></i>"
+            pre = "<i class='fas fa-toilet-paper'></i>"
         [[languages.en.menus.main]]
             name = "Tags"
             url = "/tags"
@@ -268,7 +269,7 @@ hasCJKLanguage = false
 	[[languages.en.menus.social]]
             name = "GitHub"
             url = "https://github.com/teotenn"
-            pre = "<i class='fa fa-github'></i>"
+            pre = "<i class='fab fa-github'></i>"
             weight = 1
 	[[languages.en.menus.social]]
             name = "Mastodon"
@@ -313,7 +314,7 @@ hasCJKLanguage = false
             name = "Series"
             url = "/es/series"
             weight = 4
-            pre = "<i class='fa fa-gears'></i>"
+            pre = "<i class='fas fa-toilet-paper'></i>"
         [[languages.es.menus.main]]
             name = "Tags"
             url = "/es/tags"

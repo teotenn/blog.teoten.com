@@ -1,171 +1,171 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on My New Hugo Site</title>
-    <link>http://example.org/es/tags/</link>
-    <description>Recent content in Tags on My New Hugo Site</description>
+    <title>Tags on Teoten&#39;s Blog</title>
+    <link>https://blog.teoten.com/es/tags/</link>
+    <description>Recent content in Tags on Teoten&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Fri, 24 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://example.org/es/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 24 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.teoten.com/es/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>database</title>
-      <link>http://example.org/es/tags/database/</link>
+      <link>https://blog.teoten.com/es/tags/database/</link>
       <pubDate>Fri, 24 Mar 2023 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/es/tags/database/</guid>
+      <guid>https://blog.teoten.com/es/tags/database/</guid>
       <description></description>
     </item>
     
     <item>
       <title>maps-app</title>
-      <link>http://example.org/es/tags/maps-app/</link>
+      <link>https://blog.teoten.com/es/tags/maps-app/</link>
       <pubDate>Fri, 24 Mar 2023 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/es/tags/maps-app/</guid>
+      <guid>https://blog.teoten.com/es/tags/maps-app/</guid>
       <description></description>
     </item>
     
     <item>
       <title>R funciones</title>
-      <link>http://example.org/es/tags/r-funciones/</link>
+      <link>https://blog.teoten.com/es/tags/r-funciones/</link>
       <pubDate>Fri, 24 Mar 2023 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/es/tags/r-funciones/</guid>
+      <guid>https://blog.teoten.com/es/tags/r-funciones/</guid>
       <description></description>
     </item>
     
     <item>
       <title>R mapas</title>
-      <link>http://example.org/es/tags/r-mapas/</link>
+      <link>https://blog.teoten.com/es/tags/r-mapas/</link>
       <pubDate>Fri, 24 Mar 2023 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/es/tags/r-mapas/</guid>
+      <guid>https://blog.teoten.com/es/tags/r-mapas/</guid>
       <description></description>
     </item>
     
     <item>
       <title>recursion</title>
-      <link>http://example.org/es/tags/recursion/</link>
+      <link>https://blog.teoten.com/es/tags/recursion/</link>
       <pubDate>Fri, 24 Mar 2023 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/es/tags/recursion/</guid>
+      <guid>https://blog.teoten.com/es/tags/recursion/</guid>
       <description></description>
     </item>
     
     <item>
       <title>web-scrap</title>
-      <link>http://example.org/es/tags/web-scrap/</link>
+      <link>https://blog.teoten.com/es/tags/web-scrap/</link>
       <pubDate>Fri, 24 Mar 2023 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/es/tags/web-scrap/</guid>
+      <guid>https://blog.teoten.com/es/tags/web-scrap/</guid>
       <description></description>
     </item>
     
     <item>
       <title>docker</title>
-      <link>http://example.org/es/tags/docker/</link>
+      <link>https://blog.teoten.com/es/tags/docker/</link>
       <pubDate>Sat, 11 Feb 2023 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/es/tags/docker/</guid>
+      <guid>https://blog.teoten.com/es/tags/docker/</guid>
       <description></description>
     </item>
     
     <item>
       <title>R shiny</title>
-      <link>http://example.org/es/tags/r-shiny/</link>
+      <link>https://blog.teoten.com/es/tags/r-shiny/</link>
       <pubDate>Sat, 11 Feb 2023 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/es/tags/r-shiny/</guid>
+      <guid>https://blog.teoten.com/es/tags/r-shiny/</guid>
       <description></description>
     </item>
     
     <item>
       <title>R tips</title>
-      <link>http://example.org/es/tags/r-tips/</link>
+      <link>https://blog.teoten.com/es/tags/r-tips/</link>
       <pubDate>Sat, 11 Feb 2023 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/es/tags/r-tips/</guid>
+      <guid>https://blog.teoten.com/es/tags/r-tips/</guid>
       <description></description>
     </item>
     
     <item>
       <title>R-dev</title>
-      <link>http://example.org/es/tags/r-dev/</link>
+      <link>https://blog.teoten.com/es/tags/r-dev/</link>
       <pubDate>Sat, 11 Feb 2023 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/es/tags/r-dev/</guid>
+      <guid>https://blog.teoten.com/es/tags/r-dev/</guid>
       <description></description>
     </item>
     
     <item>
       <title>referencias</title>
-      <link>http://example.org/es/tags/referencias/</link>
+      <link>https://blog.teoten.com/es/tags/referencias/</link>
       <pubDate>Sat, 11 Feb 2023 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/es/tags/referencias/</guid>
+      <guid>https://blog.teoten.com/es/tags/referencias/</guid>
       <description></description>
     </item>
     
     <item>
       <title>data analysis</title>
-      <link>http://example.org/es/tags/data-analysis/</link>
+      <link>https://blog.teoten.com/es/tags/data-analysis/</link>
       <pubDate>Tue, 29 Nov 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/es/tags/data-analysis/</guid>
+      <guid>https://blog.teoten.com/es/tags/data-analysis/</guid>
       <description></description>
     </item>
     
     <item>
       <title>ggplot2</title>
-      <link>http://example.org/es/tags/ggplot2/</link>
+      <link>https://blog.teoten.com/es/tags/ggplot2/</link>
       <pubDate>Tue, 29 Nov 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/es/tags/ggplot2/</guid>
+      <guid>https://blog.teoten.com/es/tags/ggplot2/</guid>
       <description></description>
     </item>
     
     <item>
       <title>R basics</title>
-      <link>http://example.org/es/tags/r-basics/</link>
+      <link>https://blog.teoten.com/es/tags/r-basics/</link>
       <pubDate>Tue, 29 Nov 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/es/tags/r-basics/</guid>
+      <guid>https://blog.teoten.com/es/tags/r-basics/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Code Visuals</title>
-      <link>http://example.org/es/tags/code-visuals/</link>
+      <link>https://blog.teoten.com/es/tags/code-visuals/</link>
       <pubDate>Fri, 04 Nov 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/es/tags/code-visuals/</guid>
+      <guid>https://blog.teoten.com/es/tags/code-visuals/</guid>
       <description></description>
     </item>
     
     <item>
       <title>R functions</title>
-      <link>http://example.org/es/tags/r-functions/</link>
+      <link>https://blog.teoten.com/es/tags/r-functions/</link>
       <pubDate>Fri, 04 Nov 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/es/tags/r-functions/</guid>
+      <guid>https://blog.teoten.com/es/tags/r-functions/</guid>
       <description></description>
     </item>
     
     <item>
       <title>R maps</title>
-      <link>http://example.org/es/tags/r-maps/</link>
+      <link>https://blog.teoten.com/es/tags/r-maps/</link>
       <pubDate>Fri, 04 Nov 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/es/tags/r-maps/</guid>
+      <guid>https://blog.teoten.com/es/tags/r-maps/</guid>
       <description></description>
     </item>
     
     <item>
       <title>minitutorial</title>
-      <link>http://example.org/es/tags/minitutorial/</link>
+      <link>https://blog.teoten.com/es/tags/minitutorial/</link>
       <pubDate>Sun, 18 Sep 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/es/tags/minitutorial/</guid>
+      <guid>https://blog.teoten.com/es/tags/minitutorial/</guid>
       <description></description>
     </item>
     

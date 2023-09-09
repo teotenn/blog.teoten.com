@@ -6,6 +6,7 @@ draft: false
 date: 2023-04-19
 description: "Part III of making maps of any region in the world with R using ggplot2 and maps packages: how to make functions for graphics in R"
 tags: ["maps-app", "R maps", "R functions"]
+series: ["maps-app"]
 categories: ["R"]
 archives: ["2023"]
 ---

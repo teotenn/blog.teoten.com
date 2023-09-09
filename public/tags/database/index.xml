@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>database on My New Hugo Site</title>
-    <link>http://example.org/tags/database/</link>
-    <description>Recent content in database on My New Hugo Site</description>
+    <title>database on Teoten&#39;s Blog</title>
+    <link>https://blog.teoten.com/tags/database/</link>
+    <description>Recent content in database on Teoten&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 24 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://example.org/tags/database/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 24 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.teoten.com/tags/database/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Webscrap and iteration in R</title>
-      <link>http://example.org/posts/2023/webscrap_and_iteration_in_r/</link>
+      <link>https://blog.teoten.com/posts/2023/webscrap_and_iteration_in_r/</link>
       <pubDate>Fri, 24 Mar 2023 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/posts/2023/webscrap_and_iteration_in_r/</guid>
+      <guid>https://blog.teoten.com/posts/2023/webscrap_and_iteration_in_r/</guid>
       <description>About this post We are creating maps of data showing changes over a span of time for different countries and pointing at all kinds of cities. That basically means that we need to map any region of the world with R. Today there are all kinds of packages and techniques to do that.</description>
     </item>
     
     <item>
       <title>Webscrap e iteraciones con R</title>
-      <link>http://example.org/es/posts/2023/webscrap_e_iteracion_con_r/</link>
+      <link>https://blog.teoten.com/es/posts/2023/webscrap_e_iteracion_con_r/</link>
       <pubDate>Fri, 24 Mar 2023 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/es/posts/2023/webscrap_e_iteracion_con_r/</guid>
+      <guid>https://blog.teoten.com/es/posts/2023/webscrap_e_iteracion_con_r/</guid>
       <description>Sobre este post Estamos creando mapas de datos que muestran los cambios durante un período de tiempo para diferentes países y orientado a todo tipo de ciudades. Esto básicamente significa que necesitamos mapear cualquier región del mundo con R. Hoy en día existen todo tipo de paquetes y técnicas para hacerlo.</description>
     </item>
     
     <item>
       <title>Map any region in the world with R - Part II: Obtaining the coordinates</title>
-      <link>http://example.org/posts/2022/map_any_region_with_ggplot2_part_ii/</link>
+      <link>https://blog.teoten.com/posts/2022/map_any_region_with_ggplot2_part_ii/</link>
       <pubDate>Fri, 04 Nov 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/posts/2022/map_any_region_with_ggplot2_part_ii/</guid>
+      <guid>https://blog.teoten.com/posts/2022/map_any_region_with_ggplot2_part_ii/</guid>
       <description>You can find all the posts on this series under the tag maps-app (including the Spanish versions).
 You can also find the current state of the project under my GitHub repo mapic.
 Scope of this post This is the second part of the series to create a map of any region of the world with R.</description>
@@ -38,10 +38,10 @@ Scope of this post This is the second part of the series to create a map of any 
     
     <item>
       <title>Mapa de cualquier región del mundo con R - Parte II: obteniendo las coordenadas.</title>
-      <link>http://example.org/es/posts/2022/map_any_region_with_ggplot2_part_ii/</link>
+      <link>https://blog.teoten.com/es/posts/2022/map_any_region_with_ggplot2_part_ii/</link>
       <pubDate>Fri, 04 Nov 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/es/posts/2022/map_any_region_with_ggplot2_part_ii/</guid>
+      <guid>https://blog.teoten.com/es/posts/2022/map_any_region_with_ggplot2_part_ii/</guid>
       <description>Pueden encontrar todas las publicaciones en este tema bajo la etiqueta maps-app (incluyendo las versiones en inglés).
 También pueden encontrar el estado actual del proyecto en mi GitHub repo mapic.
 Sobre este post Esta es la segunda parte de las series de cómo crear mapas de cualquier región del mundo con R.</description>

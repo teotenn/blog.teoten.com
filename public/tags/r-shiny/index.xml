@@ -1,54 +1,54 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>R shiny on My New Hugo Site</title>
-    <link>http://example.org/tags/r-shiny/</link>
-    <description>Recent content in R shiny on My New Hugo Site</description>
+    <title>R shiny on Teoten&#39;s Blog</title>
+    <link>https://blog.teoten.com/tags/r-shiny/</link>
+    <description>Recent content in R shiny on Teoten&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 07 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://example.org/tags/r-shiny/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 07 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.teoten.com/tags/r-shiny/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Adding a website next to your Shiny server</title>
-      <link>http://example.org/posts/2023/adding_website_to_siny/</link>
+      <link>https://blog.teoten.com/posts/2023/adding_website_to_siny/</link>
       <pubDate>Thu, 07 Sep 2023 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/posts/2023/adding_website_to_siny/</guid>
+      <guid>https://blog.teoten.com/posts/2023/adding_website_to_siny/</guid>
       <description>I have been off from the blog lately due to a big load of personal projects. Just lately I got a few days off and found time to work on my personal website, to be ready soon. That made me get more into Nginx configuration, where I consider myself a total rookie.</description>
     </item>
     
     <item>
       <title>Reference: Dockerizing shinny apps</title>
-      <link>http://example.org/posts/2023/reference_dockerizing_shinny_apps/</link>
+      <link>https://blog.teoten.com/posts/2023/reference_dockerizing_shinny_apps/</link>
       <pubDate>Sat, 11 Feb 2023 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/posts/2023/reference_dockerizing_shinny_apps/</guid>
+      <guid>https://blog.teoten.com/posts/2023/reference_dockerizing_shinny_apps/</guid>
       <description>Andrew Couch has a nice video about deploying a shiny app using docker. He goes from the very basics, that asume no knowledge of docker whatsoever, which is the position of many R users like myself. I&amp;rsquo;ve been working in some shiny app lately, and although I&amp;rsquo;ve never needed docker so far, I decided to start learning it because I can already foresee the future when it won&amp;rsquo;t be the case.</description>
     </item>
     
     <item>
       <title>Referencia: Dockerizando shinny apps</title>
-      <link>http://example.org/es/posts/2023/referencia_dockerizar_shinny_apps/</link>
+      <link>https://blog.teoten.com/es/posts/2023/referencia_dockerizar_shinny_apps/</link>
       <pubDate>Sat, 11 Feb 2023 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/es/posts/2023/referencia_dockerizar_shinny_apps/</guid>
+      <guid>https://blog.teoten.com/es/posts/2023/referencia_dockerizar_shinny_apps/</guid>
       <description>Andrew Couch tiene un video genial sobre como poner una aplicación shiny en docker. El video está en inglés, pero bien vale la pena. Va desde lo más básico, sin asumir ningún conocimiento de docker, lo cual es la situación de muchos usuarios de R como yo mismo. Últimamente he estado trabajando en unas aplicaciones Shiny y a pesar de que nunca he necesitado de Docker, ya puedo preveer el momento en que esto cambiará, por lo que decidí comenzar a aprender como usarlo.</description>
     </item>
     
     <item>
       <title>Deploy your own Shiny app server with debian</title>
-      <link>http://example.org/posts/2023/deploy_shiny_on_debian/</link>
+      <link>https://blog.teoten.com/posts/2023/deploy_shiny_on_debian/</link>
       <pubDate>Sun, 22 Jan 2023 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/posts/2023/deploy_shiny_on_debian/</guid>
+      <guid>https://blog.teoten.com/posts/2023/deploy_shiny_on_debian/</guid>
       <description>A few weeks ago I opened an account on Digital Ocean to start my own cloud server. Not long after that I took a workshop on Shiny and, although it was too technical with nothing new for me, I learn a couple of things unrelated to R. The speaker was talking about the importance of making your portfolio showing your apps instead of sharing the link to your code as most of us do.</description>
     </item>
     
     <item>
       <title>My first shiny app</title>
-      <link>http://example.org/posts/2021/first_shiny_app/</link>
+      <link>https://blog.teoten.com/posts/2021/first_shiny_app/</link>
       <pubDate>Mon, 20 Dec 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/posts/2021/first_shiny_app/</guid>
+      <guid>https://blog.teoten.com/posts/2021/first_shiny_app/</guid>
       <description>I am happy and excited as I have just deployed my first shiny app on the web. You can find it running at shiny.rwhitedwarf.com (NOTE: I don&amp;rsquo;t have ssl certificate so, your browser might tell you that is not secure, but you can trust me that there&amp;rsquo;s no risk). I have created a few shiny apps in the past but I never deployed one, especially in an owned domain.</description>
     </item>
     

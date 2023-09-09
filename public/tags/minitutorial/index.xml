@@ -1,46 +1,46 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>minitutorial on My New Hugo Site</title>
-    <link>http://example.org/tags/minitutorial/</link>
-    <description>Recent content in minitutorial on My New Hugo Site</description>
+    <title>minitutorial on Teoten&#39;s Blog</title>
+    <link>https://blog.teoten.com/tags/minitutorial/</link>
+    <description>Recent content in minitutorial on Teoten&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 07 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://example.org/tags/minitutorial/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 07 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.teoten.com/tags/minitutorial/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Adding a website next to your Shiny server</title>
-      <link>http://example.org/posts/2023/adding_website_to_siny/</link>
+      <link>https://blog.teoten.com/posts/2023/adding_website_to_siny/</link>
       <pubDate>Thu, 07 Sep 2023 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/posts/2023/adding_website_to_siny/</guid>
+      <guid>https://blog.teoten.com/posts/2023/adding_website_to_siny/</guid>
       <description>I have been off from the blog lately due to a big load of personal projects. Just lately I got a few days off and found time to work on my personal website, to be ready soon. That made me get more into Nginx configuration, where I consider myself a total rookie.</description>
     </item>
     
     <item>
       <title>Deploy your own Shiny app server with debian</title>
-      <link>http://example.org/posts/2023/deploy_shiny_on_debian/</link>
+      <link>https://blog.teoten.com/posts/2023/deploy_shiny_on_debian/</link>
       <pubDate>Sun, 22 Jan 2023 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/posts/2023/deploy_shiny_on_debian/</guid>
+      <guid>https://blog.teoten.com/posts/2023/deploy_shiny_on_debian/</guid>
       <description>A few weeks ago I opened an account on Digital Ocean to start my own cloud server. Not long after that I took a workshop on Shiny and, although it was too technical with nothing new for me, I learn a couple of things unrelated to R. The speaker was talking about the importance of making your portfolio showing your apps instead of sharing the link to your code as most of us do.</description>
     </item>
     
     <item>
       <title>Mini tutorial: hacer tipo lógico cualquier texto</title>
-      <link>http://example.org/es/posts/2022/minitut_hacer_bool/</link>
+      <link>https://blog.teoten.com/es/posts/2022/minitut_hacer_bool/</link>
       <pubDate>Sun, 18 Sep 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/es/posts/2022/minitut_hacer_bool/</guid>
+      <guid>https://blog.teoten.com/es/posts/2022/minitut_hacer_bool/</guid>
       <description>Acerca de este post. Este es mi primer post en español. Es en realidad la traducción de un post que escribí originalmente en inglés hace un par de meses. Pueden ver el post original aqui. Espero que sea útil para la comunidad hispanohablante de usuarios de R.
 Este post se basa en un trabajo reciente donde mi tarea fue la revisión y depuración de piezas de código pequeñas o simples que pueden resultar en consejos prácticos y rápidos para otros usuarios de R, especialmente principiantes o personas sin mucha experiencia en el uso de R.</description>
     </item>
     
     <item>
       <title>Minitutorial: make_logical any string</title>
-      <link>http://example.org/posts/2022/minitut_makebool/</link>
+      <link>https://blog.teoten.com/posts/2022/minitut_makebool/</link>
       <pubDate>Sun, 18 Sep 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/posts/2022/minitut_makebool/</guid>
+      <guid>https://blog.teoten.com/posts/2022/minitut_makebool/</guid>
       <description>Welcome to R minitutorials of R White Dwarf Since the beginning of this year I&amp;rsquo;ve been forced to abandon completely the blog for countless and rather abstract personal reasons that include personal health, family matters and changes in my daily activities including volunteer work as well as main job. As part of the last, I finally got hired for a position as R developer, which brings great joy to me.</description>
     </item>
     

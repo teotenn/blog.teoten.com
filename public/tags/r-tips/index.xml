@@ -1,100 +1,100 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>R tips on My New Hugo Site</title>
-    <link>http://example.org/tags/r-tips/</link>
-    <description>Recent content in R tips on My New Hugo Site</description>
+    <title>R tips on Teoten&#39;s Blog</title>
+    <link>https://blog.teoten.com/tags/r-tips/</link>
+    <description>Recent content in R tips on Teoten&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 11 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://example.org/tags/r-tips/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 11 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.teoten.com/tags/r-tips/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Reference: Dockerizing shinny apps</title>
-      <link>http://example.org/posts/2023/reference_dockerizing_shinny_apps/</link>
+      <link>https://blog.teoten.com/posts/2023/reference_dockerizing_shinny_apps/</link>
       <pubDate>Sat, 11 Feb 2023 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/posts/2023/reference_dockerizing_shinny_apps/</guid>
+      <guid>https://blog.teoten.com/posts/2023/reference_dockerizing_shinny_apps/</guid>
       <description>Andrew Couch has a nice video about deploying a shiny app using docker. He goes from the very basics, that asume no knowledge of docker whatsoever, which is the position of many R users like myself. I&amp;rsquo;ve been working in some shiny app lately, and although I&amp;rsquo;ve never needed docker so far, I decided to start learning it because I can already foresee the future when it won&amp;rsquo;t be the case.</description>
     </item>
     
     <item>
       <title>Referencia: Dockerizando shinny apps</title>
-      <link>http://example.org/es/posts/2023/referencia_dockerizar_shinny_apps/</link>
+      <link>https://blog.teoten.com/es/posts/2023/referencia_dockerizar_shinny_apps/</link>
       <pubDate>Sat, 11 Feb 2023 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/es/posts/2023/referencia_dockerizar_shinny_apps/</guid>
+      <guid>https://blog.teoten.com/es/posts/2023/referencia_dockerizar_shinny_apps/</guid>
       <description>Andrew Couch tiene un video genial sobre como poner una aplicación shiny en docker. El video está en inglés, pero bien vale la pena. Va desde lo más básico, sin asumir ningún conocimiento de docker, lo cual es la situación de muchos usuarios de R como yo mismo. Últimamente he estado trabajando en unas aplicaciones Shiny y a pesar de que nunca he necesitado de Docker, ya puedo preveer el momento en que esto cambiará, por lo que decidí comenzar a aprender como usarlo.</description>
     </item>
     
     <item>
       <title>Deploy your own Shiny app server with debian</title>
-      <link>http://example.org/posts/2023/deploy_shiny_on_debian/</link>
+      <link>https://blog.teoten.com/posts/2023/deploy_shiny_on_debian/</link>
       <pubDate>Sun, 22 Jan 2023 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/posts/2023/deploy_shiny_on_debian/</guid>
+      <guid>https://blog.teoten.com/posts/2023/deploy_shiny_on_debian/</guid>
       <description>A few weeks ago I opened an account on Digital Ocean to start my own cloud server. Not long after that I took a workshop on Shiny and, although it was too technical with nothing new for me, I learn a couple of things unrelated to R. The speaker was talking about the importance of making your portfolio showing your apps instead of sharing the link to your code as most of us do.</description>
     </item>
     
     <item>
       <title>Using Emacs for R</title>
-      <link>http://example.org/posts/2022/use_emacs_for_r/</link>
+      <link>https://blog.teoten.com/posts/2022/use_emacs_for_r/</link>
       <pubDate>Thu, 29 Dec 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/posts/2022/use_emacs_for_r/</guid>
+      <guid>https://blog.teoten.com/posts/2022/use_emacs_for_r/</guid>
       <description>Easy Emacs To start using R, or almost anything else in Emacs you basically need to know 3 things: 1) How to move in Emacs, meaning understanding what is what and learning a few key commands; 2) What is the configuration file and how to use it and 3) How to use packages to extend Emacs.</description>
     </item>
     
     <item>
       <title>EDA de datos de INEGI</title>
-      <link>http://example.org/es/posts/2022/eda_inegi_datos/</link>
+      <link>https://blog.teoten.com/es/posts/2022/eda_inegi_datos/</link>
       <pubDate>Tue, 29 Nov 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/es/posts/2022/eda_inegi_datos/</guid>
+      <guid>https://blog.teoten.com/es/posts/2022/eda_inegi_datos/</guid>
       <description>Introducción El análisis exploratorio de datos (EDA en inglés, &amp;ldquo;Exploratory Data Analysis&amp;rdquo;) es una de las herramientas más útiles en varias áreas de análisis de datos. El concepto de EDA ha sido utilizado popularmente en los últimos años para referirse a los procesos de exploración primaria de un grupo de datos.</description>
     </item>
     
     <item>
       <title>Efficiency comparison of dplyr and tidyr functions vs base R</title>
-      <link>http://example.org/posts/2022/comparison_dplyr_vs_base_r/</link>
+      <link>https://blog.teoten.com/posts/2022/comparison_dplyr_vs_base_r/</link>
       <pubDate>Thu, 20 Oct 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/posts/2022/comparison_dplyr_vs_base_r/</guid>
+      <guid>https://blog.teoten.com/posts/2022/comparison_dplyr_vs_base_r/</guid>
       <description>A couple of years ago I was interested in the efficiency of R when it comes to time processing and management of memory and I read a few blog posts about this topic, particularly pointing at the fact that R hasn&amp;rsquo;t been designed to be a very efficient language, especially when it comes to big data processing, and this could be its doom at some point in the future.</description>
     </item>
     
     <item>
       <title>Mini tutorial: hacer tipo lógico cualquier texto</title>
-      <link>http://example.org/es/posts/2022/minitut_hacer_bool/</link>
+      <link>https://blog.teoten.com/es/posts/2022/minitut_hacer_bool/</link>
       <pubDate>Sun, 18 Sep 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/es/posts/2022/minitut_hacer_bool/</guid>
+      <guid>https://blog.teoten.com/es/posts/2022/minitut_hacer_bool/</guid>
       <description>Acerca de este post. Este es mi primer post en español. Es en realidad la traducción de un post que escribí originalmente en inglés hace un par de meses. Pueden ver el post original aqui. Espero que sea útil para la comunidad hispanohablante de usuarios de R.
 Este post se basa en un trabajo reciente donde mi tarea fue la revisión y depuración de piezas de código pequeñas o simples que pueden resultar en consejos prácticos y rápidos para otros usuarios de R, especialmente principiantes o personas sin mucha experiencia en el uso de R.</description>
     </item>
     
     <item>
       <title>Minitutorial: make_logical any string</title>
-      <link>http://example.org/posts/2022/minitut_makebool/</link>
+      <link>https://blog.teoten.com/posts/2022/minitut_makebool/</link>
       <pubDate>Sun, 18 Sep 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/posts/2022/minitut_makebool/</guid>
+      <guid>https://blog.teoten.com/posts/2022/minitut_makebool/</guid>
       <description>Welcome to R minitutorials of R White Dwarf Since the beginning of this year I&amp;rsquo;ve been forced to abandon completely the blog for countless and rather abstract personal reasons that include personal health, family matters and changes in my daily activities including volunteer work as well as main job. As part of the last, I finally got hired for a position as R developer, which brings great joy to me.</description>
     </item>
     
     <item>
       <title>R function to fill in merged cells</title>
-      <link>http://example.org/posts/2021/fill_merged_cells/</link>
+      <link>https://blog.teoten.com/posts/2021/fill_merged_cells/</link>
       <pubDate>Sun, 05 Dec 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/posts/2021/fill_merged_cells/</guid>
+      <guid>https://blog.teoten.com/posts/2021/fill_merged_cells/</guid>
       <description>This post is part of our series on functions in R. You can see our previous post if you want to understand the basics but it is not strictly necessary. Here we will go into detail about for loops and if statements in R, two key elements of any function. We are going to define a process, map it in a step-by-step approach and wrape it in a function that can repeat it automatically.</description>
     </item>
     
     <item>
       <title>Functions in R</title>
-      <link>http://example.org/posts/2021/functions/</link>
+      <link>https://blog.teoten.com/posts/2021/functions/</link>
       <pubDate>Tue, 30 Nov 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/posts/2021/functions/</guid>
+      <guid>https://blog.teoten.com/posts/2021/functions/</guid>
       <description>Background This is the first post of R with White Dwarf and I decided to start this blog with a basic tutorial. There is already a lot of information in the web about getting started with R. With a simple google search you can easily find info on how to install it, how to use R studio or other text editor, learn about the basic functions and concepts, what is a vector, a data frame, how to use them, etc.</description>
     </item>
     

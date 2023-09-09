@@ -1,45 +1,45 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>R basics on My New Hugo Site</title>
-    <link>http://example.org/tags/r-basics/</link>
-    <description>Recent content in R basics on My New Hugo Site</description>
+    <title>R basics on Teoten&#39;s Blog</title>
+    <link>https://blog.teoten.com/tags/r-basics/</link>
+    <description>Recent content in R basics on Teoten&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 29 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://example.org/tags/r-basics/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 29 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.teoten.com/tags/r-basics/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Using Emacs for R</title>
-      <link>http://example.org/posts/2022/use_emacs_for_r/</link>
+      <link>https://blog.teoten.com/posts/2022/use_emacs_for_r/</link>
       <pubDate>Thu, 29 Dec 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/posts/2022/use_emacs_for_r/</guid>
+      <guid>https://blog.teoten.com/posts/2022/use_emacs_for_r/</guid>
       <description>Easy Emacs To start using R, or almost anything else in Emacs you basically need to know 3 things: 1) How to move in Emacs, meaning understanding what is what and learning a few key commands; 2) What is the configuration file and how to use it and 3) How to use packages to extend Emacs.</description>
     </item>
     
     <item>
       <title>EDA de datos de INEGI</title>
-      <link>http://example.org/es/posts/2022/eda_inegi_datos/</link>
+      <link>https://blog.teoten.com/es/posts/2022/eda_inegi_datos/</link>
       <pubDate>Tue, 29 Nov 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/es/posts/2022/eda_inegi_datos/</guid>
+      <guid>https://blog.teoten.com/es/posts/2022/eda_inegi_datos/</guid>
       <description>Introducción El análisis exploratorio de datos (EDA en inglés, &amp;ldquo;Exploratory Data Analysis&amp;rdquo;) es una de las herramientas más útiles en varias áreas de análisis de datos. El concepto de EDA ha sido utilizado popularmente en los últimos años para referirse a los procesos de exploración primaria de un grupo de datos.</description>
     </item>
     
     <item>
       <title>R function to fill in merged cells</title>
-      <link>http://example.org/posts/2021/fill_merged_cells/</link>
+      <link>https://blog.teoten.com/posts/2021/fill_merged_cells/</link>
       <pubDate>Sun, 05 Dec 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/posts/2021/fill_merged_cells/</guid>
+      <guid>https://blog.teoten.com/posts/2021/fill_merged_cells/</guid>
       <description>This post is part of our series on functions in R. You can see our previous post if you want to understand the basics but it is not strictly necessary. Here we will go into detail about for loops and if statements in R, two key elements of any function. We are going to define a process, map it in a step-by-step approach and wrape it in a function that can repeat it automatically.</description>
     </item>
     
     <item>
       <title>Functions in R</title>
-      <link>http://example.org/posts/2021/functions/</link>
+      <link>https://blog.teoten.com/posts/2021/functions/</link>
       <pubDate>Tue, 30 Nov 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/posts/2021/functions/</guid>
+      <guid>https://blog.teoten.com/posts/2021/functions/</guid>
       <description>Background This is the first post of R with White Dwarf and I decided to start this blog with a basic tutorial. There is already a lot of information in the web about getting started with R. With a simple google search you can easily find info on how to install it, how to use R studio or other text editor, learn about the basic functions and concepts, what is a vector, a data frame, how to use them, etc.</description>
     </item>
     

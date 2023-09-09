@@ -7,6 +7,7 @@ date: 2023-03-24
 description: "Part of how to make maps of any region in the world using ggplot2 and maps libraries"
 tags: ["maps-app", "R maps", "R functions", "web-scrap", "database", "recursion"]
 categories: ["R"]
+series: ["maps-app"]
 archives: ["2023"]
 ---
 

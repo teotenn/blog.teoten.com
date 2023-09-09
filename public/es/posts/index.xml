@@ -1,45 +1,45 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on My New Hugo Site</title>
-    <link>http://example.org/es/posts/</link>
-    <description>Recent content in Posts on My New Hugo Site</description>
+    <title>Posts on Teoten&#39;s Blog</title>
+    <link>https://blog.teoten.com/es/posts/</link>
+    <description>Recent content in Posts on Teoten&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Fri, 24 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://example.org/es/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 24 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.teoten.com/es/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Webscrap e iteraciones con R</title>
-      <link>http://example.org/es/posts/2023/webscrap_e_iteracion_con_r/</link>
+      <link>https://blog.teoten.com/es/posts/2023/webscrap_e_iteracion_con_r/</link>
       <pubDate>Fri, 24 Mar 2023 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/es/posts/2023/webscrap_e_iteracion_con_r/</guid>
+      <guid>https://blog.teoten.com/es/posts/2023/webscrap_e_iteracion_con_r/</guid>
       <description>Sobre este post Estamos creando mapas de datos que muestran los cambios durante un período de tiempo para diferentes países y orientado a todo tipo de ciudades. Esto básicamente significa que necesitamos mapear cualquier región del mundo con R. Hoy en día existen todo tipo de paquetes y técnicas para hacerlo.</description>
     </item>
     
     <item>
       <title>Referencia: Dockerizando shinny apps</title>
-      <link>http://example.org/es/posts/2023/referencia_dockerizar_shinny_apps/</link>
+      <link>https://blog.teoten.com/es/posts/2023/referencia_dockerizar_shinny_apps/</link>
       <pubDate>Sat, 11 Feb 2023 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/es/posts/2023/referencia_dockerizar_shinny_apps/</guid>
+      <guid>https://blog.teoten.com/es/posts/2023/referencia_dockerizar_shinny_apps/</guid>
       <description>Andrew Couch tiene un video genial sobre como poner una aplicación shiny en docker. El video está en inglés, pero bien vale la pena. Va desde lo más básico, sin asumir ningún conocimiento de docker, lo cual es la situación de muchos usuarios de R como yo mismo. Últimamente he estado trabajando en unas aplicaciones Shiny y a pesar de que nunca he necesitado de Docker, ya puedo preveer el momento en que esto cambiará, por lo que decidí comenzar a aprender como usarlo.</description>
     </item>
     
     <item>
       <title>EDA de datos de INEGI</title>
-      <link>http://example.org/es/posts/2022/eda_inegi_datos/</link>
+      <link>https://blog.teoten.com/es/posts/2022/eda_inegi_datos/</link>
       <pubDate>Tue, 29 Nov 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/es/posts/2022/eda_inegi_datos/</guid>
+      <guid>https://blog.teoten.com/es/posts/2022/eda_inegi_datos/</guid>
       <description>Introducción El análisis exploratorio de datos (EDA en inglés, &amp;ldquo;Exploratory Data Analysis&amp;rdquo;) es una de las herramientas más útiles en varias áreas de análisis de datos. El concepto de EDA ha sido utilizado popularmente en los últimos años para referirse a los procesos de exploración primaria de un grupo de datos.</description>
     </item>
     
     <item>
       <title>Mapa de cualquier región del mundo con R - Parte II: obteniendo las coordenadas.</title>
-      <link>http://example.org/es/posts/2022/map_any_region_with_ggplot2_part_ii/</link>
+      <link>https://blog.teoten.com/es/posts/2022/map_any_region_with_ggplot2_part_ii/</link>
       <pubDate>Fri, 04 Nov 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/es/posts/2022/map_any_region_with_ggplot2_part_ii/</guid>
+      <guid>https://blog.teoten.com/es/posts/2022/map_any_region_with_ggplot2_part_ii/</guid>
       <description>Pueden encontrar todas las publicaciones en este tema bajo la etiqueta maps-app (incluyendo las versiones en inglés).
 También pueden encontrar el estado actual del proyecto en mi GitHub repo mapic.
 Sobre este post Esta es la segunda parte de las series de cómo crear mapas de cualquier región del mundo con R.</description>
@@ -47,10 +47,10 @@ Sobre este post Esta es la segunda parte de las series de cómo crear mapas de c
     
     <item>
       <title>Mapa de cualquier región del mundo con R - Parte I: El mapa base</title>
-      <link>http://example.org/es/posts/2022/mapa_de_cualquier_region_con_ggplot2_i/</link>
+      <link>https://blog.teoten.com/es/posts/2022/mapa_de_cualquier_region_con_ggplot2_i/</link>
       <pubDate>Sat, 08 Oct 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/es/posts/2022/mapa_de_cualquier_region_con_ggplot2_i/</guid>
+      <guid>https://blog.teoten.com/es/posts/2022/mapa_de_cualquier_region_con_ggplot2_i/</guid>
       <description>Pueden encontrar todas las publicaciones en este tema bajo la etiqueta maps-app (incluyendo las versiones en inglés).
 También pueden encontrar el estado actual del proyecto en mi GitHub repo mapic.
 Sobre esta entrada Cuando nos preparamos para una entrevista de trabajo, una de las preguntas que más recomiendan preparar es &amp;ldquo;Menciona el proyecto del que estés más orgulloso?</description>
@@ -58,10 +58,10 @@ Sobre esta entrada Cuando nos preparamos para una entrevista de trabajo, una de 
     
     <item>
       <title>Mini tutorial: hacer tipo lógico cualquier texto</title>
-      <link>http://example.org/es/posts/2022/minitut_hacer_bool/</link>
+      <link>https://blog.teoten.com/es/posts/2022/minitut_hacer_bool/</link>
       <pubDate>Sun, 18 Sep 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/es/posts/2022/minitut_hacer_bool/</guid>
+      <guid>https://blog.teoten.com/es/posts/2022/minitut_hacer_bool/</guid>
       <description>Acerca de este post. Este es mi primer post en español. Es en realidad la traducción de un post que escribí originalmente en inglés hace un par de meses. Pueden ver el post original aqui. Espero que sea útil para la comunidad hispanohablante de usuarios de R.
 Este post se basa en un trabajo reciente donde mi tarea fue la revisión y depuración de piezas de código pequeñas o simples que pueden resultar en consejos prácticos y rápidos para otros usuarios de R, especialmente principiantes o personas sin mucha experiencia en el uso de R.</description>
     </item>
