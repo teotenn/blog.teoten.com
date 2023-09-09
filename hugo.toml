@@ -93,9 +93,9 @@ hasCJKLanguage = false
         # 主页文章最大显示数量
         maxHomePostCount = 5
         # 相关文章最大显示数量
-        maxPageRelatedCount = 5
+        maxPageRelatedCount = 3
         # 最新文章最大显示数量
-        maxPageNewestCount = 5
+        maxPageNewestCount = 3
 
     # footer
     # 页面底部配置
@@ -160,7 +160,11 @@ hasCJKLanguage = false
         url = "https://www.linkedin.com/in/teoten/"
         pre = "<i class='fab fa-linkedin'></i>"
         weight = 2
-
+    [[menus.links]]
+        name = "R-bloggers"
+        url = "https://www.r-bloggers.com/"
+        title = "Linkkkk to R-bloggers"
+        weight = 1
 
 # related configuration, see more: https://gohugo.io/content-management/related/
 # 相关文章的配置。详情请移步：https://gohugo.io/content-management/related/
@@ -281,6 +285,16 @@ hasCJKLanguage = false
             url = "https://www.linkedin.com/in/teoten/"
             pre = "<i class='fab fa-linkedin'></i>"
             weight = 2
+	[[languages.en.menus.links]]
+	    name = "R-bloggers"
+            url = "https://www.r-bloggers.com/"
+            title = "Bloggers dedicated to R"
+            weight = 2
+	[[languages.en.menus.links]]
+	    name = "The R project"
+            url = "https://www.r-project.org/"
+            title = "The R-project, oficial"
+            weight = 1
 
 [languages.es]
         languageName = 'Español'
@@ -328,7 +342,7 @@ hasCJKLanguage = false
 	[[languages.es.menus.social]]
             name = "GitHub"
             url = "https://github.com/teotenn"
-            pre = "<i class='fa fa-github'></i>"
+            pre = "<i class='fab fa-github'></i>"
             weight = 1
 	[[languages.es.menus.social]]
             name = "Mastodon"
@@ -340,3 +354,13 @@ hasCJKLanguage = false
             url = "https://www.linkedin.com/in/teoten/"
             pre = "<i class='fab fa-linkedin'></i>"
             weight = 2
+	[[languages.es.menus.links]]
+	    name = "R-bloggers"
+            url = "https://www.r-bloggers.com/"
+            title = "Bloggers dedicados a R"
+            weight = 2
+	[[languages.es.menus.links]]
+	    name = "The R Project"
+            url = "https://www.r-project.org/"
+            title = "Pagina oficial de R"
+            weight = 1
