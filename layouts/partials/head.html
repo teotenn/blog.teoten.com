@@ -31,6 +31,10 @@
         <link rel="stylesheet" href='{{ "css/comment.css" | relURL }}' />
     {{ end }}
     <link rel="stylesheet" href='{{ "css/shortcode.css" | relURL }}' />
+
+    {{ with .OutputFormats.Get "rss" -}}
+    {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+    {{ end -}}
     
     {{ if eq .Site.Params.Site.Mode "dark" }}
         <link rel="stylesheet" href='/css/style-dark.css' />

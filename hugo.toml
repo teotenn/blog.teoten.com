@@ -27,6 +27,9 @@ hasCJKLanguage = false
     # 作者卡片里 followme 和页脚作者的链接
     link = "https://github.com/teotenn"
 
+[outputs]
+home = ["HTML", "RSS"]
+
 # Taxonomies
 [taxonomies]
     category = "categories"
