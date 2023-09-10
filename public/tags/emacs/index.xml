@@ -13,7 +13,428 @@
       <pubDate>Thu, 29 Dec 2022 00:00:00 +0000</pubDate>
       
       <guid>https://blog.teoten.com/posts/2022/use_emacs_for_r/</guid>
-      <description>Easy Emacs To start using R, or almost anything else in Emacs you basically need to know 3 things: 1) How to move in Emacs, meaning understanding what is what and learning a few key commands; 2) What is the configuration file and how to use it and 3) How to use packages to extend Emacs.</description>
+      <description>&lt;h2 id=&#34;easy-emacs&#34;&gt;Easy Emacs&lt;/h2&gt;
+&lt;p&gt;To start using R, or almost anything else in &lt;a href=&#34;https://www.gnu.org/software/emacs/&#34;&gt;Emacs&lt;/a&gt; you basically need to know 3 things: 1) How to move in Emacs, meaning understanding what is what and learning a few key commands; 2) What is the configuration file and how to use it and 3) How to use packages to extend Emacs. In the first half of this post I will try to show how easy it is to cover these 3 points even for people who are inexperienced in programming. If you don&amp;rsquo;t believe me I invite you to read just the first paragraph of the next section to give you an idea of how easy it really is. During the second half I will show how I&amp;rsquo;m using R in Emacs to give you a starting point of a fully functional environment for R, and will conclude with some topics that can be further explored.&lt;/p&gt;
+&lt;h2 id=&#34;why-did-i-chose-emacs-as-a-researcher-in-the-academia&#34;&gt;Why did I chose Emacs as a researcher in the academia?&lt;/h2&gt;
+&lt;p&gt;I started my professional life as a researcher in ecology-related topics. During my master studies I improved my knowledge on statistics considerably and due to that and to the complexity of my research project, I did not want to use a GUI-based software for my statistical analysis. Thus, I started learning R, and believe it or not, I completed my research project for my Thesis by tipping R code directly to the console from my handwritten notes. When I started my PhD I thought that it would be easier to just write the code I need in electronic format and copy-paste it to the R console. And with that idea in mind and the help of the internet, I discovered the text editors and Emacs, and a whole new universe opened up to me. I know that many in my position would be ashamed of sharing such a story but I simply want to exemplify how easy it is to start using Emacs, contrary to the popular belief. I went from having no idea of what a text editor is, to setting up and using Emacs with R, with no intermediate steps.&lt;/p&gt;
+&lt;p&gt;Emacs is a wonderful text editor that can easily be extended to do many things. You can have tools to help in writing your code such as different types of indentation, syntax highlighter, git utilities, project management, code maps, web browser, even to play games. Emacs provides by default a lot of functionalities to move easily through the text files, including keybindings to go to the end and beginning of buffer, function or paragraph, parentheses matching, text search, exploration and replacement, syntax and spelling checks. You can create markers to move quickly to particular files, window configurations or to store text and numbers. Some consider Emacs almost as an OS because you can also do things like create and delete files, version control, internet browser, and more.&lt;/p&gt;
+&lt;p&gt;The reason why I stayed with Emacs as a researcher in the academia was mainly due to &lt;a href=&#34;https://orgmode.org/&#34;&gt;org-mode&lt;/a&gt;. It is an Emacs major mode that helped me to organize my research and still today it helps me to organize my job. You can think if it as the Emacs version of Markdown, with the possibility to organize to-do lists, tag notes and sections, fully organize an agenda (tracking tasks, set deadlines, schedule items, etc.). You can add chunks of code from almost any language and, with the help of a couple more libraries, you can run the code within the org file itself. Github and other git servers have integrated tools to view org files as html, but there are libraries to convert them also to pdf, libreoffice, create presentations and more.&lt;/p&gt;
+&lt;p&gt;Another important point that made me fall in love with Emacs was the fact that, if I managed to keep most of my research files as text I could do it all from Emacs, instead of using different apps for different tasks. And so I did: I was writing my papers in LaTeX and organizing my bibliography with bibtex; I was saving data as CSV which Emacs can manage very well; the graphics were more of an issue but, since I used R to create most of them, I simply needed to save the right script for the right plot. And all this was organized in org-mode with links to this or that file according to the project, section, tag, etc. And the reason why I wanted to do this was not even for organization purposes, but rather because, as text, I could track all my changes using Git, which ended up being a huge support for my PhD work: I could revert changes if I had mistakes or explore old commits, and backup all of that easily. So, at the end, while R had been the reason why I decided to explore Emacs, it was in fact the combo Emacs + org-mode + git which improved my organization and productivity potentially during my research life. And I would like to share this tools with as many people as possible.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.teoten.com/post/2022/use_emacs_for_r/learning-editors.jpg&#34; alt=&#34;Editors learning curve&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Thus, I decided to create this post, to give you an idea of how easily you can start using Emacs for R coding. If you enjoy it and you&amp;rsquo;d like me to create more content about some of the tools briefly described here, make sure to leave me a comment and I&amp;rsquo;ll take care of it. I include a general list of the tools I use regularly in Emacs at the end, you can have a look there.&lt;/p&gt;
+&lt;h2 id=&#34;quick-start&#34;&gt;Quick start&lt;/h2&gt;
+&lt;p&gt;Although Emacs is extremely customizable, it is true that it requires some coding skills and knowledge of the not so popular programming language called &lt;a href=&#34;https://www.gnu.org/software/emacs/manual/html_node/eintr/&#34;&gt;Emacs Lisp&lt;/a&gt;. You would probably have also read that Emacs has a very steep learning curve, which is also true. This two conditions usually scare people away from learning Emacs. In this section I will demonstrate that you don&amp;rsquo;t need to know Emacs Lisp (or programming at all) and that with very little knowledge of Emacs you can have a ready-to-use super-powerful R editor.&lt;/p&gt;
+&lt;p&gt;This chapter is a brief overview of the rest of the post meant as a quick start to get Emacs up and working with R in just as few as 10 steps. The rest of the post will simply go deeper into each of the steps.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Make sure that you have installed both, Emacs and R in your computer.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Open Emacs and press the keys Ctr + x, release and press Ctr + f (in Emacs notation, this combination of keys is expressed as &amp;ldquo;&lt;strong&gt;C-x C-f&lt;/strong&gt;&amp;rdquo;). Focus on the &lt;strong&gt;mini buffer&lt;/strong&gt;, it is the line positioned at the bottom of your window. It is waiting for you to type something. If there is some path to a folder already in that area delete it first and then type &lt;code&gt;~/.emacs&lt;/code&gt; and enter. It should open a new empty window.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.teoten.com/post/2022/use_emacs_for_r/emacs-minibuffer.png&#34; alt=&#34;Emacs minibuffer&#34;&gt;&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;This is your configuration file. Paste the following code in your new window&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-emacs-lisp&#34; data-lang=&#34;emacs-lisp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;require&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;&amp;#39;package&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;add-to-list&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;&amp;#39;package-archives&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;melpa&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;https://melpa.org/packages/&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;unless&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;package-installed-p&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;&amp;#39;use-package&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;package-refresh-contents&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;package-install&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;&amp;#39;use-package&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;setq&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;use-package-always-ensure&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;t&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;use-package&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;ess&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;use-package&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;company&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nb&#34;&gt;:config&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;add-hook&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;&amp;#39;after-init-hook&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;&amp;#39;global-company-mode&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;setq&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;company-selection-wrap-around&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;t&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nv&#34;&gt;company-tooltip-align-annotations&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;t&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nv&#34;&gt;company-idle-delay&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;0.45&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nv&#34;&gt;company-minimum-prefix-length&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nv&#34;&gt;company-tooltip-limit&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;This configuration assumes that you have installed R with all the defaults. If you have installed R in a directory of your choice, add the following line at the end of the configuration file, changing the path of my example for the path were you have installed R.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-emacs-lisp&#34; data-lang=&#34;emacs-lisp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;setq&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;inferior-ess-r-program&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;C:/Users/Manuel/path_where_R_is/R-4.2.1/bin/R.exe&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;Type &lt;strong&gt;C-x C-s&lt;/strong&gt; (meaning, Ctr + x, release, Ctr + s). This will save the file.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Type now Alt + x (in Mac &lt;em&gt;command&lt;/em&gt; key instead of Alt or, if it does not work, the &lt;em&gt;option&lt;/em&gt; key instead), this is the key Meta, represented in Emacs by &lt;strong&gt;M-x&lt;/strong&gt;. At this point you want to focus again on your mini buffer, the line at the bottom of the screen.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Type there &lt;code&gt;package-install&lt;/code&gt; enter and then type &lt;code&gt;use-package&lt;/code&gt;, enter. If some text appears at the bottom of your &lt;code&gt;.emacs&lt;/code&gt; file don&amp;rsquo;t worry, it is intended this way.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Focus on the mini buffer in case it prompts something. If it asks you if you want to install the package type &lt;code&gt;y&lt;/code&gt; and enter. If it tells you that it cannot find the package or it does not exist, close Emacs, open it again and repeat steps 5 and 6. It should show a message informing that it has been installed. In my case it shows the following line in the minibuffer:&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-example&#34; data-lang=&#34;example&#34;&gt;Done (Total of 9 files compiled, 4 skipped)
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start=&#34;8&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;Now close Emacs and open it again. This time it should take longer to load. Be patient, Emacs is loading installing and loading more packages for you.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Type again &lt;strong&gt;C-x C-f&lt;/strong&gt; and type &lt;code&gt;test.R&lt;/code&gt;, enter. You can change the path before the file if you wish (i.e. &lt;code&gt;~/Code/test.R&lt;/code&gt;).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;A new empty area should appear. Type there one line of R code. When you are done, while keeping the cursor in the line where your code is, press &lt;strong&gt;C-c C-j&lt;/strong&gt;, this sends a line to R. A new area will open, showing the R console and the results of the code you just sent. If nothing happens focus on the minibuffer, it might ask you where to start your R session; you can just press enter or provide a new location. Then you can continue typing R code and use the same combination of keys to run a line, you can use &lt;strong&gt;C-c C-p&lt;/strong&gt; to run a paragraph, &lt;strong&gt;C-c C-f&lt;/strong&gt; to send a function and &lt;strong&gt;C-c C-b&lt;/strong&gt; the send the whole buffer (which here basically means the whole file) or simply Control + enter (&lt;strong&gt;C-return&lt;/strong&gt;) to send any of the mentioned regions. And as you already know, you can save the file by pressing &lt;strong&gt;C-x C-s&lt;/strong&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.teoten.com/post/2022/use_emacs_for_r/emacs-r-init.png&#34; alt=&#34;ESS and R&#34;&gt;&lt;/p&gt;
+&lt;p&gt;If everything went well now you should have a simple Emacs configuration to start coding in R. Congratulations!.&lt;/p&gt;
+&lt;h2 id=&#34;getting-started-with-emacs&#34;&gt;Getting started with Emacs&lt;/h2&gt;
+&lt;h3 id=&#34;installation-and-first-steps&#34;&gt;Installation and first steps&lt;/h3&gt;
+&lt;p&gt;Both, R and Emacs are extremely easy to install, therefore I will not go into the details for it. Basically in any Linux distribution you can just use your package manager for it, in windows just download and run the official executable files and for Mac you can also download the binaries or use alternative package methods like homebrew (also applicable for Linux). For R go to (&lt;a href=&#34;https://www.r-project.org/&#34;&gt;https://www.r-project.org/&lt;/a&gt;) and for Emacs to (&lt;a href=&#34;https://www.gnu.org/software/emacs/)&#34;&gt;https://www.gnu.org/software/emacs/)&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Once you have installed Emacs you can run it and you will have the welcome screen, together with some toolbars and list of menus. At this point you could basically use Emacs like any other text editor: you can open files, edit them and save them by using all the menus, icons and your mouse. However, the real power of Emacs rest in its keybindings. To get started I recommend to click on the link &lt;strong&gt;Emacs Tutorial&lt;/strong&gt; of the welcome screen, it will guide you through the basics. After the tutorial you will feel more comfortable finding your way around Emacs and the rest of this post will be easier to follow.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.teoten.com/post/2022/use_emacs_for_r/emacs-init.png&#34; alt=&#34;Welcome to Emacs&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;control-meta-and-the-minibuffer-moving-in-emacs&#34;&gt;Control, Meta and the minibuffer, moving in Emacs&lt;/h3&gt;
+&lt;p&gt;When you are working with text most of the time (as it is the case of R code) the use of the mouse can reduce productivity by searching with your eyes the exact places you want to mark, going all the way to the menu to save or open a file, finding when a parentheses opens and closes, and so on. The idea of the keybindings is to increase productivity by staying in the text at the level of the keyboard most of the time, since this is what we actually do when we write code.&lt;/p&gt;
+&lt;p&gt;At the beginning it can be complicated to memorize so many keybindings. I&amp;rsquo;d recommend to try to remember the most basic ones to move along the text, save files, close Emacs and split the screen as you need to. The rest can be easily achieved through the mouse icons and menus. When I started using Emacs I was having a piece of paper with the most useful keybindings and, as my fingers started remembering by themselves I was deleting those and adding new ones. Today I can assure you that my productivity to write R code is much better than it ever was with any other text editor.&lt;/p&gt;
+&lt;p&gt;I will not go through the details of which keybindings do what since it is all in the self contained tutorial, however there are some key points to learn the keybindings. One is the knowledge of the so called &amp;ldquo;Emacs Notation&amp;rdquo;. Whenever you search either in Emacs documentation or some other sources to use Emacs, how to perform certain actions, you will find things like &lt;strong&gt;C-M-a&lt;/strong&gt;. The capital &lt;code&gt;C&lt;/code&gt; is short for the key Control, while capital &lt;code&gt;M&lt;/code&gt; is for meta, which in most computers is Alt and in Mac is usually the key Command. Thus, &lt;strong&gt;C-M-a&lt;/strong&gt; would mean that you have to hold the key &lt;strong&gt;Control&lt;/strong&gt;, the key &lt;strong&gt;Meta&lt;/strong&gt; and the key &lt;strong&gt;a&lt;/strong&gt;. Usually the keys Control and Meta are used in combination with other keys and thus, the letters &lt;strong&gt;C&lt;/strong&gt; and &lt;strong&gt;M&lt;/strong&gt; are used at the beginning of the commands. That would mean that, for example, the combination &lt;strong&gt;C-C&lt;/strong&gt; does not mean Control twice, but rather Control plus capital C. Although this rarely happens (I&amp;rsquo;ve never used such a combination), it is important to be aware because Emacs recognizes difference between upper and lower case.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.teoten.com/post/2022/use_emacs_for_r/emacs-minibuffer.png&#34; alt=&#34;Emacs minibuffer&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Another important part to know in Emacs is the minibuffer. By default it is positioned at the bottom of the screen and it is used to communicate commands between Emacs and the user. For example, when you save a file the minibuffer will print something like &lt;code&gt;Wrote /path/to/file.R&lt;/code&gt; to signal that the file has been saved.&lt;/p&gt;
+&lt;p&gt;The minibuffer is also used to pass commands to Emacs. All the keybindings are bind to a command, although not every command is bind to a key. To pass a command to Emacs you can use the keys &lt;strong&gt;M-x&lt;/strong&gt;. As an example you can try to use &lt;strong&gt;M-x&lt;/strong&gt; and you will see that the minibuffer has changed and now is ready to receive your input. Type there &lt;code&gt;help-for-help&lt;/code&gt; and a new menu will appear, showing you the options for help and the instructions to use it. For example, type &lt;strong&gt;b&lt;/strong&gt; to display all keybindings. The command &lt;code&gt;help-for-help&lt;/code&gt; is bind to the keys &lt;strong&gt;C-h ?&lt;/strong&gt; therefore, if you would type this combination instead you would have the same response.&lt;/p&gt;
+&lt;p&gt;Emacs uses intuitive key bindings and thus, the combination &lt;strong&gt;C-h&lt;/strong&gt; is designed for &lt;strong&gt;h&lt;/strong&gt;elp. For example, the combination &lt;strong&gt;C-h b&lt;/strong&gt; will show the help for the &lt;strong&gt;B&lt;/strong&gt;indings, &lt;strong&gt;C-h t&lt;/strong&gt; help with &lt;strong&gt;T&lt;/strong&gt;utorial, &lt;strong&gt;C-h f&lt;/strong&gt; help for a &lt;strong&gt;F&lt;/strong&gt;unction (you have to type in the function), etc. &lt;strong&gt;C-x&lt;/strong&gt; executes high levels functions such as &lt;strong&gt;s&lt;/strong&gt;ave file &lt;strong&gt;C-x C-s&lt;/strong&gt; or &lt;strong&gt;c&lt;/strong&gt;lose Emacs with &lt;strong&gt;C-x C-c&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;You can take some time to familiarize yourself with some of the keybindings and later you will see how it pays off when writing and executing R code. The best way to get familiar with the main ones is by following the tutorial included in Emacs, you have the Link in the welcome page, in the Help menu or simply type &lt;strong&gt;C-h t&lt;/strong&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;the-configuration-file&#34;&gt;The configuration file&lt;/h3&gt;
+&lt;p&gt;The second part of the power of Emacs is its customization. The first aspect for its customization is the init file, also known as dot Emacs. According to its documentation:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;When Emacs is started, it normally tries to load a Lisp program from an initialization file, or init file for short. This file, if it exists, specifies how to initialize Emacs for you. Traditionally, file &lt;code&gt;~/.emacs&lt;/code&gt; is used as the init file, although Emacs also looks at &lt;code&gt;~/.emacs.el&lt;/code&gt;, &lt;code&gt;~/.emacs.d/init.el&lt;/code&gt;, &lt;code&gt;~/.config/emacs/init.el&lt;/code&gt;, or other locations. See &lt;a href=&#34;https://www.gnu.org/software/emacs/manual/html_node/emacs/Find-Init.html&#34;&gt;How Emacs Finds Your Init File&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;This means that you have several options to tell Emacs how to start. If you are not familiar with Unix style, &lt;code&gt;~/&lt;/code&gt; is the home directory. That means that you can have your configuration file in your home directory called &lt;code&gt;.emacs&lt;/code&gt; or &lt;code&gt;.emacs.el&lt;/code&gt;, or you can have it inside a configuration folder &lt;code&gt;~/.emacs.d/&lt;/code&gt; or &lt;code&gt;~/.config/emacs/&lt;/code&gt; with the name &lt;code&gt;init.el&lt;/code&gt; (or some other options, see the link in the quote).&lt;/p&gt;
+&lt;p&gt;To keep consistency and facility, we will keep the same approach that we used in the quick guide above and use the file dot emacs.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Open Emacs and press the keys Ctr + x, release and press Ctr + f (in Emacs notation, this combination of keys is expressed as &amp;ldquo;&lt;strong&gt;C-x C-f&lt;/strong&gt;&amp;rdquo;). Focus on the &lt;strong&gt;mini buffer&lt;/strong&gt;, it is the line positioned at the bottom of your window. It is waiting for you to type something. If there is some path to a folder already in that area delete it first and then type &lt;code&gt;~/.emacs&lt;/code&gt; and enter. It should open a new empty window.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;If you followed step 2 from within Emacs you should have now an empty screen where you can start typing Elisp code to tell Emacs how to start. After a new installation the file still does not exists (although you might already have created it if you followed the quick start). With the command &lt;strong&gt;C-x C-f&lt;/strong&gt; we can create it. Make sure that it is stored in the home folder &lt;code&gt;~/&lt;/code&gt; and not somewhere else. To demonstrate the point, type the following line anywhere in your &lt;code&gt;.emacs&lt;/code&gt; file: &lt;code&gt;(setq inhibit-startup-screen t)&lt;/code&gt;, that tells Emacs to inhibit the startup screen. Now save it with &lt;strong&gt;C-x C-s&lt;/strong&gt;, close Emacs and open it again and now the startup screen showing you the tutorial should not be there anymore. If you still want to see the welcome screen at startup you can simply delete that line and the startup screen will be back (&lt;strong&gt;C-x C-f&lt;/strong&gt; type &lt;code&gt;~/.emacs&lt;/code&gt;, delete the line and save).&lt;/p&gt;
+&lt;p&gt;Here are just a couple of lines that are useful to add to your dot Emacs file for writing R code:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-emacs-lisp&#34; data-lang=&#34;emacs-lisp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;;; enable column numbers&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;setq&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;column-number-mode&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;t&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;add-hook&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;&amp;#39;prog-mode-hook&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;&amp;#39;display-line-numbers-mode&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;;; Highlights the matching parentheses&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;show-paren-mode&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;;; Using arrow for moving through buffers&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;global-set-key&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;kbd&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;C-x &amp;lt;up&amp;gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;&amp;#39;windmove-up&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;global-set-key&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;kbd&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;C-x &amp;lt;down&amp;gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;&amp;#39;windmove-down&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;global-set-key&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;kbd&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;C-x &amp;lt;left&amp;gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;&amp;#39;windmove-left&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;global-set-key&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;kbd&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;C-x &amp;lt;right&amp;gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;&amp;#39;windmove-right&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;;; Starting file&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;setq&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;initial-buffer-choice&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;lambda&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;buffer-file-name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	    &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;current-buffer&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	  &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;find-file&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;~/Path/to_your_file/a_starting_file.R&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;The first part will simply enable column numbers when writing code, for some reason Emacs does not do it by default. Next we are activating the &lt;code&gt;show-paren-mode&lt;/code&gt; which highlights the matching parentheses, a useful function when writing long functions. The third paragraph will allow you to move between buffers using &lt;strong&gt;C-x&lt;/strong&gt; and the arrows. For example, you can split buffer horizontally using &lt;strong&gt;C-x 2&lt;/strong&gt; and then move to the lower buffer using &lt;strong&gt;C-x&lt;/strong&gt; and down arrow, or back to the upper with the upper arrow &lt;strong&gt;C-x &lt;!-- raw HTML omitted --&gt;&lt;/strong&gt;. The last part can set a custom starting file, meaning each time you open Emacs this will be the file that will open by default, but if you open a different file using Emacs this starting file won&amp;rsquo;t show up.&lt;/p&gt;
+&lt;h3 id=&#34;extending-emacs-packages&#34;&gt;Extending Emacs: packages&lt;/h3&gt;
+&lt;p&gt;Emacs can be fully customized in the sense that you can write Elisp code to get Emacs do what you want. Luckily, you don&amp;rsquo;t need to know Elisp to take advantage of it. Like in R, there are several packages that extend the basic Emacs to do more than it was originally designed to. In the quick start section steps 3 to 7 we did exactly that in 2 different ways. Let&amp;rsquo;s take a look at each option and detail to install packages.&lt;/p&gt;
+&lt;h4 id=&#34;elpa-and-melpa&#34;&gt;ELPA and MELPA&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ELPA is the Emacs Lisp Package Archive, written originally by &lt;a href=&#34;https://www.emacswiki.org/emacs/TomTromey&#34;&gt;TomTromey&lt;/a&gt;. It is included in &lt;a href=&#34;https://www.emacswiki.org/emacs/GnuEmacs&#34;&gt;GnuEmacs&lt;/a&gt;, starting with version 24. &lt;code&gt;package.el&lt;/code&gt; is the package manager library for ELPA.&lt;/p&gt;
+&lt;p&gt;“Our goal is to make it simple to install, use, and upgrade Emacs Lisp packages. We supply &lt;code&gt;package.el&lt;/code&gt; a simple package manager for Emacs, and a repository of pre-packed Emacs Lisp code.”&lt;/p&gt;
+&lt;p&gt;See &lt;a href=&#34;https://www.emacswiki.org/emacs/InstallingPackages#installing-packages&#34;&gt;InstallingPackages&lt;/a&gt; for basic usage information.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;To see the ELPA packages available you can execute the command &lt;code&gt;list-packages&lt;/code&gt; (remember, by using &lt;strong&gt;M-x&lt;/strong&gt;). However, sometimes this are not the most up to date versions, or some packages are simply not listed in the ELPA repositories but rather in MELPA only.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://melpa.org/&#34;&gt;MELPA&lt;/a&gt; is an &lt;a href=&#34;https://www.emacswiki.org/emacs/ELPA&#34;&gt;ELPA&lt;/a&gt;-compatible package repository that contains an enormous number of useful Emacs packages.&lt;/p&gt;
+&lt;p&gt;In contrast to ELPA, Emacs is not configured by default to install packages from MELPA. You will have to configure Emacs to use it.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;You can think of MELPA to ELPA like Bioconductor is to CRAN. In their own words, this is what MELPA is intended for:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Up-to-date packages built on our servers from upstream source&lt;/p&gt;
+&lt;p&gt;Installable in any Emacs with &amp;lsquo;package.el&amp;rsquo; - no local version-control tools needed&lt;/p&gt;
+&lt;p&gt;Curated - no obsolete, renamed, forked or randomly hacked packages&lt;/p&gt;
+&lt;p&gt;Comprehensive - more packages than any other archive&lt;/p&gt;
+&lt;p&gt;Automatic updates - new commits result in new packages&lt;/p&gt;
+&lt;p&gt;Extensible - contribute new recipes, and we&amp;rsquo;ll build the packages&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;To configure Emacs to find MELPA packages we simply need two lines of code in our configuration file.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-emacs-lisp&#34; data-lang=&#34;emacs-lisp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;require&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;&amp;#39;package&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;add-to-list&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;&amp;#39;package-archives&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;melpa&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;https://melpa.org/packages/&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Add those lines to your dot emacs file, save it and restart Emacs to take effect. Now, upon calling &lt;code&gt;list-packages&lt;/code&gt; you should see an extended list of packages, some of which are tagged as &amp;ldquo;melpa&amp;rdquo; in the section &amp;ldquo;Archive&amp;rdquo; of the list.&lt;/p&gt;
+&lt;h4 id=&#34;list-packages-and-install-package&#34;&gt;list-packages and install-package&lt;/h4&gt;
+&lt;p&gt;From the last section you already know how to call &lt;code&gt;list-packages&lt;/code&gt; and if you followed the quick start, you also know how to use the command &lt;code&gt;install-package&lt;/code&gt;. Basically, to install a package you could call the command &lt;code&gt;install-package&lt;/code&gt;, RET and type the exact name of the package, which can be found in the list of the packages.&lt;/p&gt;
+&lt;p&gt;But there is more. According to the &lt;a href=&#34;https://www.gnu.org/software/emacs/manual/html_node/emacs/Package-Menu.html&#34;&gt;Emacs Documentation&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The command M-x list-packages brings up the package menu. This is a buffer listing all the packages that Emacs knows about, one on each line, with the following information:&lt;/p&gt;
+&lt;p&gt;The package name (e.g., ‘auctex’).
+The package’s version number (e.g., ‘11.86’).
+The package’s status—normally one of ‘available’ (can be downloaded from the package archive), ‘installed’, or ‘built-in’ (included in Emacs by default). See Package Statuses.
+Which package archive this package is from, if you have more than one package archive enabled.
+A short description of the package.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Each area in Emacs is called a buffer and depending what the buffer is running it will be controlled by its own rules. As you saw in the quick start, we can send a line of R code to the terminal by typing &lt;strong&gt;C-c C-j&lt;/strong&gt;, but such key combination won&amp;rsquo;t work the same if we are not inside an R file. In the same way, the buffer listing the packages has its own keybindings. You can find all the details in the link above, but here are the most useful ones:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Move along the buffer using the arrow keys. Move one page down using &lt;strong&gt;C-v&lt;/strong&gt; and one page up with &lt;strong&gt;M-v&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Search for text using &lt;strong&gt;C-s&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Press &lt;strong&gt;i&lt;/strong&gt; to mark a package for installation.&lt;/li&gt;
+&lt;li&gt;Press &lt;strong&gt;u&lt;/strong&gt; to unmark a package.&lt;/li&gt;
+&lt;li&gt;Press &lt;strong&gt;x&lt;/strong&gt; to execute marked actions.&lt;/li&gt;
+&lt;li&gt;Or simply use the menu &amp;ldquo;Package&amp;rdquo;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;To exit you can type &lt;strong&gt;q&lt;/strong&gt; or you can kill this or any buffer by typing &lt;strong&gt;C-x k&lt;/strong&gt; and then &lt;strong&gt;RET&lt;/strong&gt;.&lt;/p&gt;
+&lt;h4 id=&#34;use-package&#34;&gt;use-package&lt;/h4&gt;
+&lt;p&gt;Another way to install packages is by using the package &lt;a href=&#34;https://jwiegley.github.io/use-package/&#34;&gt;use-package&lt;/a&gt; which in short is a package manager.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The &lt;code&gt;use-package&lt;/code&gt; macro allows you to isolate package configuration in your &lt;code&gt;.emacs&lt;/code&gt; file in a way that is both performance-oriented and, well, tidy. I created it because I have over 80 packages that I use in Emacs, and things were getting difficult to manage. Yet with this utility my total load time is around 2 seconds, with no loss of functionality!&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Let&amp;rsquo;s use the example from the quick start, step 3:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-emacs-lisp&#34; data-lang=&#34;emacs-lisp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;unless&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;package-installed-p&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;&amp;#39;use-package&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;package-refresh-contents&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;package-install&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;&amp;#39;use-package&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;setq&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;use-package-always-ensure&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;t&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;use-package&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;ess&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;The first part makes sure that the package &lt;code&gt;use-package&lt;/code&gt; is installed and to refresh the list of packages based on &lt;code&gt;use-package&lt;/code&gt; own rules.&lt;/li&gt;
+&lt;li&gt;The second part ensures that the package will be installed if it was not yet installed. In other words, it makes the installation of the packages automatic so, you don&amp;rsquo;t have to use &lt;code&gt;install-package&lt;/code&gt; command of the &lt;code&gt;list-packages&lt;/code&gt; menu.&lt;/li&gt;
+&lt;li&gt;Finally &lt;code&gt;(use-package ess)&lt;/code&gt; loads the package &lt;code&gt;ess&lt;/code&gt; to Emacs, which is the package responsible for running R.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;final-remarks-about-emacs-configuration&#34;&gt;Final remarks about Emacs configuration&lt;/h4&gt;
+&lt;p&gt;The detail usage of &lt;code&gt;use-package&lt;/code&gt; is quite complex, especially for a new Emacs user and it is not covered in this post. Likewise, a more detailed configuration of the init file (&lt;code&gt;.emacs&lt;/code&gt;) and the customization of Emacs and the packages through it can take an entire manual. If you are really interested you can start by following the links provided so far. Otherwise I would recommend staying with the basis presented here, getting familiar with Emacs and slowly getting deeper into particular topics. The info presented here is just the very basics to get started with a simple yet powerful IDE for R.&lt;/p&gt;
+&lt;p&gt;One important point to know though is that usually, after installing a package, it has to be loaded through the init file so that Emacs can use it. Usually you can find detailed info in the documentation and/or website of the particular package on how to load it and how to configure it. The general rule is to load it using the base Emacs function &lt;code&gt;require&lt;/code&gt; (i.e., &lt;code&gt;(require &#39;ess)&lt;/code&gt;) or alternatively with &lt;code&gt;use-package&lt;/code&gt; (i.e., &lt;code&gt;(use-package ess)&lt;/code&gt;).&lt;/p&gt;
+&lt;h2 id=&#34;ess-to-speak-with-r&#34;&gt;ESS to speak with R&lt;/h2&gt;
+&lt;p&gt;As it was already mentioned, &lt;a href=&#34;https://ess.r-project.org/&#34;&gt;ESS&lt;/a&gt; is the Emacs package used for R code. It stands for &amp;ldquo;Emacs Speaks Statistics&amp;rdquo; and it can run not only R code but other statistical analysis programs including Julia.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Emacs Speaks Statistics (ESS) is an add-on package for GNU Emacs. It is designed to support editing of scripts and interaction with various statistical analysis programs such as R, S-Plus, SAS, Stata and OpenBUGS/JAGS. Although all users of these statistical analysis programs are welcome to apply ESS, advanced users or professionals who regularly work with text-based statistical analysis scripts, with various statistical languages/programs, or with different operating systems might benefit from it the most.&lt;/p&gt;
+&lt;p&gt;The rationale for developing ESS is that most statistical analysis systems provide a more or less sophisticated graphical user interface (GUI). However, their full power is only available using their scripting language. Furthermore, complex statistical analysis projects require a high degree of automation and documentation which can only be handled by creating statistical analysis scripts. Unfortunately, many statistics packages provide only weak text editor functionality and show major differences between them. Without a unified text editor user interface additional effort is required from the user to cope with limited functionality and with text editor differences.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;ESS is a very powerful and specialized software on its own, its &lt;a href=&#34;https://ess.r-project.org/Manual/ess.html&#34;&gt;documentation&lt;/a&gt; includes 16 detailed topics for its usage. Its use with Emacs can be compared to R Studio alone, although there are significant differences, the ESS team have also work a lot lately on having enough similarities to make R Studio users feel comfortable switching to Emacs.&lt;/p&gt;
+&lt;p&gt;I use it particularly for R, it helps me to write R code including syntax highlight and indentation, to send R code to the console, to debug R code and more.&lt;/p&gt;
+&lt;h3 id=&#34;how-to-use-r-in-ess&#34;&gt;How to use R in ESS&lt;/h3&gt;
+&lt;p&gt;As we already mentioned, Emacs can be fully configured to our needs and wishes. If you clicked in the links above, you can also see that ESS documentation is quite long and complex. The present post is merely an introduction to its possibilities. Here is a table with the most commonly used key bindings and commands used in ESS.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Keys&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Effect&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;C-RET&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Sends region, line or step to the console&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;C-c C-j&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Sends line to the console&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;C-c C-p&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Sends paragraph to the console&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;C-c C-b&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Sends buffer (whole file) to the console&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;C-c C-f&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Sends buffer to the console&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;M-x ess-indent-exp&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Indents expression&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;To use them make sure to have installed and loaded ESS in your Emacs. Then you can simply create an R file, start typing code and run it.&lt;/p&gt;
+&lt;p&gt;You can also use the menu &amp;ldquo;ESS&amp;rdquo; fro within the R buffer to explore more keybindings and commands. One useful section is the &amp;ldquo;Font Lock&amp;rdquo; which defines the Syntax Highlighting for R. I&amp;rsquo;d recommend to have open a relatively long or complex R script and mark/unmark fields to see what happens. But basically, the fields marked in the menu &amp;ldquo;Font Lock&amp;rdquo; are the fields that will be highlighted by Emacs.&lt;/p&gt;
+&lt;p&gt;The ESS debugging tool is also useful and powerful. You can simply type in you R console &lt;code&gt;debug(function)&lt;/code&gt; and then run the function called inside &lt;code&gt;debug&lt;/code&gt; or a function containing it and Emacs will run step by step and side by side the file each time you type RET in the console. Whenever you don&amp;rsquo;t type RET you can do all sort of stuff locally such as print the state of an argument or even change its value.&lt;/p&gt;
+&lt;h3 id=&#34;company&#34;&gt;Company&lt;/h3&gt;
+&lt;p&gt;Among all the libraries and Emacs functionalities that can help us writing R code, I think that &lt;a href=&#34;https://company-mode.github.io/&#34;&gt;Company&lt;/a&gt; deserves a special mention. It is an auto completion tool that is easy to set up for ESS and intuitive to use. If you followed the quick start you should already have it installed and ready to use.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;9
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-emacs-lisp&#34; data-lang=&#34;emacs-lisp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;use-package&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;company&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nb&#34;&gt;:config&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;add-hook&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;&amp;#39;after-init-hook&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;&amp;#39;global-company-mode&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;setq&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;company-selection-wrap-around&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;t&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nv&#34;&gt;company-tooltip-align-annotations&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;t&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nv&#34;&gt;company-idle-delay&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;0.45&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nv&#34;&gt;company-minimum-prefix-length&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nv&#34;&gt;company-tooltip-limit&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;The first paragraph is calling the library and creating a hook to activate it globally. You could as well change the hook to have it active only when ESS is running, but in my experience it is quite useful to have it active globally.&lt;/p&gt;
+&lt;p&gt;The second paragraph customize some of its functionality, for example &lt;code&gt;company-idle-delay&lt;/code&gt; defines the delay time to show the autocomplete menu, in seconds. You can fin more info about it in the official &lt;a href=&#34;https://company-mode.github.io/manual/Getting-Started.html&#34;&gt;documentation&lt;/a&gt; or simply by typing &lt;strong&gt;C-h v&lt;/strong&gt; RET and the name of the variable (i.e., &lt;strong&gt;C-h v RET company-idle-delay&lt;/strong&gt;).&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.teoten.com/post/2022/use_emacs_for_r/company.png&#34; alt=&#34;Company in action&#34;&gt;&lt;/p&gt;
+&lt;p&gt;If you followed the quick start you could probably had already noticed that you get code suggestions while typing R code. If not, I recommend you to give it a try. The variable &lt;code&gt;company-minimum-prefix-length&lt;/code&gt; is set to 3, which means that you need to type at least 3 characters and wait 0.45 seconds for the menu to pop-up.&lt;/p&gt;
+&lt;h2 id=&#34;what-next---explore-emacs-and-its-libraries&#34;&gt;What next? - Explore Emacs and its libraries&lt;/h2&gt;
+&lt;p&gt;As mentioned before, Emacs has many functionalities that can help boosting your productivity and writing code more easily. Here are some I personally use:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Emacs Functionalities&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Purpose&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://orgmode.org/&#34;&gt;org-mode&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Organization functionality in Emacs using plain text&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://www.gnu.org/software/emacs/manual/html_node/emacs/Parentheses.html&#34;&gt;paren-mode&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Commands for editing with parentheses&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://www.gnu.org/software/emacs/manual/html_node/emacs/Version-Control.html&#34;&gt;vc-mode&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Version Conrol in Emacs&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://elpa.gnu.org/packages/csv-mode.html&#34;&gt;csv-mode&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Visualize and edit CSV files&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://www.gnu.org/software/emacs/manual/html_node/emacs/Registers.html&#34;&gt;bookmarks and registers&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Save position in a file, windows configuration or text in keystrokes&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;If you had a look at &lt;code&gt;list-packages&lt;/code&gt; you would have noticed that the number of libraries available is huge. Here is a very conservative list of libraries that are particularly useful for working with R, or code in general.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Package&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Use&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://polymode.github.io/&#34;&gt;polymode&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Helps for markdown documents&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://github.com/polymode/poly-R&#34;&gt;poly-R&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Polymode for R&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://github.com/polymode/poly-markdown&#34;&gt;poly-markdown&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Polymode for markdown&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://magit.vc/&#34;&gt;Magit&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;A more user friendly Version control with great visualizations&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://www.emacswiki.org/emacs/FlySpell&#34;&gt;Flyspell&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Syntax check. Uses &lt;code&gt;lintr&lt;/code&gt; for R&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://github.com/abo-abo/swiper&#34;&gt;Swiper&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;The link includes &lt;strong&gt;Ivy&lt;/strong&gt; for auto completion, &lt;strong&gt;Counsel&lt;/strong&gt; for common Emacs commands and &lt;strong&gt;Swiper&lt;/strong&gt; for search&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;a href=&#34;https://github.com/joaotavora/yasnippet&#34;&gt;Yasnippet&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Templates system for Emacs&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Emacs is also an excellent tool for different kinds of professional writting, during my PhD studies I was using &lt;a href=&#34;https://www.gnu.org/software/auctex/&#34;&gt;AUCTeX&lt;/a&gt; for writing papers in LaTeX, supported by &lt;a href=&#34;https://www.emacswiki.org/emacs/BibTeX&#34;&gt;bibtex-mode&lt;/a&gt; to organize the bibliography and &lt;a href=&#34;https://github.com/tmalsburg/helm-bibtex&#34;&gt;helm-bibtex&lt;/a&gt; for queries. Emacs can also run &lt;a href=&#34;https://www.emacswiki.org/emacs/CategoryWebBrowser&#34;&gt;web browsers&lt;/a&gt;, &lt;a href=&#34;https://www.emacswiki.org/emacs/CategoryGames&#34;&gt;games&lt;/a&gt; and functionalities for &lt;a href=&#34;https://www.emacswiki.org/emacs/CategoryMail&#34;&gt;email&lt;/a&gt;, among others. I personally don&amp;rsquo;t use these much, but it shows the great possibilities of Emacs.&lt;/p&gt;
+&lt;p&gt;If you would like me to cover some of them in more detail leave a comment and I&amp;rsquo;ll try my best to share my knowledge to help.&lt;/p&gt;
+</description>
     </item>
     
   </channel>
