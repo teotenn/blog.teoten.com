@@ -1,6 +1,6 @@
 ---
 author: "Manuel Teodoro Tenango"
-title: "Mapa de cualquier región del mundo con R - Parte II: obteniendo las coordenadas."
+title: "Obteniendo coordenadas para mapas en R usando API"
 image: "/post/2022/map_any_region_with_ggplot2_part_I/maps_DrawingMap.png"
 draft: false
 date: 2022-11-04

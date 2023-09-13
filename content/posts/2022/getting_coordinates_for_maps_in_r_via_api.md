@@ -1,6 +1,6 @@
 ---
 author: "Manuel Teodoro Tenango"
-title: "Map any region in the world with R - Part II: Obtaining the coordinates"
+title: "Getting coordinates for maps in R via API"
 image: "/post/2022/map_any_region_with_ggplot2_part_I/maps_DrawingMap.png"
 draft: false
 date: 2022-11-04
