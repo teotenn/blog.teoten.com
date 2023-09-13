@@ -11,9 +11,7 @@ categories: ["R"]
 archives: ["2023"]
 ---
 
-```{r setup, include=FALSE} 
-knitr::opts_chunk$set(warning = FALSE, message = FALSE) 
-```
+
 
 This post is part of the series [maps-app](/series/maps-app/ "maps-app").
 
@@ -40,7 +38,8 @@ An S3 object in R is basically a structured list with a class name. It can be ea
 
 We start by defining a function that initializes the object using the function `structure`. We can use this function to check that our object contains the values that we need and throw some errors when there are mistakes.
 
-```{r defineMapColors}
+
+```r
 define_map_colors <- function(dots_orgs,
                               target_country,
                               empty_countries,
@@ -82,7 +81,8 @@ define_map_colors <- function(dots_orgs,
 
 The function takes 9 arguments, each of them should be a color in hex notation, meaning that it must start with `#` and it must contain 6 alphanumeric characters (i.e., `#f0f0f0`). Thus, our error handling basically verifies that the parameters passed are of class `character` starting with `#` and containing exactly 7 symbols. Then, each of the 9 arguments is passed to a list within `structure` and set them to the class `map_colors`. And our object is created.
 
-```{r OOPcolorsExample}
+
+```r
 my_colors <- define_map_colors(dots_orgs = "#493252",
                                target_country = "#8caeb4",
                                empty_countries = "#f3f3f3",
@@ -96,12 +96,21 @@ my_colors <- define_map_colors(dots_orgs = "#493252",
 class(my_colors)
 ```
 
+```
+> [1] "map_colors"
+```
+
 This is the same list of colors used in our [previous post](/posts/2023/programming_with_ggplot2/) by the [function that creates the maps](/posts/2023/programming_with_ggplot2/#background-and-preliminaries). Since our new object is also a list, we could use it indistinctly to create the maps. Thus, we need a method that verifies that our object is actually of the class `map_colors`. The method `is` already does that for other classes (i.e., `is.character()`) therefore, we can add our object to tell it how to handle it.
 
-```{r is_map_color}
+
+```r
 is.map_colors <- function(x) inherits(x, "map_colors")
 
 is.map_colors(my_colors)
+```
+
+```
+> [1] TRUE
 ```
 
 The function is very simple, we just need to check if the object passed inherits the class. Now we can use `is.map_colors()` in all the functions that create maps to pass the list of colors with our new class rather than a simple list.
