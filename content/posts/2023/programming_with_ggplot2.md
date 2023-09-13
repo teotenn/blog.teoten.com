@@ -1,6 +1,6 @@
 ---
 author: "Manuel Teodoro Tenango"
-title: "Map any region in the world with R - Part III: Programming with ggplot2"
+title: "Programming with ggplot2"
 image: "/post/2022/map_any_region_with_ggplot2_part_I/maps_DrawingMap.png"
 draft: false
 date: 2023-04-19

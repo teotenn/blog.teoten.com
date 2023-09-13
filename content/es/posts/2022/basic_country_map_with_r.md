@@ -1,6 +1,6 @@
 ---
 author: "M. Teodoro Tenango"
-title: "Mapa de cualquier región del mundo con R - Parte I: El mapa base"
+title: "Mapa base de un país con R"
 image: "/post/2022/map_any_region_with_ggplot2_part_I/maps_DrawingMap.png"
 draft: false
 date: 2022-10-08
