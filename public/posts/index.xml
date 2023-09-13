@@ -135,11 +135,11 @@ Also, don&amp;#39;t forget to check the &lt;a href=&#34;https://nginx.org/en/doc
     </item>
     
     <item>
-      <title>Map any region in the world with R - Part III: Programming with ggplot2</title>
-      <link>https://blog.teoten.com/posts/2023/map_any_region_with_ggplot2_part_iii/</link>
+      <title>Programming with ggplot2</title>
+      <link>https://blog.teoten.com/posts/2023/programming_with_ggplot2/</link>
       <pubDate>Wed, 19 Apr 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.teoten.com/posts/2023/map_any_region_with_ggplot2_part_iii/</guid>
+      <guid>https://blog.teoten.com/posts/2023/programming_with_ggplot2/</guid>
       <description>&lt;p&gt;This post is part of the series &lt;a href=&#34;https://blog.teoten.com/tags/maps-app/&#34; title=&#34;#maps-app&#34;&gt;maps-app&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;You can also find the current state of the project under &lt;a href=&#34;https://github.com/teotenn&#34;&gt;my GitHub&lt;/a&gt; repo &lt;a href=&#34;https://github.com/teotenn/mapic&#34;&gt;mapic&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;scope-of-this-post&#34;&gt;Scope of this post&lt;/h2&gt;
@@ -2180,11 +2180,11 @@ A short description of the package.&lt;/p&gt;
     </item>
     
     <item>
-      <title>Map any region in the world with R - Part II: Obtaining the coordinates</title>
-      <link>https://blog.teoten.com/posts/2022/map_any_region_with_ggplot2_part_ii/</link>
+      <title>Getting coordinates for maps in R via API</title>
+      <link>https://blog.teoten.com/posts/2022/getting_coordinates_for_maps_in_r_via_api/</link>
       <pubDate>Fri, 04 Nov 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.teoten.com/posts/2022/map_any_region_with_ggplot2_part_ii/</guid>
+      <guid>https://blog.teoten.com/posts/2022/getting_coordinates_for_maps_in_r_via_api/</guid>
       <description>&lt;p&gt;This post is part of the series &lt;a href=&#34;https://blog.teoten.com/series/maps-app/&#34; title=&#34;#maps-app&#34;&gt;maps-app&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;You can also find the current state of the project under &lt;a href=&#34;https://github.com/teotenn&#34;&gt;my GitHub&lt;/a&gt; repo &lt;a href=&#34;https://github.com/teotenn/mapic&#34;&gt;mapic&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;scope-of-this-post&#34;&gt;Scope of this post&lt;/h2&gt;
@@ -2973,11 +2973,11 @@ A short description of the package.&lt;/p&gt;
     </item>
     
     <item>
-      <title>Map any region in the world with R - Part I: The basic map</title>
-      <link>https://blog.teoten.com/posts/2022/map_any_region_with_ggplot2_part_i/</link>
+      <title>Basic map of a country with R</title>
+      <link>https://blog.teoten.com/posts/2022/basic_country_map_with_r/</link>
       <pubDate>Sat, 08 Oct 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.teoten.com/posts/2022/map_any_region_with_ggplot2_part_i/</guid>
+      <guid>https://blog.teoten.com/posts/2022/basic_country_map_with_r/</guid>
       <description>&lt;p&gt;This post is part of the series &lt;a href=&#34;https://blog.teoten.com/series/maps-app/&#34;&gt;maps-app&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;You can also find the current state of the project under &lt;a href=&#34;https://github.com/teotenn&#34;&gt;my GitHub&lt;/a&gt; repo &lt;a href=&#34;https://github.com/teotenn/mapic&#34;&gt;mapic&lt;/a&gt; (including the Spanish versions).&lt;/p&gt;
 &lt;h2 id=&#34;scope-of-this-post&#34;&gt;Scope of this post&lt;/h2&gt;

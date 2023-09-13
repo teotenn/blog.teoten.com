@@ -99,9 +99,6 @@
     <loc>https://blog.teoten.com/categories/web-dev/</loc>
     <lastmod>2023-09-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://blog.teoten.com/posts/2023/map_any_region_with_ggplot2_part_iii/</loc>
-    <lastmod>2023-04-19T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://blog.teoten.com/series/maps-app/</loc>
     <lastmod>2023-04-19T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -114,6 +111,9 @@
                 hreflang="en"
                 href="https://blog.teoten.com/series/maps-app/"
                 />
+  </url><url>
+    <loc>https://blog.teoten.com/posts/2023/programming_with_ggplot2/</loc>
+    <lastmod>2023-04-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.teoten.com/tags/r-functions/</loc>
     <lastmod>2023-08-30T00:00:00+00:00</lastmod>
@@ -308,39 +308,39 @@
                 href="https://blog.teoten.com/tags/ggplot2/"
                 />
   </url><url>
-    <loc>https://blog.teoten.com/posts/2022/map_any_region_with_ggplot2_part_ii/</loc>
+    <loc>https://blog.teoten.com/posts/2022/getting_coordinates_for_maps_in_r_via_api/</loc>
     <lastmod>2022-11-04T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="https://blog.teoten.com/es/posts/2022/map_any_region_with_ggplot2_part_ii/"
+                href="https://blog.teoten.com/es/posts/2022/getting_coordinates_for_maps_in_r_via_api/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://blog.teoten.com/posts/2022/map_any_region_with_ggplot2_part_ii/"
+                href="https://blog.teoten.com/posts/2022/getting_coordinates_for_maps_in_r_via_api/"
                 />
   </url><url>
-    <loc>https://blog.teoten.com/es/posts/2022/map_any_region_with_ggplot2_part_ii/</loc>
+    <loc>https://blog.teoten.com/es/posts/2022/getting_coordinates_for_maps_in_r_via_api/</loc>
     <lastmod>2022-11-04T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.teoten.com/posts/2022/comparison_dplyr_vs_base_r/</loc>
     <lastmod>2022-10-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://blog.teoten.com/posts/2022/map_any_region_with_ggplot2_part_i/</loc>
+    <loc>https://blog.teoten.com/posts/2022/basic_country_map_with_r/</loc>
     <lastmod>2022-10-08T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="https://blog.teoten.com/es/posts/2022/map_any_region_with_ggplot2_part_i/"
+                href="https://blog.teoten.com/es/posts/2022/basic_country_map_with_r/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://blog.teoten.com/posts/2022/map_any_region_with_ggplot2_part_i/"
+                href="https://blog.teoten.com/posts/2022/basic_country_map_with_r/"
                 />
   </url><url>
-    <loc>https://blog.teoten.com/es/posts/2022/map_any_region_with_ggplot2_part_i/</loc>
+    <loc>https://blog.teoten.com/es/posts/2022/basic_country_map_with_r/</loc>
     <lastmod>2022-10-08T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.teoten.com/es/posts/2022/minitut_makebool/</loc>

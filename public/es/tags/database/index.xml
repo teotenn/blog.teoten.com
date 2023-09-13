@@ -413,11 +413,11 @@
     </item>
     
     <item>
-      <title>Mapa de cualquier región del mundo con R - Parte II: obteniendo las coordenadas.</title>
-      <link>https://blog.teoten.com/es/posts/2022/map_any_region_with_ggplot2_part_ii/</link>
+      <title>Obteniendo coordenadas para mapas en R usando API</title>
+      <link>https://blog.teoten.com/es/posts/2022/getting_coordinates_for_maps_in_r_via_api/</link>
       <pubDate>Fri, 04 Nov 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.teoten.com/es/posts/2022/map_any_region_with_ggplot2_part_ii/</guid>
+      <guid>https://blog.teoten.com/es/posts/2022/getting_coordinates_for_maps_in_r_via_api/</guid>
       <description>&lt;p&gt;Pueden encontrar todas las publicaciones en este tema bajo las series &lt;a href=&#34;https://blog.teoten.com/tags/maps-app/&#34;&gt;maps-app&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;También pueden encontrar el estado actual del proyecto en &lt;a href=&#34;https://github.com/teotenn&#34;&gt;mi GitHub&lt;/a&gt; repo &lt;a href=&#34;https://github.com/teotenn/mapic&#34;&gt;mapic&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;sobre-este-post&#34;&gt;Sobre este post&lt;/h2&gt;

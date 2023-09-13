@@ -1,7 +1,7 @@
 ---
 author: "Manuel Teodoro Tenango"
 title: "Adding a website next to your Shiny server"
-image: ""
+image: "/img/nginx-configurations.png"
 draft: false
 date: 2023-09-07
 description: "Add a website next to your Shiny server using Nginx"
