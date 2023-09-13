@@ -27,8 +27,7 @@ I hope you all enjoy it. Feel free to leave any kind of comment and/or question 
 ![R Maps](/post/2022/map_any_region_with_ggplot2_part_I/maps_DrawingMap.png)
 
 # Background and preliminaries
-In the [first post](/post/map_any_region_with_ggplot2_part_i/) we created a function to create the basic map. Since then I have modified the function slightly, but the concept is the same. You can see below the most up to date version and compare it with the [previous version](/post/map_any_region_with_ggplot2_part_i/#function-to-create-the-basic-map-in-r) if you wish.
-
+In the [first post](/posts/2022/basic_country_map_with_r/) we created a function to create the basic map. Since then I have modified the function slightly, but the concept is the same. You can see below the most up to date version and compare it with the [previous version](/posts/2022/basic_country_map_with_r/#function-to-create-the-basic-map-in-r) if you wish.
 
 ```r
 my_country_prev <- function(country,
@@ -152,10 +151,7 @@ mx_data <- data.frame(
            "Texcoco"))
 ```
 
-We can see it as a company that along 10 years managed to open one new franchise per year, and we want to map where each is located and where it has grown the most. For that, we need the coordinates of the cities where each franchise is located. We can easily obtain that using code from the previous posts: either directly from [part II](/post/map_any_region_with_ggplot2_part_ii/) or the [improved version of the function](/post/webscrap_and_iteration_in_r/).
-
-
-
+We can see it as a company that along 10 years managed to open one new franchise per year, and we want to map where each is located and where it has grown the most. For that, we need the coordinates of the cities where each franchise is located. We can easily obtain that using code from the previous posts: either directly from [part II](/posts/2022/getting_coordinates_for_maps_in_r_via_api/) or the [improved version of the function](/posts/2023/webscrap_and_iteration_in_r/).
 
 ```r
 webscrap_to_db(db_name = "test-mex.sqlite",
@@ -166,7 +162,6 @@ webscrap_to_db(db_name = "test-mex.sqlite",
 ```
 
 And also using previously defined functions, we can combine the data with the just obtained coordinates system.
-
 
 ```r
 (datmx <- combine_csv_sql(db_file = "test-mex.sqlite",
