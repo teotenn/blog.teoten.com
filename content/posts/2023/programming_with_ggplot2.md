@@ -11,11 +11,11 @@ categories: ["R"]
 archives: ["2023"]
 ---
 
-This post is part of the series [maps-app](/tags/maps-app/ "#maps-app").
+This post is part of the series [maps-app](/series/maps-app/ "maps-app").
 
 You can also find the current state of the project under [my GitHub](https://github.com/teotenn) repo [mapic](https://github.com/teotenn/mapic).
 
-## Scope of this post
+# Scope of this post
 We are creating maps of data showing changes over a span of time for different countries and pointing at all kinds of cities. That basically means that we need to **map any region of the world with R**. Today there are all kinds of packages and techniques to do that. I will share the strategy I used with [ggplot2](https://cran.r-project.org/web/packages/ggplot2/index.html) and [maps](https://cran.r-project.org/web/packages/maps/index.html) packages, using support of [Open Street Map](https://www.openstreetmap.org/) to obtain the coordinates of cities and finally making it interactive with [shiny](https://shiny.rstudio.com/). 
 
 This series of posts share my path towards the creation of the Shiny app. It is a live project and I decided to share my path and experiences along the creation process. The posts are not only about the Shiny app, but the package I created behind it, including topics of functions crafting, creation of the maps, classes of objects, etc., as well as any interesting issue that appear on the way. It is my way to contribute to the R community and at the same time keeping the project documented for myself.
@@ -26,7 +26,7 @@ I hope you all enjoy it. Feel free to leave any kind of comment and/or question 
 
 ![R Maps](/post/2022/map_any_region_with_ggplot2_part_I/maps_DrawingMap.png)
 
-## Background and preliminaries
+# Background and preliminaries
 In the [first post](/post/map_any_region_with_ggplot2_part_i/) we created a function to create the basic map. Since then I have modified the function slightly, but the concept is the same. You can see below the most up to date version and compare it with the [previous version](/post/map_any_region_with_ggplot2_part_i/#function-to-create-the-basic-map-in-r) if you wish.
 
 
@@ -211,7 +211,7 @@ And also using previously defined functions, we can combine the data with the ju
 
 Now `datmx` should have the coordinates, together with the rest of the data about our franchises. We should also have our SQLite file and, of course, our source data. It means that we are ready to add the data to the map.
 
-## Programming with ggplot2
+# Programming with ggplot2
 If you ever wondered how to create functions with ggplot2, there are a few ways, but here is the basic point that we need to understand, if we want to have them working in the same style as ggplot works:
 
 Once you have the base plot with the function `ggplot()` you can add geoms and stats to it by simply using `+`, or you can create new functions by returning a `list` of geoms and stats.
@@ -240,7 +240,7 @@ my_country_prev("Mexico", map_colors, x_limits = c(-118, -86), y_limits = c(14, 
 
 With that in mind, we can do all the calculations we want and start adding the data in form of geoms and stats to the base map.
 
-### A map with growing dots per city
+## A map with growing dots per city
 We started with something simple, adding the amount of organizations per city, as growing dots.
 
 
@@ -364,7 +364,7 @@ my_country_prev("Mexico",
 
 ![plot of chunk unnamed-chunk-5](/post/2023/map_any_region_with_ggplot2_part_III/unnamed-chunk-5-1.png)
 
-### Adding labels for the map
+## Adding labels for the map
 Moving forward, we want to add some labels to the maps to know what we are seeing. Here I created one function to show which year is being mapped, and a second one to show the totals. Although we can achieve that easily in different ways, I managed to make it complicated, keeping in mind that we want to map any region in the world.
 
 
@@ -531,7 +531,7 @@ my_country_prev("Russia",
 
 Russia is a very particular case because the country is quite long but not so wide. If we specify coordinates too narrow for latitude, the map does not look good and the labels start getting deformed. It would be the same case with Chile, if we make it narrow in longitude but it is naturally long in latitude. Since the main aim of the functions is to take care of the aesthetics and visualization, we have to ensure that this should not happen, somehow. Having certain degree of the labels is one way to do that. We will see a few more in the future. 
 
-## Conclusions
+# Conclusions
 If your aim is only to make maps like the above for any given country, our first 3 posts should have you covered. We could also import our functions to a shiny app and work with that. However, there are many improvements that we can still do.
 
 Now that we know the basis for functional programming with ggplot2, we can extend the power of our functions in the way how they share arguments by exploring the OOP (Object Oriented Programming) in R, the `ggproto` system to extend ggplot, and the use of environments. 

@@ -11,7 +11,7 @@ series: ["maps-app"]
 archives: ["2023"]
 ---
 
-## About this post
+# About this post
 
 We are creating maps of data showing changes over a span of time for different countries and pointing at all kinds of cities. That basically means that we need to **map any region of the world with R**. Today there are all kinds of packages and techniques to do that. I will share the strategy I used with [ggplot2](https://cran.r-project.org/web/packages/ggplot2/index.html) and [maps](https://cran.r-project.org/web/packages/maps/index.html) packages, using support of [Open Street Map](https://www.openstreetmap.org/) to obtain the coordinates of cities and finally making it interactive with [shiny](https://shiny.rstudio.com/). 
 
@@ -25,7 +25,7 @@ This post is originally written in Spanish, from the Amsterdam airport, on the w
 
 ![R Maps](/post/2022/map_any_region_with_ggplot2_part_I/maps_DrawingMap.png)
 
-## Motivation
+# Motivation
 
 As I mentioned in the previous posts in the series, I've been working lately on the code for creating the maps and I've made changes that increase the efficiency of the functions, the readability of the code, and make it easier to use. At the same it allows me to extend the functions beyond their original design.
 
@@ -37,7 +37,7 @@ However, for better or worse, 2022 was a year full of changes and challenges for
 
 This allowed me to improve the two main functions: the one in charge of the webscrapping and the one that sends the data to SQLite. You can find the original functions in the previous post, [Map any region in the world with R - Part I: The basic map](/post/map_any_region_with_ggplot2_part_i/) and compare it with the new, improved functions in this.
 
-## Webscrapp to SQLite
+# Webscrapp to SQLite
 The `webscrap_to_sqlite` function is responsible for sending the coordinates found by Open Street Map to our database. The original function is inefficient, as it does each operation line by line. It is also very rigid in the way it directs the values of the regions, both its request to the API and the placement of the values in the database, which makes any extension or modification very complicated.
 
 For these reasons, it is the function that received the most changes, it was practically rewritten from scratch, making the search more efficient, also allowing internal search of the data already stored; more flexible, dealing with region parameters more clearly; and more understandable, improving the style of the code.
@@ -151,7 +151,7 @@ Since step 2 filters the data that is not yet in the database and step 3 places 
 
 If we compare this function with the one proposed in my previous post, the function is completely different but the end result is the same. The arguments used by the function are also the same and take the same values, which avoids conflicts for the user. The only new parameter is `db_backup_after` which allows us to control how many rows the iteration is done. A smaller value means more iterations, which results in higher local memory usage, but also faster in finding data that already exists in the DB. On the other hand, a higher value reduces the number of iterations but increases the number of API connections. For this reason I have given it a default value of 10. This, in addition to being a balanced value, also reduces confusion for the user who might not be familiar with the changes.
 
-## Remove missing values from the database
+# Remove missing values from the database
 In the previous proposal, only found coordinates were sent to the database, and those not found were ignored. In the present proposal, all entries are sent to the DB. Therefore, it is important to have some option to remove the missing entries.
 
 For this I generated the function `remove_na_from_db`, a very simple function which gives the user the possibility of removing `NA`s automatically.
@@ -169,7 +169,7 @@ remove_na_from_db <- function(db.file) {
 
 The function is just a connection to the database that issues the command to remove rows where the `lon` field is empty, in SQLite syntax. This is the safest, most direct and fastest way to do it. We could also import the data back into R, filter it, and send it back to SQLite, but this would require more local memory usage, more code, and more risk as it would require rewriting the database to SQLite entirely. . The power of the `RSQLite` library (or any other library that connects R to SQL) lies precisely in the ability to pass commands written and executed directly in SQL.
 
-## Obtaining the coordinates
+# Obtaining the coordinates
 The `coords_from_city` function also received significant changes in code readability and flexibility, and a bit less in functionality and efficiency.
 
 
@@ -252,6 +252,6 @@ Step 3 changes the organization of the results a bit, always returning a data fr
 
 As I mentioned before, these new features also allow us to perform searches with the empty city value. This was a requested requirement in the last version, as some users started making maps by region, while others, not finding very small cities, decided to group the data by region. Thanks to the changes made to `coords_from_city`, the `webscrap_to_sqlite` function can now return results when the value for city is `NA`, assuming that the coordinates for the region or state are found. Here it is important to mention that it is recommended to use the `state` argument for region search, for some reason this works better in the OSM API. As an example, the search `coords_from_city(state = "Castilla La Mancha", country_code = "ES")` returns the expected results, despite of the fact that Spain has no states; however if we do `coords_from_city(region = "Castilla La Mancha", country_code = "ES")` nominatim does not find the results.
 
-## Conclusions
+# Conclusions
 
 These changes have been very important in speeding up the coordinate search process and automating map creation. On the other hand, it allowed me to style the code more and improve its efficiency. Since my main project for now is turning it into a Shiny app, it was important for me to improve the code and the efficiency before dealing with the details of the server. Since this is recent work that I have been doing in the last few months, I decided to share it right away now that I have fresh information on the changes. I hope it can help more than one to make more abstract code and practice recursion.

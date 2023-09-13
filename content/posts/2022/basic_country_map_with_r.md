@@ -15,7 +15,7 @@ This post is part of the series [maps-app](/series/maps-app/).
 
 You can also find the current state of the project under [my GitHub](https://github.com/teotenn) repo [mapic](https://github.com/teotenn/mapic) (including the Spanish versions).
 
-## Scope of this post
+# Scope of this post
 
 When you prepare for a job interview one of the questions they always tell you to prepare is "What are you most proud of?". Personally I've never been asked that question in a job interview but it kept me thinking. Some years ago I developed the R code for the creation of maps of infrastructure for a Political Sciences project, and I can say that this is one of the projects I'm most proud of. However, it is also true what they say to developers, that **nobody cares about how you did it**. The final user only cared about what was done, while the research team about what are the possibilities. 
 
@@ -29,7 +29,7 @@ This first post is asbout the creation of **The basic map**
 	
 I hope you all enjoy it. Feel free to leave any kind of comment and/or question at the end.
 
-## Background
+# Background
 
 When I joined the team all what they knew is that the wanted to make maps of infrastructure (say hospitals, cafes, churches, public offices, etc., but the project can basically be applied to anything countable per city). The maps should change in time according to the data (usually growth) and it should be possible to apply it for any country and thus, any kind of city of that particular country can be listed there. This last point represents a challenge because to make a map you need the coordinates of a particular point to map, but instead we got address in the best scenario, or only city name in the worst. Therefore, we left it to the level of city and decided to work with that.
 
@@ -39,7 +39,7 @@ The first couple of maps were custom code for a particular country with decent s
 
 I don't think I will share every single detail of it, but at least I want to show how we went from the basic map to its dynamic form mapping over a span of time, and how I wrapped it all together in a couple of functions to make it quickly replicable for any given data set. Let me know what you think.
 
-## How to create a map of any country in R using the library maps
+# How to create a map of any country in R using the library maps
 
 The first step is to create the basic map of a country. Here is the function to achieve exactly that.
 
@@ -85,7 +85,7 @@ Up to here we can have our map. `ggplot` is basically plotting what we are speci
 
 Of course there are a lot of improvements to do. So far I have given exaggerated colors to make obvious for the reader which piece of code controls what. In that sense you can see that you can simply pass the names of the colors, which applies the defaults, or you can be more specific and provide the html notation of the color (i.e., `'#9c9c9c'`). So, let's now improve the visuals and at the same time create a function to plot any country we want to.
 
-##  Function to create the basic map in R
+#  Function to create the basic map in R
 
 
 ```r
@@ -163,7 +163,7 @@ The lower part of the function is exactly the same as our first map, replacing t
 
 The final line is the test that our function can plot a map other than Spain, in this case I chose Germany. We can basically choose any country included in the `maps` package and now make the map with the same standards in one line of R code.
 
-## Final remarks
+# Final remarks
 
 Here I am somehow showing one of the methods I use to create functions: I basically write first the code of what I want to achieve and once it does exactly what I want, I wrap it in a function, replacing the arguments that the user will need to modify later. Then I think what could go wrong and create the corresponding warnings an errors. It is a good practice to do that not only for the user to know better how to use the function, but also for yourself, it proves very useful when we need to debug code. Another good practice in R functions is the call to the libraries inside the function using `require()`. Even if you are writing many functions that use the same libraries, is good to repeat it on each function, or per script, to make it self contained and again, help yourself in the debugging process. Not long ago I started collaborating in a project where there was no call to the libraries per function, but rather only at the top level when the main action of the program was called. This made almost impossible for me to test and debug code so, the first activity I did as a new member of the team was to spend 2 full working days adding `require()` where necessary.
 

@@ -11,11 +11,11 @@ series: ["maps-app"]
 archives: ["2022"]
 ---
 
-This post is part of the series [maps-app](/series/maps-app/ "#maps-app").
+This post is part of the series [maps-app](/series/maps-app/ "maps-app").
 
 You can also find the current state of the project under [my GitHub](https://github.com/teotenn) repo [mapic](https://github.com/teotenn/mapic).
 
-## Scope of this post
+# Scope of this post
 
 This is the second part of the series to create a map of any region of the world with R.
 
@@ -29,7 +29,7 @@ I hope you all enjoy it. Feel free to leave any kind of comment and/or question 
 
 ![R Maps](/post/2022/map_any_region_with_ggplot2_part_I/maps_DrawingMap.png)
 
-## Open Street Maps and Nominatim
+# Open Street Maps and Nominatim
 
 > A simple query
 > 
@@ -232,7 +232,7 @@ The function returns a data frame that we will use later to create a table with 
 
 An important point to consider in `coords_from_city` is that it will return only the top result from the query. It means that the more information you provide, the more accurate your result will be. For our project it worked well because for big countries we were always collecting enough info about regions and states, while for smaller countries often the options were too small. But if you use the function it is important to know that if you provide a city name like `Springfield`, `Country = 'US'` and give no info about State and County, the function will retrieve only the top result from the search and discard the remaining options. 
 
-## Keeping the info in a database
+# Keeping the info in a database
 
 The function `coords_from_city` could be enough if we need to retrieve info about a few cities; we could make a for loop, retrieve all the coords we need and sore them in a data frame to later save as csv, `Rdata` or any format we choose. The same is true when we are searching for hundreds or thousands of cities but with data increasing the searching time also increases. If, for any reason, the R session breaks, the information would be lost and we will have to start all over again from row 1. Therefore, we are going to send every single result to a database. In that way, no matter when we stop the process or how this happens, the data is safely stored outside of R. 
 
@@ -332,7 +332,7 @@ combine_df_sql <- function(db.file, original.data){
 
 Another detail of our function is the ability to read either from the `csv` file or from a `data.frame`. Since we were working mainly with csv files and I used data frames for the unit tests, these 2 formats were enough. Feel free to modify or extend the function for the data formats that you might need.
 
-## Missing data
+# Missing data
 
 As mentioned above, sometimes the results from the query would be incomplete and a second or third run were necessary but with a fewer rows. Some others I just needed to stop the query and continue later from where we left. And yet some other times the data was incomplete or wrong and this could be solved later with the data owner. The 3 scenarios required me to read the csv file to R, then the table from the database and compare them to filter the missing values. So I crafted the function `compare_db_data` to compare the database (db) to the original data. 
 
@@ -396,7 +396,7 @@ add_coords_manually <- function(csv_file, db.name,
 }
 ```
 
-## Next steps
+# Next steps
 
 If you are new to R you could probably already had noticed that one of the strengths of R that I'm using a lot here is its use of functions. The first maps that we created were done writing scripts with a few hundreds of lines. Those gave us the basis to craft the necessary functions and so, the rest of the maps were possible using just a few lines. Some of the scripts for the web scrapping of the coordinates consist of less than 10 lines of code. That is possible using the functions above and a few others created for special or particular cases. I will not share absolutely everything but I want to give an idea of how to make the process more efficient. You can always create more functions for your particular cases or modify my proposed functions to adapt to your particular situation. 
 
