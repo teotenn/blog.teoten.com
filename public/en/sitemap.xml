@@ -2,11 +2,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://blog.teoten.com/posts/2023/adding_website_to_siny/</loc>
-    <lastmod>2023-09-07T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://blog.teoten.com/categories/</loc>
-    <lastmod>2023-09-07T00:00:00+00:00</lastmod>
+    <lastmod>2023-09-13T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
@@ -18,21 +15,27 @@
                 href="https://blog.teoten.com/categories/"
                 />
   </url><url>
-    <loc>https://blog.teoten.com/tags/minitutorial/</loc>
-    <lastmod>2023-09-07T00:00:00+00:00</lastmod>
+    <loc>https://blog.teoten.com/series/maps-app/</loc>
+    <lastmod>2023-09-13T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="https://blog.teoten.com/es/tags/minitutorial/"
+                href="https://blog.teoten.com/es/series/maps-app/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://blog.teoten.com/tags/minitutorial/"
+                href="https://blog.teoten.com/series/maps-app/"
                 />
   </url><url>
+    <loc>https://blog.teoten.com/posts/2023/oop_in_r_s3/</loc>
+    <lastmod>2023-09-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.teoten.com/tags/oop/</loc>
+    <lastmod>2023-09-13T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://blog.teoten.com/posts/</loc>
-    <lastmod>2023-09-07T00:00:00+00:00</lastmod>
+    <lastmod>2023-09-13T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
@@ -45,7 +48,7 @@
                 />
   </url><url>
     <loc>https://blog.teoten.com/categories/r/</loc>
-    <lastmod>2023-09-07T00:00:00+00:00</lastmod>
+    <lastmod>2023-09-13T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
@@ -55,6 +58,74 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://blog.teoten.com/categories/r/"
+                />
+  </url><url>
+    <loc>https://blog.teoten.com/tags/r-maps/</loc>
+    <lastmod>2023-09-13T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://blog.teoten.com/es/tags/r-maps/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog.teoten.com/tags/r-maps/"
+                />
+  </url><url>
+    <loc>https://blog.teoten.com/series/</loc>
+    <lastmod>2023-09-13T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://blog.teoten.com/es/series/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog.teoten.com/series/"
+                />
+  </url><url>
+    <loc>https://blog.teoten.com/tags/</loc>
+    <lastmod>2023-09-13T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://blog.teoten.com/es/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog.teoten.com/tags/"
+                />
+  </url><url>
+    <loc>https://blog.teoten.com/</loc>
+    <lastmod>2023-09-13T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://blog.teoten.com/es/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog.teoten.com/"
+                />
+  </url><url>
+    <loc>https://blog.teoten.com/posts/2023/adding_website_to_siny/</loc>
+    <lastmod>2023-09-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.teoten.com/tags/minitutorial/</loc>
+    <lastmod>2023-09-07T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://blog.teoten.com/es/tags/minitutorial/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog.teoten.com/tags/minitutorial/"
                 />
   </url><url>
     <loc>https://blog.teoten.com/tags/r-shiny/</loc>
@@ -70,47 +141,8 @@
                 href="https://blog.teoten.com/tags/r-shiny/"
                 />
   </url><url>
-    <loc>https://blog.teoten.com/tags/</loc>
-    <lastmod>2023-09-07T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://blog.teoten.com/es/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://blog.teoten.com/tags/"
-                />
-  </url><url>
-    <loc>https://blog.teoten.com/</loc>
-    <lastmod>2023-09-07T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://blog.teoten.com/es/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://blog.teoten.com/"
-                />
-  </url><url>
     <loc>https://blog.teoten.com/categories/web-dev/</loc>
     <lastmod>2023-09-07T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.teoten.com/series/maps-app/</loc>
-    <lastmod>2023-04-19T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://blog.teoten.com/es/series/maps-app/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://blog.teoten.com/series/maps-app/"
-                />
   </url><url>
     <loc>https://blog.teoten.com/posts/2023/programming_with_ggplot2/</loc>
     <lastmod>2023-04-19T00:00:00+00:00</lastmod>
@@ -126,32 +158,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://blog.teoten.com/tags/r-functions/"
-                />
-  </url><url>
-    <loc>https://blog.teoten.com/tags/r-maps/</loc>
-    <lastmod>2023-04-19T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://blog.teoten.com/es/tags/r-maps/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://blog.teoten.com/tags/r-maps/"
-                />
-  </url><url>
-    <loc>https://blog.teoten.com/series/</loc>
-    <lastmod>2023-04-19T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://blog.teoten.com/es/series/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://blog.teoten.com/series/"
                 />
   </url><url>
     <loc>https://blog.teoten.com/tags/database/</loc>

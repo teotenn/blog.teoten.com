@@ -3,22 +3,25 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Teoten&#39;s Blog | database</title>
-    <meta name="description" content=" ">
-    <link rel="canonical" href="https://blog.teoten.com/tags/database/" />
+    <title>Teoten&#39;s Blog | Object Oriented Programming in R: S3</title>
+    <meta name="description" content="Part of making maps of any region in the world with R using ggplot2 and maps packages: Object Oriented Programming ">
+    <link rel="canonical" href="https://blog.teoten.com/posts/2023/oop_in_r_s3/" />
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
     <link rel="manifest" href="/favicon/site.webmanifest">
-    <meta property="og:title" content="database" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://blog.teoten.com/tags/database/" />
+    <meta property="og:title" content="Object Oriented Programming in R: S3" />
+<meta property="og:description" content="Part of making maps of any region in the world with R using ggplot2 and maps packages: Object Oriented Programming" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.teoten.com/posts/2023/oop_in_r_s3/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-09-13T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-09-13T00:00:00+00:00" />
+<meta property="og:see_also" content="https://blog.teoten.com/posts/2023/programming_with_ggplot2/" /><meta property="og:see_also" content="https://blog.teoten.com/posts/2023/webscrap_and_iteration_in_r/" /><meta property="og:see_also" content="https://blog.teoten.com/es/posts/2023/webscrap_and_iteration_in_r/" /><meta property="og:see_also" content="https://blog.teoten.com/posts/2022/getting_coordinates_for_maps_in_r_via_api/" /><meta property="og:see_also" content="https://blog.teoten.com/es/posts/2022/getting_coordinates_for_maps_in_r_via_api/" />
 
 
     <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="database"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:title" content="Object Oriented Programming in R: S3"/>
+<meta name="twitter:description" content="Part of making maps of any region in the world with R using ggplot2 and maps packages: Object Oriented Programming"/>
 
     
         
@@ -42,7 +45,6 @@
     
     <link rel="stylesheet" href='/css/shortcode.css' />
 
-    <link rel="alternate" type="application/rss+xml" href="https://blog.teoten.com/tags/database/index.xml" title="Teoten's Blog" />
     
     <link rel="stylesheet" href='/css/_custom.css' />
     <style>
@@ -210,29 +212,41 @@
 
 
         <div id="content">
-    
 
 
 
 
-
-
-    
-        
-    
 
 
 
 
     <div class="hero">
         
-            
-                <div class="hero-img">
-                    <img class="lazyload" src="/images/thumbnail.gif" data-src="/images/default.jpg" alt="">
-                </div>
-            
+            <div class="hero-img">
+                <img class="lazyload" src="/images/thumbnail.gif" data-src="/post/2022/map_any_region_with_ggplot2_part_I/maps_DrawingMap.png" alt="">
+            </div>
+        
         <div class="hero-content">
-            <h1 class="hero-title">Tag: database</h1>
+            <div class="hero-title">Object Oriented Programming in R: S3</div>
+            <div class="hero-subtitle"></div>
+            <div class="hero-date">
+                    <span class="no-wrap"><i class="fa fa-calendar"></i> postedOn: 2023-9-13 &nbsp;</span>
+                    <span class="no-wrap"><i class="fa fa-calendar-check-o"></i> updatedOn: 2023-9-13 &nbsp;</span>
+                    <span class="no-wrap"><i class="fa fa-folder"></i>
+                        includedIn:
+                        
+                            <a href='
+                                /categories/r
+                            '>
+                                R
+                            </a>
+                    </span>    
+            </div>
+            <div class="timelong">
+                <span class="no-wrap"><i class="fa fa-pencil"></i> wordsCount: 3106 &nbsp;</span>
+                <span class="no-wrap"><i class="fa fa-clock-o"></i> readingTime: 15 mins &nbsp;</span>
+                <span class="no-wrap"><i class="fa fa-eye"></i> viewers: <span id="busuanzi_value_page_pv"></span></span>
+            </div>
         </div>
     </div>
 
@@ -251,7 +265,7 @@
     
 
 
-<div class="terms-body">
+<div class="content-root">
     <div class="long">
         <button class="tosides-1 text-wbd">
             <i class="fa fa-arrow-right"></i>
@@ -264,402 +278,724 @@
         </button>
     </div>
     
-        <div class="terms-row">
+        <div class="content">
+            <div class="content-self">
+                <p>This post is part of the series <a href="/series/maps-app/" title="maps-app">maps-app</a>.</p>
+<p>You can also find the current state of the project under <a href="https://github.com/teotenn">my GitHub</a> repo <a href="https://github.com/teotenn/mapic">mapic</a>.</p>
+<h1 id="scope-of-this-post">Scope of this post</h1>
+<p>We are creating maps of data showing changes over a span of time for different countries and pointing at all kinds of cities. That basically means that we need to <strong>map any region of the world with R</strong>. Today there are all kinds of packages and techniques to do that. I will share the strategy I used with <a href="https://cran.r-project.org/web/packages/ggplot2/index.html">ggplot2</a> and <a href="https://cran.r-project.org/web/packages/maps/index.html">maps</a> packages, using support of <a href="https://www.openstreetmap.org/">Open Street Map</a> to obtain the coordinates of cities and finally making it interactive with <a href="https://shiny.rstudio.com/">shiny</a>.</p>
+<p>This series of posts share my path towards the creation of the Shiny app. It is a live project and I decided to share my path and experiences along the creation process. The posts are not only about the Shiny app, but the package I created behind it, including topics of functions crafting, creation of the maps, classes of objects, etc., as well as any interesting issue that appear on the way. It is my way to contribute to the R community and at the same time keeping the project documented for myself.</p>
+<p>This post is about <strong>Object Oriented Programming in R using S3 objects</strong>.</p>
+<p>I hope you all enjoy it. Feel free to leave any kind of comment and/or question at the end.</p>
+<p><img src="/post/2022/map_any_region_with_ggplot2_part_I/maps_DrawingMap.png" alt="R Maps"></p>
+<h1 id="object-oriented-programming-and-r">Object oriented programming and R</h1>
+<p>R is a programming language that benefits greatly from the paradigm of functional programming. This is actually how most of R users utilize it and how it is recommended. However, it also offers the possibility of applying object oriented programming (OOP) paradigm which is the creation and use of objects with defined characteristics and methods. If you have never heard of this concept I recommend you to do a little research about it before getting deep into this post. I would recommend to start with the introduction to OOP of <a href="https://adv-r.hadley.nz/oo.html">Advanced R</a>. It is not my intention to explain OOP but rather to use it, in combination with functional programming, to support sharing information between functions.</p>
+<p>If you followed the <a href="/posts/2023/programming_with_ggplot2/">previous post</a> you might have noticed that at the <a href="/posts/2023/programming_with_ggplot2/#conclusions">conclusions</a> section I mentioned the use of OOP to extend our ggplot2 functions. The idea is to pass information between the functions to make the calculations more accurate rather than forcing the end user to repeat the information in each function. I mentioned the possibility of using environments, or the ggplot2 internal class <code>ggproto</code>. The use of environments has a different function than what I am trying to achieve here, while the <code>ggproto</code> objects are excellent to pass information between graphics created with <code>ggplot2</code> but they become complicated if we want to include any more information like data frames or lists of values. Therefore I decided to keep it simple with the use of S3 objects.</p>
+<p>S3 objects are the most commonly used in R packages, the recommended ones and apparently, the only ones used in base-r and stats packages. As <a href="https://adv-r.hadley.nz/s3.html">Hadley Wickham</a> says it:</p>
+<blockquote>
+<p>S3 is R’s first and simplest OO system. S3 is informal and ad hoc, but there is a certain elegance in its minimalism: you can’t take away any part of it and still have a useful OO system. For these reasons, you should use it, unless you have a compelling reason to do otherwise. S3 is the only OO system used in the base and stats packages, and it’s the most commonly used system in CRAN packages.</p>
+<p>S3 is very flexible, which means it allows you to do things that are quite ill-advised. If you’re coming from a strict environment like Java this will seem pretty frightening, but it gives R programmers a tremendous amount of freedom. It may be very difficult to prevent people from doing something you don’t want them to do, but your users will never be held back because there is something you haven’t implemented yet. Since S3 has few built-in constraints, the key to its successful use is applying the constraints yourself.</p>
+</blockquote>
+<h1 id="implementation-of-s3-class-objects-for-the-creation-of-the-maps">Implementation of S3 class objects for the creation of the maps</h1>
+<p>An S3 object in R is basically a structured list with a class name. It can be easily created by placing the list within the function <code>structure</code> and defining the <code>class</code>, <code>structure(list(...), class = c(&quot;class_name&quot;))</code>, or by creating the list first and then setting the class of that list. Then we create generics using the function <code>UseMethod()</code> and add methods for each class by appending the class name to the generic, followed by a dot (i.e., <code>my_generic.MyClass</code>, <code>my_generic.vector</code>, <code>my_generic.matrix</code>, etc.).</p>
+<p>Let&rsquo;s start with a simple example.</p>
+<h2 id="a-simple-s3-object-for-the-colors">A simple S3 object for the colors</h2>
+<p>We start by defining a function that initializes the object, our <strong>constructor</strong>. We should use this function to also check that our object contains the values that we need and throw some errors when there are mistakes.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">define_map_colors</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">dots_orgs</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                              <span class="n">target_country</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                              <span class="n">empty_countries</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                              <span class="n">border_countries</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                              <span class="n">oceans</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                              <span class="n">text_cities</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                              <span class="n">text_legend</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                              <span class="n">background_legend</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                              <span class="n">text_copyright</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">require</span><span class="p">(</span><span class="n">stringr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">## Error handling</span>
+</span></span><span class="line"><span class="cl">  <span class="n">all_arguments</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="nf">as.list</span><span class="p">(</span><span class="nf">environment</span><span class="p">()))</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">for </span><span class="p">(</span><span class="n">arggs</span> <span class="n">in</span> <span class="n">all_arguments</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">stopifnot</span><span class="p">(</span><span class="s">&#34;All arguments must be character&#34;</span> <span class="o">=</span> <span class="nf">is.character</span><span class="p">(</span><span class="n">arggs</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">if </span><span class="p">(</span><span class="nf">nchar</span><span class="p">(</span><span class="n">arggs</span><span class="p">)</span> <span class="o">!=</span> <span class="m">7</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nf">stop</span><span class="p">(</span><span class="s">&#34;Colors should be in hex notation&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">if </span><span class="p">(</span><span class="o">!</span><span class="nf">str_detect</span><span class="p">(</span><span class="n">arggs</span><span class="p">,</span> <span class="s">&#34;^#&#34;</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nf">stop</span><span class="p">(</span><span class="s">&#34;Colors should be in hex notation&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">## S3 object definition</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">structure</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">list</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">      <span class="n">dots_orgs</span> <span class="o">=</span> <span class="n">dots_orgs</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="n">target_country</span> <span class="o">=</span> <span class="n">target_country</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="n">empty_countries</span> <span class="o">=</span> <span class="n">empty_countries</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="n">border_countries</span> <span class="o">=</span> <span class="n">border_countries</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="n">oceans</span> <span class="o">=</span> <span class="n">oceans</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="n">text_cities</span> <span class="o">=</span> <span class="n">text_cities</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="n">text_legend</span> <span class="o">=</span> <span class="n">text_legend</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="n">background_legend</span> <span class="o">=</span> <span class="n">background_legend</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="n">text_copyright</span> <span class="o">=</span> <span class="n">text_copyright</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">class</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;map_colors&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>The function takes 9 arguments, each of them should be a color in hex notation, meaning that it must start with <code>#</code> and it must contain 6 alphanumeric characters (i.e., <code>#f0f0f0</code>). Thus, our error handling basically verifies that the parameters passed are of class <code>character</code> starting with <code>#</code> and containing exactly 7 symbols. Then, each of the 9 arguments is passed to a list within <code>structure</code> and set them to the class <code>map_colors</code>. And our object is created.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">default_map_colors</span> <span class="o">&lt;-</span> <span class="nf">define_map_colors</span><span class="p">(</span><span class="n">dots_orgs</span> <span class="o">=</span> <span class="s">&#34;#493252&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                               <span class="n">target_country</span> <span class="o">=</span> <span class="s">&#34;#8caeb4&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                               <span class="n">empty_countries</span> <span class="o">=</span> <span class="s">&#34;#f3f3f3&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                               <span class="n">border_countries</span> <span class="o">=</span> <span class="s">&#34;#9c9c9c&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                               <span class="n">oceans</span> <span class="o">=</span> <span class="s">&#34;#4e91d2&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                               <span class="n">text_cities</span> <span class="o">=</span> <span class="s">&#34;#a0a0a0&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                               <span class="n">text_legend</span> <span class="o">=</span> <span class="s">&#34;#493252&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                               <span class="n">background_legend</span> <span class="o">=</span> <span class="s">&#34;#ffffff&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                               <span class="n">text_copyright</span> <span class="o">=</span> <span class="s">&#34;#f3f3f3&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>This is the same list of colors used in our <a href="/posts/2023/programming_with_ggplot2/">previous post</a> by the <a href="/posts/2023/programming_with_ggplot2/#background-and-preliminaries">function that creates the maps</a>. If you check the class of our new list of colors, <code>class(default_map_colors)</code> it should be <code>map_colors</code>. Since our new object is also a list, we could use it indistinctly to create the maps. Thus, we need a method that verifies that our object is actually of the class <code>map_colors</code>. This is the <strong>validator</strong>. The method <code>is</code> already does that for other classes (i.e., <code>is.character()</code>) therefore, we can add our object to tell it how to handle it.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">is.map_colors</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="nf">inherits</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s">&#34;map_colors&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nf">is.map_colors</span><span class="p">(</span><span class="n">default_map_colors</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>[1] TRUE</p>
+</blockquote>
+<p>The function is very simple, we just need to check if the object passed inherits the class. Now we can use <code>is.map_colors()</code> in all the functions that create maps in order to ensure that our new class is used rather than a simple list.</p>
+<h2 id="creating-a-new-object-within-a-function">Creating a new object within a function</h2>
+<p>Once again, I have made improvements to the function presented before, <a href="/posts/2023/programming_with_ggplot2/#background-and-preliminaries">my_country_prev</a>. This time the change is only one, almost by the end of the body: the addition of an S3 object that holds information which is used later by other functions that add layers to the map. It is not only about the colors, but we are also adding the values of the limits, so that other functions, such as labels creation, know about it. Since this version is more stable, I have also renamed it to a more formal name.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
+</span><span class="lnt">84
+</span><span class="lnt">85
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">base_map</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">country</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                     <span class="n">x_limits</span> <span class="o">=</span> <span class="kc">NULL</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                     <span class="n">y_limits</span> <span class="o">=</span> <span class="kc">NULL</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                     <span class="n">show_coords</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                     <span class="n">return_mapic_obj</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                     <span class="n">map_colors</span> <span class="o">=</span> <span class="n">default_map_colors</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">require</span><span class="p">(</span><span class="n">maps</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">require</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">## Verifying the arguments passed to the function</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">if </span><span class="p">(</span><span class="nf">length</span><span class="p">(</span><span class="n">country</span><span class="p">)</span> <span class="o">!=</span> <span class="m">1</span><span class="p">)</span> <span class="nf">stop</span><span class="p">(</span><span class="s">&#34;Function supports only one country per map&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">stopifnot</span><span class="p">(</span><span class="nf">is.logical</span><span class="p">(</span><span class="n">show_coords</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">stopifnot</span><span class="p">(</span><span class="s">&#34;Name of the country should be character&#34;</span> <span class="o">=</span> <span class="nf">is.character</span><span class="p">(</span><span class="n">country</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nf">if </span><span class="p">(</span><span class="o">!</span><span class="n">country</span> <span class="o">%in%</span> <span class="nf">map_data</span><span class="p">(</span><span class="s">&#34;world&#34;</span><span class="p">)</span><span class="o">$</span><span class="n">region</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">stop</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&#34;Country name not recognized&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">               <span class="s">&#34;To see a list of recognized countries run&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">               <span class="s">&#34;&lt;unique(maps::map_data(&#39;world&#39;)$region)&gt;&#34;</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s">&#34;\n&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">## If coords limits missing, print worldwide map with coordinates system to allow</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">## User observe coords for reference</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">if </span><span class="p">(</span><span class="nf">missing</span><span class="p">(</span><span class="n">x_limits</span><span class="p">)</span> <span class="o">||</span> <span class="nf">missing</span><span class="p">(</span><span class="n">y_limits</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">warning</span><span class="p">(</span><span class="s">&#34;X and/or Y limits not provided.\nPrinting worldwide map.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">map_country_theme</span> <span class="o">&lt;-</span> <span class="nf">theme</span><span class="p">(</span><span class="n">panel.background</span> <span class="o">=</span> <span class="nf">element_rect</span><span class="p">(</span><span class="n">fill</span> <span class="o">=</span> <span class="n">map_colors</span><span class="o">$</span><span class="n">oceans</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span> <span class="n">else</span> <span class="nf">if </span><span class="p">(</span><span class="n">show_coords</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">map_country_theme</span> <span class="o">&lt;-</span> <span class="nf">theme</span><span class="p">(</span><span class="n">panel.background</span> <span class="o">=</span> <span class="nf">element_rect</span><span class="p">(</span><span class="n">fill</span> <span class="o">=</span> <span class="n">map_colors</span><span class="o">$</span><span class="n">oceans</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span> <span class="n">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">if </span><span class="p">(</span><span class="nf">length</span><span class="p">(</span><span class="n">x_limits</span><span class="p">)</span> <span class="o">!=</span> <span class="m">2</span> <span class="o">||</span> <span class="nf">length</span><span class="p">(</span><span class="n">y_limits</span><span class="p">)</span> <span class="o">!=</span> <span class="m">2</span> <span class="o">||</span>
+</span></span><span class="line"><span class="cl">         <span class="o">!</span><span class="nf">all</span><span class="p">(</span><span class="nf">grepl</span><span class="p">(</span><span class="s">&#34;^-?[0-9.]+$&#34;</span><span class="p">,</span> <span class="nf">c</span><span class="p">(</span><span class="n">x_limits</span><span class="p">,</span> <span class="n">y_limits</span><span class="p">))))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nf">stop</span><span class="p">(</span><span class="s">&#34;Limits for X and Y coords should be provided as vectors with two numeric values&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="n">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="c1">## Custom theme for the final map</span>
+</span></span><span class="line"><span class="cl">      <span class="n">map_country_theme</span> <span class="o">&lt;-</span> <span class="nf">theme_bw</span><span class="p">()</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">theme</span><span class="p">(</span><span class="n">panel.background</span> <span class="o">=</span> <span class="nf">element_rect</span><span class="p">(</span><span class="n">fill</span> <span class="o">=</span> <span class="n">map_colors</span><span class="o">$</span><span class="n">oceans</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">              <span class="n">legend.position</span> <span class="o">=</span> <span class="s">&#34;none&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="n">panel.grid.major</span> <span class="o">=</span> <span class="nf">element_blank</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">              <span class="n">panel.grid.minor</span> <span class="o">=</span> <span class="nf">element_blank</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">              <span class="n">axis.line</span> <span class="o">=</span> <span class="nf">element_line</span><span class="p">(</span><span class="n">colour</span> <span class="o">=</span> <span class="s">&#34;black&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">              <span class="n">axis.title.x</span> <span class="o">=</span> <span class="nf">element_blank</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">              <span class="n">axis.text.x</span> <span class="o">=</span> <span class="nf">element_blank</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">              <span class="n">axis.ticks.x</span> <span class="o">=</span> <span class="nf">element_blank</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">              <span class="n">axis.title.y</span> <span class="o">=</span> <span class="nf">element_blank</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">              <span class="n">axis.text.y</span> <span class="o">=</span> <span class="nf">element_blank</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">              <span class="n">axis.ticks.y</span> <span class="o">=</span> <span class="nf">element_blank</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">## Get the target cpuntry data</span>
+</span></span><span class="line"><span class="cl">  <span class="n">map_data_country</span> <span class="o">&lt;-</span> <span class="nf">map_data</span><span class="p">(</span><span class="s">&#34;world&#34;</span><span class="p">)</span><span class="nf">[map_data</span><span class="p">(</span><span class="s">&#34;world&#34;</span><span class="p">)</span><span class="o">$</span><span class="n">region</span> <span class="o">==</span> <span class="n">country</span><span class="p">,</span> <span class="n">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">## The map</span>
+</span></span><span class="line"><span class="cl">  <span class="n">mapic</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">()</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">## First layer: worldwide map</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">geom_polygon</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="nf">map_data</span><span class="p">(</span><span class="s">&#34;world&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">                 <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">long</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">lat</span><span class="p">,</span> <span class="n">group</span> <span class="o">=</span> <span class="n">group</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">                 <span class="n">color</span> <span class="o">=</span> <span class="n">map_colors</span><span class="o">$</span><span class="n">border_countries</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                 <span class="n">fill</span> <span class="o">=</span> <span class="n">map_colors</span><span class="o">$</span><span class="n">empty_countries</span><span class="p">)</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">## Second layer: Country map</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">geom_polygon</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">map_data_country</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                 <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">long</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">lat</span><span class="p">,</span> <span class="n">group</span> <span class="o">=</span> <span class="n">group</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">                 <span class="n">color</span> <span class="o">=</span> <span class="n">map_colors</span><span class="o">$</span><span class="n">border_countries</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                 <span class="n">fill</span> <span class="o">=</span> <span class="n">map_colors</span><span class="o">$</span><span class="n">target_country</span><span class="p">)</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">coord_map</span><span class="p">()</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">coord_fixed</span><span class="p">(</span><span class="m">1.3</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="n">xlim</span> <span class="o">=</span> <span class="n">x_limits</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="n">ylim</span> <span class="o">=</span> <span class="n">y_limits</span><span class="p">)</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">    <span class="n">map_country_theme</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nf">if </span><span class="p">(</span><span class="n">return_mapic_obj</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">map_pointer</span> <span class="o">&lt;-</span> <span class="nf">structure</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">      <span class="nf">list</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">mapic</span> <span class="o">=</span> <span class="n">mapic</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">base_map</span> <span class="o">=</span> <span class="n">mapic</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">x_limits</span> <span class="o">=</span> <span class="n">x_limits</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">y_limits</span> <span class="o">=</span> <span class="n">y_limits</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">colors</span> <span class="o">=</span> <span class="n">map_colors</span>
+</span></span><span class="line"><span class="cl">      <span class="p">),</span>
+</span></span><span class="line"><span class="cl">      <span class="n">class</span> <span class="o">=</span> <span class="s">&#34;mapicHolder&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">return</span><span class="p">(</span><span class="n">map_pointer</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span> <span class="n">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">return</span><span class="p">(</span><span class="n">mapic</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>The new <code>base_map</code> does the same as the previous <code>my_country_prev</code>: it creates the base map of a country. However, we have added the option to return a mapic object or not. When the option, <code>return_mapic_obj</code> is set to <code>FALSE</code>, the function behaves as before and it returns the map only. But when it is set as <code>TRUE</code>, it generates a new object of class <code>mapicHolder</code> that holds the information that will be piped to other functions as we mentioned above. Other changes are  minimal regarding style, the function still does the same.</p>
+<p>As you can see, the object does not necessarily has to be available to the end user for manipulation or modification. Here we can create 2 different objects to move forward with the creation of the maps and the end user does not need to know the structure or even the existence of the object. Thus, <code>spain &lt;- base_map(&quot;Spain&quot;)</code> will create an object with the base map for Spain, and <code>france &lt;- base_map(&quot;France&quot;)</code> creates a similar object for the base map of France. Each of them in an object of class <code>mapicHolder</code> that can be called later. The idea is to be able to use the information of each of them easily by the rest of the functions that add layers to our maps.</p>
+<h2 id="defining-our-own-methods">Defining our own methods</h2>
+<p>Now that we have our S3 object and we know how to modify methods, let&rsquo;s create a new method specially for it. We are going to replace our previous function <a href="/posts/2023/programming_with_ggplot2/#a-map-with-growing-dots-per-city">make_dots</a> for a method that works differently depending on the class of object that is passed. The initialization is pretty simple, it can be accomplished in one line:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">make_dots</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="kc">...</span><span class="p">)</span> <span class="nf">UseMethod</span><span class="p">(</span><span class="s">&#34;make_dots&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>After this <code>make_dots</code> exists as a method which behavior we can modified based on the class of the object passed. Notice the ellipsis (the three dots <code>...</code>) in the function definition, they are necessary to ensure that all the arguments defined after our object (<code>x</code>) are taken into account as well.</p>
+<p>With this we can re-write the definition of our function <a href="/posts/2023/programming_with_ggplot2/#a-map-with-growing-dots-per-city">make_dots</a>, or in other words, its name, to have it as the default behavior. The body of the function remains the same.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">make_dots.default</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">.df</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                      <span class="n">year</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                      <span class="n">map_colors</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                      <span class="n">column_names</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">lat</span> <span class="o">=</span> <span class="s">&#34;lat&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">lon</span> <span class="o">=</span> <span class="s">&#34;lon&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">cities</span> <span class="o">=</span> <span class="s">&#34;city&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">start_year</span> <span class="o">=</span> <span class="s">&#34;year&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">end_year</span> <span class="o">=</span> <span class="kc">NULL</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">                      <span class="n">dot_size</span> <span class="o">=</span> <span class="m">1</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kc">...</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>The function should be working as if no changes were done. The advantage is that now, we can create a second one, with the same name, which will behave differently when our object <code>mapicHolder</code> is used.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">make_dots.mapicHolder</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">.mapic_holder</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                                        <span class="n">.df</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                                        <span class="n">year</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                                        <span class="n">column_names</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">                                          <span class="n">lat</span> <span class="o">=</span> <span class="s">&#34;lat&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                                          <span class="n">lon</span> <span class="o">=</span> <span class="s">&#34;lon&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                                          <span class="n">cities</span> <span class="o">=</span> <span class="s">&#34;city&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                                          <span class="n">start_year</span> <span class="o">=</span> <span class="s">&#34;year&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                                          <span class="n">end_year</span> <span class="o">=</span> <span class="kc">NULL</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">                                        <span class="n">dot_size</span> <span class="o">=</span> <span class="m">1</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">require</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">require</span><span class="p">(</span><span class="n">tidyr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">require</span><span class="p">(</span><span class="n">stringr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">column_names</span> <span class="o">&lt;-</span> <span class="n">column_names</span><span class="nf">[lengths</span><span class="p">(</span><span class="n">column_names</span><span class="p">)</span> <span class="o">!=</span> <span class="m">0</span><span class="n">]</span>
+</span></span><span class="line"><span class="cl">  <span class="n">year__</span> <span class="o">&lt;-</span> <span class="n">year</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">## Check required fields</span>
+</span></span><span class="line"><span class="cl">  <span class="n">mandatory_cols</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;lat&#34;</span><span class="p">,</span> <span class="s">&#34;lon&#34;</span><span class="p">,</span> <span class="s">&#34;cities&#34;</span><span class="p">,</span> <span class="s">&#34;start_year&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">if </span><span class="p">(</span><span class="o">!</span><span class="nf">all</span><span class="p">(</span><span class="n">mandatory_cols</span> <span class="o">%in%</span> <span class="nf">names</span><span class="p">(</span><span class="n">column_names</span><span class="p">)))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">stop</span><span class="p">(</span><span class="s">&#34;Column names missing!&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span> <span class="n">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">if </span><span class="p">(</span><span class="o">!</span><span class="s">&#34;end_year&#34;</span> <span class="o">%in%</span> <span class="nf">names</span><span class="p">(</span><span class="n">column_names</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">.df</span><span class="o">$</span><span class="n">final_year</span> <span class="o">&lt;-</span> <span class="kc">NA_real_</span>
+</span></span><span class="line"><span class="cl">      <span class="n">column_names[[</span><span class="s">&#34;end_year&#34;</span><span class="n">]]</span> <span class="o">&lt;-</span> <span class="s">&#34;final_year&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">## Make map using default method</span>
+</span></span><span class="line"><span class="cl">  <span class="n">mapic_dots</span> <span class="o">&lt;-</span> <span class="nf">make_dots</span><span class="p">(</span><span class="n">.df</span> <span class="o">=</span> <span class="n">.df</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                          <span class="n">year</span> <span class="o">=</span> <span class="n">year__</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                          <span class="n">map_colors</span> <span class="o">=</span> <span class="n">.mapic_holder</span><span class="o">$</span><span class="n">colors</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                          <span class="n">column_names</span> <span class="o">=</span> <span class="n">column_names</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                          <span class="n">dot_size</span> <span class="o">=</span> <span class="n">dot_size</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">## Papere the data</span>
+</span></span><span class="line"><span class="cl">  <span class="n">data_for_map</span> <span class="o">&lt;-</span> <span class="n">.df</span>  <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">mutate_at</span><span class="p">(</span><span class="nf">vars</span><span class="p">(</span><span class="n">column_names</span><span class="o">$</span><span class="n">end_year</span><span class="p">),</span> <span class="o">~</span><span class="nf">replace_na</span><span class="p">(</span><span class="n">.,</span> <span class="n">year__</span> <span class="o">+</span> <span class="m">1</span><span class="p">))</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">mutate</span><span class="p">(</span><span class="n">year_final</span> <span class="o">=</span> <span class="o">!!</span><span class="nf">sym</span><span class="p">(</span><span class="n">column_names</span><span class="o">$</span><span class="n">end_year</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">           <span class="n">city_name</span> <span class="o">=</span> <span class="nf">str_to_sentence</span><span class="p">(</span><span class="o">!!</span><span class="nf">sym</span><span class="p">(</span><span class="n">column_names</span><span class="o">$</span><span class="n">cities</span><span class="p">)))</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">filter</span><span class="p">(</span><span class="n">year_final</span> <span class="o">&gt;</span> <span class="n">year__</span> <span class="o">&amp;</span> <span class="o">!!</span><span class="nf">sym</span><span class="p">(</span><span class="n">column_names</span><span class="o">$</span><span class="n">start_year</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">year__</span><span class="p">)</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">group_by</span><span class="p">(</span><span class="n">city_name</span><span class="p">)</span> <span class="o">%&gt;%</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">summarise</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="nf">median</span><span class="p">(</span><span class="o">!!</span><span class="nf">sym</span><span class="p">(</span><span class="n">column_names</span><span class="o">$</span><span class="n">lon</span><span class="p">),</span> <span class="n">na.rm</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">              <span class="n">y</span> <span class="o">=</span> <span class="nf">median</span><span class="p">(</span><span class="o">!!</span><span class="nf">sym</span><span class="p">(</span><span class="n">column_names</span><span class="o">$</span><span class="n">lat</span><span class="p">),</span> <span class="n">na.rm</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">              <span class="n">n</span> <span class="o">=</span> <span class="nf">n</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">## Empty theme for labels</span>
+</span></span><span class="line"><span class="cl">  <span class="n">empty_theme</span> <span class="o">&lt;-</span> <span class="nf">theme_bw</span><span class="p">()</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">theme</span><span class="p">(</span><span class="n">legend.position</span> <span class="o">=</span> <span class="s">&#34;none&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="n">panel.grid.major</span> <span class="o">=</span> <span class="nf">element_blank</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">          <span class="n">panel.grid.minor</span> <span class="o">=</span> <span class="nf">element_blank</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">          <span class="n">axis.line</span> <span class="o">=</span> <span class="nf">element_line</span><span class="p">(</span><span class="n">colour</span> <span class="o">=</span> <span class="s">&#34;white&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">          <span class="n">axis.title.x</span> <span class="o">=</span> <span class="nf">element_blank</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">          <span class="n">axis.text.x</span> <span class="o">=</span> <span class="nf">element_blank</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">          <span class="n">axis.ticks.x</span> <span class="o">=</span> <span class="nf">element_blank</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">          <span class="n">axis.title.y</span> <span class="o">=</span> <span class="nf">element_blank</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">          <span class="n">axis.text.y</span> <span class="o">=</span> <span class="nf">element_blank</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">          <span class="n">axis.ticks.y</span> <span class="o">=</span> <span class="nf">element_blank</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">          <span class="n">plot.margin</span> <span class="o">=</span> <span class="nf">unit</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">-0</span><span class="p">,</span> <span class="m">-0</span><span class="p">,</span> <span class="m">-0</span><span class="p">,</span> <span class="m">-0</span><span class="p">),</span> <span class="s">&#34;cm&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">.mapic_holder[[</span><span class="s">&#34;theme_labels&#34;</span><span class="n">]]</span> <span class="o">&lt;-</span> <span class="n">empty_theme</span>
+</span></span><span class="line"><span class="cl">  <span class="n">.mapic_holder[[</span><span class="s">&#34;mapic_dots&#34;</span><span class="n">]]</span> <span class="o">&lt;-</span> <span class="n">mapic_dots</span>
+</span></span><span class="line"><span class="cl">  <span class="n">.mapic_holder[[</span><span class="s">&#34;year&#34;</span><span class="n">]]</span> <span class="o">&lt;-</span> <span class="n">year__</span>
+</span></span><span class="line"><span class="cl">  <span class="n">.mapic_holder[[</span><span class="s">&#34;data&#34;</span><span class="n">]]</span> <span class="o">&lt;-</span> <span class="nf">list</span><span class="p">(</span><span class="n">base</span> <span class="o">=</span> <span class="n">.df</span><span class="p">,</span> <span class="n">map</span> <span class="o">=</span> <span class="n">data_for_map</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="n">.mapic_holder[[</span><span class="s">&#34;mapic&#34;</span><span class="n">]]</span> <span class="o">&lt;-</span> <span class="n">.mapic_holder[[</span><span class="s">&#34;mapic&#34;</span><span class="n">]]</span> <span class="o">+</span> <span class="n">mapic_dots</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">return</span><span class="p">(</span><span class="n">.mapic_holder</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>The new function is basically applying the default function to the data, but the parameters required are different: we now request the object of class <code>mapicHolder</code> but we don&rsquo;t need to request the <code>map_colors</code> because they come within the mentioned object. Additionally, we are adding additional data to our <code>mapicHolder</code> to be passed and used for more functions.</p>
+<p>Now we have two options to create the maps. One specifying every parameter like in the <a href="/posts/2023/programming_with_ggplot2">previous post</a> using the <code>.default</code> method:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">base_map</span><span class="p">(</span><span class="s">&#34;Mexico&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="n">map_colors</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                 <span class="n">x_limits</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">-118</span><span class="p">,</span> <span class="m">-86</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">                 <span class="n">y_limits</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">14</span><span class="p">,</span> <span class="m">34</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">                 <span class="n">show_coords</span> <span class="o">=</span> <span class="bp">T</span><span class="p">)</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">make_dots</span><span class="p">(</span><span class="n">datmx</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">year</span> <span class="o">=</span> <span class="m">2022</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">map_colors</span><span class="p">,</span> <span class="n">column_names</span> <span class="o">=</span> <span class="n">col_names</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Or the new version where the <code>mapicHolder</code> can be piped from function to function:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">base_map</span><span class="p">(</span><span class="s">&#34;Mexico&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">         <span class="n">map_colors</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">         <span class="n">x_limits</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">-118</span><span class="p">,</span> <span class="m">-86</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">         <span class="n">y_limits</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">14</span><span class="p">,</span> <span class="m">34</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">         <span class="n">show_coords</span> <span class="o">=</span> <span class="bp">T</span><span class="p">)</span> <span class="o">|&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">make_dots</span><span class="p">(</span><span class="n">datmx</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">year</span> <span class="o">=</span> <span class="m">2022</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">column_names</span> <span class="o">=</span> <span class="n">col_names</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>It has been a good exercise to learn the basis of S3 object but so far the differences between one and the other are minimal. Other than avoid repeating the list of colors, there is not much gain. However, all the information that we have gathered in our <code>mapicHolder</code> object has high value to create the labels accurately and to place them in a proper position.</p>
+<h2 id="passing-information-to-the-labels">Passing information to the labels</h2>
+<p>To have our map complete, we are going to pass our <code>mapicHolder</code> to the functions that print the years and the totals. As we did above, we first create our method and define its default behaviour.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">my_print_totals</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="kc">...</span><span class="p">)</span> <span class="nf">UseMethod</span><span class="p">(</span><span class="s">&#34;my_print_totals&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">my_print_totals.default</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">totals</span><span class="p">,</span> <span class="n">map_colors</span><span class="p">,</span> <span class="n">x_limits</span><span class="p">,</span> <span class="n">y_limits</span><span class="p">,</span> <span class="n">totals_label</span> <span class="o">=</span> <span class="s">&#34;Totals&#34;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kc">...</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>You can find the <a href="/posts/2023/programming_with_ggplot2/#adding-labels-for-the-map">code of the original functions</a> in my previous post. Now for our new function we can basically remove all the parameters and add only a <code>mapicHolder</code> object, which already contains the rest of the information.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">my_print_totals.mapicHolder</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">.mapic_holder</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                                        <span class="n">totals_label</span> <span class="o">=</span> <span class="s">&#34;Totals&#34;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">data_totals</span> <span class="o">&lt;-</span> <span class="nf">sum</span><span class="p">(</span><span class="n">.mapic_holder</span><span class="o">$</span><span class="n">data</span><span class="o">$</span><span class="n">map</span><span class="o">$</span><span class="n">n</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="n">mapic_totals</span> <span class="o">&lt;-</span> <span class="nf">my_print_totals</span><span class="p">(</span><span class="n">totals</span> <span class="o">=</span> <span class="n">data_totals</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                                  <span class="n">x_limits</span> <span class="o">=</span> <span class="n">.mapic_holder</span><span class="o">$</span><span class="n">x_limits</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                                  <span class="n">y_limits</span> <span class="o">=</span> <span class="n">.mapic_holder</span><span class="o">$</span><span class="n">y_limits</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                                  <span class="n">totals_label</span> <span class="o">=</span> <span class="n">totals_label</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                                  <span class="n">map_colors</span> <span class="o">=</span> <span class="n">.mapic_holder</span><span class="o">$</span><span class="n">colors</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">.mapic_holder[[</span><span class="s">&#34;mapic_totals&#34;</span><span class="n">]]</span> <span class="o">&lt;-</span> <span class="n">mapic_totals</span>
+</span></span><span class="line"><span class="cl">  <span class="n">.mapic_holder[[</span><span class="s">&#34;totals&#34;</span><span class="n">]]</span> <span class="o">&lt;-</span> <span class="n">data_totals</span>
+</span></span><span class="line"><span class="cl">  <span class="n">.mapic_holder[[</span><span class="s">&#34;mapic&#34;</span><span class="n">]]</span> <span class="o">&lt;-</span> <span class="n">.mapic_holder[[</span><span class="s">&#34;mapic&#34;</span><span class="n">]]</span> <span class="o">+</span> <span class="n">mapic_totals</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">return</span><span class="p">(</span><span class="n">.mapic_holder</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Basically the body of <code>my_print_totals.mapicHolder</code> consists of passing the right parameters to <code>my_print_totals.default</code>, and adding the new layer to the <code>mapicHolder</code>. We can do exactly the same for the years and we will have the complete map ready to be shown.</p>
+<h1 id="creating-the-map">Creating the map</h1>
+<p>Before we are able to pipe and show the map, we need a couple preparations more. In order to show the map when we call our object, rather than a bunch of information, we need to add our object class to <code>print</code>.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">print.mapicHolder</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="nf">plot</span><span class="p">(</span><span class="n">p</span><span class="o">$</span><span class="n">mapic</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>It will be useful to do the same for <code>plot</code>.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">plot.mapicHolder</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="nf">plot</span><span class="p">(</span><span class="n">p</span><span class="o">$</span><span class="n">mapic</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Now we can simply pipe one function after the other and reduce the amount of arguments passed to each function.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">my_country_prev</span><span class="p">(</span><span class="s">&#34;Mexico&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="n">map_colors</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="n">x_coords</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="n">y_coords</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="n">show_coords</span> <span class="o">=</span> <span class="bp">T</span><span class="p">)</span> <span class="o">|&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">make_dots</span><span class="p">(</span><span class="nf">rbind</span><span class="p">(</span><span class="n">datmx</span><span class="p">,</span> <span class="n">datmx</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">            <span class="n">year</span> <span class="o">=</span> <span class="m">2020</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">col_names</span><span class="p">)</span> <span class="o">|&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">my_print_years</span><span class="p">(</span><span class="n">year_label</span> <span class="o">=</span> <span class="s">&#34;Año&#34;</span><span class="p">)</span> <span class="o">|&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">my_print_totals</span><span class="p">(</span><span class="n">totals_label</span> <span class="o">=</span> <span class="s">&#34;Totales&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/post/2023/map_any_region_with_ggplot2_part_III/unnamed-chunk-8-1.png" alt="plot of chunk unnamed-chunk-8"></p>
+<h1 id="final-remarks">Final Remarks</h1>
+<p>Now we have not only a functional workflow for the creation of the maps, but also a more user friendly one. If it is true that it does not follow the standards of <code>ggplot2</code> of adding layers using <code>+</code>, it uses the R pipe introduced in version 4.0 (we can also use dplyr&rsquo;s pipe <code>%&gt;%</code>) which makes more sense, since it is the direction that R as a whole is taking.</p>
+<p>In the next post we will step back to the coordinates manipulation to implement a new system of objects to be able to use different types of databases. For now, our functions are able to use only <code>SQLite</code> and <code>data.frame</code> to store the information, which is fine for prototyping or for small projects, but very limited for production usage.</p>
+
+            </div>
             
-            <div class="terms-root">
-                
-                
-
-
-
-<div class="card-large">
-    <div class="card-large-img">
-
-        
-                <img class="lazyload" src="/images/thumbnail.gif" data-src="/images/default.jpg" alt='image loading failed'>
-        
-    </div>
-    <div class="card-large-content">
-        <div class="up-title"><a href="https://blog.teoten.com/posts/2023/webscrap_and_iteration_in_r/">Webscrap and iteration in R</a></div>
-        <div class="up-date">
-            <span class="no-wrap"><i class="fa fa-calendar"></i> postedOn: 2023-3-24 &nbsp;</span>
-            <span class="no-wrap"><i class="fa fa-calendar-check-o"></i> updatedOn: 2023-3-24 &nbsp;</span>
-            <span class="no-wrap"><i class="fa fa-folder"></i>
-                
-                    includedIn:
+                <div class="tags">
                     
-                        <a href='
-                                        /categories/r
+                    <span class="down-type-item">
+                        <div class="type-text">
+                            <a href='
+                                        /tags/r-maps
                                     '>
-                                R
+                                <i class="fa fa-tag"></i> R maps
                             </a>
-                
-            </span>
+                        </div>
+                    </span>
+                    
+                    <span class="down-type-item">
+                        <div class="type-text">
+                            <a href='
+                                        /tags/oop
+                                    '>
+                                <i class="fa fa-tag"></i> OOP
+                            </a>
+                        </div>
+                    </span>
+                    
+                </div>
+            
         </div>
-        <div class="down-summary">About this post This post is part of the series maps-app.
-We are creating maps of data showing changes over a span of time for different countries and pointing at all kinds of cities. That basically means that we need to map any region of the world with R. Today there are all kinds of packages and techniques to do that.</div>
-    </div>
-    <div class="card-readmore">
-        <a href="https://blog.teoten.com/posts/2023/webscrap_and_iteration_in_r/">
-            <span><i class="fa fa-arrow-right"></i></span>
+        
+            
+                <div class="pre-next">
+                    
+    
+        
+        <a href="https://blog.teoten.com/posts/2023/adding_website_to_siny/" class="pre pre-last" style="text-align: center;">
+            <span class="pre-icon"><i class="fa fa-hand-o-left"></i></span>
+            <div class="pre-title-root">
+                <span>Adding a website next to your Shiny server</span>
+            </div>
         </a>
-    </div>
+        
+    
+    
+
+                </div>
+            
+        
+    
 </div>
 
-
-
-    
-
-
-    <div class="down-type">
-        
-        <span class="down-type-item">
-            <div class="shuxian-root">
-                <div class="shuxian"></div>
-            </div>
-            <div class="type-text">
-                <a href='
-                            /tags/r-maps
-                        '>
-                    <i class="fa fa-tag"></i> R maps
-                </a>
-            </div>
-        </span>
-        
-        <span class="down-type-item">
-            <div class="shuxian-root">
-                <div class="shuxian"></div>
-            </div>
-            <div class="type-text">
-                <a href='
-                            /tags/r-functions
-                        '>
-                    <i class="fa fa-tag"></i> R functions
-                </a>
-            </div>
-        </span>
-        
-        <span class="down-type-item">
-            <div class="shuxian-root">
-                <div class="shuxian"></div>
-            </div>
-            <div class="type-text">
-                <a href='
-                            /tags/database
-                        '>
-                    <i class="fa fa-tag"></i> database
-                </a>
-            </div>
-        </span>
-        
-        <span class="down-type-item">
-            <div class="shuxian-root">
-                <div class="shuxian"></div>
-            </div>
-            <div class="type-text">
-                <a href='
-                            /tags/recursion
-                        '>
-                    <i class="fa fa-tag"></i> recursion
-                </a>
-            </div>
-        </span>
-        
-    </div>
-
-<div class="dang"></div>
-            </div>
-            
-            <div class="terms-root">
-                
-                
-
-
-
-<div class="card-large">
-    <div class="card-large-img">
-
-        
-                <img class="lazyload" src="/images/thumbnail.gif" data-src="/images/default.jpg" alt='image loading failed'>
-        
-    </div>
-    <div class="card-large-content">
-        <div class="up-title"><a href="https://blog.teoten.com/es/posts/2023/webscrap_and_iteration_in_r/">Webscrap e iteraciones con R</a></div>
-        <div class="up-date">
-            <span class="no-wrap"><i class="fa fa-calendar"></i> postedOn: 2023-3-24 &nbsp;</span>
-            <span class="no-wrap"><i class="fa fa-calendar-check-o"></i> updatedOn: 2023-3-24 &nbsp;</span>
-            <span class="no-wrap"><i class="fa fa-folder"></i>
-                
-                    includedIn:
-                    
-                        <a href='
-                                        /categories/r
-                                    '>
-                                R
-                            </a>
-                
-            </span>
-        </div>
-        <div class="down-summary">Sobre este post Estamos creando mapas de datos que muestran los cambios durante un período de tiempo para diferentes países y orientado a todo tipo de ciudades. Esto básicamente significa que necesitamos mapear cualquier región del mundo con R. Hoy en día existen todo tipo de paquetes y técnicas para hacerlo.</div>
-    </div>
-    <div class="card-readmore">
-        <a href="https://blog.teoten.com/es/posts/2023/webscrap_and_iteration_in_r/">
-            <span><i class="fa fa-arrow-right"></i></span>
-        </a>
-    </div>
-</div>
-
-
-
-    
-
-
-    <div class="down-type">
-        
-        <span class="down-type-item">
-            <div class="shuxian-root">
-                <div class="shuxian"></div>
-            </div>
-            <div class="type-text">
-                <a href='
-                            /tags/r-maps
-                        '>
-                    <i class="fa fa-tag"></i> R maps
-                </a>
-            </div>
-        </span>
-        
-        <span class="down-type-item">
-            <div class="shuxian-root">
-                <div class="shuxian"></div>
-            </div>
-            <div class="type-text">
-                <a href='
-                            /tags/r-functions
-                        '>
-                    <i class="fa fa-tag"></i> R functions
-                </a>
-            </div>
-        </span>
-        
-        <span class="down-type-item">
-            <div class="shuxian-root">
-                <div class="shuxian"></div>
-            </div>
-            <div class="type-text">
-                <a href='
-                            /tags/database
-                        '>
-                    <i class="fa fa-tag"></i> database
-                </a>
-            </div>
-        </span>
-        
-        <span class="down-type-item">
-            <div class="shuxian-root">
-                <div class="shuxian"></div>
-            </div>
-            <div class="type-text">
-                <a href='
-                            /tags/recursion
-                        '>
-                    <i class="fa fa-tag"></i> recursion
-                </a>
-            </div>
-        </span>
-        
-    </div>
-
-<div class="dang"></div>
-            </div>
-            
-            <div class="terms-root">
-                
-                
-
-
-
-<div class="card-large">
-    <div class="card-large-img">
-
-        
-                <img class="lazyload" src="/images/thumbnail.gif" data-src="/post/2022/map_any_region_with_ggplot2_part_I/maps_DrawingMap.png" alt='image loading failed'>
-        
-    </div>
-    <div class="card-large-content">
-        <div class="up-title"><a href="https://blog.teoten.com/posts/2022/getting_coordinates_for_maps_in_r_via_api/">Getting coordinates for maps in R via API</a></div>
-        <div class="up-date">
-            <span class="no-wrap"><i class="fa fa-calendar"></i> postedOn: 2022-11-4 &nbsp;</span>
-            <span class="no-wrap"><i class="fa fa-calendar-check-o"></i> updatedOn: 2022-11-4 &nbsp;</span>
-            <span class="no-wrap"><i class="fa fa-folder"></i>
-                
-                    includedIn:
-                    
-                        <a href='
-                                        /categories/r
-                                    '>
-                                R
-                            </a>
-                
-            </span>
-        </div>
-        <div class="down-summary">This post is part of the series maps-app.
-You can also find the current state of the project under my GitHub repo mapic.
-Scope of this post This is the second part of the series to create a map of any region of the world with R.
-We are creating maps of data showing changes over a span of time for different countries and pointing at all kinds of cities.</div>
-    </div>
-    <div class="card-readmore">
-        <a href="https://blog.teoten.com/posts/2022/getting_coordinates_for_maps_in_r_via_api/">
-            <span><i class="fa fa-arrow-right"></i></span>
-        </a>
-    </div>
-</div>
-
-
-
-    
-
-
-    <div class="down-type">
-        
-        <span class="down-type-item">
-            <div class="shuxian-root">
-                <div class="shuxian"></div>
-            </div>
-            <div class="type-text">
-                <a href='
-                            /tags/r-maps
-                        '>
-                    <i class="fa fa-tag"></i> R maps
-                </a>
-            </div>
-        </span>
-        
-        <span class="down-type-item">
-            <div class="shuxian-root">
-                <div class="shuxian"></div>
-            </div>
-            <div class="type-text">
-                <a href='
-                            /tags/r-functions
-                        '>
-                    <i class="fa fa-tag"></i> R functions
-                </a>
-            </div>
-        </span>
-        
-        <span class="down-type-item">
-            <div class="shuxian-root">
-                <div class="shuxian"></div>
-            </div>
-            <div class="type-text">
-                <a href='
-                            /tags/database
-                        '>
-                    <i class="fa fa-tag"></i> database
-                </a>
-            </div>
-        </span>
-        
-    </div>
-
-<div class="dang"></div>
-            </div>
-            
-            <div class="terms-root">
-                
-                
-
-
-
-<div class="card-large">
-    <div class="card-large-img">
-
-        
-                <img class="lazyload" src="/images/thumbnail.gif" data-src="/post/2022/map_any_region_with_ggplot2_part_I/maps_DrawingMap.png" alt='image loading failed'>
-        
-    </div>
-    <div class="card-large-content">
-        <div class="up-title"><a href="https://blog.teoten.com/es/posts/2022/getting_coordinates_for_maps_in_r_via_api/">Obteniendo coordenadas para mapas en R usando API</a></div>
-        <div class="up-date">
-            <span class="no-wrap"><i class="fa fa-calendar"></i> postedOn: 2022-11-4 &nbsp;</span>
-            <span class="no-wrap"><i class="fa fa-calendar-check-o"></i> updatedOn: 2022-11-4 &nbsp;</span>
-            <span class="no-wrap"><i class="fa fa-folder"></i>
-                
-                    includedIn:
-                    
-                        <a href='
-                                        /categories/r
-                                    '>
-                                R
-                            </a>
-                
-            </span>
-        </div>
-        <div class="down-summary">Pueden encontrar todas las publicaciones en este tema bajo las series maps-app.
-También pueden encontrar el estado actual del proyecto en mi GitHub repo mapic.
-Sobre este post Esta es la segunda parte de las series de cómo crear mapas de cualquier región del mundo con R. De antemano me disculpo por detalles que puedan encontrar en la traducción, el post original lo creé en Inglés y el trabajo de traducción puede ser excesivo si voy a cada detalle.</div>
-    </div>
-    <div class="card-readmore">
-        <a href="https://blog.teoten.com/es/posts/2022/getting_coordinates_for_maps_in_r_via_api/">
-            <span><i class="fa fa-arrow-right"></i></span>
-        </a>
-    </div>
-</div>
-
-
-
-    
-
-
-    <div class="down-type">
-        
-        <span class="down-type-item">
-            <div class="shuxian-root">
-                <div class="shuxian"></div>
-            </div>
-            <div class="type-text">
-                <a href='
-                            /tags/r-maps
-                        '>
-                    <i class="fa fa-tag"></i> R maps
-                </a>
-            </div>
-        </span>
-        
-        <span class="down-type-item">
-            <div class="shuxian-root">
-                <div class="shuxian"></div>
-            </div>
-            <div class="type-text">
-                <a href='
-                            /tags/r-functions
-                        '>
-                    <i class="fa fa-tag"></i> R functions
-                </a>
-            </div>
-        </span>
-        
-        <span class="down-type-item">
-            <div class="shuxian-root">
-                <div class="shuxian"></div>
-            </div>
-            <div class="type-text">
-                <a href='
-                            /tags/database
-                        '>
-                    <i class="fa fa-tag"></i> database
-                </a>
-            </div>
-        </span>
-        
-    </div>
-
-<div class="dang"></div>
-            </div>
-            
-        </div>
-    
+<div>
+  <script src="https://utteranc.es/client.js"
+	  repo="teotenn/blog.teoten.com"
+	  issue-term="pathname"
+	  theme="github-light"
+	  crossorigin="anonymous"
+	  async>
+  </script>
 </div>
 
 
@@ -741,6 +1077,9 @@ Sobre este post Esta es la segunda parte de las series de cómo crear mapas de c
 
 
 
+    
+    
+
 
 <div class="other">
   <div class="other-up">
@@ -778,52 +1117,10 @@ Sobre este post Esta es la segunda parte de las series de cómo crear mapas de c
   </div>
   
     <div class="other-up">
-        <div class="other-qita text-wbd">latest Posts</div>
+        <div class="other-qita text-wbd">Related Posts</div>
         <div class="xian"></div>
     </div>
     <div class="list">
-        
-            <a href="https://blog.teoten.com/posts/2023/oop_in_r_s3/">
-                
-<a href="https://blog.teoten.com/posts/2023/oop_in_r_s3/">
-    <div class="list-item">
-        <div class="icon-other-root">
-            
-                <div class="icon-other" style="background-image: url( /post/2022/map_any_region_with_ggplot2_part_I/maps_DrawingMap.png );"></div>
-            
-        </div>
-        <div class="list-right">
-            <div class="other-title">
-                Object Oriented Programming in R: S3
-            </div>
-            <div class="other-summary">This post is part of the series maps-app.
-You can also find the current state of the project under my GitHub repo mapic.
-Scope of this post We are creating maps of data showing changes over a span of time for different countries and pointing at all kinds of cities. That basically means that we need to map any region of the world with R.</div>
-            <div class="other-date">2023-9-13</div>
-        </div>
-    </div>
-</a>
-            </a>
-        
-            <a href="https://blog.teoten.com/posts/2023/adding_website_to_siny/">
-                
-<a href="https://blog.teoten.com/posts/2023/adding_website_to_siny/">
-    <div class="list-item">
-        <div class="icon-other-root">
-            
-                <div class="icon-other" style="background-image: url( /img/nginx-configurations.png );"></div>
-            
-        </div>
-        <div class="list-right">
-            <div class="other-title">
-                Adding a website next to your Shiny server
-            </div>
-            <div class="other-summary">I have been off from the blog lately due to a big load of personal projects. Just lately I got a few days off and found time to work on my personal website, to be ready soon. That made me get more into Nginx configuration, where I consider myself a total rookie.</div>
-            <div class="other-date">2023-9-7</div>
-        </div>
-    </div>
-</a>
-            </a>
         
             <a href="https://blog.teoten.com/posts/2023/programming_with_ggplot2/">
                 
@@ -842,6 +1139,50 @@ Scope of this post We are creating maps of data showing changes over a span of t
 You can also find the current state of the project under my GitHub repo mapic.
 Scope of this post We are creating maps of data showing changes over a span of time for different countries and pointing at all kinds of cities. That basically means that we need to map any region of the world with R.</div>
             <div class="other-date">2023-4-19</div>
+        </div>
+    </div>
+</a>
+            </a>
+        
+            <a href="https://blog.teoten.com/posts/2023/webscrap_and_iteration_in_r/">
+                
+<a href="https://blog.teoten.com/posts/2023/webscrap_and_iteration_in_r/">
+    <div class="list-item">
+        <div class="icon-other-root">
+            
+                <div class="icon-other" style="background-image: url( /images/default.jpg );"></div>
+            
+        </div>
+        <div class="list-right">
+            <div class="other-title">
+                Webscrap and iteration in R
+            </div>
+            <div class="other-summary">About this post This post is part of the series maps-app.
+We are creating maps of data showing changes over a span of time for different countries and pointing at all kinds of cities. That basically means that we need to map any region of the world with R. Today there are all kinds of packages and techniques to do that.</div>
+            <div class="other-date">2023-3-24</div>
+        </div>
+    </div>
+</a>
+            </a>
+        
+            <a href="https://blog.teoten.com/posts/2022/getting_coordinates_for_maps_in_r_via_api/">
+                
+<a href="https://blog.teoten.com/posts/2022/getting_coordinates_for_maps_in_r_via_api/">
+    <div class="list-item">
+        <div class="icon-other-root">
+            
+                <div class="icon-other" style="background-image: url( /post/2022/map_any_region_with_ggplot2_part_I/maps_DrawingMap.png );"></div>
+            
+        </div>
+        <div class="list-right">
+            <div class="other-title">
+                Getting coordinates for maps in R via API
+            </div>
+            <div class="other-summary">This post is part of the series maps-app.
+You can also find the current state of the project under my GitHub repo mapic.
+Scope of this post This is the second part of the series to create a map of any region of the world with R.
+We are creating maps of data showing changes over a span of time for different countries and pointing at all kinds of cities.</div>
+            <div class="other-date">2022-11-4</div>
         </div>
     </div>
 </a>
