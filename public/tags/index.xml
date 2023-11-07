@@ -6,7 +6,25 @@
     <description>Recent content in Tags on Teoten&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 13 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.teoten.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 29 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.teoten.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>exploring</title>
+      <link>https://blog.teoten.com/tags/exploring/</link>
+      <pubDate>Fri, 29 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.teoten.com/tags/exploring/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R shiny</title>
+      <link>https://blog.teoten.com/tags/r-shiny/</link>
+      <pubDate>Fri, 29 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.teoten.com/tags/r-shiny/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>OOP</title>
       <link>https://blog.teoten.com/tags/oop/</link>
@@ -31,15 +49,6 @@
       <pubDate>Thu, 07 Sep 2023 00:00:00 +0000</pubDate>
       
       <guid>https://blog.teoten.com/tags/minitutorial/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>R shiny</title>
-      <link>https://blog.teoten.com/tags/r-shiny/</link>
-      <pubDate>Thu, 07 Sep 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.teoten.com/tags/r-shiny/</guid>
       <description></description>
     </item>
     

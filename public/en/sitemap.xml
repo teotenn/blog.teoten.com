@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://blog.teoten.com/categories/</loc>
-    <lastmod>2023-09-13T00:00:00+00:00</lastmod>
+    <lastmod>2023-09-29T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
@@ -14,6 +14,80 @@
                 hreflang="en"
                 href="https://blog.teoten.com/categories/"
                 />
+  </url><url>
+    <loc>https://blog.teoten.com/tags/exploring/</loc>
+    <lastmod>2023-09-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.teoten.com/posts/2023/my_first_golem_app/</loc>
+    <lastmod>2023-09-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.teoten.com/posts/</loc>
+    <lastmod>2023-09-29T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://blog.teoten.com/es/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog.teoten.com/posts/"
+                />
+  </url><url>
+    <loc>https://blog.teoten.com/categories/r/</loc>
+    <lastmod>2023-09-29T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://blog.teoten.com/es/categories/r/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog.teoten.com/categories/r/"
+                />
+  </url><url>
+    <loc>https://blog.teoten.com/tags/r-shiny/</loc>
+    <lastmod>2023-09-29T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://blog.teoten.com/es/tags/r-shiny/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog.teoten.com/tags/r-shiny/"
+                />
+  </url><url>
+    <loc>https://blog.teoten.com/tags/</loc>
+    <lastmod>2023-09-29T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://blog.teoten.com/es/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog.teoten.com/tags/"
+                />
+  </url><url>
+    <loc>https://blog.teoten.com/</loc>
+    <lastmod>2023-09-29T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://blog.teoten.com/es/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog.teoten.com/"
+                />
+  </url><url>
+    <loc>https://blog.teoten.com/categories/web-dev/</loc>
+    <lastmod>2023-09-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.teoten.com/series/maps-app/</loc>
     <lastmod>2023-09-13T00:00:00+00:00</lastmod>
@@ -33,32 +107,6 @@
   </url><url>
     <loc>https://blog.teoten.com/tags/oop/</loc>
     <lastmod>2023-09-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.teoten.com/posts/</loc>
-    <lastmod>2023-09-13T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://blog.teoten.com/es/posts/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://blog.teoten.com/posts/"
-                />
-  </url><url>
-    <loc>https://blog.teoten.com/categories/r/</loc>
-    <lastmod>2023-09-13T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://blog.teoten.com/es/categories/r/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://blog.teoten.com/categories/r/"
-                />
   </url><url>
     <loc>https://blog.teoten.com/tags/r-maps/</loc>
     <lastmod>2023-09-13T00:00:00+00:00</lastmod>
@@ -86,32 +134,6 @@
                 href="https://blog.teoten.com/series/"
                 />
   </url><url>
-    <loc>https://blog.teoten.com/tags/</loc>
-    <lastmod>2023-09-13T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://blog.teoten.com/es/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://blog.teoten.com/tags/"
-                />
-  </url><url>
-    <loc>https://blog.teoten.com/</loc>
-    <lastmod>2023-09-13T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://blog.teoten.com/es/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://blog.teoten.com/"
-                />
-  </url><url>
     <loc>https://blog.teoten.com/posts/2023/adding_website_to_siny/</loc>
     <lastmod>2023-09-07T00:00:00+00:00</lastmod>
   </url><url>
@@ -127,22 +149,6 @@
                 hreflang="en"
                 href="https://blog.teoten.com/tags/minitutorial/"
                 />
-  </url><url>
-    <loc>https://blog.teoten.com/tags/r-shiny/</loc>
-    <lastmod>2023-09-07T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://blog.teoten.com/es/tags/r-shiny/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://blog.teoten.com/tags/r-shiny/"
-                />
-  </url><url>
-    <loc>https://blog.teoten.com/categories/web-dev/</loc>
-    <lastmod>2023-09-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.teoten.com/posts/2023/programming_with_ggplot2/</loc>
     <lastmod>2023-04-19T00:00:00+00:00</lastmod>

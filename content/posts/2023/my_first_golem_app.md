@@ -1,20 +1,22 @@
 ---
 author: "Manuel Teodoro Tenango"
 title: "My first Golem app"
-image: ""
-draft: true
+image: "post/2023/my_first_golem_app/Golemof-Prague-Rabbi-Loew.jpg"
+draft: false
 date: 2023-09-29
 description: "Description"
 tags: ["R shiny", "exploring"]
 categories: ["R", "web-dev"]
 archives: ["2023"]
 ---
+
 # About
 A few days ago I finished reading the book [Engineering Production-Grade Shiny Apps](https://engineering-shiny.org/) by Colin Fay, Sebastien Rochette, Vincent Guyader and Cervan Girard. It was an easy read so, I decided to move forward and create my first `shiny` app with `golem`. But before doing that I wanted to read some comments or opinions about it and I realized that there is not so much about it outside of the `golem` team. Thus, I decided to record my exploration of the package and share it in my blog.
 
 Here you will find my opinion about the book and the package, the steps I took and a live example of the app. The post has a lot of lines but it is mostly because I include some of the snippets that come by default with a `golem`'s project, as well as my own scripts for the app.
 
 I hope that this post can help to some R `shiny` users to have an opinion about `golem` and save time deciding if this is the framework that can help with their needs. I need to mention that `golem` is just a proposition of how a `shiny` app should be organized and managed, similar to [leprechaun](https://leprechaun.opifex.org) and [rhino](https://appsilon.github.io/rhino/). There is always the option of following your own, with only `shiny` and you selected tools.
+
 
 # What is shiny golem?
 `golem` is an opinionated framework to facilitate the creation of robust `shiny` apps. In the words of the authors:
@@ -26,12 +28,22 @@ I hope that this post can help to some R `shiny` users to have an opinion about 
 The packages contains a series of functions that initialize a `shiny` app, creating the files and folders necessary according to the `golem` proposition of how it should be structured. The initialization includes default scripts to be modified, scripts to guide you through the usage of the framework, and functions that can be used within the app.
 
 # Engineering Production-Grade Shiny Apps
-First of all I have to say that book is not only about `golem`. It is rather an excellent book about software engineering for the average R user. In other words, if you have been using R without any background in software development, and you are working (or starting) with `shiny`, this book is definitely a must read.
+First of all I have to say that book is not only about `golem`. It is rather an excellent book about software engineering for the average R user. In other words, if you have been using R without any background in software development, and you are working (or starting) with `shiny`, this book is definitely a must read. The book is organized in a systematic way that starts with the planning, moves forward to the design, prototyping and building and ends up with optimization. It contains a lot of interesting and useful tips for the beginner and some even for the experienced. 
+
+The topics covered are wide but the authors try to explained them as detailed as possible, while keeping it simple and practical. They offer code snippets and simple example to keep up with what is explained. Something that I particularly like is that the book is not fully focused on the use of `golem` but it also shares different ways of achieving similar results. One example of all this is the chapter 17 "Using JavaScript": the authors provide a general overview of the basics of JavaScript, they touch HTML topics necessary to understand JavaScript interaction, and share options to pass info between JavaScript and R, explaining the `golem` way and the traditional `shiny` way.
+
+Another interesting aspect is that most of the chapters offer further sources to learn more about the topic, either books, web pages and even GitHub repos with examples. Although the book claims that it is oriented to people who are already somehow familiar with shiny, it is my opinion that it can as well be followed easily by someone who just started learning shiny. Somehow I thought how useful it could have been to myself a few years ago when I was already experienced with R and familiar with Shiny, but completely ignorant to HTML, CSS, JavaScript and Software Engineering. I built my knowledge up by collecting info scatter over different sources until I could have a solid base. The authors collect it all in one e-book an keep there useful references and links which surely are now in my personal bookmarks. 
+
+Finally, the book is an easy read. Probably for someone with less experience in some of the topics it can take some effort, but it is not definitely the kind of headache-producer book that we offer encounter when learning a new programming language with highly technical but almost not practical guides out there. The authors have a good style for explaining and sharing examples and I believe that anyone with a good base knowledge of R or web development can follow.
 
 # My first golem app: personal_finances
 
+So, I decided to create a toy app following the book. Since it is written in chronological order for the creation of a Shiny app, I went one more time through it and created a very simple app for calculating savings. The app calculates either the amount of money necessary each month to reach a goal, or the amount of time.
+
+You can find the code in my github repo [PersonalFinances](https://github.com/teotenn/PersonalFinances) and the live app under [this link](https://dev.teoten.com/shiny/PersonalFinances/). Notice that at the moment of writing this post, the app is functional but still in a "toy" state without too much aesthetics and a few minor bugs. Yet, it showed me how quickly and easily one can build a strong base app using Golem.
+
 ## Setup
-Start by calling
+We start a golem project by calling
 
 ```r
 create_golem("path_to_project")
@@ -125,7 +137,7 @@ And here we start with the package dependency and black magic solutions. The `go
 
 > ... (the function) will add information to the `golem-config.yml` file, and set the `here` (Müller 2017) package root sentinel. `here` is an R package designed to handle directory management in R. When used in combination with golem, `here` helps ensure that everything you do in your console is performed relatively to the root directory of your project: the one containing the `DESCRIPTION` of your application. That way, even if you change the working directory of your R session to a subfolder, you will still be able to create modules and CSS files in the correct folder.
 
-However, it was not as bad as I thought. At execution, the function prints what it is doing (or what has been done).
+However, it was not as obscure as I thought. At execution, the function prints what it is doing (or what has been done).
 
 ```r
 ── Setting {golem} options in `golem-config.yml` ──────────────────────────────────────
@@ -198,7 +210,9 @@ golem::add_module(name = "savings", with_test = TRUE) # Name of the module
 ## golem::add_module(name = "name_of_module2", with_test = TRUE) # Name of the module
 ```
 
-The line creates `mod_savings.R` ot the folder `R`. Now I can start prototyping the user interface.
+The line creates `mod_savings.R` ot the folder `R`. The package is supposed to cope well with RStudio, but I was surprised at how well it does on Emacs as well: it opens a new buffer with the new file and allows you to edit it or exit and continue on your own later. Kudos to the developers of [ESS](https://ess.r-project.org/).
+
+Now I can start prototyping the user interface.
 
 ```r
 #' savings UI Function
@@ -386,4 +400,16 @@ Although there is still a lot to improve, it seems that I got already a function
 
 As I mentioned earlier, using the `golem` functions to create the scripts gives us the option of adding tests files in the style of `thestthat`. I think that the unit test is critical for any kind of software because it gives confidence when doing modifications. Thus, before moving any further with improvements, I decided to have a functional unit test ready.
 
+For this step I went myself through the tests automatically created by `golem` first. In this aspect, `golem` does not offer anything special, but the book mentions good practices, practical advises and useful examples to for testing shiny apps. Therefore, I am not going in detail for this section. I basically used `testthat` as usual and implement some tests within `testServer`.
+
+Something that I can do recommend for a person who is not so familiar with Shiny is to go through the section [Mastering Reactivity](https://mastering-shiny.org/reactivity-intro.html) of [Mastering Shiny](https://mastering-shiny.org/index.html) which explains reactivity in detail and helps a great deal at designing a proper unit test for shiny apps.
+
 # Conclusions
+
+My conclusions are kind of mixed feelings about `golem`. I find the book a fantastic read to improve my knowledge and skills with Shiny and I would recommend it to anyone using Shiny. 
+
+When it comes to the package and the framework, I would recommend it to someone who wants a simple and quick way to create production ready apps in Shiny. It will require some learning in the framework but the e-book is a great source for that and following it can be almost enough. Golem is great to automatize certain processes in shiny, generate snippets and obtain all kind of tools directly from the box.
+
+I am more a person who likes coding it myself before automating it. I like to know what is going on and why and after that I can either accept some automating tool or create my own. Therefore, `golem` is not for me. I don't like the way how it organize things and I definitely don't like the excess of code and dependencies that it generates for my shiny apps, specially if these are simple ones. On the other hand, I like how it organizes the modules and I learned some useful and practical things from creating a `golem` app which I am ready to implement in my next app. It is always good to learn something new and get a different perspective on something we are used to do in our own way.
+
+

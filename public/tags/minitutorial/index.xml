@@ -109,7 +109,6 @@ error_page 404 /custom_404.html;
 &lt;p&gt;
 We can also cover several errors by listing them to the parameter &lt;code class=&#34;verbatim&#34;&gt;error_page&lt;/code&gt;. Here is an example to cover several 500 errors.&lt;/p&gt;
 &lt;pre class=&#34;example&#34;&gt;
-
 error_page 500 502 503 504 /custom_50x.html;
     location = /custom_50x.html {
     root /usr/share/nginx/html;
