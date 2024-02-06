@@ -1,0 +1,95 @@
+---
+author: "Manuel Teodoro Tenango"
+title: "Emacs as IDE for R"
+image: ""
+draft: true
+date: 2024-02-05
+description: "A new post"
+tags: ["R tips", "emacs"]
+categories: ["R", "emacs"]
+archives: ["2024"]
+---
+
+Intro
+
+* The power of Emacs
+Describe what Emacs have that others don't
+
+* Sane Emacs configurations
+As it has already been said, Emacs can be easily and widely customized, however, as any other software, it comes with its own defaults. Below you can find my personal configuration for Emacs itself. Some are parts that are argued by many whether they should be the defaults or not, others are parts that go well with R, and some are simply details that fit my preferences.
+
+#+begin_src emacs-lisp
+;; 1)
+(setq inhibit-startup-screen t)
+
+;; 2)
+(delete-selection-mode t)
+
+;; 3)
+(show-paren-mode 1)
+
+;; 4)
+(setq bookmark-save-flag 1)
+
+;; 5)
+(setq use-short-answers t)
+
+;; 6)
+(set-charset-priority 'unicode)
+(setq locale-coding-system 'utf-8
+      coding-system-for-read 'utf-8
+      coding-system-for-write 'utf-8)
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(prefer-coding-system 'utf-8)
+(setq default-process-coding-system '(utf-8-unix . utf-8-unix))
+
+;; 7)
+(setq temporary-file-directory "~/tmp/")
+(setq backup-directory-alist
+      `((".*" . ,temporary-file-directory)))
+(setq auto-save-file-name-transforms
+      `((".*" ,temporary-file-directory t)))
+
+;; 8)
+(defun er-sudo-edit (&optional arg)
+  "Edit currently visited file as root.
+
+With a prefix ARG prompt for a file to visit.
+Will also prompt for a file to visit if current
+buffer is not visiting a file."
+  (interactive "P")
+  (if (or arg (not buffer-file-name))
+      (find-file (concat "/sudo:root@localhost:"
+                         (ido-read-file-name "Find file(as root): ")))
+    (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name))))
+
+#+end_src
+
+1. Stop the welcome screen.
+2. Allows mark-type-delete. In other words: mark a region and when you start typing the region is replaced by what you are typing.
+3. Show or highlight matching parentheses.
+4. When you discover how powerful are bookmarks, this saves the bookmarks upon adding each.
+5. Always allow to answer by typing only 'y' instead of 'yes'.
+6. Default to utf-8 for everything. Here you have to be careful, if you use different encoding you might want to avoid it or add something else. Also, different versions of emacs have changed slightly some of this parameters, what I present here works well in Emacs 29.
+7. If you already started using emacs you probably noticed that it creates some extra hidden files in the folder with the files that you edited. These are backup files, you can redirect them to =~/tmp/= or somewhere else.
+8. You have opened a file and only then you realized that you need sudo rights to edit it. You can =M-x= call this function to do just that, or bind it to some key.
+
+** Vertico
+The minibuffer is an important part of Emacs, and [[https://github.com/minad/vertico][vertico]] makes interacting with it really easy.
+
+* Basic Emacs tools
+** Emacs is a text editor
+** Terminal emulators and eshell
+** Dired
+** Bookmarks and Registries
+** Project management
+** Org mode
+** HTML, CSS and JS
+* Packages
+** which key
+** Company
+** Rainbow delimiters
+** Yasnippet
+** ESS
+* Version Control with Magit
