@@ -109,6 +109,7 @@ First and foremost, Emacs is a text editor. As such, it provides great tools for
  + Comment a line with =C-x C-;= and comment a selected region with =M-;=.
  + Discard all the changes up to the last saved version with =revert-buffer=.
  + =M-u= to make the rest of the word from the point uppercase, and =M-l= to make it lowercase.
+ + Move to a particular occurrence of a word with =C-s= for forward and =C-r= for backward, or =C-M-s= to move to a regular expression. 
  + Classic find-and-replace with =M-%= or regular expressions replace with =M-x replace-regexp=. You can apply it to multiple lines as well.
  + Easily get rid of all empty space between a character and the next with =M-\=. And remove all trailing white space with =M-x delete-trailing-whitespace=.
 ** Terminal emulators, consoles and shell
@@ -119,12 +120,17 @@ You can type =M-x shell= and start a shell. Then =C-u M-x shell= and start a new
 As for the emacs shell, =M-x eshell=, it is a powerful shell that can run many bash commands or execute system commands, but it is designed to execute elisp code. It can easily interact with your system and you can use it for pretty much everything that you would do with bash or zsh.
 
 And there are a lot more options for running shells and terminal emulators in Emacs. If you are interested I recommend you to check the section from [[https://www.masteringemacs.org/article/running-shells-in-emacs-overview][Mastering emacs]] about the overview of shells.
+
 ** Dired
 From the moment that I learned how to use dired I have basically stopped using external file managers, both in Windows and Linux. It is so powerful that it deserves a whole post on its own, you can start with the [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Dired.html][manual]] and its 20 sections. Or explore it on your own with =C-x d= and then type =?= for the most basic actions, or =h= for the complete list.
 
 You can move, delete, copy and open files, you can create symlinks, evaluate a whole script, change user permissions, filter, rename... the list is really long. One very interesting feature is that you can enter a dired buffer into edit mode and then rename the files as simple as manipulating text, which means that you can do find-and-replace for bulk renaming.
 
-** Bookmarks and Registries
+** Bookmarks and Registers
+You can easily jump from one buffer to another, or to a specific point in a buffer, or to a window configuration using bookmarks. You can also save text, numbers and a few other things. Some packages include their own options for bookmarks, for example an specific point in your undo history, to mention just one. You can also save files in a bookmark and jump to it by a couple of key strokes.
+
+That is more or less what bookmarks and registers do. The Emacs manual [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Registers.html][about registers]] is very clear and complete. It has saved me a lot of time when working in a project with too many files, when I am working on a particular feature and suddenly I need to urgently debug something completely different, and when I start an Emacs session and need to call some frequently visited files like my to-do list.
+
 ** Project management
 ** Org mode
 ** HTML, CSS and JS
