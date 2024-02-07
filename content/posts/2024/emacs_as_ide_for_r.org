@@ -76,10 +76,32 @@ buffer is not visiting a file."
 8. You have opened a file and only then you realized that you need sudo rights to edit it. You can =M-x= call this function to do just that, or bind it to some key.
 
 ** Vertico
-The minibuffer is an important part of Emacs, and [[https://github.com/minad/vertico][vertico]] makes interacting with it really easy.
+The minibuffer is an important part of Emacs, and [[https://github.com/minad/vertico][vertico]] makes interacting with it really easy. It basically "provides a performant and minimalistic vertical completion UI based on the default completion system". It uses built-in Emacs commands for auto completion by expanding the minibuffer and showing the options.
+
+It helps us to navigate Emacs, explore it and execute commands. There are a few other packages that achieve the same. Whichever you choose, it is in my opinion, a must-have tool for Emacs users.
+
+Here is a simple configuration based on ~use-package~ with annotations:
+
+#+begin_src emacs-lisp
+(use-package vertico
+  :init
+  ;; Start vertico automatically with Emacs
+  (vertico-mode)
+  :config
+  ;; Grow and shrink the Vertico minibuffer
+  (setq vertico-resize t)
+  ;; Optionally enable cycling for `vertico-next' and `vertico-previous'.
+  (setq vertico-cycle t))
+
+;; Allow vertico keep history
+(use-package savehist
+  :init
+  (savehist-mode))
+#+end_src
 
 * Basic Emacs tools
 ** Emacs is a text editor
+
 ** Terminal emulators and eshell
 ** Dired
 ** Bookmarks and Registries
