@@ -108,6 +108,9 @@ First and foremost, Emacs is a text editor. As such, it provides great tools for
  + =c-x h= to select the whole buffer, =C-M-h= to select a paragraph.
  + Comment a line with =C-x C-;= and comment a selected region with =M-;=.
  + Discard all the changes up to the last saved version with =revert-buffer=.
+ + =M-u= to make the rest of the word from the point uppercase, and =M-l= to make it lowercase.
+ + Classic find-and-replace with =M-%= or regular expressions replace with =M-x replace-regexp=. You can apply it to multiple lines as well.
+ + Easily get rid of all empty space between a character and the next with =M-\=. And remove all trailing white space with =M-x delete-trailing-whitespace=.
 ** Terminal emulators, consoles and shell
 Most text editors come with terminal emulators or can easily connect to one. What few can do is to run several terminals, or provide its own shells. Emacs has both.
 
@@ -117,6 +120,10 @@ As for the emacs shell, =M-x eshell=, it is a powerful shell that can run many b
 
 And there are a lot more options for running shells and terminal emulators in Emacs. If you are interested I recommend you to check the section from [[https://www.masteringemacs.org/article/running-shells-in-emacs-overview][Mastering emacs]] about the overview of shells.
 ** Dired
+From the moment that I learned how to use dired I have basically stopped using external file managers, both in Windows and Linux. It is so powerful that it deserves a whole post on its own, you can start with the [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Dired.html][manual]] and its 20 sections. Or explore it on your own with =C-x d= and then type =?= for the most basic actions, or =h= for the complete list.
+
+You can move, delete, copy and open files, you can create symlinks, evaluate a whole script, change user permissions, filter, rename... the list is really long. One very interesting feature is that you can enter a dired buffer into edit mode and then rename the files as simple as manipulating text, which means that you can do find-and-replace for bulk renaming.
+
 ** Bookmarks and Registries
 ** Project management
 ** Org mode
