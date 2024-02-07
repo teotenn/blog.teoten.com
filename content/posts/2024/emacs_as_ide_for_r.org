@@ -101,8 +101,21 @@ Here is a simple configuration based on ~use-package~ with annotations:
 
 * Basic Emacs tools
 ** Emacs is a text editor
+First and foremost, Emacs is a text editor. As such, it provides great tools for editing plain text, including R code. Here is a list of the functionalities that I use the most as a developer. It is by far very short compared to the possibilities that Emacs offers:
+ + Easy navigation. Type =M-<= or =M->= to go to the beginning or end of the buffer, =C-a= and =C-e= for the beginning and end of line, =M-e= for the end of expression or paragraph, =M-f= and =M-b= to move forward/backward through words.
+ + Focus on what's important with =C-l=.
+ + Move a page up/down with =C-v= / =M-v=.
+ + =c-x h= to select the whole buffer, =C-M-h= to select a paragraph.
+ + Comment a line with =C-x C-;= and comment a selected region with =M-;=.
+ + Discard all the changes up to the last saved version with =revert-buffer=.
+** Terminal emulators, consoles and shell
+Most text editors come with terminal emulators or can easily connect to one. What few can do is to run several terminals, or provide its own shells. Emacs has both.
 
-** Terminal emulators and eshell
+You can type =M-x shell= and start a shell. Then =C-u M-x shell= and start a new shell while keeping the previous one. You can do exactly the same with the =R= command to bring as many R consoles as you wish. And if you are in an R script, you can call =C-c C-s= to start a new R process linked to that script.
+
+As for the emacs shell, =M-x eshell=, it is a powerful shell that can run many bash commands or execute system commands, but it is designed to execute elisp code. It can easily interact with your system and you can use it for pretty much everything that you would do with bash or zsh.
+
+And there are a lot more options for running shells and terminal emulators in Emacs. If you are interested I recommend you to check the section from [[https://www.masteringemacs.org/article/running-shells-in-emacs-overview][Mastering emacs]] about the overview of shells.
 ** Dired
 ** Bookmarks and Registries
 ** Project management
