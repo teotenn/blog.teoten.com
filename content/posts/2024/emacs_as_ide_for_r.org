@@ -1,28 +1,41 @@
 ---
 author: "Manuel Teodoro Tenango"
 title: "Emacs as IDE for R"
-image: ""
+image: "/post/2024/emacs_as_ide_for_r/Emacs_512.png"
 draft: true
-date: 2024-02-05
+date: 2024-02-11
 description: "A new post"
 tags: ["R tips", "emacs"]
 categories: ["R", "emacs"]
 archives: ["2024"]
 ---
 
-Intro
+Recently I have seen many posts about which IDE for R people prefer, with minimalists list of options, usually of size 2: R Studio and VS Code. I guess that some people forget, or many don't even know about two of the most powerful text editors that have been helping developers for a few decades. I am talking of course about Emacs and Vim, both great options for R development. I have checked Vim just slightly and I have used R Studio a few times, so I cannot really talk much about them. But I have been using Emacs for about 8 years now and it has slowly helped me to become a better developer and to understand the back end of the tools that I use better.
 
-* The power of Emacs
-Describe what Emacs have that others don't
+I have a [[/posts/2022/use_emacs_for_r/][previous post]] about using Emacs for R with a simple setup. If you are interested into a quick setup of Emacs as IDE for R I recommend you to check it out.
+
+I started using Emacs when I started my Ph.D. Back then I never heard that the learning curve is very steep, but now I can tell you that it is actually not. As a new Ph.D. student I had a lot of new things to learn and a lot of dues, I didn't need a software that would take extra time off my hands. When I first installed Emacs I followed the startup tutorial and that was it. I searched about how to get R up and running and started working right away. I didn't need much of keybindings because Emacs includes very good menus at its bar. And ESS for R includes a good tool bar as well. It was like any other program, click here and then there.
+
+However it is true that the more I used Emacs the more I started memorizing keybindings and learning about its configuration by elisp code. After about 2 years I have passed the tightest deadlines and I was more focused on analyzing my data. I was more familiar with Emacs and I needed to get the best out of R. I started using LaTeX and Bibtex as well. So, I started configuring Emacs a bit more. Of course, when you do that you dive into the rabbit hole, and its only up to you how deep you can get. There were days (probably full weeks) when I didn't get things done because I was "too busy" configuring Emacs. There is a warning here, it can get addictive. However I was a student and the deadlines were more relaxed. I managed my Ph.D. in 4 years anyway.
+
+In the long term, the time spent in Emacs ended up being a wonderful investment of my time. When I got my first job afterwards I had an excellent organization (self-management and project wise) thanks to org mode, I had already a functional and powerful R IDE and my skills in functional programming have improved considerably. Still I wasn't using much the keybindings (except for R), I was using very few external packages and I had 0 aesthetics configuration. Emacs was working just fine.
+
+#+ATTR_HTML: :alt Emacs welcome screen
+#+ATTR_HTML: :title The Emacs welcome screen
+[[/post/2024/emacs_as_ide_for_r/Emacs_welcome_screen.png]]
+
+It was much latter when I started configuring it more, creating my own functions and learning about more functionalities. And now that I work more on software development and less in research, all of that is paying off. Emacs has been my best ally both, in research and programming, in academia and industry, for programming tasks as well as self organization and documents creation.
+
+I would like to share my experience with Emacs with more R users not to acquire more adepts to the church of Emacs (old joke), but simply to show a glimpse of what you are missing. Usually people are afraid of the learning curve, which I have said many times, it is 0. Others simply want to stay in the comfort zone. A few more simply never heard about it, or heard very little to be interested. And yet some others are happy with the tools they use and the workflow they have and don't need anything else. In any case, if you are checking this post because you are considering trying out Emacs, or simply out of curiosity, I have prepared a list of 10 main reason why I use Emacs. The list cover topics not only about working with code, but also project organization, time management, version control with Git and file system. You can as well check out only the ones you are interested in. Either way, I hope to awake your curiosity and leave you at least the wish to check out more.
 
 * 10 reasons to use Emacs
 
 ** 1. Stability
 Emmacs gives me stability in the sense that I get the same experience working with text and code in different operating systems. I have Linux in my personal Laptop but my work is usually in a Windows laptop. I use Emacs with the same configuration in both, shared by Git. In that way I really get the same experience and the same workflow in both. And because Emacs includes so many tools, I don't need to learn so many new apps for different use cases. I manage as much as possible from within Emacs.
 
-On the other hand, Emacs has been around for a very long time. And by the looks of its current development, number of packages and incorporation of new technologies, it seems that it will still be around for another big while. This is means that it is a good investment to learn a thing or two about it and try it out.
+On the other hand, Emacs has been around for a very long time. And by the looks of its current development, number of packages and incorporation of new technologies, it seems that it will still be around for another big while. This means that it is a good investment to learn a thing or two about it and try it out.
 
-Finally I have to say that as a text editor that deals mainly with text, is very fast and stable, it hardly lags or breaks. And I know that many modern text editors hardly break too, but some are known for being fancy but slow, and yet lacking basic functionality that Emacs presents out of the box.
+Finally, I have to say that as a text editor that deals mainly with text, it is very fast and stable, it hardly lags or breaks. And I know that many modern text editors hardly break too, but some are known for being fancy but slow, and yet lacking basic functionality that Emacs presents out of the box.
 
 ** 2. Emacs is a text editor
 First and foremost, Emacs is a text editor. As such, it provides great tools for editing plain text, including R code. If it is true that you can use the menu and tool bars on top, when you are working with text is convenient to memorize a few key bindings to make your workflow faster.
@@ -42,39 +55,81 @@ Here is a list of the functionalities that I use the most as a developer. It is 
 
 After many years using Emacs I have developed muscle memory for many key bindings that I use regularly. What I don't remember I call it with =M-x= and then start typing something with some of the auto complete tools described below. And still I'm regularly discovering new hidden gems that make my life easier and impress my colleagues during code reviews. My strategy is, I write in a piece of paper a few keybindings with short explanation of what they do and keep it next to my screen. I choose the most useful ones, i.e., the top 10 or top 20. While I'm working I look at it from time to time when I remember something interesting that I have there. Sometimes I happen to see some of the other useful stuff, which makes me remember and implement it. After a while I noticed that I don't use the list much, or that I memorize most of it, so I create a new list with new stuff and the stuff I didn't memorized (but that I still consider useful, I get rid of what I never used or what does not fit my workflow).
 
-** 3. It has terminal emulators, consoles and shell
-Most text editors come with terminal emulators or can easily connect to one. What few can do is to run several terminals, or provide its own shells. Emacs has both.
+** 3. Emacs is highly configurable
+As you could probably noticed already, Emacs can be easily and widely customized. However, as with any other software, it comes with its own defaults. Below you can find my personal configuration for Emacs itself. Some are parts that are argued by many whether they should be the defaults or not, others are parts that go well with R, and some are simply details that fit my preferences. I hope it makes your transition to Emacs easier.
 
-You can type =M-x shell= and start a shell. Then =C-u M-x shell= and start a new shell while keeping the previous one. You can do exactly the same with the =R= command to bring as many R consoles as you wish. And if you are in an R script, you can call =C-c C-s= to start a new R process linked to that script.
+#+begin_src emacs-lisp
+;; 1)
+(setq inhibit-startup-screen t)
 
-As for the emacs shell, =M-x eshell=, it is a powerful shell that can run many bash commands or execute system commands, but it is designed to execute elisp code. It can easily interact with your system and you can use it for pretty much everything that you would do with bash or zsh.
+;; 2)
+(delete-selection-mode t)
 
-And there are a lot more options for running shells and terminal emulators in Emacs. If you are interested I recommend you to check the section from [[https://www.masteringemacs.org/article/running-shells-in-emacs-overview][Mastering emacs]] about the overview of shells.
+;; 3)
+(show-paren-mode 1)
+
+;; 4)
+(setq bookmark-save-flag 1)
+
+;; 5)
+(setq use-short-answers t)
+
+;; 6)
+(set-charset-priority 'unicode)
+(setq locale-coding-system 'utf-8
+      coding-system-for-read 'utf-8
+      coding-system-for-write 'utf-8)
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(prefer-coding-system 'utf-8)
+(setq default-process-coding-system '(utf-8-unix . utf-8-unix))
+
+;; 7)
+(setq temporary-file-directory "~/tmp/")
+(setq backup-directory-alist
+      `((".*" . ,temporary-file-directory)))
+(setq auto-save-file-name-transforms
+      `((".*" ,temporary-file-directory t)))
+
+;; 8)
+(defun er-sudo-edit (&optional arg)
+  "Edit currently visited file as root.
+
+With a prefix ARG prompt for a file to visit.
+Will also prompt for a file to visit if current
+buffer is not visiting a file."
+  (interactive "P")
+  (if (or arg (not buffer-file-name))
+      (find-file (concat "/sudo:root@localhost:"
+                         (ido-read-file-name "Find file(as root): ")))
+    (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name))))
+
+#+end_src
+
+1. Stop the welcome screen.
+2. Allows mark-type-delete. In other words: mark a region and when you start typing the region is replaced by what you are typing.
+3. Show or highlight matching parentheses.
+4. When you discover how powerful are bookmarks, this saves the bookmarks upon adding each.
+5. Always allow to answer by typing only 'y' instead of 'yes'.
+6. Default to utf-8 for everything. Here you have to be careful, if you use different encoding you might want to avoid it or add something else. Also, different versions of emacs have changed slightly some of this parameters, what I present here works well in Emacs 29.
+7. If you already started using emacs you probably noticed that it creates some extra hidden files in the folder with the files that you edited. These are backup files, you can redirect them to =~/tmp/= or somewhere else.
+8. You have opened a file and only then you realized that you need sudo rights to edit it. You can =M-x= call this function to do just that, or bind it to some key.
 
 ** 4. Dired
-From the moment that I learned how to use dired I have basically stopped using external file managers, both in Windows and Linux. It is so powerful that it deserves a whole post on its own, you can start with the [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Dired.html][manual]] and its 20 sections. Or explore it on your own with =C-x d= and then type =?= for the most basic actions, or =h= for the complete list.
+From the moment that I learned how to use dired I have basically stopped using external file managers, both in Windows and Linux. It is so powerful that it deserves a whole post on its own, you can start with the [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Dired.html][manual]] and its 20 sections. Or explore it on your own with =C-x d= and then type =?= for the most basic actions, =h= for the complete list or simply browse the menu.
 
-You can move, delete, copy and open files, you can create symlinks, evaluate a whole script, change user permissions, filter, rename... the list is really long. One very interesting feature is that you can enter a dired buffer into edit mode and then rename the files as simple as manipulating text, which means that you can do find-and-replace for bulk renaming.
+You can move, delete, copy and open files, you can create symlinks, evaluate a whole script, change user permissions, filter, rename... the list is really long.
 
-** 5. Bookmarks and Registers
-You can easily jump from one buffer to another, or to a specific point in a buffer, or to a window configuration using bookmarks. You can also save text, numbers and a few other things. Some packages include their own options for bookmarks, for example an specific point in your undo history, to mention just one. You can also save files in a bookmark and jump to it by a couple of key strokes.
+Two of my favorite features of Dired are:
 
-That is more or less what bookmarks and registers do. The Emacs manual [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Registers.html][about registers]] is very clear and complete. It has saved me a lot of time when working in a project with too many files, when I am working on a particular feature and suddenly I need to urgently debug something completely different, and when I start an Emacs session and need to call some frequently visited files like my to-do list.
+ + You can mark several files by selecting them with =m= or by a regexp with =% g= and then use =k= to show only the selected lines. Use =g= to bring back the complete list or =t= to toggle the selection.
+ + You can enter a Dired buffer into edit mode and then rename the files as simple as manipulating text, which means that you can do find-and-replace for bulk renaming, including regexp.
 
-** 6. Project management
-There have been a few packages that facilitate the work with large projects from Emacs. However, from version 28 Emacs includes its own *project.el*. According to its [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Projects.html][manual]] "a project is a collection of files used for producing one or more programs. Files that belong to a project are typically stored in a hierarchy of directories; the top-level directory of the hierarchy is known as the project root". It means that you can easily navigate and manipulate files within a given directory tree.
-
-The easiest way to start using it is by invoking it from a directory or file that is under version control, then Emacs will identify it as a project and all the files that are under VC will be affected by the commands. Then you can call =C-x p= and start using the default shortcuts. If you have installed =which-key= you will immediately see the list of possibilities. Some of the most used by me:
- + =f= find file, reducing the search to only the project.
- + =s= and =e= to call a shell and eshell respectively at the root folder of the project.
- + =d= to open a chosen directory within the project in dired.
- + =g= for a regex search in all files in the project and =r= for replace regex. This particular ones need a tool for regex search such as =ripgrep= or =git grep=.
-
-When you are done working with your project you can simply do =C-x p k= to close all the buffers related to the project. Or you can jump between projects with =C-x p p=.
-
-Since its implementation there have appeared several packages that use its power or extend it, to allow doing more things within a project.
-
-** 7. Org mode
+#+ATTR_HTML: :alt Dired
+#+ATTR_HTML: :title Dired buffer and first section of keybindings
+[[/post/2024/emacs_as_ide_for_r/dired_overview2.png]]
+   
+** 5. Org mode
 [[https://orgmode.org/][Org mode]] is a real jewel in Emacs and it deserves multiple posts on their own to cover its power. However, I want to include it in this post at least briefly because even if Emacs would have only its basic features, ESS and org-mode, that would be reason enough for me to use it for R development and data analysis.
 
 Org mode is an elegant markup that renders well in Emacs by default, and it can be beautified with additional packages. "Org mode is routinely used to build and manage complex workflows. It does this using an elegantly simple syntax that scales from basic markup to full LaTeX typesetting and from plain text notes to literate programs." It comes with a structured editing that allows you to show/hide content in the headings/subheadings, move them and edit them with a few keystrokes, and even tag them "Archive" or archive them in its own file.
@@ -101,7 +156,38 @@ There is a github repo with an [[https://github.com/erikriverson/org-mode-R-tuto
 
 I hope that I have awaken your curiosity to try it or at least check it out.
 
-** 8. Emacs can easily be extended
+** 6. It has terminal emulators, consoles and shell
+Many text editors come with terminal emulators or can easily connect to one. What few can do is to run several terminals, or provide its own shells. Emacs has both.
+
+You can type =M-x shell= and start a shell. Then =C-u M-x shell= and start a new shell while keeping the previous one. You can do exactly the same with the =R= command to bring as many R consoles as you wish. And if you are in an R script, you can call =C-c C-s= to start a new R process linked to that script.
+
+As for the emacs shell, =M-x eshell=, it is a powerful shell that can run many bash commands or execute system commands, but it is designed to execute elisp code. It can easily interact with your system and you can use it for pretty much everything that you would do with bash or zsh.
+
+And there are a lot more options for running shells and terminal emulators in Emacs. If you are interested I recommend you to check the section from [[https://www.masteringemacs.org/article/running-shells-in-emacs-overview][Mastering emacs]] about the overview of shells.
+
+#+ATTR_HTML: :alt Eshell
+#+ATTR_HTML: :title Eshell running the classic "top" and defining and executing elisp function.
+[[/post/2024/emacs_as_ide_for_r/eshell_example.png]]
+
+** 7. Bookmarks and Registers
+You can easily jump from one buffer to another, or to a specific point in a buffer, or to a window configuration using bookmarks. You can also save text, numbers and a few other things. Some packages include their own options for bookmarks, for example an specific point in your undo history, to mention just one. You can also save files in a bookmark and jump to it by a couple of key strokes.
+
+That is more or less what bookmarks and registers do. The Emacs manual [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Registers.html][about registers]] is very clear and complete. It has saved me a lot of time when working in a project with too many files, when I am working on a particular feature and suddenly I need to urgently debug something completely different, and when I start an Emacs session and need to call some frequently visited files like my to-do list.
+
+** 8. Project management
+There have been a few packages that facilitate the work with large projects from Emacs. However, from version 28 Emacs includes its own *project.el*. According to its [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Projects.html][manual]] "a project is a collection of files used for producing one or more programs. Files that belong to a project are typically stored in a hierarchy of directories; the top-level directory of the hierarchy is known as the project root". It means that you can easily navigate and manipulate files within a given directory tree.
+
+The easiest way to start using it is by invoking it from a directory or file that is under version control, then Emacs will identify it as a project and all the files that are under VC will be affected by the commands. Then you can call =C-x p= and start using the default shortcuts. If you have installed =which-key= you will immediately see the list of possibilities. Some of the most used by me:
+ + =f= find file, reducing the search to only the project.
+ + =s= and =e= to call a shell and eshell respectively at the root folder of the project.
+ + =d= to open a chosen directory within the project in dired.
+ + =g= for a regex search in all files in the project and =r= for replace regex. This particular ones need a tool for regex search such as =ripgrep= or =git grep=.
+
+When you are done working with your project you can simply do =C-x p k= to close all the buffers related to the project. Or you can jump between projects with =C-x p p=.
+
+Since its implementation there have appeared several packages that use its power or extend it, to allow doing more things within a project.
+
+** 9. Emacs can easily be extended
 So far I have described only Emacs built-in functionality, but Emacs can easily be extended by writing your own functions and/or using packages.
 
 Some say that Emacs is almost like an operating system on its own, and although is not true, it can play so well with your OS, whichever it is, and function as a window manager. I use Emacs both, in Linux for my personal projects and on Windows for work and it gives me the tranquility of accomplish the same with the same tools and same keybindings in both systems. Also it made me reduce the need for install extra software for my regular use.
@@ -277,7 +363,7 @@ Now we can send the =dev.off()= by evaluating =(my-rsend-dev-off)= in Emacs, or 
 
 Now we can execute our =dev.off()= from any R script or R console by the key strokes =C-c t o=. First I am setting a map of keys to =my-exec-r-keymap= and mapping our function to send =dev.off()= to the key =o=. You can add more functions by adding more lines like =(define-key map "o" 'my-rsend-dev-off)= below it, changing the key to be mapped to, and the function to use. Then I am binding that key map to =C-c t= using =ess-r-mode-hook= to be called from R scripts, and to =inferior-ess-r-mode-hook= to be called from the R console. We could have gone a simpler way and just map it to something like =C-c o=, but I wanted to give you the tools to create a whole key map to have all your personal R-related key bindings there. For example, I keep my R key bindings under =C-c t= and other Emacs useful functions for editing under =C-c e=, and other keys for other personal maps or actions. And why =C-c=-something? Well, Emacs is full of keybindings and it seems that most of them are taken, so Emacs reserves =C-c=-something for the user key bindings, and =C-c C=-something for the packages. So, I really recommend you to stick to it if you don't want to get rid of other useful stuff.
 
-** 9. Version Control with Magit
+** 10. Version Control with Magit
 [[https://magit.vc/][Magit]] is really "a git porcelain inside Emacs". It is, in my opinion and the opinion of many, the best GUI for git ever.
 
 #+begin_quote
@@ -286,69 +372,15 @@ Magit is a complete text-based user interface to Git. It fills the glaring gap b
 Using Magit for a while will make you a more effective version control user. Magit supports and streamlines the use of Git features that most users and developers of other Git clients apparently thought could not be reasonably mapped to a non-command-line interface. Magit is both faster and more intuitive than either the command line or any GUI and these holds for both Git beginners and experts alike.
 #+end_quote
 
+#+ATTR_HTML: :alt Magit
+#+ATTR_HTML: :title Magit
+[[/post/2024/emacs_as_ide_for_r/magit_overview2.png]]
+
 I think the text describes it well enough, but the best way is to see it in action. Go to the link above and check out the screenshots and/or the videos for inspiration.
 
 In my personal experience, Magit has made my working with Git not only faster but also easier. It is very easy to use even without any of the auto completion tools that I listed above because it uses its own system of [[https://github.com/magit/transient][transient]] commands that calls a master menu with all the potential options: you start with a menu with all the Git events like Push, Pull, Stash, Branch, etc., and once you choose one it displays the potential options to use it, and as a complement it allows the user to provide information (i.e., a branch name) as plain text when necessary. For example =b= shows the branch menu and within it, =b= checks out a branch, then you type in the minibuffer the name of the branch and you're there. Quite intuitive, right?
 
 Magit is so good that I've met people who moved to Emacs just because of Magit (although they stay for many more reasons). Or people who moved away from Emacs saying that what they miss the most is Magit. So, I think that this few words are enough for this section and I'll let your curiosity take care of the rest. Enjoy it!.
 
-** 10. Emacs is highly configurable
-As you could probably noticed already, Emacs can be easily and widely customized. However, as with any other software, it comes with its own defaults. Below you can find my personal configuration for Emacs itself. Some are parts that are argued by many whether they should be the defaults or not, others are parts that go well with R, and some are simply details that fit my preferences. I hope it makes your transition to Emacs easier.
 
-#+begin_src emacs-lisp
-;; 1)
-(setq inhibit-startup-screen t)
-
-;; 2)
-(delete-selection-mode t)
-
-;; 3)
-(show-paren-mode 1)
-
-;; 4)
-(setq bookmark-save-flag 1)
-
-;; 5)
-(setq use-short-answers t)
-
-;; 6)
-(set-charset-priority 'unicode)
-(setq locale-coding-system 'utf-8
-      coding-system-for-read 'utf-8
-      coding-system-for-write 'utf-8)
-(set-terminal-coding-system 'utf-8)
-(set-keyboard-coding-system 'utf-8)
-(prefer-coding-system 'utf-8)
-(setq default-process-coding-system '(utf-8-unix . utf-8-unix))
-
-;; 7)
-(setq temporary-file-directory "~/tmp/")
-(setq backup-directory-alist
-      `((".*" . ,temporary-file-directory)))
-(setq auto-save-file-name-transforms
-      `((".*" ,temporary-file-directory t)))
-
-;; 8)
-(defun er-sudo-edit (&optional arg)
-  "Edit currently visited file as root.
-
-With a prefix ARG prompt for a file to visit.
-Will also prompt for a file to visit if current
-buffer is not visiting a file."
-  (interactive "P")
-  (if (or arg (not buffer-file-name))
-      (find-file (concat "/sudo:root@localhost:"
-                         (ido-read-file-name "Find file(as root): ")))
-    (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name))))
-
-#+end_src
-
-1. Stop the welcome screen.
-2. Allows mark-type-delete. In other words: mark a region and when you start typing the region is replaced by what you are typing.
-3. Show or highlight matching parentheses.
-4. When you discover how powerful are bookmarks, this saves the bookmarks upon adding each.
-5. Always allow to answer by typing only 'y' instead of 'yes'.
-6. Default to utf-8 for everything. Here you have to be careful, if you use different encoding you might want to avoid it or add something else. Also, different versions of emacs have changed slightly some of this parameters, what I present here works well in Emacs 29.
-7. If you already started using emacs you probably noticed that it creates some extra hidden files in the folder with the files that you edited. These are backup files, you can redirect them to =~/tmp/= or somewhere else.
-8. You have opened a file and only then you realized that you need sudo rights to edit it. You can =M-x= call this function to do just that, or bind it to some key.
-
+* Conclussions
