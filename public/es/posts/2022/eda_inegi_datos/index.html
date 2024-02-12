@@ -18,8 +18,8 @@
 <meta property="article:modified_time" content="2022-11-29T00:00:00+00:00" />
 
 
-    <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="EDA de datos de INEGI"/>
+
+    <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="EDA de datos de INEGI"/>
 <meta name="twitter:description" content="Análisis exploratorio de datos obtenidos de INEGI"/>
 
     
@@ -501,9 +501,9 @@ función <code>equivalent</code> que haga exactamente lo que necesito.</p>
 </span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl">   <span class="n">translate</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">vector.es</span><span class="p">){</span>
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl">   <span class="n">translate</span> <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span><span class="n">vector.es</span><span class="p">){</span>
 </span></span><span class="line"><span class="cl">    <span class="n">vector.en</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">for </span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="nf">length</span><span class="p">(</span><span class="n">vector.es</span><span class="p">)){</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">for</span> <span class="p">(</span><span class="n">i</span> <span class="kr">in</span> <span class="m">1</span><span class="o">:</span><span class="nf">length</span><span class="p">(</span><span class="n">vector.es</span><span class="p">)){</span>
 </span></span><span class="line"><span class="cl">        <span class="n">expression.es</span> <span class="o">&lt;-</span> <span class="n">vector.es[i]</span>
 </span></span><span class="line"><span class="cl">        <span class="n">expression.en</span> <span class="o">&lt;-</span> <span class="nf">equivalent</span><span class="p">(</span><span class="n">expression.es</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">        <span class="c1">## &#34;equivalent&#34; toma expression.es y regresa el</span>
@@ -513,7 +513,7 @@ función <code>equivalent</code> que haga exactamente lo que necesito.</p>
 </span></span><span class="line"><span class="cl">    <span class="n">vector.en</span>
 </span></span><span class="line"><span class="cl">   <span class="p">}</span>
 </span></span><span class="line"><span class="cl">   
-</span></span><span class="line"><span class="cl">  <span class="n">equivalent</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">expression.es</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">  <span class="n">equivalent</span> <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span><span class="n">expression.es</span><span class="p">){</span>
 </span></span><span class="line"><span class="cl">      <span class="n">position</span> <span class="o">&lt;-</span> <span class="nf">match</span><span class="p">(</span><span class="n">expression.es</span><span class="p">,</span> <span class="n">categorias</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">      <span class="n">expression.en</span> <span class="o">&lt;-</span> <span class="n">activities.en[position]</span>
 </span></span><span class="line"><span class="cl">      <span class="n">expression.en</span>
@@ -1044,7 +1044,7 @@ de 5 millones por default.</p>
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl">  <span class="c1">## Funcion para ver principal actividad por estado</span>
-</span></span><span class="line"><span class="cl">  <span class="n">plot_state</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">estado</span><span class="p">,</span> <span class="n">USD_min</span> <span class="o">=</span> <span class="m">5000000</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">  <span class="n">plot_state</span> <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span><span class="n">estado</span><span class="p">,</span> <span class="n">USD_min</span> <span class="o">=</span> <span class="m">5000000</span><span class="p">){</span>
 </span></span><span class="line"><span class="cl">      <span class="n">export.rows</span> <span class="o">%&gt;%</span>
 </span></span><span class="line"><span class="cl">          <span class="nf">filter</span><span class="p">(</span><span class="n">Activity</span> <span class="o">!=</span> <span class="s">&#34;Total&#34;</span><span class="p">)</span> <span class="o">%&gt;%</span>
 </span></span><span class="line"><span class="cl">          <span class="nf">group_by</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">Activity</span><span class="p">)</span>  <span class="o">%&gt;%</span>
@@ -1114,7 +1114,7 @@ ejemplo:</p>
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl">  <span class="n">primeros</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(){</span>
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl">  <span class="n">primeros</span> <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(){</span>
 </span></span><span class="line"><span class="cl">      <span class="nf">head</span><span class="p">(</span><span class="n">export.rows</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">  <span class="p">}</span>
 </span></span><span class="line"><span class="cl">
@@ -1145,7 +1145,7 @@ esto podría cambiar, veamos:</p>
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl">  <span class="n">primeros</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(){</span>
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl">  <span class="n">primeros</span> <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(){</span>
 </span></span><span class="line"><span class="cl">      <span class="n">export.rows</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">100</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">      <span class="nf">head</span><span class="p">(</span><span class="n">export.rows</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">  <span class="p">}</span>
@@ -1300,7 +1300,7 @@ exportadores de petroleo.</p>
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl">  <span class="c1">## Funcion para ver principal estado por actividad</span>
-</span></span><span class="line"><span class="cl">  <span class="n">plot_activity</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">activity</span><span class="p">,</span> <span class="n">USD_min</span> <span class="o">=</span> <span class="m">5000000</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">  <span class="n">plot_activity</span> <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span><span class="n">activity</span><span class="p">,</span> <span class="n">USD_min</span> <span class="o">=</span> <span class="m">5000000</span><span class="p">){</span>
 </span></span><span class="line"><span class="cl">      <span class="n">export.cols</span> <span class="o">%&gt;%</span>
 </span></span><span class="line"><span class="cl">          <span class="nf">select</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">year</span><span class="p">,</span> <span class="n">activity</span><span class="p">)</span> <span class="o">%&gt;%</span>
 </span></span><span class="line"><span class="cl">          <span class="nf">group_by</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>  <span class="o">%&gt;%</span>
@@ -1653,7 +1653,7 @@ Este post se basa en un trabajo reciente donde mi tarea fue la revisión y depur
                 
                 
                     <div class="footer-item">
-                        © 2023-2023 <a href="https://github.com/teotenn">teoten</a>
+                        © 2023-2024 <a href="https://github.com/teotenn">teoten</a>
                     </div>
                 
                 

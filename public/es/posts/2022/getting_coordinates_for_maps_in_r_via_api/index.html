@@ -19,8 +19,8 @@
 <meta property="og:see_also" content="https://blog.teoten.com/es/posts/2023/webscrap_and_iteration_in_r/" /><meta property="og:see_also" content="https://blog.teoten.com/es/posts/2022/basic_country_map_with_r/" />
 
 
-    <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Obteniendo coordenadas para mapas en R usando API"/>
+
+    <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Obteniendo coordenadas para mapas en R usando API"/>
 <meta name="twitter:description" content="Parte II de cómo hacer mapas de cualquier región del mundo utilizando las librerías ggplot2 y maps"/>
 
     
@@ -492,7 +492,7 @@
 </span><span class="lnt">43
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">coords_from_city</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">City</span><span class="p">,</span>
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">coords_from_city</span> <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span><span class="n">City</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">                             <span class="n">CountryTwoLetter</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">                             <span class="n">Region</span> <span class="o">=</span> <span class="kc">NULL</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">                             <span class="n">State</span> <span class="o">=</span> <span class="kc">NULL</span><span class="p">,</span>
@@ -502,9 +502,9 @@
 </span></span><span class="line"><span class="cl">    <span class="n">CountryCoded</span> <span class="o">&lt;-</span> <span class="nf">paste</span><span class="p">(</span><span class="s">&#34;&amp;countrycodes=&#34;</span><span class="p">,</span> <span class="n">CountryTwoLetter</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s">&#39;&#39;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="n">extras</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="n">state</span> <span class="o">=</span> <span class="n">State</span><span class="p">,</span> <span class="n">region</span> <span class="o">=</span> <span class="n">Region</span><span class="p">,</span> <span class="n">county</span> <span class="o">=</span> <span class="n">County</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="n">extrasCoded</span> <span class="o">&lt;-</span> <span class="s">&#39;&#39;</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">if</span><span class="p">(</span><span class="o">!</span><span class="nf">is.null</span><span class="p">(</span><span class="n">extras</span><span class="p">))</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="nf">length</span><span class="p">(</span><span class="n">extras</span><span class="p">)){</span>
-</span></span><span class="line"><span class="cl">            <span class="nf">if</span><span class="p">(</span><span class="n">extras[i]</span> <span class="o">!=</span> <span class="s">&#39;&#39;</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nf">is.na</span><span class="p">(</span><span class="n">extras[i]</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nf">grepl</span><span class="p">(</span><span class="s">&#34;^\\s*$&#34;</span><span class="p">,</span> <span class="n">extras[i]</span><span class="p">)){</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">if</span><span class="p">(</span><span class="o">!</span><span class="nf">is.null</span><span class="p">(</span><span class="n">extras</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">for</span><span class="p">(</span><span class="n">i</span> <span class="kr">in</span> <span class="m">1</span><span class="o">:</span><span class="nf">length</span><span class="p">(</span><span class="n">extras</span><span class="p">)){</span>
+</span></span><span class="line"><span class="cl">            <span class="kr">if</span><span class="p">(</span><span class="n">extras[i]</span> <span class="o">!=</span> <span class="s">&#39;&#39;</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nf">is.na</span><span class="p">(</span><span class="n">extras[i]</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nf">grepl</span><span class="p">(</span><span class="s">&#34;^\\s*$&#34;</span><span class="p">,</span> <span class="n">extras[i]</span><span class="p">)){</span>
 </span></span><span class="line"><span class="cl">                <span class="n">valCoded</span> <span class="o">&lt;-</span> <span class="nf">gsub</span><span class="p">(</span><span class="s">&#39; &#39;</span><span class="p">,</span> <span class="s">&#39;%20&#39;</span><span class="p">,</span> <span class="n">extras[i]</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">                <span class="n">extrasCoded</span> <span class="o">&lt;-</span> <span class="nf">paste0</span><span class="p">(</span><span class="n">extrasCoded</span><span class="p">,</span> <span class="s">&#39;&amp;&#39;</span><span class="p">,</span> <span class="nf">names</span><span class="p">(</span><span class="n">extras</span><span class="p">)</span><span class="n">[i]</span><span class="p">,</span> <span class="s">&#39;=&#39;</span><span class="p">,</span> <span class="n">valCoded</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">            <span class="p">}</span>
@@ -520,7 +520,7 @@
 </span></span><span class="line"><span class="cl">      <span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">&#34;&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">fromJSON</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">## obtener las coordenadas</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">if</span><span class="p">(</span><span class="nf">is.vector</span><span class="p">(</span><span class="n">x</span><span class="p">)){</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">if</span><span class="p">(</span><span class="nf">is.vector</span><span class="p">(</span><span class="n">x</span><span class="p">)){</span>
 </span></span><span class="line"><span class="cl">            <span class="nf">message</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&#39;Found&#39;</span><span class="p">,</span> <span class="n">x[[1]]</span><span class="o">$</span><span class="n">display_name</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl">            <span class="n">lon</span> <span class="o">&lt;-</span> <span class="n">x[[1]]</span><span class="o">$</span><span class="n">lon</span>
 </span></span><span class="line"><span class="cl">            <span class="n">lat</span> <span class="o">&lt;-</span> <span class="n">x[[1]]</span><span class="o">$</span><span class="n">lat</span>
@@ -528,7 +528,7 @@
 </span></span><span class="line"><span class="cl">            <span class="n">coords</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="s">&#39;lon&#39;</span> <span class="o">=</span> <span class="n">lon</span><span class="p">,</span> <span class="s">&#39;lat&#39;</span> <span class="o">=</span> <span class="n">lat</span><span class="p">,</span> <span class="s">&#39;osm_name&#39;</span> <span class="o">=</span> <span class="n">osm_name</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">## Si x no es un vector</span>
-</span></span><span class="line"><span class="cl">    <span class="n">else</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">else</span><span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="nf">message</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&#39;No results found for&#39;</span><span class="p">,</span> <span class="n">City</span><span class="p">,</span> <span class="n">CountryTwoLetter</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl">        <span class="n">coords</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="s">&#39;lon&#39;</span> <span class="o">=</span> <span class="kc">NA</span><span class="p">,</span> <span class="s">&#39;lat&#39;</span> <span class="o">=</span> <span class="kc">NA</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
@@ -594,7 +594,7 @@
 </span><span class="lnt">47
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">webscrap_to_sqlite</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">db.name</span><span class="p">,</span>
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">webscrap_to_sqlite</span> <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span><span class="n">db.name</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">                               <span class="n">dat</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">                               <span class="n">col.city</span> <span class="o">=</span> <span class="s">&#39;City&#39;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">                               <span class="n">col.country</span> <span class="o">=</span> <span class="s">&#39;Country&#39;</span><span class="p">,</span>
@@ -614,7 +614,7 @@
 </span></span><span class="line"><span class="cl">    <span class="c1">## -- Iteraciones para el webscrap -- ##</span>
 </span></span><span class="line"><span class="cl">    <span class="n">ccount</span> <span class="o">&lt;-</span> <span class="m">0</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">## For loop para el webscrapping</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="n">df_len</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">for</span><span class="p">(</span><span class="n">i</span> <span class="kr">in</span> <span class="m">1</span><span class="o">:</span><span class="n">df_len</span><span class="p">){</span>
 </span></span><span class="line"><span class="cl">        <span class="n">rg</span> <span class="o">&lt;-</span> <span class="nf">ifelse</span><span class="p">(</span><span class="nf">is.null</span><span class="p">(</span><span class="n">region</span><span class="p">),</span> <span class="s">&#39;&#39;</span><span class="p">,</span> <span class="n">dat[[region]][i]</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">        <span class="n">st</span> <span class="o">&lt;-</span> <span class="nf">ifelse</span><span class="p">(</span><span class="nf">is.null</span><span class="p">(</span><span class="n">state</span><span class="p">),</span> <span class="s">&#39;&#39;</span><span class="p">,</span> <span class="n">dat[[state]][i]</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">        <span class="n">ct</span> <span class="o">&lt;-</span> <span class="nf">ifelse</span><span class="p">(</span><span class="nf">is.null</span><span class="p">(</span><span class="n">county</span><span class="p">),</span> <span class="s">&#39;&#39;</span><span class="p">,</span> <span class="n">dat[[county]][i]</span><span class="p">)</span>
@@ -624,10 +624,10 @@
 </span></span><span class="line"><span class="cl">                                   <span class="n">dat[[col.country]][i]</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">                                   <span class="n">Region</span> <span class="o">=</span> <span class="n">rg</span><span class="p">,</span> <span class="n">State</span> <span class="o">=</span> <span class="n">st</span><span class="p">,</span> <span class="n">County</span> <span class="o">=</span> <span class="n">ct</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">        <span class="c1">## Enviar resultados a DB sólo si se encontró algo</span>
-</span></span><span class="line"><span class="cl">        <span class="nf">if</span><span class="p">(</span><span class="nf">is.na</span><span class="p">(</span><span class="n">coords</span><span class="o">$</span><span class="n">lon[1]</span><span class="p">)){</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">if</span><span class="p">(</span><span class="nf">is.na</span><span class="p">(</span><span class="n">coords</span><span class="o">$</span><span class="n">lon[1]</span><span class="p">)){</span>
 </span></span><span class="line"><span class="cl">            <span class="n">ccount</span> <span class="o">&lt;-</span> <span class="n">ccount</span> <span class="o">+</span> <span class="m">1</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="n">else</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">else</span><span class="p">{</span>
 </span></span><span class="line"><span class="cl">            <span class="n">sq</span> <span class="o">&lt;-</span> <span class="nf">dbExecute</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="s">&#39;INSERT OR IGNORE INTO orgs
 </span></span></span><span class="line"><span class="cl"><span class="s">                             (ID, City, osm_name, lon, lat)
 </span></span></span><span class="line"><span class="cl"><span class="s">                             VALUES (?, ?, ?, ?, ?);&#39;</span><span class="p">,</span>
@@ -681,28 +681,28 @@
 </span><span class="lnt">23
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">combine_df_sql</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">db.file</span><span class="p">,</span> <span class="n">original.data</span><span class="p">){</span>
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">combine_df_sql</span> <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span><span class="n">db.file</span><span class="p">,</span> <span class="n">original.data</span><span class="p">){</span>
 </span></span><span class="line"><span class="cl">    <span class="nf">require</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="nf">require</span><span class="p">(</span><span class="n">RSQLite</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">if</span><span class="p">(</span><span class="nf">is.character</span><span class="p">(</span><span class="n">original.data</span><span class="p">)){</span>
-</span></span><span class="line"><span class="cl">        <span class="nf">if</span><span class="p">(</span><span class="nf">grepl</span><span class="p">(</span><span class="s">&#39;.csv&#39;</span><span class="p">,</span> <span class="n">original.data</span><span class="p">,</span> <span class="n">fixed</span> <span class="o">=</span> <span class="bp">T</span><span class="p">)){</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">if</span><span class="p">(</span><span class="nf">is.character</span><span class="p">(</span><span class="n">original.data</span><span class="p">)){</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">if</span><span class="p">(</span><span class="nf">grepl</span><span class="p">(</span><span class="s">&#39;.csv&#39;</span><span class="p">,</span> <span class="n">original.data</span><span class="p">,</span> <span class="n">fixed</span> <span class="o">=</span> <span class="bp">T</span><span class="p">)){</span>
 </span></span><span class="line"><span class="cl">            <span class="n">df</span> <span class="o">&lt;-</span> <span class="nf">read.csv</span><span class="p">(</span><span class="n">original.data</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="n">else</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">else</span><span class="p">{</span>
 </span></span><span class="line"><span class="cl">            <span class="nf">stop</span><span class="p">(</span><span class="s">&#34;Incorrect file format for data&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="n">else</span> <span class="nf">if</span><span class="p">(</span><span class="nf">is.data.frame</span><span class="p">(</span><span class="n">original.data</span><span class="p">)){</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">else</span> <span class="kr">if</span><span class="p">(</span><span class="nf">is.data.frame</span><span class="p">(</span><span class="n">original.data</span><span class="p">)){</span>
 </span></span><span class="line"><span class="cl">        <span class="n">df</span> <span class="o">&lt;-</span> <span class="n">original.data</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="n">else</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">else</span><span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="nf">stop</span><span class="p">(</span><span class="s">&#34;Incorrect data format&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="n">con</span> <span class="o">&lt;-</span> <span class="nf">dbConnect</span><span class="p">(</span><span class="n">drv</span><span class="o">=</span><span class="n">RSQLite</span><span class="o">::</span><span class="nf">SQLite</span><span class="p">(),</span> <span class="n">dbname</span> <span class="o">=</span> <span class="n">db.file</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="n">db</span> <span class="o">&lt;-</span> <span class="nf">dbReadTable</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="s">&#34;orgs&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="nf">dbDisconnect</span><span class="p">(</span><span class="n">con</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="n">result</span> <span class="o">&lt;-</span> <span class="nf">left_join</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">db</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#39;ID&#39;</span><span class="p">,</span> <span class="s">&#39;City&#39;</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">return</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">return</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
@@ -737,21 +737,21 @@
 </span><span class="lnt">24
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">compare_db_data</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">db.file</span><span class="p">,</span> <span class="n">dat</span><span class="p">){</span>
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">compare_db_data</span> <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span><span class="n">db.file</span><span class="p">,</span> <span class="n">dat</span><span class="p">){</span>
 </span></span><span class="line"><span class="cl">    <span class="nf">require</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="nf">require</span><span class="p">(</span><span class="n">RSQLite</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">if</span><span class="p">(</span><span class="nf">is.character</span><span class="p">(</span><span class="n">dat</span><span class="p">)){</span>
-</span></span><span class="line"><span class="cl">        <span class="nf">if</span><span class="p">(</span><span class="nf">grepl</span><span class="p">(</span><span class="s">&#39;.csv&#39;</span><span class="p">,</span> <span class="n">dat</span><span class="p">,</span> <span class="n">fixed</span> <span class="o">=</span> <span class="bp">T</span><span class="p">)){</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">if</span><span class="p">(</span><span class="nf">is.character</span><span class="p">(</span><span class="n">dat</span><span class="p">)){</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">if</span><span class="p">(</span><span class="nf">grepl</span><span class="p">(</span><span class="s">&#39;.csv&#39;</span><span class="p">,</span> <span class="n">dat</span><span class="p">,</span> <span class="n">fixed</span> <span class="o">=</span> <span class="bp">T</span><span class="p">)){</span>
 </span></span><span class="line"><span class="cl">            <span class="n">df</span> <span class="o">&lt;-</span> <span class="nf">read.csv</span><span class="p">(</span><span class="n">dat</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="n">else</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">else</span><span class="p">{</span>
 </span></span><span class="line"><span class="cl">            <span class="nf">stop</span><span class="p">(</span><span class="s">&#34;Incorrect file format for data&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="n">else</span> <span class="nf">if</span><span class="p">(</span><span class="nf">is.data.frame</span><span class="p">(</span><span class="n">dat</span><span class="p">)){</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">else</span> <span class="kr">if</span><span class="p">(</span><span class="nf">is.data.frame</span><span class="p">(</span><span class="n">dat</span><span class="p">)){</span>
 </span></span><span class="line"><span class="cl">        <span class="n">df</span> <span class="o">&lt;-</span> <span class="n">dat</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="n">else</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">else</span><span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="nf">stop</span><span class="p">(</span><span class="s">&#34;Incorrect data format&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="n">con</span> <span class="o">&lt;-</span> <span class="nf">dbConnect</span><span class="p">(</span><span class="n">drv</span><span class="o">=</span><span class="n">RSQLite</span><span class="o">::</span><span class="nf">SQLite</span><span class="p">(),</span> <span class="n">dbname</span> <span class="o">=</span> <span class="n">db.file</span><span class="p">)</span>
@@ -793,14 +793,14 @@
 </span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">add_coords_manually</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">csv_file</span><span class="p">,</span> <span class="n">db.name</span><span class="p">,</span>
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">add_coords_manually</span> <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span><span class="n">csv_file</span><span class="p">,</span> <span class="n">db.name</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">                                <span class="n">city</span><span class="p">,</span> <span class="n">osm_name</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">){</span>
 </span></span><span class="line"><span class="cl">    <span class="nf">require</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="nf">require</span><span class="p">(</span><span class="n">RSQLite</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="n">csv_dat</span> <span class="o">&lt;-</span> <span class="nf">read_csv</span><span class="p">(</span><span class="n">csv_file</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="n">csv_len</span> <span class="o">&lt;-</span> <span class="nf">length</span><span class="p">(</span><span class="n">csv_dat</span><span class="o">$</span><span class="n">ID</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="n">con</span> <span class="o">&lt;-</span> <span class="nf">dbConnect</span><span class="p">(</span><span class="n">drv</span><span class="o">=</span><span class="n">RSQLite</span><span class="o">::</span><span class="nf">SQLite</span><span class="p">(),</span> <span class="n">dbname</span><span class="o">=</span><span class="n">db.name</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="n">csv_len</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">for</span><span class="p">(</span><span class="n">i</span> <span class="kr">in</span> <span class="m">1</span><span class="o">:</span><span class="n">csv_len</span><span class="p">){</span>
 </span></span><span class="line"><span class="cl">        <span class="nf">dbSendQuery</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="s">&#39;INSERT OR IGNORE INTO orgs
 </span></span></span><span class="line"><span class="cl"><span class="s">                      (ID, City, osm_name, lon, lat)
 </span></span></span><span class="line"><span class="cl"><span class="s">                      VALUES (?, ?, ?, ?, ?);&#39;</span><span class="p">,</span>
@@ -1115,7 +1115,7 @@ Sobre esta entrada Cuando nos preparamos para una entrevista de trabajo, una de 
                 
                 
                     <div class="footer-item">
-                        © 2023-2023 <a href="https://github.com/teotenn">teoten</a>
+                        © 2023-2024 <a href="https://github.com/teotenn">teoten</a>
                     </div>
                 
                 

@@ -19,8 +19,8 @@
 <meta property="og:see_also" content="https://blog.teoten.com/es/posts/2023/webscrap_and_iteration_in_r/" /><meta property="og:see_also" content="https://blog.teoten.com/es/posts/2022/getting_coordinates_for_maps_in_r_via_api/" />
 
 
-    <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Mapa base de un país con R"/>
+
+    <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Mapa base de un país con R"/>
 <meta name="twitter:description" content="Parte I para hacer mapas de cualquier región del mundo con R utilizando las librerías ggplot2 y maps"/>
 
     
@@ -416,25 +416,25 @@
 </span><span class="lnt">58
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">map_country</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">country</span><span class="p">,</span> <span class="n">x_limits</span> <span class="o">=</span> <span class="kc">NULL</span><span class="p">,</span> <span class="n">y_limits</span> <span class="o">=</span> <span class="kc">NULL</span><span class="p">){</span>
+<pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">map_country</span> <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span><span class="n">country</span><span class="p">,</span> <span class="n">x_limits</span> <span class="o">=</span> <span class="kc">NULL</span><span class="p">,</span> <span class="n">y_limits</span> <span class="o">=</span> <span class="kc">NULL</span><span class="p">){</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">## Verificar los argumentos tomados por la función</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">if</span><span class="p">(</span><span class="o">!</span><span class="nf">is.character</span><span class="p">(</span><span class="n">country</span><span class="p">))</span> <span class="nf">stop</span><span class="p">(</span><span class="s">&#34;Nombre del país debe ser de tipo string&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">if</span><span class="p">(</span><span class="nf">length</span><span class="p">(</span><span class="n">country</span><span class="p">)</span> <span class="o">!=</span> <span class="m">1</span><span class="p">)</span> <span class="nf">stop</span><span class="p">(</span><span class="s">&#34;La función soporta sólo un país por mapa&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">if</span><span class="p">(</span><span class="o">!</span><span class="nf">is.character</span><span class="p">(</span><span class="n">country</span><span class="p">))</span> <span class="nf">stop</span><span class="p">(</span><span class="s">&#34;Nombre del país debe ser de tipo string&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">if</span><span class="p">(</span><span class="nf">length</span><span class="p">(</span><span class="n">country</span><span class="p">)</span> <span class="o">!=</span> <span class="m">1</span><span class="p">)</span> <span class="nf">stop</span><span class="p">(</span><span class="s">&#34;La función soporta sólo un país por mapa&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">## Cargar las librerías</span>
 </span></span><span class="line"><span class="cl">    <span class="nf">require</span><span class="p">(</span><span class="n">maps</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="nf">require</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">  <span class="nf">if</span><span class="p">(</span><span class="o">!</span><span class="n">country</span> <span class="o">%in%</span> <span class="nf">map_data</span><span class="p">(</span><span class="s">&#39;world&#39;</span><span class="p">)</span><span class="o">$</span><span class="n">region</span><span class="p">)</span> <span class="nf">stop</span><span class="p">(</span><span class="s">&#39;Nombre del país no reconocido\nPara ver una lista de paises reconocidos ejecute &lt;unique(maps::map_data(&#34;world&#34;)$region)&gt;&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">if</span><span class="p">(</span><span class="o">!</span><span class="n">country</span> <span class="o">%in%</span> <span class="nf">map_data</span><span class="p">(</span><span class="s">&#39;world&#39;</span><span class="p">)</span><span class="o">$</span><span class="n">region</span><span class="p">)</span> <span class="nf">stop</span><span class="p">(</span><span class="s">&#39;Nombre del país no reconocido\nPara ver una lista de paises reconocidos ejecute &lt;unique(maps::map_data(&#34;world&#34;)$region)&gt;&#39;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">  <span class="c1">## Si no se proporcionaron los limites de las coordenadas, imprime el mapa mundial</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">if</span><span class="p">(</span><span class="nf">missing</span><span class="p">(</span><span class="n">x_limits</span><span class="p">)</span> <span class="o">||</span> <span class="nf">missing</span><span class="p">(</span><span class="n">y_limits</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">if</span><span class="p">(</span><span class="nf">missing</span><span class="p">(</span><span class="n">x_limits</span><span class="p">)</span> <span class="o">||</span> <span class="nf">missing</span><span class="p">(</span><span class="n">y_limits</span><span class="p">))</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="nf">warning</span><span class="p">(</span><span class="s">&#34;Límites de X y/o Y no han sido encontrados.\nImprimiendo el mapa mundial&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">        <span class="n">map_country_theme</span> <span class="o">&lt;-</span> <span class="nf">theme</span><span class="p">(</span><span class="n">panel.background</span> <span class="o">=</span> <span class="nf">element_rect</span><span class="p">(</span><span class="n">fill</span> <span class="o">=</span> <span class="s">&#39;#4e91d2&#39;</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="n">else</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nf">if</span><span class="p">(</span><span class="nf">length</span><span class="p">(</span><span class="n">x_limits</span><span class="p">)</span> <span class="o">!=</span> <span class="m">2</span> <span class="o">||</span> <span class="nf">length</span><span class="p">(</span><span class="n">y_limits</span><span class="p">)</span> <span class="o">!=</span> <span class="m">2</span> <span class="o">||</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">if</span><span class="p">(</span><span class="nf">length</span><span class="p">(</span><span class="n">x_limits</span><span class="p">)</span> <span class="o">!=</span> <span class="m">2</span> <span class="o">||</span> <span class="nf">length</span><span class="p">(</span><span class="n">y_limits</span><span class="p">)</span> <span class="o">!=</span> <span class="m">2</span> <span class="o">||</span>
 </span></span><span class="line"><span class="cl">           <span class="o">!</span><span class="nf">all</span><span class="p">(</span><span class="nf">grepl</span><span class="p">(</span><span class="s">&#39;^-?[0-9.]+$&#39;</span><span class="p">,</span> <span class="nf">c</span><span class="p">(</span><span class="n">x_limits</span><span class="p">,</span> <span class="n">y_limits</span><span class="p">)))){</span>
 </span></span><span class="line"><span class="cl">            <span class="nf">stop</span><span class="p">(</span><span class="s">&#34;Los límites de las coordenadas X y Y deben ser ingresadas como vectores con dos valores numéricos&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="n">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">else</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">            <span class="c1">## Definiendo el tema seleccionado para el mapa final</span>
 </span></span><span class="line"><span class="cl">            <span class="n">map_country_theme</span> <span class="o">&lt;-</span> <span class="nf">theme_bw</span><span class="p">()</span> <span class="o">+</span>
 </span></span><span class="line"><span class="cl">                <span class="nf">theme</span><span class="p">(</span><span class="n">panel.background</span> <span class="o">=</span> <span class="nf">element_rect</span><span class="p">(</span><span class="n">fill</span> <span class="o">=</span> <span class="s">&#39;#4e91d2&#39;</span><span class="p">),</span>
@@ -783,7 +783,7 @@ Sobre este post Esta es la segunda parte de las series de cómo crear mapas de c
                 
                 
                     <div class="footer-item">
-                        © 2023-2023 <a href="https://github.com/teotenn">teoten</a>
+                        © 2023-2024 <a href="https://github.com/teotenn">teoten</a>
                     </div>
                 
                 

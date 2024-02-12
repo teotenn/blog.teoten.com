@@ -2,7 +2,7 @@
 author: "Manuel Teodoro Tenango"
 title: "Emacs as IDE for R"
 image: "/post/2024/emacs_as_ide_for_r/Emacs_512.png"
-draft: true
+draft: false
 date: 2024-02-11
 description: "A new post"
 tags: ["R tips", "emacs"]

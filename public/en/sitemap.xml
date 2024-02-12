@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://blog.teoten.com/categories/</loc>
-    <lastmod>2023-09-29T00:00:00+00:00</lastmod>
+    <lastmod>2024-02-11T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
@@ -15,14 +15,17 @@
                 href="https://blog.teoten.com/categories/"
                 />
   </url><url>
-    <loc>https://blog.teoten.com/tags/exploring/</loc>
-    <lastmod>2023-09-29T00:00:00+00:00</lastmod>
+    <loc>https://blog.teoten.com/tags/emacs/</loc>
+    <lastmod>2024-02-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://blog.teoten.com/posts/2023/my_first_golem_app/</loc>
-    <lastmod>2023-09-29T00:00:00+00:00</lastmod>
+    <loc>https://blog.teoten.com/categories/emacs/</loc>
+    <lastmod>2024-02-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.teoten.com/posts/2024/emacs_as_ide_for_r/</loc>
+    <lastmod>2024-02-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.teoten.com/posts/</loc>
-    <lastmod>2023-09-29T00:00:00+00:00</lastmod>
+    <lastmod>2024-02-11T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
@@ -35,7 +38,7 @@
                 />
   </url><url>
     <loc>https://blog.teoten.com/categories/r/</loc>
-    <lastmod>2023-09-29T00:00:00+00:00</lastmod>
+    <lastmod>2024-02-11T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
@@ -47,21 +50,11 @@
                 href="https://blog.teoten.com/categories/r/"
                 />
   </url><url>
-    <loc>https://blog.teoten.com/tags/r-shiny/</loc>
-    <lastmod>2023-09-29T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://blog.teoten.com/es/tags/r-shiny/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://blog.teoten.com/tags/r-shiny/"
-                />
+    <loc>https://blog.teoten.com/tags/r-tips/</loc>
+    <lastmod>2024-02-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.teoten.com/tags/</loc>
-    <lastmod>2023-09-29T00:00:00+00:00</lastmod>
+    <lastmod>2024-02-11T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
@@ -74,7 +67,7 @@
                 />
   </url><url>
     <loc>https://blog.teoten.com/</loc>
-    <lastmod>2023-09-29T00:00:00+00:00</lastmod>
+    <lastmod>2024-02-11T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
@@ -84,6 +77,25 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://blog.teoten.com/"
+                />
+  </url><url>
+    <loc>https://blog.teoten.com/tags/exploring/</loc>
+    <lastmod>2023-09-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.teoten.com/posts/2023/my_first_golem_app/</loc>
+    <lastmod>2023-09-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.teoten.com/tags/r-shiny/</loc>
+    <lastmod>2023-09-29T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://blog.teoten.com/es/tags/r-shiny/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog.teoten.com/tags/r-shiny/"
                 />
   </url><url>
     <loc>https://blog.teoten.com/categories/web-dev/</loc>
@@ -268,12 +280,6 @@
   </url><url>
     <loc>https://blog.teoten.com/posts/2023/deploy_shiny_on_debian/</loc>
     <lastmod>2023-01-22T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.teoten.com/tags/emacs/</loc>
-    <lastmod>2022-12-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.teoten.com/categories/emacs/</loc>
-    <lastmod>2022-12-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.teoten.com/tags/r-basics/</loc>
     <lastmod>2023-08-30T00:00:00+00:00</lastmod>
