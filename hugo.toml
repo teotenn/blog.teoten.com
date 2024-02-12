@@ -25,7 +25,7 @@ hasCJKLanguage = false
     image = "/img/avatars.png"
     # link of followme in author card and footer
     # 作者卡片里 followme 和页脚作者的链接
-    link = "https://github.com/teotenn"
+    link = "https://codeberg.org/teoten"
 
 [outputs]
 home = ["HTML", "RSS"]
@@ -149,8 +149,8 @@ home = ["HTML", "RSS"]
     # social, maxum 6
     # 作者卡片社交链接，最多6个
     [[menus.social]]
-        name = "GitHub"
-        url = "https://github.com/teotenn"
+        name = "Codeberg"
+        url = "https://codeberg.org/teoten"
         pre = "<i class='fab fa-github'></i>"
         weight = 1
     [[menus.social]]
@@ -274,8 +274,8 @@ home = ["HTML", "RSS"]
             weight = 6
             pre = "<i class='fa fa-info-circle'></i>"
 	[[languages.en.menus.social]]
-            name = "GitHub"
-            url = "https://github.com/teotenn"
+            name = "Codeberg"
+            url = "https://codeberg.org/teoten"
             pre = "<i class='fab fa-github'></i>"
             weight = 1
 	[[languages.en.menus.social]]
@@ -343,8 +343,8 @@ home = ["HTML", "RSS"]
             weight = 6
             pre = "<i class='fa fa-info-circle'></i>"
 	[[languages.es.menus.social]]
-            name = "GitHub"
-            url = "https://github.com/teotenn"
+            name = "Codeberg"
+            url = "https://codeberg.org/teoten"
             pre = "<i class='fab fa-github'></i>"
             weight = 1
 	[[languages.es.menus.social]]
