@@ -383,4 +383,7 @@ In my personal experience, Magit has made my working with Git not only faster bu
 Magit is so good that I've met people who moved to Emacs just because of Magit (although they stay for many more reasons). Or people who moved away from Emacs saying that what they miss the most is Magit. So, I think that this few words are enough for this section and I'll let your curiosity take care of the rest. Enjoy it!.
 
 
-* Conclussions
+* Conclusions
+In conclusion, Emacs is awesome. And if you read through all the post and made it til the end, I'm hopping you will give it a try. Drop me an email or a comment if you get stuck and I will try to help.
+
+Good luck and, have fun!
