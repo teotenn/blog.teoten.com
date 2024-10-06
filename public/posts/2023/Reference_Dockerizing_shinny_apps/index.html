@@ -1,0 +1,91 @@
+<html>
+ <head>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+  <link href="/styles/ba8a5a958775/syntax_highlight.css" rel="stylesheet">
+  <link href="/styles/4033ae4f54f9/styles.css" rel="stylesheet">
+ </head>
+ <body>
+  <!-- Top nav bar -->
+  <div>
+   <!-- Toggle Button -->
+   <button id="theme-toggle-btn" onclick="toggleTheme()">T</button>
+   <div id="wrapper">
+    <nav id="navbar">
+     <ul>
+      <li><a href="https://test.teoten.com/">Home</a></li>
+      <li><a href="https://test.teoten.com/list/">Posts</a></li>
+      <li><a href="https://test.teoten.com/about/">About</a></li>
+     </ul>
+    </nav>
+   </div>
+  </div>
+  <div id="shadow-block">
+   <div id="container">
+    <div id="wide-content">
+     <!-- Main content -->
+     <h1 class="article-title">Reference: Dockerizing shinny apps</h1>
+     <article id="post-6b5a1331-a31c-4e8d-bd6e-4097aa8b0b25" data-post-id="6b5a1331-a31c-4e8d-bd6e-4097aa8b0b25">
+      <div>
+       <p><a href="https://youtube.com/@AndrewCouch">Andrew Couch</a> has a nice video about <a href="https://youtu.be/ARd5IldVFUs">deploying a shiny app using docker</a>. He goes from the very basics, that asume no knowledge of docker whatsoever, which is the position of many R users like myself. I've been working in some shiny app lately, and although I've never needed docker so far, I decided to start learning it because I can already foresee the future when it won't be the case. Andrew makes some good points about how most tutorials assume the reader to know the basics of docker and start from there. While these are easy to follow, it is difficult to understand what we are doing and why we are doing it. That creates later problems to extend and debug the apps. Andrew shares his experience in searching for solid info and then proceeds with a tutorial where he explains basic parts, commands, and code of a docker file.</p>
+       <p>He also recommends a post from <a href="https://www.statworx.com/en/content-hub/blog/how-to-dockerize-shinyapps/">statworx</a> that is clearly the inspiration for his video. The post contains all the info necessary to dockerize a first shiny app. The post is short and clear, and it's an excellent complement for the video.</p>
+       <p>I might try dockerizing some simple shiny app and share the experience here if I find something new or interesting that can add value to the mentioned links. Otherwise, you can stay with these as the basis for dockerizing a shiny app and wait for my post of dockerizing using Guix, which is my main target for now in order to make my app reproducible. Stay in orbit.</p>
+      </div>
+     </article>
+    </div>
+    <button id="toggle-button">&gt;</button>
+    <div id="sidebar" class="expanded">
+     <a href="https://test.teoten.com/about/"> <img src="https://test.teoten.com/img/tt-avatar.png" alt="Teoten" class="sidebar-image"> </a>
+     <h2 class="h-sidebar">Links</h2>
+     <ul>
+      <li><a href="https://www.r-project.org/">The R Project</a></li>
+      <li><a href="https://www.r-bloggers.com/">R-bloggers</a></li>
+      <li><a href="https://clojure.org/">Clojure</a></li>
+      <li><a href="https://www.gnu.org/software/emacs/">GNU Emacs</a></li>
+     </ul>
+     <h2 class="h-sidebar">Socials</h2>
+     <ul class="horizontal-list">
+      <li><a href="https://www.linkedin.com/in/teoten/"><i class="fab fa-linkedin-in"></i></a></li>
+      <li><a href="https://codeberg.org/teoten"><i class="fab fa-github"></i></a></li>
+      <li><a href="https://emacs.ch/@teoten"><i class="fab fa-mastodon"></i></a></li>
+     </ul>
+    </div>
+   </div>
+  </div>
+  <script>
+    // JavaScript function to handle theme toggling
+    function toggleTheme() {
+	document.body.classList.toggle('dark-theme');
+
+	if (document.body.classList.contains('dark-theme')) {
+	    localStorage.setItem('theme', 'dark');
+	} else {
+	    localStorage.setItem('theme', 'light');
+	}
+	// alert("Theme changed!")
+    }
+
+    // Check and apply the saved theme preference on page load
+    window.onload = function() {
+	const savedTheme = localStorage.getItem('theme');
+	if (savedTheme === 'dark') {
+	    document.body.classList.add('dark-theme');
+	}
+    };
+
+      // Sidebar
+      const toggleButton = document.getElementById('toggle-button');
+      const sidebar = document.getElementById('sidebar');
+
+      toggleButton.addEventListener('click', () => {
+	  if (sidebar.classList.contains('collapsed')) {
+              sidebar.classList.remove('collapsed');
+              sidebar.classList.add('expanded');
+	  } else {
+              sidebar.classList.remove('expanded');
+              sidebar.classList.add('collapsed');
+	  }
+      });
+
+    </script>
+ </body>
+</html>

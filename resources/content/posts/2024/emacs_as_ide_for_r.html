@@ -1,0 +1,799 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="author" content="Teoten" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+</head>
+<body>
+<div id="content" class="content">
+<p>
+&#x2014;
+author: Manuel Teodoro Tenango
+title: Emacs as IDE for R
+image: /post/2024/emacs_as_ide_for_r/Emacs_512.png
+draft: false
+date: 2024-02-11
+description: A new post
+tags: ["R tips", "emacs"]
+categories: ["R", "emacs"]
+archives: ["2024"]
+&#x2014;
+</p>
+
+<p>
+Recently I have seen many posts about which IDE for R people prefer, with minimalists list of options, usually of size 2: R Studio and VS Code. I guess that some people forget, or many don't even know about two of the most powerful text editors that have been helping developers for a few decades. I am talking of course about Emacs and Vim, both great options for R development. I have checked Vim just slightly and I have used R Studio a few times, so I cannot really talk much about them. But I have been using Emacs for about 8 years now and it has slowly helped me to become a better developer and to understand the back end of the tools that I use better.
+</p>
+
+<p>
+I have a <a href="file:///posts/2022/use_emacs_for_r/">previous post</a> about using Emacs for R with a simple setup. If you are interested into a quick setup of Emacs as IDE for R I recommend you to check it out.
+</p>
+
+<p>
+I started using Emacs when I started my Ph.D. Back then I never heard that the learning curve is very steep, but now I can tell you that it is actually not. As a new Ph.D. student I had a lot of new things to learn and a lot of dues, I didn't need a software that would take extra time off my hands. When I first installed Emacs I followed the startup tutorial and that was it. I searched about how to get R up and running and started working right away. I didn't need much of keybindings because Emacs includes very good menus at its bar. And ESS for R includes a good tool bar as well. It was like any other program, click here and then there.
+</p>
+
+<p>
+However it is true that the more I used Emacs the more I started memorizing keybindings and learning about its configuration by elisp code. After about 2 years I have passed the tightest deadlines and I was more focused on analyzing my data. I was more familiar with Emacs and I needed to get the best out of R. I started using LaTeX and Bibtex as well. So, I started configuring Emacs a bit more. Of course, when you do that you dive into the rabbit hole, and its only up to you how deep you can get. There were days (probably full weeks) when I didn't get things done because I was "too busy" configuring Emacs. There is a warning here, it can get addictive. However I was a student and the deadlines were more relaxed. I managed my Ph.D. in 4 years anyway.
+</p>
+
+<p>
+In the long term, the time spent in Emacs ended up being a wonderful investment of my time. When I got my first job afterwards I had an excellent organization (self-management and project wise) thanks to org mode, I had already a functional and powerful R IDE and my skills in functional programming have improved considerably. Still I wasn't using much the keybindings (except for R), I was using very few external packages and I had 0 aesthetics configuration. Emacs was working just fine.
+</p>
+
+
+<div id="org6fbac66" class="figure">
+<p><img src="../../../static/post/2024/emacs_as_ide_for_r/Emacs_welcome_screen.png" alt="Emacs welcome screen" title="The Emacs welcome screen" />
+</p>
+</div>
+
+<p>
+It was much latter when I started configuring it more, creating my own functions and learning about more functionalities. And now that I work more on software development and less in research, all of that is paying off. Emacs has been my best ally both, in research and programming, in academia and industry, for programming tasks as well as self organization and documents creation.
+</p>
+
+<p>
+I would like to share my experience with Emacs with more R users not to acquire more adepts to the church of Emacs (old joke), but simply to show a glimpse of what you are missing. Usually people are afraid of the learning curve, which I have said many times, it is 0. Others simply want to stay in the comfort zone. A few more simply never heard about it, or heard very little to be interested. And yet some others are happy with the tools they use and the workflow they have and don't need anything else. In any case, if you are checking this post because you are considering trying out Emacs, or simply out of curiosity, I have prepared a list of 10 main reason why I use Emacs. The list cover topics not only about working with code, but also project organization, time management, version control with Git and file system. You can as well check out only the ones you are interested in. Either way, I hope to awake your curiosity and leave you at least the wish to check out more.
+</p>
+<div id="outline-container-org7284a1c" class="outline-2">
+<h2 id="org7284a1c">10 reasons to use Emacs</h2>
+<div class="outline-text-2" id="text-org7284a1c">
+</div>
+<div id="outline-container-orgad9cfc6" class="outline-3">
+<h3 id="orgad9cfc6">1. Stability</h3>
+<div class="outline-text-3" id="text-orgad9cfc6">
+<p>
+Emmacs gives me stability in the sense that I get the same experience working with text and code in different operating systems. I have Linux in my personal Laptop but my work is usually in a Windows laptop. I use Emacs with the same configuration in both, shared by Git. In that way I really get the same experience and the same workflow in both. And because Emacs includes so many tools, I don't need to learn so many new apps for different use cases. I manage as much as possible from within Emacs.
+</p>
+
+<p>
+On the other hand, Emacs has been around for a very long time. And by the looks of its current development, number of packages and incorporation of new technologies, it seems that it will still be around for another big while. This means that it is a good investment to learn a thing or two about it and try it out.
+</p>
+
+<p>
+Finally, I have to say that as a text editor that deals mainly with text, it is very fast and stable, it hardly lags or breaks. And I know that many modern text editors hardly break too, but some are known for being fancy but slow, and yet lacking basic functionality that Emacs presents out of the box.
+</p>
+</div>
+</div>
+<div id="outline-container-orga5c5902" class="outline-3">
+<h3 id="orga5c5902">2. Emacs is a text editor</h3>
+<div class="outline-text-3" id="text-orga5c5902">
+<p>
+First and foremost, Emacs is a text editor. As such, it provides great tools for editing plain text, including R code. If it is true that you can use the menu and tool bars on top, when you are working with text is convenient to memorize a few key bindings to make your workflow faster.
+</p>
+
+<p>
+Here is a list of the functionalities that I use the most as a developer. It is by far very short compared to the possibilities that Emacs offers but it is, in my opinion, a good starting point:
+</p>
+
+<ul class="org-ul">
+<li>Easy navigation. Type <code>M-&lt;</code> or <code>M-&gt;</code> to go to the beginning or end of the buffer, <code>C-a</code> and <code>C-e</code> for the beginning and end of line and <code>M-e</code> for the end of expression or paragraph.</li>
+<li>Focus on what's important with <code>C-l</code>. Repeat it to place the current line at the top, middle or end of your screen.</li>
+<li>Move a page up/down with <code>C-v</code> / <code>M-v</code>.</li>
+<li><code>c-x h</code> to select the whole buffer, <code>C-M-h</code> to select a paragraph.</li>
+<li>Comment a line with <code>C-x C-;</code> and comment a selected region with <code>M-;</code>.</li>
+<li>Discard all the changes up to the last saved version with <code>M-x revert-buffer</code>.</li>
+<li><code>M-u</code> to make the rest of the word from the point uppercase, and <code>M-l</code> to make it lowercase.</li>
+<li>Move to a particular occurrence of a word with <code>C-s</code> for forward and <code>C-r</code> for backward, or <code>C-M-s</code> to move to a regular expression.</li>
+<li>Classic find-and-replace with <code>M-%</code> or regular expressions replace with <code>M-x replace-regexp</code>. You can apply it to multiple lines as well.</li>
+<li>Easily get rid of all empty space between a character and the next with <code>M-\</code>. And remove all trailing white space with <code>M-x delete-trailing-whitespace</code>.</li>
+</ul>
+
+<p>
+After many years using Emacs I have developed muscle memory for many key bindings that I use regularly. What I don't remember I call it with <code>M-x</code> and then start typing something with some of the auto complete tools described below. And still I'm regularly discovering new hidden gems that make my life easier and impress my colleagues during code reviews. My strategy is, I write in a piece of paper a few keybindings with short explanation of what they do and keep it next to my screen. I choose the most useful ones, i.e., the top 10 or top 20. While I'm working I look at it from time to time when I remember something interesting that I have there. Sometimes I happen to see some of the other useful stuff, which makes me remember and implement it. After a while I noticed that I don't use the list much, or that I memorize most of it, so I create a new list with new stuff and the stuff I didn't memorized (but that I still consider useful, I get rid of what I never used or what does not fit my workflow).
+</p>
+</div>
+</div>
+<div id="outline-container-orgfb7530b" class="outline-3">
+<h3 id="orgfb7530b">3. Emacs is highly configurable</h3>
+<div class="outline-text-3" id="text-orgfb7530b">
+<p>
+As you could probably noticed already, Emacs can be easily and widely customized. However, as with any other software, it comes with its own defaults. Below you can find my personal configuration for Emacs itself. Some are parts that are argued by many whether they should be the defaults or not, others are parts that go well with R, and some are simply details that fit my preferences. I hope it makes your transition to Emacs easier.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span style="color: #ff9f80; font-style: italic;">;; </span><span style="color: #ff9f80; font-style: italic;">1)</span>
+<span style="color: #836fff;">(</span><span style="color: #b6a0ff; font-weight: bold;">setq</span> inhibit-startup-screen t<span style="color: #836fff;">)</span>
+
+<span style="color: #ff9f80; font-style: italic;">;; </span><span style="color: #ff9f80; font-style: italic;">2)</span>
+<span style="color: #836fff;">(</span>delete-selection-mode t<span style="color: #836fff;">)</span>
+
+<span style="color: #ff9f80; font-style: italic;">;; </span><span style="color: #ff9f80; font-style: italic;">3)</span>
+<span style="color: #836fff;">(</span>show-paren-mode 1<span style="color: #836fff;">)</span>
+
+<span style="color: #ff9f80; font-style: italic;">;; </span><span style="color: #ff9f80; font-style: italic;">4)</span>
+<span style="color: #836fff;">(</span><span style="color: #b6a0ff; font-weight: bold;">setq</span> bookmark-save-flag 1<span style="color: #836fff;">)</span>
+
+<span style="color: #ff9f80; font-style: italic;">;; </span><span style="color: #ff9f80; font-style: italic;">5)</span>
+<span style="color: #836fff;">(</span><span style="color: #b6a0ff; font-weight: bold;">setq</span> use-short-answers t<span style="color: #836fff;">)</span>
+
+<span style="color: #ff9f80; font-style: italic;">;; </span><span style="color: #ff9f80; font-style: italic;">6)</span>
+<span style="color: #836fff;">(</span>set-charset-priority 'unicode<span style="color: #836fff;">)</span>
+<span style="color: #836fff;">(</span><span style="color: #b6a0ff; font-weight: bold;">setq</span> locale-coding-system 'utf-8
+      coding-system-for-read 'utf-8
+      coding-system-for-write 'utf-8<span style="color: #836fff;">)</span>
+<span style="color: #836fff;">(</span>set-terminal-coding-system 'utf-8<span style="color: #836fff;">)</span>
+<span style="color: #836fff;">(</span>set-keyboard-coding-system 'utf-8<span style="color: #836fff;">)</span>
+<span style="color: #836fff;">(</span>prefer-coding-system 'utf-8<span style="color: #836fff;">)</span>
+<span style="color: #836fff;">(</span><span style="color: #b6a0ff; font-weight: bold;">setq</span> default-process-coding-system '<span style="color: #458b00;">(</span>utf-8-unix . utf-8-unix<span style="color: #458b00;">)</span><span style="color: #836fff;">)</span>
+
+<span style="color: #ff9f80; font-style: italic;">;; </span><span style="color: #ff9f80; font-style: italic;">7)</span>
+<span style="color: #836fff;">(</span><span style="color: #b6a0ff; font-weight: bold;">setq</span> temporary-file-directory <span style="color: #79a8ff;">"~/tmp/"</span><span style="color: #836fff;">)</span>
+<span style="color: #836fff;">(</span><span style="color: #b6a0ff; font-weight: bold;">setq</span> backup-directory-alist
+      `<span style="color: #458b00;">(</span><span style="color: #ba55d3;">(</span><span style="color: #79a8ff;">".*"</span> . ,temporary-file-directory<span style="color: #ba55d3;">)</span><span style="color: #458b00;">)</span><span style="color: #836fff;">)</span>
+<span style="color: #836fff;">(</span><span style="color: #b6a0ff; font-weight: bold;">setq</span> auto-save-file-name-transforms
+      `<span style="color: #458b00;">(</span><span style="color: #ba55d3;">(</span><span style="color: #79a8ff;">".*"</span> ,temporary-file-directory t<span style="color: #ba55d3;">)</span><span style="color: #458b00;">)</span><span style="color: #836fff;">)</span>
+
+<span style="color: #ff9f80; font-style: italic;">;; </span><span style="color: #ff9f80; font-style: italic;">8)</span>
+<span style="color: #836fff;">(</span><span style="color: #b6a0ff; font-weight: bold;">defun</span> <span style="color: #feacd0;">er-sudo-edit</span> <span style="color: #458b00;">(</span><span style="color: #6ae4b9; font-weight: bold;">&amp;optional</span> arg<span style="color: #458b00;">)</span>
+  <span style="color: #9ac8e0; font-style: italic;">"Edit currently visited file as root.</span>
+
+<span style="color: #9ac8e0; font-style: italic;">With a prefix ARG prompt for a file to visit.</span>
+<span style="color: #9ac8e0; font-style: italic;">Will also prompt for a file to visit if current</span>
+<span style="color: #9ac8e0; font-style: italic;">buffer is not visiting a file."</span>
+  <span style="color: #458b00;">(</span><span style="color: #b6a0ff; font-weight: bold;">interactive</span> <span style="color: #79a8ff;">"P"</span><span style="color: #458b00;">)</span>
+  <span style="color: #458b00;">(</span><span style="color: #b6a0ff; font-weight: bold;">if</span> <span style="color: #ba55d3;">(</span><span style="color: #b6a0ff; font-weight: bold;">or</span> arg <span style="color: #ff6eb4;">(</span>not buffer-file-name<span style="color: #ff6eb4;">)</span><span style="color: #ba55d3;">)</span>
+      <span style="color: #ba55d3;">(</span>find-file <span style="color: #ff6eb4;">(</span>concat <span style="color: #79a8ff;">"/sudo:root@localhost:"</span>
+                         <span style="color: SystemHilight;">(</span>ido-read-file-name <span style="color: #79a8ff;">"Find file(as root): "</span><span style="color: SystemHilight;">)</span><span style="color: #ff6eb4;">)</span><span style="color: #ba55d3;">)</span>
+    <span style="color: #ba55d3;">(</span>find-alternate-file <span style="color: #ff6eb4;">(</span>concat <span style="color: #79a8ff;">"/sudo:root@localhost:"</span> buffer-file-name<span style="color: #ff6eb4;">)</span><span style="color: #ba55d3;">)</span><span style="color: #458b00;">)</span><span style="color: #836fff;">)</span>
+
+</pre>
+</div>
+
+<ol class="org-ol">
+<li>Stop the welcome screen.</li>
+<li>Allows mark-type-delete. In other words: mark a region and when you start typing the region is replaced by what you are typing.</li>
+<li>Show or highlight matching parentheses.</li>
+<li>When you discover how powerful are bookmarks, this saves the bookmarks upon adding each.</li>
+<li>Always allow to answer by typing only 'y' instead of 'yes'.</li>
+<li>Default to utf-8 for everything. Here you have to be careful, if you use different encoding you might want to avoid it or add something else. Also, different versions of emacs have changed slightly some of this parameters, what I present here works well in Emacs 29.</li>
+<li>If you already started using emacs you probably noticed that it creates some extra hidden files in the folder with the files that you edited. These are backup files, you can redirect them to <code>~/tmp/</code> or somewhere else.</li>
+<li>You have opened a file and only then you realized that you need sudo rights to edit it. You can <code>M-x</code> call this function to do just that, or bind it to some key.</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org45fded3" class="outline-3">
+<h3 id="org45fded3">4. Dired</h3>
+<div class="outline-text-3" id="text-org45fded3">
+<p>
+From the moment that I learned how to use dired I have basically stopped using external file managers, both in Windows and Linux. It is so powerful that it deserves a whole post on its own, you can start with the <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Dired.html">manual</a> and its 20 sections. Or explore it on your own with <code>C-x d</code> and then type <code>?</code> for the most basic actions, <code>h</code> for the complete list or simply browse the menu.
+</p>
+
+<p>
+You can move, delete, copy and open files, you can create symlinks, evaluate a whole script, change user permissions, filter, rename&#x2026; the list is really long.
+</p>
+
+<p>
+Two of my favorite features of Dired are:
+</p>
+
+<ul class="org-ul">
+<li>You can mark several files by selecting them with <code>m</code> or by a regexp with <code>% g</code> and then use <code>k</code> to show only the selected lines. Use <code>g</code> to bring back the complete list or <code>t</code> to toggle the selection.</li>
+<li>You can enter a Dired buffer into edit mode and then rename the files as simple as manipulating text, which means that you can do find-and-replace for bulk renaming, including regexp.</li>
+</ul>
+
+
+<div id="org9913d28" class="figure">
+<p><img src="../../../static/post/2024/emacs_as_ide_for_r/dired_overview2.png" alt="Dired" title="Dired buffer and first section of keybindings" />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org365f8a9" class="outline-3">
+<h3 id="org365f8a9">5. Org mode</h3>
+<div class="outline-text-3" id="text-org365f8a9">
+<p>
+<a href="https://orgmode.org/">Org mode</a> is a real jewel in Emacs and it deserves multiple posts on their own to cover its power. However, I want to include it in this post at least briefly because even if Emacs would have only its basic features, ESS and org-mode, that would be reason enough for me to use it for R development and data analysis.
+</p>
+
+<p>
+Org mode is an elegant markup that renders well in Emacs by default, and it can be beautified with additional packages. "Org mode is routinely used to build and manage complex workflows. It does this using an elegantly simple syntax that scales from basic markup to full LaTeX typesetting and from plain text notes to literate programs." It comes with a structured editing that allows you to show/hide content in the headings/subheadings, move them and edit them with a few keystrokes, and even tag them "Archive" or archive them in its own file.
+</p>
+
+<p>
+You can easily create tables that can also be formatted via keybindings. Furthermore, the tables can do calculations, can be auto generated via elisp functions and can easily be passed to a programming language, for example, to an R session as data frame. This is because org mode also has wonderful support to include code AND execute it. In their own words:
+</p>
+
+<blockquote>
+<p>
+Org provides functionality far beyond that of computational notebooks such as Jupyter or R Markdown.
+</p>
+
+<p>
+Org babel transforms the lowly executable source block into a complete literate programming environment, allowing you to weave the inputs and outputs of multiple languages and runtime environments across multiple machines into a single unified system, empowering you to achieve new levels of DRYness regardless of whether the languages you are working in want you to or not.
+</p>
+
+<p>
+Org makes it trivial to extract source code and generate documentation from the same file. While many languages have support for generating developer documentation from code comments, with Org your developer guide and user manual can also be the source code for implementation and testing — a single source of truth that won't drift out of sync.
+</p>
+
+<p>
+Org currently has support for over 80 languages, and projects like emacs-jupyter make it possible to leverage the Jupyter kernel ecosystem for even more languages.
+</p>
+</blockquote>
+
+<p>
+It is incredibly easy to export an org file to LaTeX, pdf, html, odt and more. Github, gitlab and codeberg automatically render org files in he same way as markdown files. Actually, this very post is written in org mode with Hugo, which does not need extra configuration to be rendered, unlike <code>Rmd</code> which has to be passed to <code>md</code> first.
+</p>
+
+<p>
+And if that seems powerful too you, the main super power of org mode is *org*anization. You can easily change the state of headers into to-do tasks where a red <code>TODO</code> will be added, and a green <code>DONE</code> when toggled. You can define your own keywords as well like <code>PROGRESS</code>, <code>WAITING</code> or <code>CANCELED</code>. To such tasks you can add deadlines or scheduled time marks. Based on that you can track the time that it takes you to complete a task, and you can use the agenda. i.e., for a given week to see your tasks for the week, which can be listed by priority if you set such tag in your task. But you can also turn the clock on and off for a given task to track how much time exactly you spend on each. And all of that with simple and intuitive keybindings.
+</p>
+
+<p>
+If all that is not enough, there are numerous packages that have been created along the years to extend org mode. With them you can achieve tasks such as automatize the rendering of code from scripts, organize the notes in different styles, improve your exporting or rendering properties, track habits or a diary, etc. The list is really long.
+</p>
+
+<p>
+There is a github repo with an <a href="https://github.com/erikriverson/org-mode-R-tutorial/blob/master/org-mode-R-tutorial.org">org-mode R tutorial</a>, and a detailed documentation for <a href="https://orgmode.org/worg/org-contrib/babel/languages/ob-doc-R.html">R code blocks in org-mode</a>.
+</p>
+
+<p>
+I hope that I have awaken your curiosity to try it or at least check it out.
+</p>
+</div>
+</div>
+<div id="outline-container-org00f208f" class="outline-3">
+<h3 id="org00f208f">6. It has terminal emulators, consoles and shell</h3>
+<div class="outline-text-3" id="text-org00f208f">
+<p>
+Many text editors come with terminal emulators or can easily connect to one. What few can do is to run several terminals, or provide its own shells. Emacs has both.
+</p>
+
+<p>
+You can type <code>M-x shell</code> and start a shell. Then <code>C-u M-x shell</code> and start a new shell while keeping the previous one. You can do exactly the same with the <code>R</code> command to bring as many R consoles as you wish. And if you are in an R script, you can call <code>C-c C-s</code> to start a new R process linked to that script.
+</p>
+
+<p>
+As for the emacs shell, <code>M-x eshell</code>, it is a powerful shell that can run many bash commands or execute system commands, but it is designed to execute elisp code. It can easily interact with your system and you can use it for pretty much everything that you would do with bash or zsh.
+</p>
+
+<p>
+And there are a lot more options for running shells and terminal emulators in Emacs. If you are interested I recommend you to check the section from <a href="https://www.masteringemacs.org/article/running-shells-in-emacs-overview">Mastering emacs</a> about the overview of shells.
+</p>
+
+
+<div id="org0b20ac6" class="figure">
+<p><img src="../../../static/post/2024/emacs_as_ide_for_r/eshell_example.png" alt="Eshell" title="Eshell running the classic &quot;top&quot; and defining and executing elisp function." />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org3b00c1f" class="outline-3">
+<h3 id="org3b00c1f">7. Bookmarks and Registers</h3>
+<div class="outline-text-3" id="text-org3b00c1f">
+<p>
+You can easily jump from one buffer to another, or to a specific point in a buffer, or to a window configuration using bookmarks. You can also save text, numbers and a few other things. Some packages include their own options for bookmarks, for example an specific point in your undo history, to mention just one. You can also save files in a bookmark and jump to it by a couple of key strokes.
+</p>
+
+<p>
+That is more or less what bookmarks and registers do. The Emacs manual <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Registers.html">about registers</a> is very clear and complete. It has saved me a lot of time when working in a project with too many files, when I am working on a particular feature and suddenly I need to urgently debug something completely different, and when I start an Emacs session and need to call some frequently visited files like my to-do list.
+</p>
+</div>
+</div>
+<div id="outline-container-org15ea5e0" class="outline-3">
+<h3 id="org15ea5e0">8. Project management</h3>
+<div class="outline-text-3" id="text-org15ea5e0">
+<p>
+There have been a few packages that facilitate the work with large projects from Emacs. However, from version 28 Emacs includes its own <b>project.el</b>. According to its <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Projects.html">manual</a> "a project is a collection of files used for producing one or more programs. Files that belong to a project are typically stored in a hierarchy of directories; the top-level directory of the hierarchy is known as the project root". It means that you can easily navigate and manipulate files within a given directory tree.
+</p>
+
+<p>
+The easiest way to start using it is by invoking it from a directory or file that is under version control, then Emacs will identify it as a project and all the files that are under VC will be affected by the commands. Then you can call <code>C-x p</code> and start using the default shortcuts. If you have installed <code>which-key</code> you will immediately see the list of possibilities. Some of the most used by me:
+</p>
+<ul class="org-ul">
+<li><code>f</code> find file, reducing the search to only the project.</li>
+<li><code>s</code> and <code>e</code> to call a shell and eshell respectively at the root folder of the project.</li>
+<li><code>d</code> to open a chosen directory within the project in dired.</li>
+<li><code>g</code> for a regex search in all files in the project and <code>r</code> for replace regex. This particular ones need a tool for regex search such as <code>ripgrep</code> or <code>git grep</code>.</li>
+</ul>
+
+<p>
+When you are done working with your project you can simply do <code>C-x p k</code> to close all the buffers related to the project. Or you can jump between projects with <code>C-x p p</code>.
+</p>
+
+<p>
+Since its implementation there have appeared several packages that use its power or extend it, to allow doing more things within a project.
+</p>
+</div>
+</div>
+<div id="outline-container-orge61917c" class="outline-3">
+<h3 id="orge61917c">9. Emacs can easily be extended</h3>
+<div class="outline-text-3" id="text-orge61917c">
+<p>
+So far I have described only Emacs built-in functionality, but Emacs can easily be extended by writing your own functions and/or using packages.
+</p>
+
+<p>
+Some say that Emacs is almost like an operating system on its own, and although is not true, it can play so well with your OS, whichever it is, and function as a window manager. I use Emacs both, in Linux for my personal projects and on Windows for work and it gives me the tranquility of accomplish the same with the same tools and same keybindings in both systems. Also it made me reduce the need for install extra software for my regular use.
+</p>
+
+<p>
+Others say that usually, when somebody asks whether something is possible in Emacs, the answer is always "yes". Thus, the question should rather be "how to" achieve it. And very often the answer to that question is by the use of some package.
+</p>
+
+<p>
+Here I include a list of only the packages that I have found most useful for working with R. 
+</p>
+</div>
+<div id="outline-container-orgcd4ed66" class="outline-4">
+<h4 id="orgcd4ed66">Vertico</h4>
+<div class="outline-text-4" id="text-orgcd4ed66">
+<p>
+The minibuffer is an important part of Emacs, and <a href="https://github.com/minad/vertico">vertico</a> makes interacting with it really easy. It basically "provides a performant and minimalistic vertical completion UI based on the default completion system". It uses built-in Emacs commands for auto completion by expanding the minibuffer and showing the options.
+</p>
+
+<p>
+It helps us to navigate Emacs, explore it and execute commands. There are a few other packages that achieve the same. Whichever you choose, it is in my opinion, a must-have tool for Emacs users.
+</p>
+
+<p>
+Here is a simple configuration based on <code>use-package</code> with annotations:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span style="color: #836fff;">(</span><span style="color: #b6a0ff; font-weight: bold;">use-package</span> <span style="color: #00bcff;">vertico</span>
+  <span style="color: #f78fe7; font-weight: bold;">:init</span>
+  <span style="color: #ff9f80; font-style: italic;">;; </span><span style="color: #ff9f80; font-style: italic;">Start vertico automatically with Emacs</span>
+  <span style="color: #458b00;">(</span>vertico-mode<span style="color: #458b00;">)</span>
+  <span style="color: #f78fe7; font-weight: bold;">:config</span>
+  <span style="color: #ff9f80; font-style: italic;">;; </span><span style="color: #ff9f80; font-style: italic;">Grow and shrink the Vertico minibuffer</span>
+  <span style="color: #458b00;">(</span><span style="color: #b6a0ff; font-weight: bold;">setq</span> vertico-resize t<span style="color: #458b00;">)</span>
+  <span style="color: #ff9f80; font-style: italic;">;; </span><span style="color: #ff9f80; font-style: italic;">Optionally enable cycling for `</span><span style="color: #00bcff; font-style: italic;">vertico-next</span><span style="color: #ff9f80; font-style: italic;">' and `</span><span style="color: #00bcff; font-style: italic;">vertico-previous</span><span style="color: #ff9f80; font-style: italic;">'.</span>
+  <span style="color: #458b00;">(</span><span style="color: #b6a0ff; font-weight: bold;">setq</span> vertico-cycle t<span style="color: #458b00;">)</span><span style="color: #836fff;">)</span>
+
+<span style="color: #ff9f80; font-style: italic;">;; </span><span style="color: #ff9f80; font-style: italic;">Allow vertico keep history</span>
+<span style="color: #836fff;">(</span><span style="color: #b6a0ff; font-weight: bold;">use-package</span> <span style="color: #00bcff;">savehist</span>
+  <span style="color: #f78fe7; font-weight: bold;">:init</span>
+  <span style="color: #458b00;">(</span>savehist-mode<span style="color: #458b00;">)</span><span style="color: #836fff;">)</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org67a0fad" class="outline-4">
+<h4 id="org67a0fad">which key</h4>
+<div class="outline-text-4" id="text-org67a0fad">
+<p>
+<a href="https://github.com/justbur/emacs-which-key">Which key</a> is in my opinion, a must have package. It will help you to have a full overview of your keybindings (which are an important part of Emacs) and allow you to explore them and get the best out of them.
+</p>
+
+<blockquote>
+<p>
+Which-key is a minor mode for Emacs that displays the key bindings following your currently entered incomplete command (a prefix) in a popup. For example, after enabling the minor mode if you enter C-x and wait for the default of 1 second the minibuffer will expand with all of the available key bindings that follow C-x (or as many as space allows given your settings). This includes prefixes like C-x 8 which are shown in a different face.
+</p>
+</blockquote>
+
+<p>
+As usual with most Emacs packages, you can configure a lot of things in it, but to start using it with the basic setup you just need to call the package and activate the <code>which-key-mode</code> globally.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span style="color: #836fff;">(</span><span style="color: #b6a0ff; font-weight: bold;">use-package</span> <span style="color: #00bcff;">which-key</span>
+  <span style="color: #f78fe7; font-weight: bold;">:config</span>
+  <span style="color: #458b00;">(</span>which-key-mode<span style="color: #458b00;">)</span><span style="color: #836fff;">)</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org45fe4bd" class="outline-4">
+<h4 id="org45fe4bd">Company</h4>
+<div class="outline-text-4" id="text-org45fe4bd">
+<p>
+There are many packages that help with code auto completion. <a href="https://github.com/company-mode/company-mode">Company</a>, short for complete anything, is supported by ESS out-of-the-box and thus, it pairs better than others in my experience. "It uses pluggable back-ends and front-ends to retrieve and display completion candidates."
+</p>
+
+<p>
+I use it only for R and my snippets, thus my configuration is rather simple:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span style="color: #836fff;">(</span><span style="color: #b6a0ff; font-weight: bold;">use-package</span> <span style="color: #00bcff;">company</span>
+  <span style="color: #f78fe7; font-weight: bold;">:hook</span>
+  <span style="color: #458b00;">(</span>company-mode . yas-minor-mode<span style="color: #458b00;">)</span>
+  <span style="color: #458b00;">(</span>ess-r-mode . company-mode<span style="color: #458b00;">)</span>
+  <span style="color: #458b00;">(</span>inferior-ess-r-mode . company-mode<span style="color: #458b00;">)</span>
+  <span style="color: #f78fe7; font-weight: bold;">:init</span>
+  <span style="color: #458b00;">(</span><span style="color: #b6a0ff; font-weight: bold;">setq</span> company-backends '<span style="color: #ba55d3;">(</span>company-files
+                           company-capf
+                           company-yasnippet<span style="color: #ba55d3;">)</span><span style="color: #458b00;">)</span>
+  <span style="color: #f78fe7; font-weight: bold;">:config</span>
+  <span style="color: #ff9f80; font-style: italic;">;; </span><span style="color: #ff9f80; font-style: italic;">More customization options for company:</span>
+  <span style="color: #458b00;">(</span><span style="color: #b6a0ff; font-weight: bold;">setq</span> company-selection-wrap-around t
+        <span style="color: #ff9f80; font-style: italic;">;; </span><span style="color: #ff9f80; font-style: italic;">Align annotations to the right tooltip border:</span>
+        company-tooltip-align-annotations t
+        <span style="color: #ff9f80; font-style: italic;">;; </span><span style="color: #ff9f80; font-style: italic;">Idle delay in seconds until completion starts automatically:</span>
+        company-idle-delay 0.30
+        <span style="color: #ff9f80; font-style: italic;">;; </span><span style="color: #ff9f80; font-style: italic;">Completion will start after typing n letters:</span>
+        company-minimum-prefix-length 1
+        <span style="color: #ff9f80; font-style: italic;">;; </span><span style="color: #ff9f80; font-style: italic;">Maximum number of candidates in the tooltip:</span>
+        company-tooltip-limit 10<span style="color: #458b00;">)</span><span style="color: #836fff;">)</span>
+</pre>
+</div>
+
+<p>
+Once the package is loaded you can start typing and company will show the completion option after you typed <code>company-minimum-prefix-length</code> characters. A real jewel for R in ESS, and it does not affect performance at all. I have been using it for years in a 4 Gb RAM old Lenovo without any slow down during typing.
+</p>
+</div>
+</div>
+<div id="outline-container-org7b89f7d" class="outline-4">
+<h4 id="org7b89f7d">ESS</h4>
+<div class="outline-text-4" id="text-org7b89f7d">
+<p>
+<a href="https://ess.r-project.org/">ESS</a> is the core package for R in Emacs. It is a very old and mature package, short for "Emacs Speaks Statistics", as it supports many statistics-related languages such as SAS, Stata and Julia, among others. However, one can easily see that most of the efforts of the development team are focused on R. The <a href="https://ess.r-project.org/index.php?Section=documentation&amp;subSection=manuals">documentation</a> occupies 71 pages that cover the installation, how to interact with different languages and processes, save and manipulate transcript files, completion, etc. Along reading it you can find a long list of keybindings and Emacs functions designed to make your life easier. If you use <code>vertico</code> you can type <code>M-x ess-</code> and scroll down over the long list of functions, or with <code>which-key</code> do <code>C-c</code> inside a <code>.R</code> buffer and explore the possibilities of the ess-related keybindings.
+</p>
+
+<p>
+The list is really long, but among the main things I do with ESS in my daily work is sending R code to the R console with my personal keybindings or at startup, use my own snippets to write scripts, using the regular Emacs super powers for text editing, running different R sessions for different scripts/projects within the same Emacs session, run different R versions, use the same IDE and same keybindings on different OS sync'd by git, benefit from the syntax highlighting and using key bindings for loading a single line, function, paragraph or buffer, for documenting, loading and testing a package, for debugging, for reading R documentation and a bunch of other things that I can't remember. But you can do much more.
+</p>
+
+<p>
+If you are coming from R studio you might find many basic functionalities very similar. Although the key bindings are different, you can easily re-map them to something of your liking. Or you can use the drop down menus. Either way, you can start with some basic setup and grow from there, if you feel the need. Here are my basic suggestions.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span style="color: #836fff;">(</span><span style="color: #b6a0ff; font-weight: bold;">use-package</span> <span style="color: #00bcff;">ess</span>
+  <span style="color: #f78fe7; font-weight: bold;">:init</span>
+  <span style="color: #458b00;">(</span><span style="color: #b6a0ff; font-weight: bold;">setq</span> ess-style 'RStudio<span style="color: #458b00;">)</span>
+  <span style="color: #f78fe7; font-weight: bold;">:mode</span>
+  <span style="color: #458b00;">(</span><span style="color: #ba55d3;">(</span><span style="color: #79a8ff;">"\\.[rR]"</span> . ess-r-mode<span style="color: #ba55d3;">)</span>
+   <span style="color: #ff9f80; font-style: italic;">;; </span><span style="color: #ff9f80; font-style: italic;">If you also use julia or some other language</span>
+   <span style="color: #ba55d3;">(</span><span style="color: #79a8ff;">"\\.[jJ][lL]"</span> . ess-julia-mode<span style="color: #ba55d3;">)</span><span style="color: #458b00;">)</span>
+  <span style="color: #ff9f80; font-style: italic;">;; </span><span style="color: #ff9f80; font-style: italic;">Add my personal key-map</span>
+  <span style="color: #f78fe7; font-weight: bold;">:config</span>
+  <span style="color: #ff9f80; font-style: italic;">;; </span><span style="color: #ff9f80; font-style: italic;">ESS process (print all)</span>
+  <span style="color: #458b00;">(</span><span style="color: #b6a0ff; font-weight: bold;">setq</span> ess-eval-visibly-p t<span style="color: #458b00;">)</span>
+  <span style="color: #ff9f80; font-style: italic;">;; </span><span style="color: #ff9f80; font-style: italic;">Silence asking for aprenth directory</span>
+  <span style="color: #458b00;">(</span><span style="color: #b6a0ff; font-weight: bold;">setq</span> ess-ask-for-ess-directory nil<span style="color: #458b00;">)</span>
+  <span style="color: #ff9f80; font-style: italic;">;; </span><span style="color: #ff9f80; font-style: italic;">Syntax highlights</span>
+  <span style="color: #458b00;">(</span><span style="color: #b6a0ff; font-weight: bold;">setq</span> ess-R-font-lock-keywords
+        '<span style="color: #ba55d3;">(</span><span style="color: #ff6eb4;">(</span>ess-R-fl-keyword:keywords . t<span style="color: #ff6eb4;">)</span>
+          <span style="color: #ff6eb4;">(</span>ess-R-fl-keyword:constants . t<span style="color: #ff6eb4;">)</span>
+          <span style="color: #ff6eb4;">(</span>ess-R-fl-keyword:modifiers . t<span style="color: #ff6eb4;">)</span>
+          <span style="color: #ff6eb4;">(</span>ess-R-fl-keyword:fun-defs . t<span style="color: #ff6eb4;">)</span>
+          <span style="color: #ff6eb4;">(</span>ess-R-fl-keyword:assign-ops . t<span style="color: #ff6eb4;">)</span>
+          <span style="color: #ff6eb4;">(</span>ess-R-fl-keyword:%op% . t<span style="color: #ff6eb4;">)</span>
+          <span style="color: #ff6eb4;">(</span>ess-fl-keyword:fun-calls . t<span style="color: #ff6eb4;">)</span>
+          <span style="color: #ff6eb4;">(</span>ess-fl-keyword:numbers . t<span style="color: #ff6eb4;">)</span>
+          <span style="color: #ff6eb4;">(</span>ess-fl-keyword:operators<span style="color: #ff6eb4;">)</span>
+          <span style="color: #ff6eb4;">(</span>ess-fl-keyword:delimiters<span style="color: #ff6eb4;">)</span>
+          <span style="color: #ff6eb4;">(</span>ess-fl-keyword:=<span style="color: #ff6eb4;">)</span>
+          <span style="color: #ff6eb4;">(</span>ess-R-fl-keyword:F&amp;T . t<span style="color: #ff6eb4;">)</span><span style="color: #ba55d3;">)</span><span style="color: #458b00;">)</span><span style="color: #836fff;">)</span>
+
+
+<span style="color: #ff9f80; font-style: italic;">;; </span><span style="color: #ff9f80; font-style: italic;">R markdown</span>
+<span style="color: #836fff;">(</span><span style="color: #b6a0ff; font-weight: bold;">use-package</span> <span style="color: #00bcff;">polymode</span><span style="color: #836fff;">)</span>
+<span style="color: #836fff;">(</span><span style="color: #b6a0ff; font-weight: bold;">use-package</span> <span style="color: #00bcff;">poly-R</span><span style="color: #836fff;">)</span>
+<span style="color: #836fff;">(</span><span style="color: #b6a0ff; font-weight: bold;">use-package</span> <span style="color: #00bcff;">poly-markdown</span><span style="color: #836fff;">)</span>
+<span style="color: #836fff;">(</span><span style="color: #b6a0ff; font-weight: bold;">use-package</span> <span style="color: #00bcff;">quarto-mode</span><span style="color: #836fff;">)</span>
+
+<span style="color: #ff9f80; font-style: italic;">;; </span><span style="color: #ff9f80; font-style: italic;">MARKDOWN</span>
+<span style="color: #836fff;">(</span>add-to-list 'auto-mode-alist '<span style="color: #458b00;">(</span><span style="color: #79a8ff;">"\\.md"</span> . poly-markdown-mode<span style="color: #458b00;">)</span><span style="color: #836fff;">)</span>
+
+<span style="color: #ff9f80; font-style: italic;">;; </span><span style="color: #ff9f80; font-style: italic;">R modes</span>
+<span style="color: #836fff;">(</span>add-to-list 'auto-mode-alist '<span style="color: #458b00;">(</span><span style="color: #79a8ff;">"\\.Snw"</span> . poly-noweb+r-mode<span style="color: #458b00;">)</span><span style="color: #836fff;">)</span>
+<span style="color: #836fff;">(</span>add-to-list 'auto-mode-alist '<span style="color: #458b00;">(</span><span style="color: #79a8ff;">"\\.Rnw"</span> . poly-noweb+r-mode<span style="color: #458b00;">)</span><span style="color: #836fff;">)</span>
+<span style="color: #836fff;">(</span>add-to-list 'auto-mode-alist '<span style="color: #458b00;">(</span><span style="color: #79a8ff;">"\\.Rmd"</span> . poly-markdown+r-mode<span style="color: #458b00;">)</span><span style="color: #836fff;">)</span>
+<span style="color: #836fff;">(</span>add-to-list 'auto-mode-alist '<span style="color: #458b00;">(</span><span style="color: #79a8ff;">"\\.qmd"</span> . poly-markdown+r-mode<span style="color: #458b00;">)</span><span style="color: #836fff;">)</span>
+</pre>
+</div>
+
+<p>
+This is a very basic configuration to start ESS on any R script, or in code chunks in R markdown and quarto files. You probably don't need more than this to get started. However, in some cases Emacs cannot find the path to you R executable, if so you can use something like this:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span style="color: #836fff;">(</span><span style="color: #b6a0ff; font-weight: bold;">if</span> <span style="color: #458b00;">(</span>eq system-type 'windows-nt<span style="color: #458b00;">)</span>
+    <span style="color: #458b00;">(</span><span style="color: #b6a0ff; font-weight: bold;">setq</span> inferior-ess-r-program <span style="color: #79a8ff;">"C:/Program Files (x86)/R-4.1.2/bin/R.exe"</span><span style="color: #458b00;">)</span><span style="color: #836fff;">)</span>
+</pre>
+</div>
+
+<p>
+I also mentioned that you can send you own blocks of R code to the console easily with a few keys strokes. Here is a function to do that:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span style="color: #ff9f80; font-style: italic;">;; </span><span style="color: #ff9f80; font-style: italic;">Send personal commands to R</span>
+<span style="color: #836fff;">(</span><span style="color: #b6a0ff; font-weight: bold;">defun</span> <span style="color: #feacd0;">my-send-command-to-r</span> <span style="color: #458b00;">(</span>command<span style="color: #458b00;">)</span>
+  <span style="color: #9ac8e0; font-style: italic;">"Sends the string `</span><span style="color: #00bcff; font-style: italic;">command</span><span style="color: #9ac8e0; font-style: italic;">' to ESS r process"</span>
+  <span style="color: #458b00;">(</span><span style="color: #b6a0ff; font-weight: bold;">if</span> <span style="color: #ba55d3;">(</span>stringp command<span style="color: #ba55d3;">)</span>
+      <span style="color: #ba55d3;">(</span><span style="color: #b6a0ff; font-weight: bold;">let</span> <span style="color: #ff6eb4;">(</span><span style="color: SystemHilight;">(</span>proc <span style="color: #8c8c8c;">(</span>ess-get-process<span style="color: #8c8c8c;">)</span><span style="color: SystemHilight;">)</span><span style="color: #ff6eb4;">)</span>
+        <span style="color: #ff6eb4;">(</span>ess-send-string proc command<span style="color: #ff6eb4;">)</span><span style="color: #ba55d3;">)</span>
+    <span style="color: #ba55d3;">(</span>message <span style="color: #79a8ff;">"The command is not a character string"</span><span style="color: #ba55d3;">)</span><span style="color: #458b00;">)</span><span style="color: #836fff;">)</span>
+</pre>
+</div>
+
+<p>
+This function will take some text and send it to the R process running, for example <code>(tt-send-command-to-r "dev.off()")</code> to send <code>dev.off()</code> to the R console. Now, this is a lot more typing which wouldn't make sense. Let's make it more interactive.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span style="color: #836fff;">(</span><span style="color: #b6a0ff; font-weight: bold;">defun</span> <span style="color: #feacd0;">my-rsend-dev-off</span> <span style="color: #458b00;">()</span>
+  <span style="color: #458b00;">(</span><span style="color: #b6a0ff; font-weight: bold;">interactive</span><span style="color: #458b00;">)</span>
+  <span style="color: #458b00;">(</span>my-send-command-to-r <span style="color: #79a8ff;">"dev.off()"</span><span style="color: #458b00;">)</span><span style="color: #836fff;">)</span>
+</pre>
+</div>
+
+<p>
+Now we can send the <code>dev.off()</code> by evaluating <code>(my-rsend-dev-off)</code> in Emacs, or calling it via <code>M-x</code> thanks to the <code>(interactive)</code> part of the function. But we can yet go further and add key bindings for it:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span style="color: #836fff;">(</span><span style="color: #b6a0ff; font-weight: bold;">defvar</span> <span style="color: #00d3d0;">my-exec-r-keymap</span>
+  <span style="color: #458b00;">(</span><span style="color: #b6a0ff; font-weight: bold;">let</span> <span style="color: #ba55d3;">(</span><span style="color: #ff6eb4;">(</span>map <span style="color: SystemHilight;">(</span>make-sparse-keymap<span style="color: SystemHilight;">)</span><span style="color: #ff6eb4;">)</span><span style="color: #ba55d3;">)</span>
+    <span style="color: #ba55d3;">(</span>define-key map <span style="color: #79a8ff;">"o"</span> 'my-rsend-dev-off<span style="color: #ba55d3;">)</span>
+    map<span style="color: #458b00;">)</span>
+  <span style="color: #9ac8e0; font-style: italic;">"Key map to send commands to inferior ESS R"</span><span style="color: #836fff;">)</span>
+
+<span style="color: #ff9f80; font-style: italic;">;; </span><span style="color: #ff9f80; font-style: italic;">Add my keymaps hook</span>
+<span style="color: #836fff;">(</span>add-hook 'ess-r-mode-hook
+  <span style="color: #458b00;">(</span><span style="color: #b6a0ff; font-weight: bold;">lambda</span><span style="color: #ba55d3;">()</span> <span style="color: #ba55d3;">(</span>local-set-key <span style="color: #ff6eb4;">(</span>kbd <span style="color: #79a8ff;">"C-c t"</span><span style="color: #ff6eb4;">)</span> my-exec-r-keymap<span style="color: #ba55d3;">)</span><span style="color: #458b00;">)</span><span style="color: #836fff;">)</span>
+<span style="color: #836fff;">(</span>add-hook 'inferior-ess-r-mode-hook
+  <span style="color: #458b00;">(</span><span style="color: #b6a0ff; font-weight: bold;">lambda</span><span style="color: #ba55d3;">()</span> <span style="color: #ba55d3;">(</span>local-set-key <span style="color: #ff6eb4;">(</span>kbd <span style="color: #79a8ff;">"C-c t"</span><span style="color: #ff6eb4;">)</span> my-exec-r-keymap<span style="color: #ba55d3;">)</span><span style="color: #458b00;">)</span><span style="color: #836fff;">)</span>
+</pre>
+</div>
+
+<p>
+Now we can execute our <code>dev.off()</code> from any R script or R console by the key strokes <code>C-c t o</code>. First I am setting a map of keys to <code>my-exec-r-keymap</code> and mapping our function to send <code>dev.off()</code> to the key <code>o</code>. You can add more functions by adding more lines like <code>(define-key map "o" 'my-rsend-dev-off)</code> below it, changing the key to be mapped to, and the function to use. Then I am binding that key map to <code>C-c t</code> using <code>ess-r-mode-hook</code> to be called from R scripts, and to <code>inferior-ess-r-mode-hook</code> to be called from the R console. We could have gone a simpler way and just map it to something like <code>C-c o</code>, but I wanted to give you the tools to create a whole key map to have all your personal R-related key bindings there. For example, I keep my R key bindings under <code>C-c t</code> and other Emacs useful functions for editing under <code>C-c e</code>, and other keys for other personal maps or actions. And why <code>C-c</code>-something? Well, Emacs is full of keybindings and it seems that most of them are taken, so Emacs reserves <code>C-c</code>-something for the user key bindings, and <code>C-c C</code>-something for the packages. So, I really recommend you to stick to it if you don't want to get rid of other useful stuff.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org63eb8e4" class="outline-3">
+<h3 id="org63eb8e4">10. Version Control with Magit</h3>
+<div class="outline-text-3" id="text-org63eb8e4">
+<p>
+<a href="https://magit.vc/">Magit</a> is really "a git porcelain inside Emacs". It is, in my opinion and the opinion of many, the best GUI for git ever.
+</p>
+
+<blockquote>
+<p>
+Magit is a complete text-based user interface to Git. It fills the glaring gap between the Git command-line interface and various GUIs, letting you perform trivial as well as elaborate version control tasks with just a couple of mnemonic key presses. Magit looks like a prettified version of what you get after running a few Git commands but in Magit every bit of visible information is also actionable to an extent that goes far beyond what any Git GUI provides and it takes care of automatically refreshing this output when it becomes outdated. In the background Magit just runs Git commands and if you wish you can see what exactly is being run, making it possible for you to learn the git command-line by using Magit.
+</p>
+
+<p>
+Using Magit for a while will make you a more effective version control user. Magit supports and streamlines the use of Git features that most users and developers of other Git clients apparently thought could not be reasonably mapped to a non-command-line interface. Magit is both faster and more intuitive than either the command line or any GUI and these holds for both Git beginners and experts alike.
+</p>
+</blockquote>
+
+
+<div id="org763d2c4" class="figure">
+<p><img src="../../../static/post/2024/emacs_as_ide_for_r/magit_overview2.png" alt="Magit" title="Magit" />
+</p>
+</div>
+
+<p>
+I think the text describes it well enough, but the best way is to see it in action. Go to the link above and check out the screenshots and/or the videos for inspiration.
+</p>
+
+<p>
+In my personal experience, Magit has made my working with Git not only faster but also easier. It is very easy to use even without any of the auto completion tools that I listed above because it uses its own system of <a href="https://github.com/magit/transient">transient</a> commands that calls a master menu with all the potential options: you start with a menu with all the Git events like Push, Pull, Stash, Branch, etc., and once you choose one it displays the potential options to use it, and as a complement it allows the user to provide information (i.e., a branch name) as plain text when necessary. For example <code>b</code> shows the branch menu and within it, <code>b</code> checks out a branch, then you type in the minibuffer the name of the branch and you're there. Quite intuitive, right?
+</p>
+
+<p>
+Magit is so good that I've met people who moved to Emacs just because of Magit (although they stay for many more reasons). Or people who moved away from Emacs saying that what they miss the most is Magit. So, I think that this few words are enough for this section and I'll let your curiosity take care of the rest. Enjoy it!.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org935bf16" class="outline-2">
+<h2 id="org935bf16">Conclusions</h2>
+<div class="outline-text-2" id="text-org935bf16">
+<p>
+In conclusion, Emacs is awesome. And if you read through all the post and made it til the end, I'm hopping you will give it a try. Drop me an email or a comment if you get stuck and I will try to help.
+</p>
+
+<p>
+Good luck and, have fun!
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

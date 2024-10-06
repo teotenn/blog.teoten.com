@@ -1,0 +1,11 @@
+{% for item in content %}
+<div class="post-box">
+  <img src="{{ item.metadata.image }}"
+       class="post-background-image"
+       alt="{{ item.metadata.title }}">
+  <a href="{{ item.path }}" class="post-link">{{ item.metadata.title }}</a>
+  <h4>{{ item.metadata.date|date:fullDate }}</h4>
+  <p class="post-description">{{ item.metadata.description }}</p>
+</div>
+
+{% endfor %}

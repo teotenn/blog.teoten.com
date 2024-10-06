@@ -1,0 +1,68 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+    {% blog-styles /styles/syntax_highlight.css %}
+    {% blog-styles /styles/styles.css %}
+    {% block head %}
+    {% endblock %}
+  </head>
+
+  <body>
+    <!-- Top nav bar -->
+    <div>
+      {% include "partials/toggle_button.html" %}
+      {% include "partials/navbar.html" %}
+    </div>
+
+    <div id="shadow-block">
+      <div id="container">
+	<div id="wide-content">
+	  <!-- Main content -->
+	  {% block content %}
+	  {% endblock %}
+	</div>
+
+	<button id="toggle-button"> > </button>
+	{% include "partials/sidebar.html" %}
+      </div>
+    </div>
+
+    <script>
+    // JavaScript function to handle theme toggling
+    function toggleTheme() {
+	document.body.classList.toggle('dark-theme');
+
+	if (document.body.classList.contains('dark-theme')) {
+	    localStorage.setItem('theme', 'dark');
+	} else {
+	    localStorage.setItem('theme', 'light');
+	}
+	// alert("Theme changed!")
+    }
+
+    // Check and apply the saved theme preference on page load
+    window.onload = function() {
+	const savedTheme = localStorage.getItem('theme');
+	if (savedTheme === 'dark') {
+	    document.body.classList.add('dark-theme');
+	}
+    };
+
+      // Sidebar
+      const toggleButton = document.getElementById('toggle-button');
+      const sidebar = document.getElementById('sidebar');
+
+      toggleButton.addEventListener('click', () => {
+	  if (sidebar.classList.contains('collapsed')) {
+              sidebar.classList.remove('collapsed');
+              sidebar.classList.add('expanded');
+	  } else {
+              sidebar.classList.remove('expanded');
+              sidebar.classList.add('collapsed');
+	  }
+      });
+
+    </script>
+
+  </body>
+</html>

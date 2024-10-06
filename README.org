@@ -1,0 +1,8 @@
+* TODO Write a real readme
+* Content
+** Markdown
+Metadata must be all quoted.
+** Org
+Metadata must be all unquoted, but lists inside =[ ]= must be quoted, or numeric.
+** HTML
+Metadata must be as in org
