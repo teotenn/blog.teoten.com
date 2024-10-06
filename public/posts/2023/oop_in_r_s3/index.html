@@ -12,9 +12,9 @@
    <div id="wrapper">
     <nav id="navbar">
      <ul>
-      <li><a href="https://test.teoten.com/">Home</a></li>
-      <li><a href="https://test.teoten.com/list/">Posts</a></li>
-      <li><a href="https://test.teoten.com/about/">About</a></li>
+      <li><a href="https://blog.teoten.com/">Home</a></li>
+      <li><a href="https://blog.teoten.com/list/">Posts</a></li>
+      <li><a href="https://blog.teoten.com/about/">About</a></li>
      </ul>
     </nav>
    </div>
@@ -24,9 +24,9 @@
     <div id="wide-content">
      <!-- Main content -->
      <h1 class="article-title">Object Oriented Programming in R: S3</h1>
-     <article id="post-6bf87bcd-09cf-4d03-9919-2e234d4abe83" data-post-id="6bf87bcd-09cf-4d03-9919-2e234d4abe83">
+     <article id="post-95a75e2f-1963-4007-9b79-adab340cd298" data-post-id="95a75e2f-1963-4007-9b79-adab340cd298">
       <div>
-       <p>This post is part of the series <a href="https://test.teoten.com/series/maps-app/" title="maps-app">maps-app</a>.</p>
+       <p>This post is part of the series <a href="https://blog.teoten.com/series/maps-app/" title="maps-app">maps-app</a>.</p>
        <p>You can also find the current state of the project under <a href="https://github.com/teotenn">my GitHub</a> repo <a href="https://github.com/teotenn/mapic">mapic</a>.</p>
        <h1 class="article-header">Scope of this post</h1>
        <p>We are creating maps of data showing changes over a span of time for different countries and pointing at all kinds of cities. That basically means that we need to <strong>map any region of the world with R</strong>. Today there are all kinds of packages and techniques to do that. I will share the strategy I used with <a href="https://cran.r-project.org/web/packages/ggplot2/index.html">ggplot2</a> and <a href="https://cran.r-project.org/web/packages/maps/index.html">maps</a> packages, using support of <a href="https://www.openstreetmap.org/">Open Street Map</a> to obtain the coordinates of cities and finally making it interactive with <a href="https://shiny.rstudio.com/">shiny</a>.</p>
@@ -35,12 +35,12 @@
        <p>I hope you all enjoy it. Feel free to leave any kind of comment and/or question at the end.</p>
        <p></p>
        <div class="article-image-container">
-        <a href="https://test.teoten.com/post/2022/map_any_region_with_ggplot2_part_I/maps_DrawingMap.png"><img alt="R Maps" src="https://test.teoten.com/post/2022/map_any_region_with_ggplot2_part_I/maps_DrawingMap.png"></a>
+        <a href="https://blog.teoten.com/post/2022/map_any_region_with_ggplot2_part_I/maps_DrawingMap.png"><img alt="R Maps" src="https://blog.teoten.com/post/2022/map_any_region_with_ggplot2_part_I/maps_DrawingMap.png"></a>
        </div>
        <p></p>
        <h1 class="article-header">Object oriented programming and R</h1>
        <p>R is a programming language that benefits greatly from the paradigm of functional programming. This is actually how most of R users utilize it and how it is recommended. However, it also offers the possibility of applying object oriented programming (OOP) paradigm which is the creation and use of objects with defined characteristics and methods. If you have never heard of this concept I recommend you to do a little research about it before getting deep into this post. I would recommend to start with the introduction to OOP of <a href="https://adv-r.hadley.nz/oo.html">Advanced R</a>. It is not my intention to explain OOP but rather to use it, in combination with functional programming, to support sharing information between functions.</p>
-       <p>If you followed the <a href="https://test.teoten.com/posts/2023/programming_with_ggplot2/">previous post</a> you might have noticed that at the <a href="https://test.teoten.com/posts/2023/programming_with_ggplot2/#conclusions">conclusions</a> section I mentioned the use of OOP to extend our ggplot2 functions. The idea is to pass information between the functions to make the calculations more accurate rather than forcing the end user to repeat the information in each function. I mentioned the possibility of using environments, or the ggplot2 internal class <code>ggproto</code>. The use of environments has a different function than what I am trying to achieve here, while the <code>ggproto</code> objects are excellent to pass information between graphics created with <code>ggplot2</code> but they become complicated if we want to include any more information like data frames or lists of values. Therefore I decided to keep it simple with the use of S3 objects.</p>
+       <p>If you followed the <a href="https://blog.teoten.com/posts/2023/programming_with_ggplot2/">previous post</a> you might have noticed that at the <a href="https://blog.teoten.com/posts/2023/programming_with_ggplot2/#conclusions">conclusions</a> section I mentioned the use of OOP to extend our ggplot2 functions. The idea is to pass information between the functions to make the calculations more accurate rather than forcing the end user to repeat the information in each function. I mentioned the possibility of using environments, or the ggplot2 internal class <code>ggproto</code>. The use of environments has a different function than what I am trying to achieve here, while the <code>ggproto</code> objects are excellent to pass information between graphics created with <code>ggplot2</code> but they become complicated if we want to include any more information like data frames or lists of values. Therefore I decided to keep it simple with the use of S3 objects.</p>
        <p>S3 objects are the most commonly used in R packages, the recommended ones and apparently, the only ones used in base-r and stats packages. As <a href="https://adv-r.hadley.nz/s3.html">Hadley Wickham</a> says it:</p>
        <blockquote>
         <p>S3 is R’s first and simplest OO system. S3 is informal and ad hoc, but there is a certain elegance in its minimalism: you can’t take away any part of it and still have a useful OO system. For these reasons, you should use it, unless you have a compelling reason to do otherwise. S3 is the only OO system used in the base and stats packages, and it’s the most commonly used system in CRAN packages.</p>
@@ -100,7 +100,7 @@
                                <span class="n">background_legend</span> <span class="o">=</span> <span class="s">"#ffffff"</span><span class="p">,</span>
                                <span class="n">text_copyright</span> <span class="o">=</span> <span class="s">"#f3f3f3"</span><span class="p">)</span>
 </code></pre>
-       <p>This is the same list of colors used in our <a href="https://test.teoten.com/posts/2023/programming_with_ggplot2/">previous post</a> by the <a href="https://test.teoten.com/posts/2023/programming_with_ggplot2/#background-and-preliminaries">function that creates the maps</a>. If you check the class of our new list of colors, <code>class(default_map_colors)</code> it should be <code>map_colors</code>. Since our new object is also a list, we could use it indistinctly to create the maps. Thus, we need a method that verifies that our object is actually of the class <code>map_colors</code>. This is the <strong>validator</strong>. The method <code>is</code> already does that for other classes (i.e., <code>is.character()</code>) therefore, we can add our object to tell it how to handle it.</p>
+       <p>This is the same list of colors used in our <a href="https://blog.teoten.com/posts/2023/programming_with_ggplot2/">previous post</a> by the <a href="https://blog.teoten.com/posts/2023/programming_with_ggplot2/#background-and-preliminaries">function that creates the maps</a>. If you check the class of our new list of colors, <code>class(default_map_colors)</code> it should be <code>map_colors</code>. Since our new object is also a list, we could use it indistinctly to create the maps. Thus, we need a method that verifies that our object is actually of the class <code>map_colors</code>. This is the <strong>validator</strong>. The method <code>is</code> already does that for other classes (i.e., <code>is.character()</code>) therefore, we can add our object to tell it how to handle it.</p>
        <pre><code class="highlight"><span></span><span class="n">is.map_colors</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="nf">inherits</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s">"map_colors"</span><span class="p">)</span>
 
 <span class="nf">is.map_colors</span><span class="p">(</span><span class="n">default_map_colors</span><span class="p">)</span>
@@ -110,7 +110,7 @@
        </blockquote>
        <p>The function is very simple, we just need to check if the object passed inherits the class. Now we can use <code>is.map_colors()</code> in all the functions that create maps in order to ensure that our new class is used rather than a simple list.</p>
        <h2 class="article-header">Creating a new object within a function</h2>
-       <p>Once again, I have made improvements to the function presented before, <a href="https://test.teoten.com/posts/2023/programming_with_ggplot2/#background-and-preliminaries">my<i>country</i>prev</a>. This time the change is only one, almost by the end of the body: the addition of an S3 object that holds information which is used later by other functions that add layers to the map. It is not only about the colors, but we are also adding the values of the limits, so that other functions, such as labels creation, know about it. Since this version is more stable, I have also renamed it to a more formal name.</p>
+       <p>Once again, I have made improvements to the function presented before, <a href="https://blog.teoten.com/posts/2023/programming_with_ggplot2/#background-and-preliminaries">my<i>country</i>prev</a>. This time the change is only one, almost by the end of the body: the addition of an S3 object that holds information which is used later by other functions that add layers to the map. It is not only about the colors, but we are also adding the values of the limits, so that other functions, such as labels creation, know about it. Since this version is more stable, I have also renamed it to a more formal name.</p>
        <pre><code class="highlight"><span></span><span class="n">base_map</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">country</span><span class="p">,</span>
                      <span class="n">x_limits</span> <span class="o">=</span> <span class="kc">NULL</span><span class="p">,</span>
                      <span class="n">y_limits</span> <span class="o">=</span> <span class="kc">NULL</span><span class="p">,</span>
@@ -200,11 +200,11 @@
        <p>The new <code>base_map</code> does the same as the previous <code>my_country_prev</code>: it creates the base map of a country. However, we have added the option to return a mapic object or not. When the option, <code>return_mapic_obj</code> is set to <code>FALSE</code>, the function behaves as before and it returns the map only. But when it is set as <code>TRUE</code>, it generates a new object of class <code>mapicHolder</code> that holds the information that will be piped to other functions as we mentioned above. Other changes are minimal regarding style, the function still does the same.</p>
        <p>As you can see, the object does not necessarily has to be available to the end user for manipulation or modification. Here we can create 2 different objects to move forward with the creation of the maps and the end user does not need to know the structure or even the existence of the object. Thus, <code>spain &lt;- base_map("Spain")</code> will create an object with the base map for Spain, and <code>france &lt;- base_map("France")</code> creates a similar object for the base map of France. Each of them in an object of class <code>mapicHolder</code> that can be called later. The idea is to be able to use the information of each of them easily by the rest of the functions that add layers to our maps.</p>
        <h2 class="article-header">Defining our own methods</h2>
-       <p>Now that we have our S3 object and we know how to modify methods, let's create a new method specially for it. We are going to replace our previous function <a href="https://test.teoten.com/posts/2023/programming_with_ggplot2/#a-map-with-growing-dots-per-city">make_dots</a> for a method that works differently depending on the class of object that is passed. The initialization is pretty simple, it can be accomplished in one line:</p>
+       <p>Now that we have our S3 object and we know how to modify methods, let's create a new method specially for it. We are going to replace our previous function <a href="https://blog.teoten.com/posts/2023/programming_with_ggplot2/#a-map-with-growing-dots-per-city">make_dots</a> for a method that works differently depending on the class of object that is passed. The initialization is pretty simple, it can be accomplished in one line:</p>
        <pre><code class="highlight"><span></span><span class="n">make_dots</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="kc">...</span><span class="p">)</span> <span class="nf">UseMethod</span><span class="p">(</span><span class="s">"make_dots"</span><span class="p">)</span>
 </code></pre>
        <p>After this <code>make_dots</code> exists as a method which behavior we can modified based on the class of the object passed. Notice the ellipsis (the three dots <code>...</code>) in the function definition, they are necessary to ensure that all the arguments defined after our object (<code>x</code>) are taken into account as well.</p>
-       <p>With this we can re-write the definition of our function <a href="https://test.teoten.com/posts/2023/programming_with_ggplot2/#a-map-with-growing-dots-per-city">make_dots</a>, or in other words, its name, to have it as the default behavior. The body of the function remains the same.</p>
+       <p>With this we can re-write the definition of our function <a href="https://blog.teoten.com/posts/2023/programming_with_ggplot2/#a-map-with-growing-dots-per-city">make_dots</a>, or in other words, its name, to have it as the default behavior. The body of the function remains the same.</p>
        <pre><code class="highlight"><span></span><span class="n">make_dots.default</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">.df</span><span class="p">,</span>
                       <span class="n">year</span><span class="p">,</span>
                       <span class="n">map_colors</span><span class="p">,</span>
@@ -288,7 +288,7 @@
 <span class="p">}</span>
 </code></pre>
        <p>The new function is basically applying the default function to the data, but the parameters required are different: we now request the object of class <code>mapicHolder</code> but we don't need to request the <code>map_colors</code> because they come within the mentioned object. Additionally, we are adding additional data to our <code>mapicHolder</code> to be passed and used for more functions.</p>
-       <p>Now we have two options to create the maps. One specifying every parameter like in the <a href="https://test.teoten.com/posts/2023/programming_with_ggplot2">previous post</a> using the <code>.default</code> method:</p>
+       <p>Now we have two options to create the maps. One specifying every parameter like in the <a href="https://blog.teoten.com/posts/2023/programming_with_ggplot2">previous post</a> using the <code>.default</code> method:</p>
        <pre><code class="highlight"><span></span><span class="nf">base_map</span><span class="p">(</span><span class="s">"Mexico"</span><span class="p">,</span>
                 <span class="n">map_colors</span><span class="p">,</span>
                  <span class="n">x_limits</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">-118</span><span class="p">,</span> <span class="m">-86</span><span class="p">),</span>
@@ -317,7 +317,7 @@
   <span class="kc">...</span>
 <span class="p">}</span>
 </code></pre>
-       <p>You can find the <a href="https://test.teoten.com/posts/2023/programming_with_ggplot2/#adding-labels-for-the-map">code of the original functions</a> in my previous post. Now for our new function we can basically remove all the parameters and add only a <code>mapicHolder</code> object, which already contains the rest of the information.</p>
+       <p>You can find the <a href="https://blog.teoten.com/posts/2023/programming_with_ggplot2/#adding-labels-for-the-map">code of the original functions</a> in my previous post. Now for our new function we can basically remove all the parameters and add only a <code>mapicHolder</code> object, which already contains the rest of the information.</p>
        <pre><code class="highlight"><span></span><span class="n">my_print_totals.mapicHolder</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">.mapic_holder</span><span class="p">,</span>
                                         <span class="n">totals_label</span> <span class="o">=</span> <span class="s">"Totals"</span><span class="p">)</span> <span class="p">{</span>
   <span class="n">data_totals</span> <span class="o">&lt;-</span> <span class="nf">sum</span><span class="p">(</span><span class="n">.mapic_holder</span><span class="o">$</span><span class="n">data</span><span class="o">$</span><span class="n">map</span><span class="o">$</span><span class="n">n</span><span class="p">)</span>
@@ -355,7 +355,7 @@
 </code></pre>
        <p></p>
        <div class="article-image-container">
-        <a href="https://test.teoten.com/post/2023/map_any_region_with_ggplot2_part_III/unnamed-chunk-8-1.png"><img alt="plot of chunk unnamed-chunk-8" src="https://test.teoten.com/post/2023/map_any_region_with_ggplot2_part_III/unnamed-chunk-8-1.png"></a>
+        <a href="https://blog.teoten.com/post/2023/map_any_region_with_ggplot2_part_III/unnamed-chunk-8-1.png"><img alt="plot of chunk unnamed-chunk-8" src="https://blog.teoten.com/post/2023/map_any_region_with_ggplot2_part_III/unnamed-chunk-8-1.png"></a>
        </div>
        <p></p>
        <h1 class="article-header">Final Remarks</h1>
@@ -363,10 +363,14 @@
        <p>In the next post we will step back to the coordinates manipulation to implement a new system of objects to be able to use different types of databases. For now, our functions are able to use only <code>SQLite</code> and <code>data.frame</code> to store the information, which is fine for prototyping or for small projects, but very limited for production usage.</p>
       </div>
      </article>
+     <div class="article-comments">
+      <script src="https://utteranc.es/client.js" repo="teotenn/blog.teoten.com" issue-term="pathname" theme="github-light" crossorigin="anonymous" async>
+  </script>
+     </div>
     </div>
     <button id="toggle-button">&gt;</button>
     <div id="sidebar" class="expanded">
-     <a href="https://test.teoten.com/about/"> <img src="https://test.teoten.com/img/tt-avatar.png" alt="Teoten" class="sidebar-image"> </a>
+     <a href="https://blog.teoten.com/about/"> <img src="https://blog.teoten.com/img/tt-avatar.png" alt="Teoten" class="sidebar-image"> </a>
      <h2 class="h-sidebar">Links</h2>
      <ul>
       <li><a href="https://www.r-project.org/">The R Project</a></li>

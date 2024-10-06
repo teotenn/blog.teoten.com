@@ -9,7 +9,7 @@
  :builder {:function "builder"
            :inherit :server
            :export-dir "public"
-           :base-url "https://test.teoten.com"
+           :base-url "https://blog.teoten.com"
            :content-opts {:build-drafts false
                           :content-template "partials/posts.html"
                           :extensions ["html" "org" "md"]}

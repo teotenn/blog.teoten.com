@@ -12,9 +12,9 @@
    <div id="wrapper">
     <nav id="navbar">
      <ul>
-      <li><a href="https://test.teoten.com/">Home</a></li>
-      <li><a href="https://test.teoten.com/list/">Posts</a></li>
-      <li><a href="https://test.teoten.com/about/">About</a></li>
+      <li><a href="https://blog.teoten.com/">Home</a></li>
+      <li><a href="https://blog.teoten.com/list/">Posts</a></li>
+      <li><a href="https://blog.teoten.com/about/">About</a></li>
      </ul>
     </nav>
    </div>
@@ -24,16 +24,16 @@
     <div id="wide-content">
      <!-- Main content -->
      <h1 class="article-title">R function to fill in merged cells</h1>
-     <article id="post-c5a389ef-12e4-4a52-84ed-10d6a5d19188" data-post-id="c5a389ef-12e4-4a52-84ed-10d6a5d19188">
+     <article id="post-5b613a45-8369-4bf7-b41f-d82f579f474f" data-post-id="5b613a45-8369-4bf7-b41f-d82f579f474f">
       <div>
-       <p>This post continues the topic of <a href="https://test.teoten.com/tags/r-functions">functions in R</a>. You can see our <a href="https://test.teoten.com/post/2021/functions/">previous post</a> if you want to understand the basics but it is not strictly necessary. Here we will go into detail about for loops and if statements in R, two key elements of any function. We are going to define a process, map it in a step-by-step approach and wrape it in a function that can repeat it automatically. Even if you have a very basic understanding of R you should be able to follow this tutorial without problem.</p>
-       <p>Our outcome will be an R function that by calling it, is able to fill in empty rows generated from imported sheets (like excel) when it contains merged cells. If you are only <strong>interested in the function itself</strong> you can go to the end of the post and find it in the section <a _fill_merged_cells.mdfinal_="" href="https://test.teoten.com/{{<" title="ref">}}&gt;Final remarks</a>.</p>
+       <p>This post continues the topic of <a href="https://blog.teoten.com/tags/r-functions">functions in R</a>. You can see our <a href="https://blog.teoten.com/post/2021/functions/">previous post</a> if you want to understand the basics but it is not strictly necessary. Here we will go into detail about for loops and if statements in R, two key elements of any function. We are going to define a process, map it in a step-by-step approach and wrape it in a function that can repeat it automatically. Even if you have a very basic understanding of R you should be able to follow this tutorial without problem.</p>
+       <p>Our outcome will be an R function that by calling it, is able to fill in empty rows generated from imported sheets (like excel) when it contains merged cells. If you are only <strong>interested in the function itself</strong> you can go to the end of the post and find it in the section <a _fill_merged_cells.mdfinal_="" href="https://blog.teoten.com/{{<" title="ref">}}&gt;Final remarks</a>.</p>
        <h3 class="article-header">Description of the problem</h3>
-       <p>In our <a href="https://test.teoten.com/post/2021/functions/">previous post</a> we saw the basics for creating functions, yet using silly examples with not much of practical usage. Now we are ready to write a function that can have more practical use.</p>
+       <p>In our <a href="https://blog.teoten.com/post/2021/functions/">previous post</a> we saw the basics for creating functions, yet using silly examples with not much of practical usage. Now we are ready to write a function that can have more practical use.</p>
        <p>There are different ways how to import data sheets (i.e. from excel) to R. Regardless of its limitations, these sheets are widely used in data analysis today. If you are used to do data analysis with a different software you should be familiar with the complications of sorting your data imported from sheets when there are merged cells in the rows. Usually, a file like below</p>
        <p></p>
        <div class="article-image-container">
-        <a href="https://test.teoten.com/post/2021/fill_merged_cells/Screenshot_excel_merged_cells.png"><img alt="Excel with merged cells" src="https://test.teoten.com/post/2021/fill_merged_cells/Screenshot_excel_merged_cells.png"></a>
+        <a href="https://blog.teoten.com/post/2021/fill_merged_cells/Screenshot_excel_merged_cells.png"><img alt="Excel with merged cells" src="https://blog.teoten.com/post/2021/fill_merged_cells/Screenshot_excel_merged_cells.png"></a>
        </div>
        <p></p>
        <p>results in a table like this</p>
@@ -185,7 +185,7 @@
        <pre><code class="highlight"><span></span><span class="nf">fill_merged</span><span class="p">(</span><span class="n">my.table</span><span class="p">,</span> <span class="s">"Specie"</span><span class="p">)</span>
 </code></pre>
        <p>The R console will print, one by one, each of the values contained in the column <code>Specie</code> (I have 120 rows, it makes no sense to take space to show it in the post, but you can go ahead and try it yourself).</p>
-       <p>If the last two pieces of code are not clear for you, I recommend you to read our previous post about <a href="https://test.teoten.com/post/2021/functions/">functions in R</a>.</p>
+       <p>If the last two pieces of code are not clear for you, I recommend you to read our previous post about <a href="https://blog.teoten.com/post/2021/functions/">functions in R</a>.</p>
        <h3 class="article-header">How to use If statement in R</h3>
        <p>Printing the values is far from what we want to achieve. As we defined in the first step of the process, we need to check the value inside, if it has a value we leave it alone, but if it is empty, we fill it in with the previous value. To check if the value is empty or not we use the <code>if()</code> function</p>
        <pre><code class="highlight"><span></span><span class="n">fill_merged</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">dat</span><span class="p">,</span> <span class="n">column</span><span class="p">){</span>
@@ -466,10 +466,14 @@
 </code></pre>
       </div>
      </article>
+     <div class="article-comments">
+      <script src="https://utteranc.es/client.js" repo="teotenn/blog.teoten.com" issue-term="pathname" theme="github-light" crossorigin="anonymous" async>
+  </script>
+     </div>
     </div>
     <button id="toggle-button">&gt;</button>
     <div id="sidebar" class="expanded">
-     <a href="https://test.teoten.com/about/"> <img src="https://test.teoten.com/img/tt-avatar.png" alt="Teoten" class="sidebar-image"> </a>
+     <a href="https://blog.teoten.com/about/"> <img src="https://blog.teoten.com/img/tt-avatar.png" alt="Teoten" class="sidebar-image"> </a>
      <h2 class="h-sidebar">Links</h2>
      <ul>
       <li><a href="https://www.r-project.org/">The R Project</a></li>

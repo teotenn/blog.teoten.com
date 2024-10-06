@@ -12,9 +12,9 @@
    <div id="wrapper">
     <nav id="navbar">
      <ul>
-      <li><a href="https://test.teoten.com/">Home</a></li>
-      <li><a href="https://test.teoten.com/list/">Posts</a></li>
-      <li><a href="https://test.teoten.com/about/">About</a></li>
+      <li><a href="https://blog.teoten.com/">Home</a></li>
+      <li><a href="https://blog.teoten.com/list/">Posts</a></li>
+      <li><a href="https://blog.teoten.com/about/">About</a></li>
      </ul>
     </nav>
    </div>
@@ -24,7 +24,7 @@
     <div id="wide-content">
      <!-- Main content -->
      <h1 class="article-title">Deploy your own Shiny app server with debian</h1>
-     <article id="post-0e7d972c-e4bf-4ae2-9abf-c8b1c0010b72" data-post-id="0e7d972c-e4bf-4ae2-9abf-c8b1c0010b72">
+     <article id="post-f7ce2b88-e866-447b-b40b-fd9fb600f1ed" data-post-id="f7ce2b88-e866-447b-b40b-fd9fb600f1ed">
       <div>
        <p>A few weeks ago I opened an account on Digital Ocean to start my own cloud server. Not long after that I took a workshop on Shiny and, although it was too technical with nothing new for me, I learn a couple of things unrelated to R. The speaker was talking about the importance of making your portfolio showing your apps instead of sharing the link to your code as most of us do. I thought it makes sense since anybody who sees our GitHub account can take whatever they want from it, and at the end is only code, which many recruiters and managers are not familiar with. On the other hand if you show some apps you can definitely impress your audience. And so, since Digital Ocean gives you 200 USD of credit for the first 2 months, I decided to try and install my own Shiny server there.</p>
        <p>There are plenty of source on the web on how to set up your own shiny server, but most of them focus on Docker, which gives you a little less control over it. I wanted something that I could fully control myself because in the past I have deployed Shiny apps on Heroku using a process that I did not understand well and thus, it was really difficult to debug or modify. For good or bad, Heroku canceled the free accounts and thus I decided to try Digital Ocean. The big advantage for me is that Digital Ocean gives you the possibility of using what basically is a Virtual Machine with a minimal Linux installation. Since I've been using Debian for the last 10 years, I initialized a Debian 11 server and it was really easy to set up my own cloud service without the use of Docker, and not long later, also my own Shiny server. Of course I did it with the help of Google, with some really useful and clear tutorials I found in marine data science (two links, <a href="https://www.marinedatascience.co/blog/2019/04/28/run-shiny-server-on-your-own-digitalocean-droplet-part-1/">part 1</a> and <a href="https://www.marinedatascience.co/blog/2019/04/28/run-shiny-server-on-your-own-digitalocean-droplet-part-2/">part 2</a> can be found here) and of course, directly from <a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-shiny-server-on-ubuntu-20-04">Digital Ocean's Guide</a>.</p>
@@ -70,7 +70,7 @@ sudo service nginx start
        <p>Now we can check the status of Nginx with <code>sudo service nginx status</code></p>
        <p></p>
        <div class="article-image-container">
-        <a href="https://test.teoten.com/post/2023/deploy_shiny_on_debian/Screenshot_Nginx-running.png"><img alt="Nginx is running" src="https://test.teoten.com/post/2023/deploy_shiny_on_debian/Screenshot_Nginx-running.png"></a>
+        <a href="https://blog.teoten.com/post/2023/deploy_shiny_on_debian/Screenshot_Nginx-running.png"><img alt="Nginx is running" src="https://blog.teoten.com/post/2023/deploy_shiny_on_debian/Screenshot_Nginx-running.png"></a>
        </div>
        <p></p>
        <h3 class="article-header">Custom domain name (optional)</h3>
@@ -79,7 +79,7 @@ sudo service nginx start
        <p>Whatever your choice is, you should be able to see the Nginx welcome page as the image below shows, when you go to your chosen address. In my case I can see it under apps.rwhitedwarf.com.</p>
        <p></p>
        <div class="article-image-container">
-        <a href="https://test.teoten.com/post/2023/deploy_shiny_on_debian/Screenshot_Nginx-welcome-page.png"><img alt="Nginx welcome page" src="https://test.teoten.com/post/2023/deploy_shiny_on_debian/Screenshot_Nginx-welcome-page.png"></a>
+        <a href="https://blog.teoten.com/post/2023/deploy_shiny_on_debian/Screenshot_Nginx-welcome-page.png"><img alt="Nginx welcome page" src="https://blog.teoten.com/post/2023/deploy_shiny_on_debian/Screenshot_Nginx-welcome-page.png"></a>
        </div>
        <p></p>
        <p>Keep in mind that, since we still don't add the SSL certificate, your website appears as <code>http</code> instead of <code>https</code> and thus, your browser might warn you about a connection not secure. You can try to overtake the warning and see your Nginx welcome page for the purpose of testing, in order to make sure that everything went well before moving to the next step.</p>
@@ -107,7 +107,7 @@ sudo emacs -nw /etc/nginx/sites-available/default
 </code></pre>
        <p></p>
        <div class="article-image-container">
-        <a href="https://test.teoten.com/post/2023/deploy_shiny_on_debian/Nginx-server_name.png"><img alt="Domain in Nginx" src="https://test.teoten.com/post/2023/deploy_shiny_on_debian/Nginx-server_name.png"></a>
+        <a href="https://blog.teoten.com/post/2023/deploy_shiny_on_debian/Nginx-server_name.png"><img alt="Domain in Nginx" src="https://blog.teoten.com/post/2023/deploy_shiny_on_debian/Nginx-server_name.png"></a>
        </div>
        <p></p>
        <p>Save it and test nginx by executing <code>sudo nginx -t</code>. If all is good, it should print something like below</p>
@@ -216,13 +216,13 @@ sudo nano /etc/nginx/sites-enabled/default
        <p>Now we need to test it with <code>sudo nginx -t</code> in the terminal. If the messages shows no error, then activate the changes by restarting Nginx with <code>sudo systemctl restart nginx</code>.</p>
        <p></p>
        <div class="article-image-container">
-        <a href="https://test.teoten.com/post/2023/deploy_shiny_on_debian/Screenshot_Nginx-config-nano.png"><img alt="Nginx configured in Nano" src="https://test.teoten.com/post/2023/deploy_shiny_on_debian/Screenshot_Nginx-config-nano.png"></a>
+        <a href="https://blog.teoten.com/post/2023/deploy_shiny_on_debian/Screenshot_Nginx-config-nano.png"><img alt="Nginx configured in Nano" src="https://blog.teoten.com/post/2023/deploy_shiny_on_debian/Screenshot_Nginx-config-nano.png"></a>
        </div>
        <p></p>
        <p>At this point you should be able to see the Shiny Welcome page in your ip address or your domain ending in <code>/shiny/</code>. In my case it is https://apps.rwhitedwarf.com/shiny/ .</p>
        <p></p>
        <div class="article-image-container">
-        <a href="https://test.teoten.com/post/2023/deploy_shiny_on_debian/Screenshot_Shiny-welcome.png"><img alt="Shiny welcome page" src="https://test.teoten.com/post/2023/deploy_shiny_on_debian/Screenshot_Shiny-welcome.png"></a>
+        <a href="https://blog.teoten.com/post/2023/deploy_shiny_on_debian/Screenshot_Shiny-welcome.png"><img alt="Shiny welcome page" src="https://blog.teoten.com/post/2023/deploy_shiny_on_debian/Screenshot_Shiny-welcome.png"></a>
        </div>
        <p></p>
        <h3 class="article-header">Add your own apps</h3>
@@ -230,10 +230,14 @@ sudo nano /etc/nginx/sites-enabled/default
        <p>If you installed <code>rmarkdown</code> you should also see a folder named <code>rmd</code> within the <code>sample-apps</code>, if you navigate to <code>/sample-apps/rmd</code> you should be able to see the <code>Rmd</code> file deployed. When you want to add <code>Rmd</code> files make sure to have one <code>index.Rmd</code> file and add <code>runtime: shiny</code> to the configuration section. It works the same for quarto and <code>Qmd</code> files if you installed it. Now you can deploy not only shiny apps but also Rmarkdown and quarto.</p>
       </div>
      </article>
+     <div class="article-comments">
+      <script src="https://utteranc.es/client.js" repo="teotenn/blog.teoten.com" issue-term="pathname" theme="github-light" crossorigin="anonymous" async>
+  </script>
+     </div>
     </div>
     <button id="toggle-button">&gt;</button>
     <div id="sidebar" class="expanded">
-     <a href="https://test.teoten.com/about/"> <img src="https://test.teoten.com/img/tt-avatar.png" alt="Teoten" class="sidebar-image"> </a>
+     <a href="https://blog.teoten.com/about/"> <img src="https://blog.teoten.com/img/tt-avatar.png" alt="Teoten" class="sidebar-image"> </a>
      <h2 class="h-sidebar">Links</h2>
      <ul>
       <li><a href="https://www.r-project.org/">The R Project</a></li>

@@ -12,9 +12,9 @@
    <div id="wrapper">
     <nav id="navbar">
      <ul>
-      <li><a href="https://test.teoten.com/">Home</a></li>
-      <li><a href="https://test.teoten.com/list/">Posts</a></li>
-      <li><a href="https://test.teoten.com/about/">About</a></li>
+      <li><a href="https://blog.teoten.com/">Home</a></li>
+      <li><a href="https://blog.teoten.com/list/">Posts</a></li>
+      <li><a href="https://blog.teoten.com/about/">About</a></li>
      </ul>
     </nav>
    </div>
@@ -24,17 +24,17 @@
     <div id="wide-content">
      <!-- Main content -->
      <h1 class="article-title">Webscrap and iteration in R</h1>
-     <article id="post-b8e960a9-8677-4114-b906-4cb33bf1f3ad" data-post-id="b8e960a9-8677-4114-b906-4cb33bf1f3ad">
+     <article id="post-7f2c785f-b575-429c-87de-3ffb38c4c50f" data-post-id="7f2c785f-b575-429c-87de-3ffb38c4c50f">
       <div>
        <h1 class="article-header">About this post</h1>
-       <p>This post is part of the series <a href="https://test.teoten.com/series/maps-app/" title="maps-app">maps-app</a>.</p>
+       <p>This post is part of the series <a href="https://blog.teoten.com/series/maps-app/" title="maps-app">maps-app</a>.</p>
        <p>We are creating maps of data showing changes over a span of time for different countries and pointing at all kinds of cities. That basically means that we need to <strong>map any region of the world with R</strong>. Today there are all kinds of packages and techniques to do that. I will share the strategy I used with <a href="https://cran.r-project.org/web/packages/ggplot2/index.html">ggplot2</a> and <a href="https://cran.r-project.org/web/packages/maps/index.html">maps</a> packages, using support of <a href="https://www.openstreetmap.org/">Open Street Map</a> to obtain the coordinates of cities and finally making it interactive with <a href="https://shiny.rstudio.com/">shiny</a>.</p>
        <p>This series of posts share my path towards the creation of the Shiny app. It is a live project and I decided to share my path and experiences along the creation process. The posts are not only about the Shiny app, but the package I created behind it, including topics of functions crafting, creation of the maps, classes of objects, etc., as well as any interesting issue that appear on the way. It is my way to contribute to the R community and at the same time keeping the project documented for myself.</p>
        <p>You can find the current state of the project under <a href="https://github.com/teotenn">my GitHub</a> repo <a href="https://github.com/teotenn/mapic">mapic</a>.</p>
        <p>This post is originally written in Spanish, from the Amsterdam airport, on the way to Mexico. I hope you enjoy. Feel free to leave any type of comment and/or question at the end.</p>
        <p></p>
        <div class="article-image-container">
-        <a href="https://test.teoten.com/post/2022/map_any_region_with_ggplot2_part_I/maps_DrawingMap.png"><img alt="R Maps" src="https://test.teoten.com/post/2022/map_any_region_with_ggplot2_part_I/maps_DrawingMap.png"></a>
+        <a href="https://blog.teoten.com/post/2022/map_any_region_with_ggplot2_part_I/maps_DrawingMap.png"><img alt="R Maps" src="https://blog.teoten.com/post/2022/map_any_region_with_ggplot2_part_I/maps_DrawingMap.png"></a>
        </div>
        <p></p>
        <h1 class="article-header">Motivation</h1>
@@ -42,7 +42,7 @@
        <p>I have mentioned on a few occasions that the code evolved slowly from scripts created to generate the specific map of some country. So, the first few functions are more of a collection of the steps used to generate the map, wrapped in the form of functions to automate the process.</p>
        <p>For this reason, I wanted to make changes to adapt the functions to paradigms more suitable for functional programming, which is R's strong point. However, back then the priority was to generate the maps, and thus, most of my time was devoted to creating the maps and the debugging of the code when it was necessary. I need to add that this project is part of a voluntary work for an NGO, of which I became the director of the research division, which generated even more responsibilities and work for me. And all as a side job, separated from my main source of income (which is also based on R).</p>
        <p>However, for better or worse, 2022 was a year full of changes and challenges for me and my family, which forced me to put the project aside for a while, resign my position as responsible of the division, and focus solely on to my career, my health and my family. The result was that when I managed to regaining stability in my life, I found myself with more free time and fewer obligations to rethink the code and work on it. Additionally, my main job had a turn going from statistics to more programming oriented in R, which has given me more tools and experience to improve the code, and has motivated me to take up old lessons about functional programming and, above all, iteration.</p>
-       <p>This allowed me to improve the two main functions: the one in charge of the webscrapping and the one that sends the data to SQLite. You can find the original functions in the <a href="https://test.teoten.com/posts/2022/basic_country_map_with_r/">previous post</a> and compare it with the new, improved functions in this.</p>
+       <p>This allowed me to improve the two main functions: the one in charge of the webscrapping and the one that sends the data to SQLite. You can find the original functions in the <a href="https://blog.teoten.com/posts/2022/basic_country_map_with_r/">previous post</a> and compare it with the new, improved functions in this.</p>
        <h1 class="article-header">Webscrapp to SQLite</h1>
        <p>The <code>webscrap_to_sqlite</code> function is responsible for sending the coordinates found by Open Street Map to our database. The original function is inefficient, as it does each operation line by line. It is also very rigid in the way it directs the values of the regions, both its request to the API and the placement of the values in the database, which makes any extension or modification very complicated.</p>
        <p>For these reasons, it is the function that received the most changes, it was practically rewritten from scratch, making the search more efficient, also allowing internal search of the data already stored; more flexible, dealing with region parameters more clearly; and more understandable, improving the style of the code.</p>
@@ -239,10 +239,14 @@
        <p>These changes have been very important in speeding up the coordinate search process and automating map creation. On the other hand, it allowed me to style the code more and improve its efficiency. Since my main project for now is turning it into a Shiny app, it was important for me to improve the code and the efficiency before dealing with the details of the server. Since this is recent work that I have been doing in the last few months, I decided to share it right away now that I have fresh information on the changes. I hope it can help more than one to make more abstract code and practice recursion.</p>
       </div>
      </article>
+     <div class="article-comments">
+      <script src="https://utteranc.es/client.js" repo="teotenn/blog.teoten.com" issue-term="pathname" theme="github-light" crossorigin="anonymous" async>
+  </script>
+     </div>
     </div>
     <button id="toggle-button">&gt;</button>
     <div id="sidebar" class="expanded">
-     <a href="https://test.teoten.com/about/"> <img src="https://test.teoten.com/img/tt-avatar.png" alt="Teoten" class="sidebar-image"> </a>
+     <a href="https://blog.teoten.com/about/"> <img src="https://blog.teoten.com/img/tt-avatar.png" alt="Teoten" class="sidebar-image"> </a>
      <h2 class="h-sidebar">Links</h2>
      <ul>
       <li><a href="https://www.r-project.org/">The R Project</a></li>

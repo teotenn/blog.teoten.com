@@ -12,9 +12,9 @@
    <div id="wrapper">
     <nav id="navbar">
      <ul>
-      <li><a href="https://test.teoten.com/">Home</a></li>
-      <li><a href="https://test.teoten.com/list/">Posts</a></li>
-      <li><a href="https://test.teoten.com/about/">About</a></li>
+      <li><a href="https://blog.teoten.com/">Home</a></li>
+      <li><a href="https://blog.teoten.com/list/">Posts</a></li>
+      <li><a href="https://blog.teoten.com/about/">About</a></li>
      </ul>
     </nav>
    </div>
@@ -24,7 +24,7 @@
     <div id="wide-content">
      <!-- Main content -->
      <h1 class="article-title">Efficiency comparison of dplyr and tidyr functions vs base R</h1>
-     <article id="post-f329bfb7-9771-4be3-b431-09e87c4fee35" data-post-id="f329bfb7-9771-4be3-b431-09e87c4fee35">
+     <article id="post-e7ccccc4-e94c-451c-9683-2554b14068a8" data-post-id="e7ccccc4-e94c-451c-9683-2554b14068a8">
       <div>
        <p>A couple of years ago I was interested in the efficiency of R when it comes to time processing and management of memory and I read a few blog posts about this topic, particularly pointing at the fact that R hasn't been designed to be a very efficient language, especially when it comes to big data processing, and this could be its doom at some point in the future. By that time I also read a great article or blog post regarding the complexity of using the <a href="https://www.tidyverse.org/">tidyverse</a> family of packages in R, especially with the task of teaching R to beginners. The text made excellent points discussing how the syntax of <code>tidyverse</code> packages is so different from the base R functions that it might confuse the people trying to learn R from scratch. Thus, the narration continued towards the use of the packages <code>data.table</code> instead, which maintains a syntax closer to that of base R. And from there, the author also took the opportunity to discuss efficiency of both packages. I apologize for the lack of sources but I could not find the link to the post(s) I'm referring to, if any of you knows the post I'm talking about please, share the link with me, I'd be greatly thankful.</p>
        <p>Regardless of that line of thinking, I believe that we can all feel lucky to have packages such as <code>tidyverse</code> and <code>data.table</code> which make time processing of big data easier, among other advantages. And these are only the beginning to the list of packages. Although I was interested in the topic myself, I never run some "formal tests" to compare the efficiency of this or other packages (although I was comparing a few languages including Julia, Common Lisp and of course, Python, similarly to niklas-heer in his <a href="https://github.com/niklas-heer/speed-comparison">speed-comparison</a> repo, to whom I also thank for my head image). Nevertheless, in the last couple of weeks I had to do such tests due to the nature of my current job.</p>
@@ -36,7 +36,7 @@
          <tr>
           <th style="text-align:center">
            <div class="article-image-container">
-            <a href="https://test.teoten.com/post/2022/comparison_dplyr_vs_base_r/Langs_compare.png"><img alt="Speed comparison" src="https://test.teoten.com/post/2022/comparison_dplyr_vs_base_r/Langs_compare.png"></a>
+            <a href="https://blog.teoten.com/post/2022/comparison_dplyr_vs_base_r/Langs_compare.png"><img alt="Speed comparison" src="https://blog.teoten.com/post/2022/comparison_dplyr_vs_base_r/Langs_compare.png"></a>
            </div></th>
          </tr>
         </thead>
@@ -145,7 +145,7 @@
          <tr>
           <th style="text-align:center">
            <div class="article-image-container">
-            <a href="https://test.teoten.com/post/2022/comparison_dplyr_vs_base_r/plotted_results.png"><img alt="Methods comparison" src="https://test.teoten.com/post/2022/comparison_dplyr_vs_base_r/plotted_results.png"></a>
+            <a href="https://blog.teoten.com/post/2022/comparison_dplyr_vs_base_r/plotted_results.png"><img alt="Methods comparison" src="https://blog.teoten.com/post/2022/comparison_dplyr_vs_base_r/plotted_results.png"></a>
            </div></th>
          </tr>
         </thead>
@@ -165,7 +165,7 @@
          <tr>
           <th style="text-align:center">
            <div class="article-image-container">
-            <a href="https://test.teoten.com/post/2022/comparison_dplyr_vs_base_r/plotted_results_1m.png"><img alt="Methods comparison to million" src="https://test.teoten.com/post/2022/comparison_dplyr_vs_base_r/plotted_results_1m.png"></a>
+            <a href="https://blog.teoten.com/post/2022/comparison_dplyr_vs_base_r/plotted_results_1m.png"><img alt="Methods comparison to million" src="https://blog.teoten.com/post/2022/comparison_dplyr_vs_base_r/plotted_results_1m.png"></a>
            </div></th>
          </tr>
         </thead>
@@ -183,10 +183,14 @@
        <p>This is also true for a series of new packages appearing in the last years that are helping R to cope better with big data. As I mentioned at the beginning of my post, I consider myself lucky to see how R is evolving and adapting to the challenges of our times when we have the needs to process big amounts of data relatively fast. Rather than see its slow time processing as its future doom, I see it as the potential where developers are focusing to create packages that can make our job easier and be up to the challenge. And for that, I thank them!.</p>
       </div>
      </article>
+     <div class="article-comments">
+      <script src="https://utteranc.es/client.js" repo="teotenn/blog.teoten.com" issue-term="pathname" theme="github-light" crossorigin="anonymous" async>
+  </script>
+     </div>
     </div>
     <button id="toggle-button">&gt;</button>
     <div id="sidebar" class="expanded">
-     <a href="https://test.teoten.com/about/"> <img src="https://test.teoten.com/img/tt-avatar.png" alt="Teoten" class="sidebar-image"> </a>
+     <a href="https://blog.teoten.com/about/"> <img src="https://blog.teoten.com/img/tt-avatar.png" alt="Teoten" class="sidebar-image"> </a>
      <h2 class="h-sidebar">Links</h2>
      <ul>
       <li><a href="https://www.r-project.org/">The R Project</a></li>

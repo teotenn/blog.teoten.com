@@ -12,9 +12,9 @@
    <div id="wrapper">
     <nav id="navbar">
      <ul>
-      <li><a href="https://test.teoten.com/">Home</a></li>
-      <li><a href="https://test.teoten.com/list/">Posts</a></li>
-      <li><a href="https://test.teoten.com/about/">About</a></li>
+      <li><a href="https://blog.teoten.com/">Home</a></li>
+      <li><a href="https://blog.teoten.com/list/">Posts</a></li>
+      <li><a href="https://blog.teoten.com/about/">About</a></li>
      </ul>
     </nav>
    </div>
@@ -24,9 +24,9 @@
     <div id="wide-content">
      <!-- Main content -->
      <h1 class="article-title">Basic map of a country with R</h1>
-     <article id="post-fd79320b-9260-4edc-8f43-c15dcbf6f0cd" data-post-id="fd79320b-9260-4edc-8f43-c15dcbf6f0cd">
+     <article id="post-f9a1b60e-314f-4159-9480-d0bb9cbb1ee2" data-post-id="f9a1b60e-314f-4159-9480-d0bb9cbb1ee2">
       <div>
-       <p>This post is part of the series <a href="https://test.teoten.com/series/maps-app/">maps-app</a>.</p>
+       <p>This post is part of the series <a href="https://blog.teoten.com/series/maps-app/">maps-app</a>.</p>
        <p>You can also find the current state of the project under <a href="https://github.com/teotenn">my GitHub</a> repo <a href="https://github.com/teotenn/mapic">mapic</a> (including the Spanish versions).</p>
        <h1 class="article-header">Scope of this post</h1>
        <p>When you prepare for a job interview one of the questions they always tell you to prepare is "What are you most proud of?". Personally I've never been asked that question in a job interview but it kept me thinking. Some years ago I developed the R code for the creation of maps of infrastructure for a Political Sciences project, and I can say that this is one of the projects I'm most proud of. However, it is also true what they say to developers, that <strong>nobody cares about how you did it</strong>. The final user only cared about what was done, while the research team about what are the possibilities.</p>
@@ -67,7 +67,7 @@
 </code></pre>
        <p></p>
        <div class="article-image-container">
-        <a href="https://test.teoten.com/post/2022/map_any_region_with_ggplot2_part_I/basic_map-1.png"><img alt="plot of chunk basic_map" src="https://test.teoten.com/post/2022/map_any_region_with_ggplot2_part_I/basic_map-1.png"></a>
+        <a href="https://blog.teoten.com/post/2022/map_any_region_with_ggplot2_part_I/basic_map-1.png"><img alt="plot of chunk basic_map" src="https://blog.teoten.com/post/2022/map_any_region_with_ggplot2_part_I/basic_map-1.png"></a>
        </div>
        <p></p>
        <p>We are using the library <a href="https://cran.r-project.org/web/packages/maps/index.html">maps</a> in combination with <a href="https://cran.r-project.org/web/packages/ggplot2/index.html">ggplot2</a>. The <code>maps</code> package contains coordinates system for a map of the whole world separated by countries (although political borders might not be fully up to date). It can as well do the maps, but for that we are making use of <code>ggplot2</code> support here.</p>
@@ -75,7 +75,7 @@
        <p>Once we have the data for the one particular country, we could simply map it directly using <code>geom_polygon()</code> however, that would map Spain surrounded by empty space around it. To place it in the context of its neighborhood, we apply two layers of <code>geom_polygon()</code>: first one with the map of the whole world and secondly the map of the country only.</p>
        <p></p>
        <div class="article-image-container">
-        <a href="https://test.teoten.com/post/2022/map_any_region_with_ggplot2_part_I/maps_BasicMap.png"><img alt="The basic map code explained" src="https://test.teoten.com/post/2022/map_any_region_with_ggplot2_part_I/maps_BasicMap.png"></a>
+        <a href="https://blog.teoten.com/post/2022/map_any_region_with_ggplot2_part_I/maps_BasicMap.png"><img alt="The basic map code explained" src="https://blog.teoten.com/post/2022/map_any_region_with_ggplot2_part_I/maps_BasicMap.png"></a>
        </div>
        <p></p>
        <p>Then we need to tell <code>ggplot</code> to use a coordinates system to create maps instead of just polygons. For that we use <a href="https://ggplot2.tidyverse.org/reference/coord_map.html">coord_map()</a> function and then we pass the details of the map ratio, and limits in X and Y to the function <code>coord_fixed()</code>.</p>
@@ -145,14 +145,14 @@
 </code></pre>
        <p></p>
        <div class="article-image-container">
-        <a href="https://test.teoten.com/post/2022/map_any_region_with_ggplot2_part_I/function_map-1.png"><img alt="plot of chunk function_map" src="https://test.teoten.com/post/2022/map_any_region_with_ggplot2_part_I/function_map-1.png"></a>
+        <a href="https://blog.teoten.com/post/2022/map_any_region_with_ggplot2_part_I/function_map-1.png"><img alt="plot of chunk function_map" src="https://blog.teoten.com/post/2022/map_any_region_with_ggplot2_part_I/function_map-1.png"></a>
        </div>
        <p></p>
        <p>Although the function might seem complicated at first, it is in fact the same code as we used to create the map, but instead of typing directly the name of the country or the limits for X and Y, we replace them with the arguments <code>country</code>, <code>x_limits</code> and <code>y_limits</code> respectively; in that way all the parts were we had the string <code>"Spain"</code> we now have the argument <code>country</code>, and so on. These are the only arguments that we need to change when we want to map a different country. You can define more arguments in case you want to have more possibilities to be editable, for example, we could define an argument <code>country_color</code> to specify the color we want for the target country. In our case we wanted to keep the same standards for all the maps due to branding reasons and thus, we rather wanted to have the exact same colors and styles for all of our maps.</p>
        <p>There are also some additions on the top before the actual code to make the maps, all the <code>if</code> and <code>else</code> statements that are simply used to validate that the information passed by the user is the info that we actually need to make the function work. If any incorrect argument is passed to the function, we stop the process and write a message of what is wrong using the function <code>stop()</code>. For the case that no limits of either X or Y are defined, I send a warning message using <code>warning()</code>. In that case the process continues but we define a <code>theme()</code> that allows the user to see the country in the context of the worldwide map, with excess of values in the X and Y axes to provide the points of reference and give an idea of where to set the limits. By the end, when we ensure that all the values are fine, we define the final theme that we actually want to apply. About that, probably I should make special mention of <code>!all(grepl('^-?[0-9.]+$', c(x_limits, y_limits))))</code>: it is used to ensure that X and Y limits are of type numeric. See the visualization of the code below together with the help of the function(s) you don't understand for a more detail explanation. Feel free to test the errors and warnings by providing to the function no country names or letters where there should be numbers, etc.</p>
        <p></p>
        <div class="article-image-container">
-        <a href="https://test.teoten.com/post/2022/map_any_region_with_ggplot2_part_I/maps_FunctionMap.png"><img alt="Code of the function explained" src="https://test.teoten.com/post/2022/map_any_region_with_ggplot2_part_I/maps_FunctionMap.png"></a>
+        <a href="https://blog.teoten.com/post/2022/map_any_region_with_ggplot2_part_I/maps_FunctionMap.png"><img alt="Code of the function explained" src="https://blog.teoten.com/post/2022/map_any_region_with_ggplot2_part_I/maps_FunctionMap.png"></a>
        </div>
        <p></p>
        <p>The lower part of the function is exactly the same as our first map, replacing the actual values for the arguments. We also have changed the colors for more specific ones. Almost by the end of the function we have added <code>scale_x_continuous(n.breaks = 20)</code> which will add 20 marks of the X axis scale (same for Y). We want to use it to ensure that, in case the user doesn't have idea of which limit values to choose, it can have a good approach regarding the position of the target country. In case that both limits for X and Y are passed to the function, our other theme will mask this 20 breaks with <code>axis.text.x = element_blank()</code> and <code>axis.ticks.x = element_blank()</code>.</p>
@@ -161,17 +161,21 @@
        <p>Here I am somehow showing one of the methods I use to create functions: I basically write first the code of what I want to achieve and once it does exactly what I want, I wrap it in a function, replacing the arguments that the user will need to modify later. Then I think what could go wrong and create the corresponding warnings an errors. It is a good practice to do that not only for the user to know better how to use the function, but also for yourself, it proves very useful when we need to debug code. Another good practice in R functions is the call to the libraries inside the function using <code>require()</code>. Even if you are writing many functions that use the same libraries, is good to repeat it on each function, or per script, to make it self contained and again, help yourself in the debugging process. Not long ago I started collaborating in a project where there was no call to the libraries per function, but rather only at the top level when the main action of the program was called. This made almost impossible for me to test and debug code so, the first activity I did as a new member of the team was to spend 2 full working days adding <code>require()</code> where necessary.</p>
        <p></p>
        <div class="article-image-container">
-        <a href="https://test.teoten.com/post/2022/map_any_region_with_ggplot2_part_I/maps_CompareCode.png"><img alt="Code of the function explained" src="https://test.teoten.com/post/2022/map_any_region_with_ggplot2_part_I/maps_CompareCode.png"></a>
+        <a href="https://blog.teoten.com/post/2022/map_any_region_with_ggplot2_part_I/maps_CompareCode.png"><img alt="Code of the function explained" src="https://blog.teoten.com/post/2022/map_any_region_with_ggplot2_part_I/maps_CompareCode.png"></a>
        </div>
        <p></p>
        <p>I hope you get some fun mapping different countries. Because different countries have different sizes and shapes, one way to improve the visuals related to this is by adjusting the ratio, for example, my own map of Germany looks out of shape, but it improves considerably if instead of 1.3 we give a ratio of 1.4, check the documentation to learn more about it.</p>
        <p>Once that we have the basic map, we could add the cities were we want to add data values. Unfortunately, for cities there are many limitations, specially for countries where no special packages has been created to be mapped, and even there, most packages of particular countries don't contain all the cities, especially minor ones. Thus, in our second part I will show how I tackled this problem doing some web scrapping to open street maps.</p>
       </div>
      </article>
+     <div class="article-comments">
+      <script src="https://utteranc.es/client.js" repo="teotenn/blog.teoten.com" issue-term="pathname" theme="github-light" crossorigin="anonymous" async>
+  </script>
+     </div>
     </div>
     <button id="toggle-button">&gt;</button>
     <div id="sidebar" class="expanded">
-     <a href="https://test.teoten.com/about/"> <img src="https://test.teoten.com/img/tt-avatar.png" alt="Teoten" class="sidebar-image"> </a>
+     <a href="https://blog.teoten.com/about/"> <img src="https://blog.teoten.com/img/tt-avatar.png" alt="Teoten" class="sidebar-image"> </a>
      <h2 class="h-sidebar">Links</h2>
      <ul>
       <li><a href="https://www.r-project.org/">The R Project</a></li>
