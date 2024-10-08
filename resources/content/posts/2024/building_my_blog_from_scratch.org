@@ -1,8 +1,8 @@
 #+author: Manuel Teodoro Tenango
 #+title: Building my blog from scratch
 #+image: /img/2018-02-10-jekyll-hugo-hexo.png
-#+draft: true
-#+date: 2024-10-07
+#+draft: false
+#+date: 2024-10-08
 #+description: A Journey from Hugo to Clojure
 #+tags: ["clojure", "css", "AI"]
 #+categories: ["clojure", "web-dev"]

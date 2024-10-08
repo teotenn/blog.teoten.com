@@ -1,0 +1,209 @@
+<html>
+ <head>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+  <link href="/styles/ba8a5a958775/syntax_highlight.css" rel="stylesheet">
+  <link href="/styles/4033ae4f54f9/styles.css" rel="stylesheet">
+ </head>
+ <body>
+  <!-- Top nav bar -->
+  <div>
+   <!-- Toggle Button -->
+   <button id="theme-toggle-btn" onclick="toggleTheme()">T</button>
+   <div id="wrapper">
+    <nav id="navbar">
+     <ul>
+      <li><a href="https://blog.teoten.com/">Home</a></li>
+      <li><a href="https://blog.teoten.com/list/">Posts</a></li>
+      <li><a href="https://blog.teoten.com/about/">About</a></li>
+     </ul>
+    </nav>
+   </div>
+  </div>
+  <div id="shadow-block">
+   <div id="container">
+    <div id="wide-content">
+     <!-- Main content -->
+     <h1 class="article-title">Building my blog from scratch</h1>
+     <article id="post-a8975bec-ea5b-4651-9554-bcdd6884a426" data-post-id="a8975bec-ea5b-4651-9554-bcdd6884a426">
+      <div>
+       <h1 class="article-header">Building My Blog from Scratch: A Journey from Hugo to Clojure</h1><span> </span>
+       <p><span>For the last 4 years, my personal blog was built using <a href="https://gohugo.io/">Hugo</a>, one of the most popular static site generators. Back then I wanted to just start writing content about R and publish it quickly and easily into my own blog. It worked out well, since Hugo is an excellent tool for quickly spinning up a static site. However, over time, I began to feel restricted by its framework and frustrated by the bugs, and decided to take on the challenge of building my blog from scratch. The journey has not only given me more control but has also helped me sharpen my skills in web development, specifically in Clojure. </span></p>
+       <p>Here I want to share and register part of the experience to look back in a few years time and to inspire others to take the same challenge. I really get a gratifying feeling each time I build some service on my own.</p>
+       <p><span>You can have a look at the source code on <a href="https://github.com/teotenn">my github</a> under the repo <a href="https://github.com/teotenn/blog.teoten.com">blog.teoten.com</a>. </span></p>
+       <h1 class="article-header">Why Move Away from Hugo?</h1><span> </span>
+       <p>Hugo offers a fantastic set of features out of the box: it's fast, flexible, and supports a variety of formats like Markdown and Org-mode, making it an ideal tool for many developers. However, as my blog evolved, I started to encounter some limitations that motivated me to look for a more personalized solution.</p>
+       <p>It happened a few times that, without updating anything in particular, I was getting bugs about some specific line of code in a template, or even weirder bugs that I did not understand. I managed to solved them by rolling back or opening issues in the GitHub repositories and receiving support.</p>
+       <p>Nevertheless, a couple of weeks ago, after a long break from publishing due to family duties, I came back full of inspiration, wishing to share my new learned skills in Clojure, just to encounter one more bug related to the templates. Only that this time I told myself that it was enough, and that it shouldn't be so difficult to build my own site with such a great tool as Clojure. So, I decided to say goodbye to Hugo for good.</p>
+       <h2 class="article-header">Disadvantages of Using a Framework Like Hugo</h2><span><span> </span></span>
+       <p>I am left very thankful to Hugo and all the team behind it, as well as the big bunch of people creating themes and sharing them for free. It is a very nice community that hold my project for 4 full years with minimal frustrations. I would totally recommend Hugo to any person wishing to start a blog quickly and easily without knowledge of the stack, or even with very little knowledge of programming in general.</p>
+       <p>However, as any framework, it also has its own disadvantages. In my experience, these were some of them:</p>
+       <ul>
+        <li>
+         <p>Lack of Control: Hugo abstracts away a lot of complexity, which is great when you're just starting out. But this abstraction comes at a cost. When things break, whether it's related to a theme, the build process, or some obscure plugin, you're often left in the dark. Debugging can become frustrating without full knowledge of what's happening under the hood.</p></li>
+       </ul>
+       <ul>
+        <li>
+         <p>Theme Dependency: The reliance on external themes was another drawback. While themes provide flexibility, they often contain extra features that I didn't need, and customizing them wasn't always straightforward. I found myself constantly searching for fixes to theme-related issues, which added unnecessary complexity.</p></li>
+       </ul>
+       <ul>
+        <li>
+         <p>Stack Ignorance: Hugo is written in Go, a language I am not familiar with. While I could use it without knowing the language, I felt disconnected from my own website's build process. This lack of deeper understanding led me to feel like I didn't truly own my site's stack.</p></li>
+       </ul>
+       <ul>
+        <li>
+         <p>Feature Overload: Hugo provides an overwhelming number of features, many of which I never used. I began to crave a more lightweight, minimalist solution where I had full control over every aspect of the site.</p></li>
+       </ul>
+       <h2 class="article-header">What I Wanted Instead:</h2><span> </span>
+       <ul>
+        <li>
+         <p><span><strong>More Control</strong>: By building my own static site generator, I could understand every line of code, making it easier to troubleshoot and customize exactly the way I wanted. </span></p></li>
+       </ul>
+       <ul>
+        <li>
+         <p><span><strong>Improved Skills</strong>: I wanted to challenge myself and improve my coding skills, particularly with clojure, frontend development, as well as learn more about search engine optimization (SEO). </span></p></li>
+       </ul>
+       <ul>
+        <li>
+         <p><span><strong>Ownership of the Stack</strong>: Rather than relying on a pre-built framework, I wanted to fully understand and control the process of converting content into a static website. </span></p></li>
+       </ul>
+       <p>Therefore, I embarked myself in a pretty fun journey of building my own site.</p>
+       <h1 class="article-header">Using clojure to build a static site</h1><span> </span>
+       <p>I started learning Clojure at the beginning of 2024, and it's been fascinating. It has many of the qualities of the Lisp languages, which taught me functional programming and give me my everyday coding tools (Emacs), but it comes with some advantages by being host in the JVM and thanks to its native design to overcome some of the downsides of Common Lisp. Therefore, it was a natural choice for building my blog.</p>
+       <p><span>My first search for resources to get started showed me that there are a few good frameworks to build static websites and blogs with Clojure as well. But since frameworks was one of the things I wanted to avoid, I went on looking. I found this <a href="https://cjohansen.no/building--sites-in-clojure-with-stasis/">excellent tutorial</a> by <a href="https://cjohansen.no/">Christian Johansen</a> about building with <a href="https://github.com/magnars/stasis">stasis</a> and followed it to have my first site generator up and running after one evening of coding. However, his tutorial does not give me half of the tools I needed and wanted to use. It is based on markdown files, which I use, but I use org too. It is built using <a href="https://leiningen.org/">leiningen</a> and I wanted to use the built in <a href="https://clojure.org/guides/deps_and_cli">CLI and deps.edn</a><span>. I was also wishing to generate an RSS feed in xml, to have a <code>config.edn</code> file and set up environments, among others. </span></span></p>
+       <p>After initializing a git repo with the guide, I moved forward on my own and started crafting pieces here and there. This approach gave me the flexibility I was craving and the chance to dive deeper into programming concepts I hadn't previously explored.</p>
+       <h2 class="article-header">My personal Stack</h2><span> </span>
+       <pre><code class="highlight"><span></span><span class="p">{</span><span class="ss">:paths</span> <span class="p">[</span><span class="s">"src"</span> <span class="s">"resources"</span><span class="p">]</span>
+
+ <span class="ss">:deps</span>  <span class="p">{</span><span class="nv">org.clojure/clojure</span> <span class="p">{</span><span class="ss">:mvn/version</span> <span class="s">"1.11.1"</span><span class="p">}</span>
+         <span class="nv">stasis/stasis</span> <span class="p">{</span><span class="ss">:mvn/version</span> <span class="s">"2023.11.21"</span><span class="p">}</span>
+         <span class="nv">hiccup/hiccup</span> <span class="p">{</span><span class="ss">:mvn/version</span> <span class="s">"2.0.0-RC3"</span><span class="p">}</span>
+         <span class="nv">ring/ring-core</span> <span class="p">{</span><span class="ss">:mvn/version</span> <span class="s">"1.12.2"</span><span class="p">}</span>
+         <span class="nv">ring/ring-jetty-adapter</span> <span class="p">{</span><span class="ss">:mvn/version</span> <span class="s">"1.12.2"</span><span class="p">}</span>
+         <span class="nv">markdown-clj/markdown-clj</span> <span class="p">{</span><span class="ss">:mvn/version</span> <span class="s">"1.12.1"</span><span class="p">}</span>
+         <span class="nv">optimus/optimus</span> <span class="p">{</span><span class="ss">:mvn/version</span> <span class="s">"2023.11.21"</span><span class="p">}</span>
+         <span class="nv">enlive/enlive</span> <span class="p">{</span><span class="ss">:mvn/version</span> <span class="s">"1.1.6"</span><span class="p">}</span>
+         <span class="nv">clygments/clygments</span> <span class="p">{</span><span class="ss">:mvn/version</span>  <span class="s">"2.0.2"</span><span class="p">}</span>
+         <span class="nv">org.jsoup/jsoup</span> <span class="p">{</span><span class="ss">:mvn/version</span> <span class="s">"1.18.1"</span><span class="p">}</span>
+         <span class="nv">cprop/cprop</span> <span class="p">{</span><span class="ss">:mvn/version</span> <span class="s">"0.1.20"</span><span class="p">}</span>
+         <span class="nv">selmer/selmer</span> <span class="p">{</span><span class="ss">:mvn/version</span> <span class="s">"1.12.61"</span><span class="p">}</span>
+         <span class="nv">clj-time/clj-time</span> <span class="p">{</span><span class="ss">:mvn/version</span>  <span class="s">"0.15.2"</span><span class="p">}</span>
+         <span class="nv">org.clojure/data.xml</span> <span class="p">{</span><span class="ss">:mvn/version</span> <span class="s">"0.0.8"</span><span class="p">}</span>
+         <span class="nv">hickory/hickory</span> <span class="p">{</span><span class="ss">:mvn/version</span> <span class="s">"0.7.1"</span><span class="p">}</span>
+         <span class="nv">clj-org/clj-org</span> <span class="p">{</span><span class="ss">:mvn/version</span> <span class="s">"0.0.3"</span><span class="p">}}</span>
+
+ <span class="ss">:aliases</span>
+ <span class="p">{</span><span class="ss">:dev</span> <span class="p">{</span><span class="ss">:extra-paths</span> <span class="p">[</span><span class="s">"dev"</span><span class="p">]}</span>
+  <span class="c1">;; Call with `clj -X:build-site`</span>
+  <span class="ss">:build-site</span> <span class="p">{</span><span class="ss">:exec-fn</span> <span class="nv">teoten.ttblog.core/-main</span>
+               <span class="ss">:exec-args</span> <span class="p">{</span><span class="ss">:env</span> <span class="ss">:builder</span><span class="p">}}</span>
+  <span class="c1">;; clj -X:test</span>
+  <span class="ss">:test</span> <span class="p">{</span><span class="ss">:extra-paths</span> <span class="p">[</span><span class="s">"test"</span><span class="p">]</span>
+         <span class="ss">:extra-deps</span> <span class="p">{</span><span class="nv">lambdaisland/kaocha</span> <span class="p">{</span><span class="ss">:mvn/version</span> <span class="s">"1.91.1392"</span><span class="p">}</span>
+                      <span class="c1">;; midje/midje {:mvn/version "1.10.10"}</span>
+                      <span class="p">}</span>
+         <span class="ss">:exec-fn</span> <span class="nv">kaocha.runner/exec-fn</span>
+         <span class="ss">:exec-args</span> <span class="p">{</span><span class="ss">:skip-meta</span> <span class="ss">:slow</span><span class="p">}}</span>
+  <span class="p">}}</span>
+</code></pre><span> </span>
+       <p>Here's a quick breakdown of my stack:</p>
+       <ul>
+        <li>
+         <p><span>Content Parsing: I'm using Markdown, <a href="https://orgmode.org/">Org-mode</a>, and raw HTML files generated by the native org-mode on Emacs. These three formats are then parsed into HTML using tools like <a href="https://github.com/yogthos/markdown-clj">markdown-clj</a> and <a href="https://github.com/eigenhombre/clj-org">clj-org</a>, which handle the different content types effortlessly. Furthermore, I can choose between using a plain org file, or its resulted parsed file in html format. This helps me to overcome some of the limitations of the clojure org parser (which are many) and allows me to use the power of Emacs and org-mode themselves. </span></p></li>
+       </ul>
+       <ul>
+        <li>
+         <p><span>Static Site Generation: The core of my site generation relies on <a href="https://github.com/magnars/stasis">stasis</a>, a minimalistic Clojure library for creating static websites. It handles routing, file generation, and serves as the glue that ties the content to the final HTML pages. </span></p></li>
+       </ul>
+       <ul>
+        <li>
+         <p><span>HTML Templating: I'm using <a href="https://github.com/yogthos/Selmer">Selmer</a> for HTML templating and <a href="https://github.com/weavejester/hiccup">Hiccup</a>/<a href="https://github.com/clj-commons/hickory">Hickory</a> for DOM manipulation. These tools give me fine-grained control over how my pages are structured and rendered. </span></p></li>
+       </ul>
+       <ul>
+        <li>
+         <p><span>RSS Generation: I generate the blog's RSS feed with Clojure's <a href="https://github.com/clojure/data.xml">data.xml</a> library, ensuring that my content can be syndicated properly. </span></p></li>
+       </ul>
+       <ul>
+        <li>
+         <p><span>Functional programming: My builder holds very little state (clojure's <code>atom</code>) and relies on functions, which allows me to do error handling, unit testing and refactoring like a breeze. Additionally, I can use support of generative AI by simply asking for "a function that takes x arguments to achieve z results", which keeps my mind free of worries about side effects or inheritance, and instead can focus only on the potential bugs and error handling, easily managed by the unit test. </span></p></li>
+       </ul>
+       <ul>
+        <li>
+         <p><span>Server for development: I am using <a href="https://ring-clojure.github.io/ring/ring.adapter.jetty.html">ring adapter jetty</a> from the <a href="https://github.com/ring-clojure/ring">ring</a> library to have a live view of my blog during development and drafting. This means that I can be typing a new post and see my changes directly on the browser by just refreshing the page. Or refactoring some old functions and after evaluating them, refresh the browser and see the results. </span></p></li>
+       </ul>
+       <ul>
+        <li>
+         <p>CSS Styling: One of the most satisfying parts has been designing the CSS for the site from scratch. I have used Bootstrap and Tailwind in the past, but again, frameworks. Using my own custom CSS not only makes the site unique but has also taught me a lot about styling and responsive design.</p></li>
+       </ul>
+       <h2 class="article-header">Challenges</h2><span> </span>
+       <p><span>The first challenge I encountered was the use of <a href="https://github.com/cgrand/enlive">Enlive</a> by the tutorial. I followed along, and used some pieces of code from it, which just "worked", but I couldn't wrap my head around it. Since I wanted to have more control over my stack, I went ahead and try to learned it by creating a function to do something specific (at this point I have forgotten what exactly) but I couldn't. I looked into the repository and documentation just to find out that there was an open issue with a similar problem, and it was no solved. Then I realized that the last commit was 5 years ago, and there are 21 open issues at the moment of writing this. </span></p>
+       <p><span>I kept the working code and moved away from Enlive for further DOM manipulation, and found some help for using <a href="https://jsoup.org/">Jsoup</a>, a Java library that I can call from Clojure (advantages of JVM hosted). It gave me the tools I needed but I didn't enjoy it as much as writing pure Clojure. Plus, I could barely have the work done, without fully understanding the code I was writing. Luckily, I came across <a href="https://github.com/clj-commons/hickory">hickory</a> when I needed to do more manipulation, and it is what I am using now together with <a href="https://github.com/weavejester/hiccup">hiccup</a>, which I'm more used to from working with <a href="https://clojurescript.org/">Clojurescript</a>. Hickory is more intuitive, documented and clojure-like, providing flexibility in the data structures to work with Hickory or Hiccup-style, both of which are very "clojurist" and are easy to use. </span></p>
+       <p><span>Another big challenge for me was the creation of a custom CSS, which I really wanted to do to improve my skills. So far I had worked with CSS by copying snippets of code, or using Bootstrap or Tailwind and then having a minimal CSS file for granular details. But building the CSS from scratch has been quite a challenge, which I decided to face with the help of generative AI. I been using <a href="https://openai.com/chatgpt/">ChatGPT</a> and <a href="https://codeium.com/">Codeium</a><span> to ask for advice, get code snippets and solve problems with my styles. Although challenging, I have learned a great deal about styling with CSS, using variables, responsive design and the importance of the <code>div</code> tag. </span></span></p>
+       <h1 class="article-header">The Satisfaction of Building from Scratch</h1><span> </span>
+       <p>Building my blog from the ground up has been both fun and educational. I've learned a ton about Clojure, from how to manipulate data structures to leveraging libraries that handle everything from routing to RSS generation. I now understand almost every step of my site generation process (I still need to change a few pieces of Enlive and Jsoup code) and can troubleshoot issues quickly without having to rely on external frameworks.</p>
+       <p>That said, there's still plenty of work ahead. My frontend design is far from polished, and my SEO is still a work in progress. I also need to implement sections for tags and categories to improve content navigation. And the generator itself needs more work in the unit test and error handling. However, despite these shortcomings, I feel incredibly satisfied and fulfilled knowing that I built this system by myself.</p>
+       <p>After following the tutorial from Johansen, I thought that I could have my blog up and running, with minimal functionality, in a week. It anyway took me 2 weeks to reach a version I was satisfied with, which is not long considering that I had my expectations as high as my demands.</p>
+       <p>For anyone considering a similar path, I highly recommend taking the plunge. It's an amazing opportunity to grow as a developer, and the control and customization options you gain are worth the effort. I will share some of my experiences with pieces of the builder as the time goes, but feel free to reach out and ask for directions, support or particular topics you could be interested in.</p>
+      </div>
+     </article>
+     <div class="article-comments">
+      <script src="https://utteranc.es/client.js" repo="teotenn/blog.teoten.com" issue-term="pathname" theme="github-light" crossorigin="anonymous" async>
+  </script>
+     </div>
+    </div>
+    <button id="toggle-button">&gt;</button>
+    <div id="sidebar" class="expanded">
+     <a href="https://blog.teoten.com/about/"> <img src="https://blog.teoten.com/img/tt-avatar.png" alt="Teoten" class="sidebar-image"> </a>
+     <h2 class="h-sidebar">Links</h2>
+     <ul>
+      <li><a href="https://www.r-project.org/">The R Project</a></li>
+      <li><a href="https://www.r-bloggers.com/">R-bloggers</a></li>
+      <li><a href="https://clojure.org/">Clojure</a></li>
+      <li><a href="https://www.gnu.org/software/emacs/">GNU Emacs</a></li>
+     </ul>
+     <h2 class="h-sidebar">Socials</h2>
+     <ul class="horizontal-list">
+      <li><a href="https://www.linkedin.com/in/teoten/"><i class="fab fa-linkedin-in"></i></a></li>
+      <li><a href="https://codeberg.org/teoten"><i class="fab fa-github"></i></a></li>
+      <li><a href="https://emacs.ch/@teoten"><i class="fab fa-mastodon"></i></a></li>
+     </ul>
+    </div>
+   </div>
+  </div>
+  <script>
+    // JavaScript function to handle theme toggling
+    function toggleTheme() {
+	document.body.classList.toggle('dark-theme');
+
+	if (document.body.classList.contains('dark-theme')) {
+	    localStorage.setItem('theme', 'dark');
+	} else {
+	    localStorage.setItem('theme', 'light');
+	}
+	// alert("Theme changed!")
+    }
+
+    // Check and apply the saved theme preference on page load
+    window.onload = function() {
+	const savedTheme = localStorage.getItem('theme');
+	if (savedTheme === 'dark') {
+	    document.body.classList.add('dark-theme');
+	}
+    };
+
+      // Sidebar
+      const toggleButton = document.getElementById('toggle-button');
+      const sidebar = document.getElementById('sidebar');
+
+      toggleButton.addEventListener('click', () => {
+	  if (sidebar.classList.contains('collapsed')) {
+              sidebar.classList.remove('collapsed');
+              sidebar.classList.add('expanded');
+	  } else {
+              sidebar.classList.remove('expanded');
+              sidebar.classList.add('collapsed');
+	  }
+      });
+
+    </script>
+ </body>
+</html>

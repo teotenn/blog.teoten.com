@@ -1,5 +1,6 @@
 * Plans
 ** Dev
+*** TODO Change unique id for path itself
 *** TODO Add favicons
 *** TODO Improve css
 **** About section
