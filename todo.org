@@ -1,29 +1,15 @@
-* Current Dev
-** DONE Change the RSS paths for atom info
-** DONE Change default image for posts list
-** DONE The =FIXME= tag in =content_extractor=
-** DONE Add real content and deploy to test
-*** DONE DEBUG:
-**** DONE Images in MD posts are not showing fully
-Fix with hickory and hiccup
-**** DONE Option to render/not drafts
-**** DONE Broken image in posts list not rendering default
-**** DONE Add titles to the post
-** TODO MIGRATE!
 * Plans
-** TODO Add favicons
-** TODO Improve css
-*** About section
-*** View on mobile
-*** In posts content
-*** The code blocks
-** TODO Sort list of all posts per year
-** DONE Remove =../= parts from paths to be able to see them inline in org
-** TODO The =#+ATTR_HTML:= part before org images does not work. Consider fix.
-
-** TODO Generate pages for tags and categories
-
-** TODO Refactor code that uses jsoup and enlive for [[https://github.com/clj-commons/hickory][hickory]] or, if possible, hiccup itself
-Other parsers (including enlive) are not actively maintained.
-
-Hickory has a function =as-hiccup= which can be super useful.
+** Dev
+*** TODO Add favicons
+*** TODO Improve css
+**** About section
+**** View on mobile
+**** In posts content
+**** The code blocks
+*** TODO Sort list of all posts per year
+*** TODO Improve SEO
+*** TODO Pass clj map to render post template
+*** TODO Add ToC to the sidebar
+*** TODO The =#+ATTR_HTML:= part before org images does not work. Consider fix.
+*** TODO Generate pages for tags and categories
+*** TODO Refactor code that uses jsoup and enlive for [[https://github.com/clj-commons/hickory][hickory]] and hiccup

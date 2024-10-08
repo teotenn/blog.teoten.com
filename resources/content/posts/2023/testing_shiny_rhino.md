@@ -4,7 +4,7 @@ title: "Testing Shiny Rhino"
 image: ""
 draft: true
 date: "2023-10-10"
-description: "Description"
+description: "Exploring the Rhino framework to build Shiny apps"
 tags: ["R shiny", "exploring"]
 categories: ["R", "web-dev"]
 archives: ["2023"]
