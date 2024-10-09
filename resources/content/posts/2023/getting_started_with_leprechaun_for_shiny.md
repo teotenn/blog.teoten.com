@@ -49,13 +49,13 @@ The downloaded source packages are in
 	‘/tmp/RtmpTZaiTu/downloaded_packages’
 > leprechaun::scaffold()
 
-── Scaffolding leprechaun app ──────────────────────────────────────────────────
+- Scaffolding leprechaun app ---
 
-── Creating lock file ──
+-- Creating lock file --
 
 ✔ Creating .leprechaun
 
-── Adding dependencies ──
+-- Adding dependencies --
 
 ✔ Adding 'shiny' to Imports in DESCRIPTION
 ✔ Adding 'bslib' to Imports in DESCRIPTION
@@ -63,7 +63,7 @@ The downloaded source packages are in
 ✔ Adding 'pkgload' to Suggests in DESCRIPTION
 
 
-── Generating code ──
+-- Generating code --
 
 ✔ Creating R/ui.R
 ✔ Creating R/assets.R
@@ -79,7 +79,7 @@ The downloaded source packages are in
 ✔ Creating inst/img
 ✔ Creating inst/run/app.R
 
-── Ignoring files ──
+-- Ignoring files --
 
 ✔ Adding '^\\.leprechaun$' to '.Rbuildignore'
 ```

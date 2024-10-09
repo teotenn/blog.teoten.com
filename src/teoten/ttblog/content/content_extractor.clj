@@ -69,7 +69,6 @@
                                    (-> p
                                        hl/highlight-code-blocks
                                        (wrap-post-as-article uuid)
-                                       ((fn [b] (str "<h1 class=\"article-title\">" title "</h1>\n" b)))))
                            :path name
                            :format xt}))
                   pages))))))
@@ -90,12 +89,12 @@
   (swap! posts-map #(merge-vectors-with-unique-paths % (map-pages pages-map ext))))
 
 
-(defn wrap-content-template [body head req]
+(defn wrap-content-template [post-map req]
   (let [template (get-in @app-env [:content-opts :content-template] "content.html")
-        p (selmer/render-file template (merge {} {:req req}))]
+        p (selmer/render-file template (merge post-map {:req req}))]
     (-> p
-        (str/replace "!!!--- ADD CONTENT,,,!!!" body)
-        (str/replace "!!!--- ADD HEAD,,,!!!" head))))
+        (str/replace "!!!--- ADD CONTENT,,,!!!" (:body post-map))
+        (str/replace "!!!--- ADD HEAD,,,!!!" (:head post-map)))))
 
 
 (defn post-pages! [pages]
@@ -105,6 +104,4 @@
     (register-pages! pages "md")
     (register-pages! pages "html")
     (zipmap (map :path @posts-map)
-            (map #(fn [req] (wrap-content-template %1 %2 req))
-                 (map :body @posts-map)
-                 (map :head @posts-map)))))
+            (map #(fn [req] (wrap-content-template % req)) @posts-map))))

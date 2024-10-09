@@ -8,7 +8,6 @@
 #+categories: ["clojure", "web-dev"]
 #+archives: ["2024"]
 
-* Building My Blog from Scratch: A Journey from Hugo to Clojure
 
 For the last 4 years, my personal blog was built using [[https://gohugo.io/][Hugo]], one of the most popular static site generators. Back then I wanted to just start writing content about R and publish it quickly and easily into my own blog. It worked out well, since Hugo is an excellent tool for quickly spinning up a static site. However, over time, I began to feel restricted by its framework and frustrated by the bugs, and decided to take on the challenge of building my blog from scratch. The journey has not only given me more control but has also helped me sharpen my skills in web development, specifically in Clojure.
 
