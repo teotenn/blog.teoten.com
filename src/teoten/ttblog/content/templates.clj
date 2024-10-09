@@ -31,6 +31,12 @@
            (link/file-path (:req context-map) (first args))
            " rel=\"stylesheet\">")))
 
+(selmer/add-tag! :blog-scripts
+    (fn [args context-map]
+      (str "<script src="
+           (link/file-path (:req context-map) (first args))
+           "></script>")))
+
 
 ;; Parse templates
 (defn list-end-templates [path]
