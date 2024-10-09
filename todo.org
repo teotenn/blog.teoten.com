@@ -1,16 +1,16 @@
 * Plans
 ** Dev
-*** TODO Change unique id for path itself
+*** DONE Change unique id for path itself
 *** TODO Add favicons
 *** TODO Improve css
 **** About section
 **** View on mobile
-**** In posts content
-**** The code blocks
+**** DONE In posts content
+**** DONE The code blocks
 *** TODO Sort list of all posts per year
 *** TODO Improve SEO
-*** TODO Pass clj map to render post template
-*** TODO Add ToC to the sidebar
+*** DONE Pass clj map to render post template
+*** TODO Add ToC to the sidebar?
 *** TODO The =#+ATTR_HTML:= part before org images does not work. Consider fix.
 *** TODO Generate pages for tags and categories
 *** TODO Refactor code that uses jsoup and enlive for [[https://github.com/clj-commons/hickory][hickory]] and hiccup
