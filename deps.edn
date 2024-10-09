@@ -15,7 +15,10 @@
          clj-time/clj-time {:mvn/version  "0.15.2"}
          org.clojure/data.xml {:mvn/version "0.0.8"}
          hickory/hickory {:mvn/version "0.7.1"}
-         clj-org/clj-org {:mvn/version "0.0.3"}}
+         clj-org/clj-org {:mvn/version "0.0.3"}
+
+         thheller/shadow-cljs {:mvn/version "2.28.10"}
+         org.clojure/clojurescript {:mvn/version "1.11.132"}}
 
  :aliases
  {:dev {:extra-paths ["dev"]}
