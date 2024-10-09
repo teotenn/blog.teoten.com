@@ -1,8 +1,11 @@
 <html>
  <head>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
-  <link href="/styles/ba8a5a958775/syntax_highlight.css" rel="stylesheet">
-  <link href="/styles/4033ae4f54f9/styles.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather">
+  <link href="/styles/faafed710184/styles.css" rel="stylesheet">
+  <title>Efficiency comparison of dplyr and tidyr functions vs base R | Teoten's blog</title>
+  <meta name="description" content="Monte carlo simulations to compare time efficiency of a function created with dplyr and tidyr vs base R">
  </head>
  <body>
   <!-- Top nav bar -->
@@ -23,8 +26,16 @@
    <div id="container">
     <div id="wide-content">
      <!-- Main content -->
-     <h1 class="article-title">Efficiency comparison of dplyr and tidyr functions vs base R</h1>
-     <article id="post-a98c7a70-30ab-4c73-96a9-d6e9c87fa87f" data-post-id="a98c7a70-30ab-4c73-96a9-d6e9c87fa87f">
+     <div class="article-top">
+      <img src="https://blog.teoten.com/post/2022/comparison_dplyr_vs_base_r/Langs_compare.png" class="article-top-image" alt="Efficiency comparison of dplyr and tidyr functions vs base R">
+      <div class="article-title-container">
+       <h1 class="article-title">Efficiency comparison of dplyr and tidyr functions vs base R</h1>
+      </div>
+      <div class="article-meta">
+       <span> <i class="fa fa-calendar"> 2022-10-20</i> </span>
+      </div>
+     </div>
+     <article id="post-/posts/2022/comparison_dplyr_vs_base_r/" data-post-id="/posts/2022/comparison_dplyr_vs_base_r/">
       <div>
        <p>A couple of years ago I was interested in the efficiency of R when it comes to time processing and management of memory and I read a few blog posts about this topic, particularly pointing at the fact that R hasn't been designed to be a very efficient language, especially when it comes to big data processing, and this could be its doom at some point in the future. By that time I also read a great article or blog post regarding the complexity of using the <a href="https://www.tidyverse.org/">tidyverse</a> family of packages in R, especially with the task of teaching R to beginners. The text made excellent points discussing how the syntax of <code>tidyverse</code> packages is so different from the base R functions that it might confuse the people trying to learn R from scratch. Thus, the narration continued towards the use of the packages <code>data.table</code> instead, which maintains a syntax closer to that of base R. And from there, the author also took the opportunity to discuss efficiency of both packages. I apologize for the lack of sources but I could not find the link to the post(s) I'm referring to, if any of you knows the post I'm talking about please, share the link with me, I'd be greatly thankful.</p>
        <p>Regardless of that line of thinking, I believe that we can all feel lucky to have packages such as <code>tidyverse</code> and <code>data.table</code> which make time processing of big data easier, among other advantages. And these are only the beginning to the list of packages. Although I was interested in the topic myself, I never run some "formal tests" to compare the efficiency of this or other packages (although I was comparing a few languages including Julia, Common Lisp and of course, Python, similarly to niklas-heer in his <a href="https://github.com/niklas-heer/speed-comparison">speed-comparison</a> repo, to whom I also thank for my head image). Nevertheless, in the last couple of weeks I had to do such tests due to the nature of my current job.</p>

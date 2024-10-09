@@ -1,8 +1,11 @@
 <html>
  <head>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
-  <link href="/styles/ba8a5a958775/syntax_highlight.css" rel="stylesheet">
-  <link href="/styles/4033ae4f54f9/styles.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather">
+  <link href="/styles/faafed710184/styles.css" rel="stylesheet">
+  <title>My first shiny app | Teoten's blog</title>
+  <meta name="description" content="Shiny app to make dynamic maps">
  </head>
  <body>
   <!-- Top nav bar -->
@@ -23,8 +26,16 @@
    <div id="container">
     <div id="wide-content">
      <!-- Main content -->
-     <h1 class="article-title">My first shiny app</h1>
-     <article id="post-2b2b3e44-4ef0-4d49-a373-3078cc9cbb05" data-post-id="2b2b3e44-4ef0-4d49-a373-3078cc9cbb05">
+     <div class="article-top">
+      <img src="https://blog.teoten.com/post/2021/first_shiny_app/02-Mexico.png" class="article-top-image" alt="My first shiny app">
+      <div class="article-title-container">
+       <h1 class="article-title">My first shiny app</h1>
+      </div>
+      <div class="article-meta">
+       <span> <i class="fa fa-calendar"> 2021-12-20</i> </span>
+      </div>
+     </div>
+     <article id="post-/posts/2021/first_shiny_app/" data-post-id="/posts/2021/first_shiny_app/">
       <div>
        <p>I am happy and excited as I have just deployed my first shiny app on the web. You can find it running at <a href="http://shiny.rwhitedwarf.com">shiny.rwhitedwarf.com</a> (NOTE: I don't have ssl certificate so, your browser might tell you that is not secure, but you can trust me that there's no risk). I have created a few shiny apps in the past but I never deployed one, especially in an owned domain.</p>
        <p>The app can create a map of all cities listed in a table for a given country. The idea is to simulate a table with a list of organizations, franchises, shops, etc. However, columns for name of organization or ID are missing in order to ensure data protection. In this way the user only needs to provide to the table name of the city, country, region (optional) and year of opening. The app creates the map, placing bigger dots in cities with more organizations. The year is interactive.</p>

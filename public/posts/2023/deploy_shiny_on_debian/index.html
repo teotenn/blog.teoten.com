@@ -1,8 +1,11 @@
 <html>
  <head>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
-  <link href="/styles/ba8a5a958775/syntax_highlight.css" rel="stylesheet">
-  <link href="/styles/4033ae4f54f9/styles.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather">
+  <link href="/styles/faafed710184/styles.css" rel="stylesheet">
+  <title>Deploy your own Shiny app server with debian | Teoten's blog</title>
+  <meta name="description" content="Deploy your own Shiny apps in a Debian-based server">
  </head>
  <body>
   <!-- Top nav bar -->
@@ -23,8 +26,16 @@
    <div id="container">
     <div id="wide-content">
      <!-- Main content -->
-     <h1 class="article-title">Deploy your own Shiny app server with debian</h1>
-     <article id="post-05d9f0a7-a296-4163-8629-b974ab814e65" data-post-id="05d9f0a7-a296-4163-8629-b974ab814e65">
+     <div class="article-top">
+      <img src="https://blog.teoten.com/" class="article-top-image" alt="Deploy your own Shiny app server with debian">
+      <div class="article-title-container">
+       <h1 class="article-title">Deploy your own Shiny app server with debian</h1>
+      </div>
+      <div class="article-meta">
+       <span> <i class="fa fa-calendar"> 2023-01-22</i> </span>
+      </div>
+     </div>
+     <article id="post-/posts/2023/deploy_shiny_on_debian/" data-post-id="/posts/2023/deploy_shiny_on_debian/">
       <div>
        <p>A few weeks ago I opened an account on Digital Ocean to start my own cloud server. Not long after that I took a workshop on Shiny and, although it was too technical with nothing new for me, I learn a couple of things unrelated to R. The speaker was talking about the importance of making your portfolio showing your apps instead of sharing the link to your code as most of us do. I thought it makes sense since anybody who sees our GitHub account can take whatever they want from it, and at the end is only code, which many recruiters and managers are not familiar with. On the other hand if you show some apps you can definitely impress your audience. And so, since Digital Ocean gives you 200 USD of credit for the first 2 months, I decided to try and install my own Shiny server there.</p>
        <p>There are plenty of source on the web on how to set up your own shiny server, but most of them focus on Docker, which gives you a little less control over it. I wanted something that I could fully control myself because in the past I have deployed Shiny apps on Heroku using a process that I did not understand well and thus, it was really difficult to debug or modify. For good or bad, Heroku canceled the free accounts and thus I decided to try Digital Ocean. The big advantage for me is that Digital Ocean gives you the possibility of using what basically is a Virtual Machine with a minimal Linux installation. Since I've been using Debian for the last 10 years, I initialized a Debian 11 server and it was really easy to set up my own cloud service without the use of Docker, and not long later, also my own Shiny server. Of course I did it with the help of Google, with some really useful and clear tutorials I found in marine data science (two links, <a href="https://www.marinedatascience.co/blog/2019/04/28/run-shiny-server-on-your-own-digitalocean-droplet-part-1/">part 1</a> and <a href="https://www.marinedatascience.co/blog/2019/04/28/run-shiny-server-on-your-own-digitalocean-droplet-part-2/">part 2</a> can be found here) and of course, directly from <a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-shiny-server-on-ubuntu-20-04">Digital Ocean's Guide</a>.</p>

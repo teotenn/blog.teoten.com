@@ -1,8 +1,11 @@
 <html>
  <head>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
-  <link href="/styles/ba8a5a958775/syntax_highlight.css" rel="stylesheet">
-  <link href="/styles/4033ae4f54f9/styles.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather">
+  <link href="/styles/faafed710184/styles.css" rel="stylesheet">
+  <title>Reference: Dockerizing shinny apps | Teoten's blog</title>
+  <meta name="description" content="A reference to a couple of good sources explaining how to dockerize a shiny app">
  </head>
  <body>
   <!-- Top nav bar -->
@@ -23,8 +26,16 @@
    <div id="container">
     <div id="wide-content">
      <!-- Main content -->
-     <h1 class="article-title">Reference: Dockerizing shinny apps</h1>
-     <article id="post-b94a4a5d-2b17-4975-bb71-232268346850" data-post-id="b94a4a5d-2b17-4975-bb71-232268346850">
+     <div class="article-top">
+      <img src="https://blog.teoten.com/" class="article-top-image" alt="Reference: Dockerizing shinny apps">
+      <div class="article-title-container">
+       <h1 class="article-title">Reference: Dockerizing shinny apps</h1>
+      </div>
+      <div class="article-meta">
+       <span> <i class="fa fa-calendar"> 2023-02-11</i> </span>
+      </div>
+     </div>
+     <article id="post-/posts/2023/Reference_Dockerizing_shinny_apps/" data-post-id="/posts/2023/Reference_Dockerizing_shinny_apps/">
       <div>
        <p><a href="https://youtube.com/@AndrewCouch">Andrew Couch</a> has a nice video about <a href="https://youtu.be/ARd5IldVFUs">deploying a shiny app using docker</a>. He goes from the very basics, that asume no knowledge of docker whatsoever, which is the position of many R users like myself. I've been working in some shiny app lately, and although I've never needed docker so far, I decided to start learning it because I can already foresee the future when it won't be the case. Andrew makes some good points about how most tutorials assume the reader to know the basics of docker and start from there. While these are easy to follow, it is difficult to understand what we are doing and why we are doing it. That creates later problems to extend and debug the apps. Andrew shares his experience in searching for solid info and then proceeds with a tutorial where he explains basic parts, commands, and code of a docker file.</p>
        <p>He also recommends a post from <a href="https://www.statworx.com/en/content-hub/blog/how-to-dockerize-shinyapps/">statworx</a> that is clearly the inspiration for his video. The post contains all the info necessary to dockerize a first shiny app. The post is short and clear, and it's an excellent complement for the video.</p>

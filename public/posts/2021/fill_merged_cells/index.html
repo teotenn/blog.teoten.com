@@ -1,8 +1,11 @@
 <html>
  <head>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
-  <link href="/styles/ba8a5a958775/syntax_highlight.css" rel="stylesheet">
-  <link href="/styles/4033ae4f54f9/styles.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather">
+  <link href="/styles/faafed710184/styles.css" rel="stylesheet">
+  <title>R function to fill in merged cells | Teoten's blog</title>
+  <meta name="description" content="For loops and if statements to create a useful function">
  </head>
  <body>
   <!-- Top nav bar -->
@@ -23,8 +26,16 @@
    <div id="container">
     <div id="wide-content">
      <!-- Main content -->
-     <h1 class="article-title">R function to fill in merged cells</h1>
-     <article id="post-555d9e06-b033-46b3-833c-a15d7632a4eb" data-post-id="555d9e06-b033-46b3-833c-a15d7632a4eb">
+     <div class="article-top">
+      <img src="https://blog.teoten.com/post/2021/fill_merged_cells/Screenshot_fill_merged_cells.png" class="article-top-image" alt="R function to fill in merged cells">
+      <div class="article-title-container">
+       <h1 class="article-title">R function to fill in merged cells</h1>
+      </div>
+      <div class="article-meta">
+       <span> <i class="fa fa-calendar"> 2021-12-05</i> </span>
+      </div>
+     </div>
+     <article id="post-/posts/2021/fill_merged_cells/" data-post-id="/posts/2021/fill_merged_cells/">
       <div>
        <p>This post continues the topic of <a href="https://blog.teoten.com/tags/r-functions">functions in R</a>. You can see our <a href="https://blog.teoten.com/post/2021/functions/">previous post</a> if you want to understand the basics but it is not strictly necessary. Here we will go into detail about for loops and if statements in R, two key elements of any function. We are going to define a process, map it in a step-by-step approach and wrape it in a function that can repeat it automatically. Even if you have a very basic understanding of R you should be able to follow this tutorial without problem.</p>
        <p>Our outcome will be an R function that by calling it, is able to fill in empty rows generated from imported sheets (like excel) when it contains merged cells. If you are only <strong>interested in the function itself</strong> you can go to the end of the post and find it in the section <a _fill_merged_cells.mdfinal_="" href="https://blog.teoten.com/{{<" title="ref">}}&gt;Final remarks</a>.</p>
