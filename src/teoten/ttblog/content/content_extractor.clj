@@ -56,21 +56,20 @@
         ;; the values (entry)
         (vec (map (fn [[filename content]]
                        ;; Generate a unique ID
-                       (let [uuid (str (random-uuid))
-                             name (str/replace filename regexp  "/")
-                             parsed-content (parse-f content)
-                             title (get-in parsed-content [:metadata :title] "Quick Post")]
-                         ;; Construct the new map entry
-                         
-                          {:id uuid
-                           :metadata (:metadata parsed-content)
-                           :head (:head parsed-content)
-                           :body (let [p (:body parsed-content)]
-                                   (-> p
-                                       hl/highlight-code-blocks
-                                       (wrap-post-as-article uuid)
-                           :path name
-                           :format xt}))
+                    (let [name (str/replace filename regexp  "/")
+                          uuid name
+                          parsed-content (parse-f content)
+                          title (get-in parsed-content [:metadata :title] "Quick Post")]
+                      ;; Construct the new map entry
+                      {:id uuid
+                       :metadata (:metadata parsed-content)
+                       :head (:head parsed-content)
+                       :body (let [p (:body parsed-content)]
+                               (-> p
+                                   hl/highlight-code-blocks
+                                   (wrap-post-as-article uuid)))
+                       :path name
+                       :format xt}))
                   pages))))))
 
 (defn merge-vectors-with-unique-paths [x y]
