@@ -3,7 +3,12 @@
  :dev-http {8080 "classpath:public"}
  ;; :nrepl {:port 7002}
 
- :builds   {:app {:target     :browser
+ :builds   {:test {:target     :browser
                   :output-dir "resources/static/js"
                   :asset-path "/js"
-                  :modules    {:main {:entries [teoten.ttblog.cljs.test]}}}}}
+                  :modules    {:test {:entries [teoten.ttblog.cljs.test]}}}
+            :app {:target     :browser
+                  :output-dir "resources/static/js"
+                  :asset-path "/js"
+                  :modules    {:main {:init-fn teoten.ttblog.cljs.filters/init}}}}}
+

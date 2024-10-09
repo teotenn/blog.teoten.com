@@ -15,5 +15,6 @@ profiles.clj
 /.shadow-cljs
 /node_modules
 /log
-/resources/public/js/cljs-runtime
+/resources/static/js/cljs-runtime
 package-lock.json
+manifest.edn
