@@ -9,6 +9,7 @@
             [teoten.ttblog.content.content-extractor :as ce]
             [teoten.ttblog.content.rss :as rss]
             [clojure.data.xml :as xml]
+            [clojure.data.json :as json]
             [teoten.ttblog.config :refer [app-env]])
   (:import [org.jsoup Jsoup]
            [org.jsoup.nodes Document]))
@@ -66,11 +67,13 @@
   (let [regexp-ext (my-parse-ext (get-in @app-env [:content-opts :extensions] ["org" "html" "md"]))]
     (stasis/merge-page-sources
      {:static
-      (stasis/slurp-directory (glue-dir "static") #".*\.(css|js)$")
+      (stasis/slurp-directory (glue-dir "static") #"^/(?!js/cljs-runtime).*\.(css|js)$")
       :content
       (ce/post-pages! (stasis/slurp-directory (glue-dir "content") regexp-ext))
       :templates
       (temp/process-templates (glue-dir "templates"))
+      :site-map
+      {"/site_map.json" (json/write-str @ce/posts-map)}
       :rss
       {"/index.xml" (rss/atom-xml @ce/posts-map)
        "/categories/r/index.xml" (rss/filter-rss-by-category (rss/atom-xml @ce/posts-map) "R")
