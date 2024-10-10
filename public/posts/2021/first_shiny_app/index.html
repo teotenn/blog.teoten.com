@@ -83,41 +83,8 @@
     </div>
    </div>
   </div>
-  <script>
-    // JavaScript function to handle theme toggling
-    function toggleTheme() {
-	document.body.classList.toggle('dark-theme');
-
-	if (document.body.classList.contains('dark-theme')) {
-	    localStorage.setItem('theme', 'dark');
-	} else {
-	    localStorage.setItem('theme', 'light');
-	}
-	// alert("Theme changed!")
-    }
-
-    // Check and apply the saved theme preference on page load
-    window.onload = function() {
-	const savedTheme = localStorage.getItem('theme');
-	if (savedTheme === 'dark') {
-	    document.body.classList.add('dark-theme');
-	}
-    };
-
-      // Sidebar
-      const toggleButton = document.getElementById('toggle-button');
-      const sidebar = document.getElementById('sidebar');
-
-      toggleButton.addEventListener('click', () => {
-	  if (sidebar.classList.contains('collapsed')) {
-              sidebar.classList.remove('collapsed');
-              sidebar.classList.add('expanded');
-	  } else {
-              sidebar.classList.remove('expanded');
-              sidebar.classList.add('collapsed');
-	  }
-      });
-
-    </script>
+  <script src="/js/5fda6cf31e8f/scripts.js"></script>
+  <script src="/js/ce5a834f4441/main.js"></script>
+  <script src="/js/6e53c74b5db1/test.js"></script>
  </body>
 </html>

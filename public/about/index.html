@@ -24,14 +24,16 @@
    <div id="container">
     <div id="wide-content">
      <!-- Main content -->
-     <h2>About</h2>
-     <br>
-     <p>Teoten is a statistician and data analyst with background in Ecology and Environmental Sciences. His story with programming goes back to his Master studies in 2012, when he learned basic C and statistics with R, started using Linux and tested several distros. This gave him a wide understanding of Shell, Bash and Linux in general.</p>
-     <p>During his Ph.D. he started using R professionally for data analysis projects: statistics, data scrapping, wrangling, visualizations, dashboards and programming in general. Also Shiny for personal projects.</p>
-     <p>His experience with R comes from his Ph.D. work and positions as Statistician and Software Engineer in the pharmaceutical industry. He has worked in projects for Data Analysis, Statistics, R Packages and Software Engineering. The experience with Shiny is mainly with the creation of Dashboards and Apps for NGOs.</p>
-     <p>Working with R Shiny helped him discover his passion for building web apps, which took him to the path of learning JavaScript, HTML and CSS. The wish to deploy his own apps and apps for an NGO with minimal IT infrastructure forced him to learn about Linux servers, Nginx and Docker, among others.</p>
-     <p>As an Emacs user, he developed a love for the Lisp family of languages. It was also Common Lisp which gave him strong basis for Functional Programming. In 2024 he started learning Clojure and Clojure-script to expand his knowledge in Full Stack development and overcome some of the limitations of Shiny apps.</p>
-     <p>This blog is build as a static site using Clojure without any framework.</p>
+     <article>
+      <h1>About</h1>
+      <br>
+      <p>Teoten is a statistician and data analyst with background in Ecology and Environmental Sciences. His story with programming goes back to his Master studies in 2012, when he learned basic C and statistics with R, started using Linux and tested several distros. This gave him a wide understanding of Shell, Bash and Linux in general.</p>
+      <p>During his Ph.D. he started using R professionally for data analysis projects: statistics, data scrapping, wrangling, visualizations, dashboards and programming in general. Also Shiny for personal projects.</p>
+      <p>His experience with R comes from his Ph.D. work and positions as Statistician and Software Engineer in the pharmaceutical industry. He has worked in projects for Data Analysis, Statistics, R Packages and Software Engineering. The experience with Shiny is mainly with the creation of Dashboards and Apps for NGOs.</p>
+      <p>Working with R Shiny helped him discover his passion for building web apps, which took him to the path of learning JavaScript, HTML and CSS. The wish to deploy his own apps and apps for an NGO with minimal IT infrastructure forced him to learn about Linux servers, Nginx and Docker, among others.</p>
+      <p>As an Emacs user, he developed a love for the Lisp family of languages. It was also Common Lisp which gave him strong basis for Functional Programming. In 2024 he started learning Clojure and Clojure-script to expand his knowledge in Full Stack development and overcome some of the limitations of Shiny apps.</p>
+      <p>This blog is build as a static site using Clojure without any framework.</p>
+     </article>
     </div>
     <button id="toggle-button">&gt;</button>
     <div id="sidebar" class="expanded">
@@ -52,41 +54,8 @@
     </div>
    </div>
   </div>
-  <script>
-    // JavaScript function to handle theme toggling
-    function toggleTheme() {
-	document.body.classList.toggle('dark-theme');
-
-	if (document.body.classList.contains('dark-theme')) {
-	    localStorage.setItem('theme', 'dark');
-	} else {
-	    localStorage.setItem('theme', 'light');
-	}
-	// alert("Theme changed!")
-    }
-
-    // Check and apply the saved theme preference on page load
-    window.onload = function() {
-	const savedTheme = localStorage.getItem('theme');
-	if (savedTheme === 'dark') {
-	    document.body.classList.add('dark-theme');
-	}
-    };
-
-      // Sidebar
-      const toggleButton = document.getElementById('toggle-button');
-      const sidebar = document.getElementById('sidebar');
-
-      toggleButton.addEventListener('click', () => {
-	  if (sidebar.classList.contains('collapsed')) {
-              sidebar.classList.remove('collapsed');
-              sidebar.classList.add('expanded');
-	  } else {
-              sidebar.classList.remove('expanded');
-              sidebar.classList.add('collapsed');
-	  }
-      });
-
-    </script>
+  <script src="/js/5fda6cf31e8f/scripts.js"></script>
+  <script src="/js/ce5a834f4441/main.js"></script>
+  <script src="/js/6e53c74b5db1/test.js"></script>
  </body>
 </html>
