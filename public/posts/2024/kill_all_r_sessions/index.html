@@ -1,0 +1,160 @@
+<html>
+ <head>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather">
+  <link href="/styles/faafed710184/styles.css" rel="stylesheet">
+  <title>Kill all R sessions | Teoten's blog</title>
+  <meta name="description" content="One R session to rule them all">
+ </head>
+ <body>
+  <!-- Top nav bar -->
+  <div>
+   <!-- Toggle Button -->
+   <button id="theme-toggle-btn" onclick="toggleTheme()">T</button>
+   <div id="wrapper">
+    <nav id="navbar">
+     <ul>
+      <li><a href="https://blog.teoten.com/">Home</a></li>
+      <li><a href="https://blog.teoten.com/list/">Posts</a></li>
+      <li><a href="https://blog.teoten.com/about/">About</a></li>
+     </ul>
+    </nav>
+   </div>
+  </div>
+  <div id="shadow-block">
+   <div id="container">
+    <div id="wide-content">
+     <!-- Main content -->
+     <div class="article-top">
+      <img src="https://blog.teoten.com/img/software_rip.png" class="article-top-image" alt="Kill all R sessions">
+      <div class="article-title-container">
+       <h1 class="article-title">Kill all R sessions</h1>
+      </div>
+      <div class="article-meta">
+       <span> <i class="fa fa-calendar"> 2024-10-21</i> </span>
+      </div>
+     </div>
+     <article id="post-/posts/2024/kill_all_r_sessions/" data-post-id="/posts/2024/kill_all_r_sessions/">
+      <div>
+       <span> </span>
+       <p>When working in R, there are times when managing multiple R sessions becomes essential. For instance, if you are updating packages, troubleshooting conflicts, or managing system resources, it may be necessary to terminate all the sessions, or to keep only the current R session.</p>
+       <p>In this blog post, we'll walk through a simple R function that achieves this using only base R functions, ensuring no additional dependencies are introduced.</p>
+       <h2 class="article-header">Kill all R sessions</h2><span> </span>
+       <pre><code class="highlight"><span></span><span class="n">kill_other_R_sessions</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">()</span> <span class="p">{</span> 
+  <span class="n">current_PID</span> <span class="o">&lt;-</span> <span class="nf">Sys.getpid</span><span class="p">()</span>
+  <span class="n">os</span> <span class="o">&lt;-</span> <span class="nf">Sys.info</span><span class="p">()</span><span class="n">[</span><span class="s">'sysname'</span><span class="n">]</span>
+
+  <span class="nf">if </span><span class="p">(</span><span class="n">os</span> <span class="o">==</span> <span class="s">"Linux"</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">progs</span> <span class="o">&lt;-</span> <span class="nf">system</span><span class="p">(</span><span class="s">"ps aux"</span><span class="p">,</span> <span class="n">intern</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+    <span class="n">Rsessions</span> <span class="o">&lt;-</span> <span class="n">progs</span><span class="nf">[grep</span><span class="p">(</span><span class="s">"R/bin/exec"</span><span class="p">,</span> <span class="n">progs</span><span class="p">)</span><span class="n">]</span>
+  <span class="p">}</span> <span class="n">else</span> <span class="nf">if </span><span class="p">(</span><span class="n">os</span> <span class="o">==</span> <span class="s">"Windows"</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">progs</span> <span class="o">&lt;-</span> <span class="nf">system</span><span class="p">(</span><span class="s">"tasklist"</span><span class="p">,</span> <span class="n">intern</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+    <span class="n">Rsessions</span> <span class="o">&lt;-</span> <span class="n">progs</span><span class="nf">[grep</span><span class="p">(</span><span class="s">"^R\\.exe|^Rterm\\.exe|^Rscript"</span><span class="p">,</span> <span class="n">progs</span><span class="p">)</span><span class="n">]</span>
+  <span class="p">}</span> <span class="n">else</span> <span class="p">{</span>
+    <span class="nf">stop</span><span class="p">(</span><span class="s">"System not supported."</span><span class="p">)</span>
+  <span class="p">}</span>
+  
+  <span class="n">current_sessions</span> <span class="o">&lt;-</span> <span class="nf">strsplit</span><span class="p">(</span><span class="n">Rsessions</span><span class="p">,</span> <span class="s">"[[:space:]]"</span><span class="p">)</span> <span class="o">|&gt;</span> 
+    <span class="nf">lapply</span><span class="p">(</span><span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="nf">ifelse</span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="s">""</span><span class="p">,</span> <span class="kc">NA</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span> <span class="o">|&gt;</span> 
+    <span class="nf">lapply</span><span class="p">(</span><span class="n">na.exclude</span><span class="p">)</span> <span class="o">|&gt;</span> 
+    <span class="nf">lapply</span><span class="p">(</span><span class="n">as.vector</span><span class="p">)</span> <span class="o">|&gt;</span> 
+    <span class="nf">sapply</span><span class="p">(</span><span class="n">`[`</span><span class="p">,</span> <span class="m">2</span><span class="p">)</span>
+  
+  <span class="n">kill_sessions</span> <span class="o">&lt;-</span> <span class="n">current_sessions[current_sessions</span> <span class="o">!=</span> <span class="n">current_PID]</span>
+
+  <span class="nf">if </span><span class="p">(</span><span class="n">os</span> <span class="o">==</span> <span class="s">"Linux"</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nf">for</span><span class="p">(</span><span class="n">PID</span> <span class="n">in</span> <span class="n">kill_sessions</span><span class="p">)</span> <span class="nf">system</span><span class="p">(</span><span class="nf">paste0</span><span class="p">(</span><span class="s">"kill "</span><span class="p">,</span> <span class="n">PID</span><span class="p">))</span> 
+  <span class="p">}</span> <span class="n">else</span> <span class="nf">if </span><span class="p">(</span><span class="n">os</span> <span class="o">==</span> <span class="s">"Windows"</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nf">for</span><span class="p">(</span><span class="n">PID</span> <span class="n">in</span> <span class="n">kill_sessions</span><span class="p">)</span> <span class="nf">shell</span><span class="p">(</span><span class="nf">paste0</span><span class="p">(</span><span class="s">"taskkill /F /PID "</span><span class="p">,</span> <span class="n">PID</span><span class="p">))</span>
+  <span class="p">}</span> <span class="n">else</span> <span class="p">{</span>
+    <span class="nf">stop</span><span class="p">(</span><span class="s">"System not supported."</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+       <h3 class="article-header">How the Function Works</h3><span> </span>
+       <ul>
+        <li>
+         <p><span><strong>Step 1: Identify the Current Process</strong>. The function starts by getting the process ID (PID) of the current R session using `Sys.getpid()`. This PID is stored in the current_PID variable, which will be excluded from termination. </span></p></li>
+       </ul>
+       <ul>
+        <li>
+         <p><span><strong>Step 2: Determine the Operating System</strong>. Next, we use `Sys.info()['sysname']` to determine whether the system is Linux or Windows. This allows us to tailor the commands for each platform. </span></p></li>
+       </ul>
+       <ul>
+        <li>
+         <p><span><strong>Step 3: Retrieve All R Sessions</strong>. The `system()` function executes platform-specific commands to list all running processes. </span></p></li>
+       </ul>
+       <ul>
+       </ul>
+       <ul>
+        <li>
+         <p>On Linux, `ps aux` is used, and we filter R processes by searching for "R/bin/exec".</p></li>
+        <li>
+         <p>On Windows, we use `tasklist`, and the function searches for "R.exe", "Rterm.exe", or "Rscript".</p></li>
+       </ul>
+      </div>
+      <li>
+       <p><span><strong>Step 4: Parse the Process List</strong>. The process output is split and cleaned using base R's `strsplit()` and `lapply()` to extract the relevant PIDs. The list of PIDs is then checked against current_PID to ensure that we do not kill the running session. </span></p></li>
+      <ul>
+       <li>
+        <p><span><strong>Step 5: Kill Other Sessions</strong>. Finally, depending on the operating system, we: </span></p></li>
+      </ul>
+      <ul>
+       <li>
+        <p>Use the `kill` command on Linux to terminate the identified processes.</p></li>
+       <li>
+        <p>Use `taskkill /F` on Windows to forcefully close the R sessions.</p></li>
+      </ul>
+      <p></p>
+      <h3 class="article-header">Why Base R Only?</h3>
+      <p>In this function, we use only base R functions like `system()`, `grep()`, and `lapply()` to avoid external dependencies. This is crucial in scenarios like package updates or system maintenance where introducing new dependencies could cause conflicts. Using base R ensures that the function remains lightweight, compatible, and reliable across various environments.</p>
+      <h2 class="article-header">Use Cases</h2><span> </span>
+      <ul>
+       <li>
+        <p><span><strong>Updating R Packages.</strong> When performing package updates, it is generally recommended to close other R sessions to avoid conflicts or file locks. This function can ensure that only the current session remains open, reducing the likelihood of errors during the update process. </span></p></li>
+      </ul>
+      <ul>
+       <li>
+        <p><span><strong>Freeing System Resources.</strong> Multiple R sessions can consume significant system resources, especially when working with large datasets or memory-intensive tasks. This function can help reclaim memory or CPU by closing unnecessary sessions. </span></p></li>
+      </ul>
+      <ul>
+       <li>
+        <p><span><strong>Handling Debugging and Crashes.</strong> During development, sometimes rogue or zombie R processes may hang, causing issues like port conflicts, frozen sessions, or debugging delays. This function can clear out those stuck processes, allowing for a fresh start. </span></p></li>
+      </ul>
+      <h1 class="article-header">Limitations</h1>
+      <h2 class="article-header">Cross-Platform Considerations</h2>
+      <p>This function only supports Linux and Windows environments. MacOS is not explicitly covered, but extending support could be done by modifying the function to handle macOS-specific process management commands. Also, some particular Linux distributions might produce a different result when calling `ps`.</p>
+      <h2 class="article-header">Permissions</h2>
+      <p>Depending on the system's configuration, users may need appropriate permissions to kill processes, especially when R sessions were started by other users.</p>
+      <h1 class="article-header">Conclusion</h1><span> </span>
+      <p>This simple function leverages only base R to kill other R sessions and can be a handy tool for managing resources, avoiding package conflicts, and debugging. By keeping dependencies minimal, it ensures stability and broad compatibility. You can easily adapt it for your own workflows and make sure that your R environment stays tidy and efficient.</p>
+      <p>Feel free to copy and customize this function to suit your needs!</p>
+     </article>
+     <div class="article-comments">
+      <script src="https://utteranc.es/client.js" repo="teotenn/blog.teoten.com" issue-term="pathname" theme="github-light" crossorigin="anonymous" async>
+  </script>
+     </div>
+    </div>
+    <button id="toggle-button">&gt;</button>
+    <div id="sidebar" class="expanded">
+     <a href="https://blog.teoten.com/about/"> <img src="https://blog.teoten.com/img/tt-avatar.png" alt="Teoten" class="sidebar-image"> </a>
+     <h2 class="h-sidebar">Links</h2>
+     <ul>
+      <li><a href="https://www.r-project.org/">The R Project</a></li>
+      <li><a href="https://www.r-bloggers.com/">R-bloggers</a></li>
+      <li><a href="https://clojure.org/">Clojure</a></li>
+      <li><a href="https://www.gnu.org/software/emacs/">GNU Emacs</a></li>
+     </ul>
+     <h2 class="h-sidebar">Socials</h2>
+     <ul class="horizontal-list">
+      <li><a href="https://www.linkedin.com/in/teoten/"><i class="fab fa-linkedin-in"></i></a></li>
+      <li><a href="https://codeberg.org/teoten"><i class="fab fa-github"></i></a></li>
+      <li><a href="https://emacs.ch/@teoten"><i class="fab fa-mastodon"></i></a></li>
+     </ul>
+    </div>
+   </div>
+  </div>
+  <script src="/js/5fda6cf31e8f/scripts.js"></script>
+ </body>
+</html>

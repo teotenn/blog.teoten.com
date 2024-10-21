@@ -34,6 +34,10 @@
      <h2>Welcome</h2>
      <br>
      <div class="post-box">
+      <img src="https://blog.teoten.com/img/software_rip.png" class="post-background-image" alt="Kill all R sessions"> <a href="https://blog.teoten.com/posts/2024/kill_all_r_sessions/" class="post-link">Kill all R sessions</a>
+      <p class="post-description">One R session to rule them all</p>
+     </div>
+     <div class="post-box">
       <img src="https://blog.teoten.com/img/2018-02-10-jekyll-hugo-hexo.png" class="post-background-image" alt="Building my blog from scratch"> <a href="https://blog.teoten.com/posts/2024/building_my_blog_from_scratch/" class="post-link">Building my blog from scratch</a>
       <p class="post-description">A Journey from Hugo to Clojure</p>
      </div>
@@ -48,10 +52,6 @@
      <div class="post-box">
       <img src="https://blog.teoten.com/post/2022/map_any_region_with_ggplot2_part_I/maps_DrawingMap.png" class="post-background-image" alt="Object Oriented Programming in R: S3"> <a href="https://blog.teoten.com/posts/2023/oop_in_r_s3/" class="post-link">Object Oriented Programming in R: S3</a>
       <p class="post-description">Part of making maps of any region in the world with R using ggplot2 and maps packages: Object Oriented Programming</p>
-     </div>
-     <div class="post-box">
-      <img src="https://blog.teoten.com/img/nginx-configurations.png" class="post-background-image" alt="Adding a website next to your Shiny server"> <a href="https://blog.teoten.com/posts/2023/adding_website_to_siny/" class="post-link">Adding a website next to your Shiny server</a>
-      <p class="post-description">Add a website next to your Shiny server using Nginx</p>
      </div>
     </div>
     <button id="toggle-button">&gt;</button>
@@ -73,41 +73,6 @@
     </div>
    </div>
   </div>
-  <script>
-    // JavaScript function to handle theme toggling
-    function toggleTheme() {
-	document.body.classList.toggle('dark-theme');
-
-	if (document.body.classList.contains('dark-theme')) {
-	    localStorage.setItem('theme', 'dark');
-	} else {
-	    localStorage.setItem('theme', 'light');
-	}
-	// alert("Theme changed!")
-    }
-
-    // Check and apply the saved theme preference on page load
-    window.onload = function() {
-	const savedTheme = localStorage.getItem('theme');
-	if (savedTheme === 'dark') {
-	    document.body.classList.add('dark-theme');
-	}
-    };
-
-      // Sidebar
-      const toggleButton = document.getElementById('toggle-button');
-      const sidebar = document.getElementById('sidebar');
-
-      toggleButton.addEventListener('click', () => {
-	  if (sidebar.classList.contains('collapsed')) {
-              sidebar.classList.remove('collapsed');
-              sidebar.classList.add('expanded');
-	  } else {
-              sidebar.classList.remove('expanded');
-              sidebar.classList.add('collapsed');
-	  }
-      });
-
-    </script>
+  <script src="/js/5fda6cf31e8f/scripts.js"></script>
  </body>
 </html>
