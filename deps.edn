@@ -22,6 +22,9 @@
   ;; Call with `clj -X:build-site`
   :build-site {:exec-fn teoten.ttblog.core/-main
                :exec-args {:env :builder}}
+  ;; Call with `clj -X:serve`
+  :serve {:exec-fn teoten.ttblog.core/-main
+               :exec-args {:env :server}}
   ;; clj -X:test
   :test {:extra-paths ["test"]
          :extra-deps {lambdaisland/kaocha {:mvn/version "1.91.1392"}
