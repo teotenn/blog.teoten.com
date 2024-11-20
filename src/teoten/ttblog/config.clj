@@ -1,7 +1,13 @@
 (ns teoten.ttblog.config
-  (:require [cprop.core :refer [load-config]]))
+  (:require [clojure.java.io :as io]))
 
 ;; Supportive funcs
+(defn load-config [custom-path]
+  (read-string
+   (if (and custom-path (.exists (io/file custom-path)))
+     (slurp custom-path)
+     (slurp (io/resource "config.edn")))))
+
 (defn resolve-inheritance [maps m-key]
   "Resolves inheritance in internal `maps` defined by `m-key`. In this
   case, `maps` are the internal maps inside the config environments
@@ -32,7 +38,7 @@ It resolves recursively to ensure that inheritance is resolved first."
   (reset! app-env (get @config-specs (keyword env))))
 
 (defn load-specs! []
-  (reset! config-specs (resolve-all-inheritances (load-config))))
+  (reset! config-specs (resolve-all-inheritances (load-config "config.edn"))))
 
 (defn set-build-drafts-val! [v]
   (reset! app-env (update-in @app-env [:content-opts :build-drafts] (fn [_] (boolean v)))))
