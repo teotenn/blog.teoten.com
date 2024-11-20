@@ -1,7 +1,7 @@
 * Plans
 ** Dev
 *** DONE Change unique id for path itself
-*** TODO Add favicons
+*** DONE Add favicons
 *** TODO Improve css
 **** About section
 **** View on mobile
