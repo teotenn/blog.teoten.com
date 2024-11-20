@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block head %}
+
+<title>Teoten's blog</title>
+<meta name="description" content="Let's talk about R, Clojure and Emacs.">
+{% blog-styles /styles/styles.css %}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div id="container">
+  <h1>Teoten's blog</h1>
+</div>
+<br>
+<h2>Welcome</h2>
+<br>
+{% include "partials/post_boxes.html" %}
+
+
+{% endblock %}
+

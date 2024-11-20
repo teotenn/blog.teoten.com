@@ -1,0 +1,35 @@
+{:paths ["src" "resources"]
+
+ :deps  {org.clojure/clojure {:mvn/version "1.11.1"}
+         stasis/stasis {:mvn/version "2023.11.21"}
+         hiccup/hiccup {:mvn/version "2.0.0-RC3"}
+         ring/ring-core {:mvn/version "1.12.2"}
+         ring/ring-jetty-adapter {:mvn/version "1.12.2"}
+         markdown-clj/markdown-clj {:mvn/version "1.12.1"}
+         optimus/optimus {:mvn/version "2023.11.21"}
+         enlive/enlive {:mvn/version "1.1.6"}
+         clygments/clygments {:mvn/version  "2.0.2"}
+         org.jsoup/jsoup {:mvn/version "1.18.1"}
+         cprop/cprop {:mvn/version "0.1.20"}
+         selmer/selmer {:mvn/version "1.12.61"}
+         clj-time/clj-time {:mvn/version  "0.15.2"}
+         org.clojure/data.xml {:mvn/version "0.0.8"}
+         hickory/hickory {:mvn/version "0.7.1"}
+         clj-org/clj-org {:mvn/version "0.0.3"}}
+
+ :aliases
+ {:dev {:extra-paths ["dev"]}
+  ;; Call with `clj -X:build-site`
+  :build-site {:exec-fn teoten.ttblog.core/-main
+               :exec-args {:env :builder}}
+  ;; Call with `clj -X:serve`
+  :serve {:exec-fn teoten.ttblog.core/-main
+               :exec-args {:env :server}}
+  ;; clj -X:test
+  :test {:extra-paths ["test"]
+         :extra-deps {lambdaisland/kaocha {:mvn/version "1.91.1392"}
+                      ;; midje/midje {:mvn/version "1.10.10"}
+                      }
+         :exec-fn kaocha.runner/exec-fn
+         :exec-args {:skip-meta :slow}}
+  }}

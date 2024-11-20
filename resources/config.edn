@@ -1,0 +1,19 @@
+{:server {:function "server"
+          :port 3001
+          :directory {:templates "templates"
+                      :static "static"
+                      :content "content"}
+          :content-opts {:content-template "partials/posts.html"
+                         :extensions ["html" "org" "md"]
+                         :build-drafts true}}
+ :builder {:function "builder"
+           :inherit :server
+           :export-dir "public"
+           :base-url "https://blog.teoten.com"
+           :content-opts {:build-drafts false
+                          :content-template "partials/posts.html"
+                          :extensions ["html" "org" "md"]}
+           ;; FIXME: Line above not inheriting the remaining params so, all have to be written
+           }
+ :test {:inherit :server
+        :port 3002}}

@@ -1,0 +1,87 @@
+#+author: Manuel Teodoro Tenango
+#+title: Kill all R sessions
+#+image: /img/software_rip.png
+#+draft: false
+#+date: 2024-10-21
+#+description: One R session to rule them all
+#+tags: ["R"]
+#+categories: ["R basics", "R functions"]
+#+archives: ["2024"]
+
+When working in R, there are times when managing multiple R sessions becomes essential. For instance, if you are updating packages, troubleshooting conflicts, or managing system resources, it may be necessary to terminate all the sessions, or to keep only the current R session.
+
+In this blog post, we'll walk through a simple R function that achieves this using only base R functions, ensuring no additional dependencies are introduced.
+
+** Kill all R sessions
+
+#+begin_src R
+kill_other_R_sessions <- function() { 
+  current_PID <- Sys.getpid()
+  os <- Sys.info()['sysname']
+
+  if (os == "Linux") {
+    progs <- system("ps aux", intern = TRUE)
+    Rsessions <- progs[grep("R/bin/exec", progs)]
+  } else if (os == "Windows") {
+    progs <- system("tasklist", intern = TRUE)
+    Rsessions <- progs[grep("^R\\.exe|^Rterm\\.exe|^Rscript", progs)]
+  } else {
+    stop("System not supported.")
+  }
+  
+  current_sessions <- strsplit(Rsessions, "[[:space:]]") |> 
+    lapply(function(x) ifelse(x == "", NA, x)) |> 
+    lapply(na.exclude) |> 
+    lapply(as.vector) |> 
+    sapply(`[`, 2)
+  
+  kill_sessions <- current_sessions[current_sessions != current_PID]
+
+  if (os == "Linux") {
+    for(PID in kill_sessions) system(paste0("kill ", PID)) 
+  } else if (os == "Windows") {
+    for(PID in kill_sessions) shell(paste0("taskkill /F /PID ", PID))
+  } else {
+    stop("System not supported.")
+  }
+}
+#+end_src
+
+*** How the Function Works
+- *Step 1: Identify the Current Process*. The function starts by getting the process ID (PID) of the current R session using `Sys.getpid()`. This PID is stored in the current_PID variable, which will be excluded from termination.
+
+- *Step 2: Determine the Operating System*. Next, we use `Sys.info()['sysname']` to determine whether the system is Linux or Windows. This allows us to tailor the commands for each platform.
+
+- *Step 3: Retrieve All R Sessions*. The `system()` function executes platform-specific commands to list all running processes.
+
+  - On Linux, `ps aux` is used, and we filter R processes by searching for "R/bin/exec".
+  - On Windows, we use `tasklist`, and the function searches for "R.exe", "Rterm.exe", or "Rscript".
+    
+- *Step 4: Parse the Process List*. The process output is split and cleaned using base R's `strsplit()` and `lapply()` to extract the relevant PIDs. The list of PIDs is then checked against current_PID to ensure that we do not kill the running session.
+
+- *Step 5: Kill Other Sessions*. Finally, depending on the operating system, we:
+  - Use the `kill` command on Linux to terminate the identified processes.
+  - Use `taskkill /F` on Windows to forcefully close the R sessions.
+
+
+*** Why Base R Only?
+In this function, we use only base R functions like `system()`, `grep()`, and `lapply()` to avoid external dependencies. This is crucial in scenarios like package updates or system maintenance where introducing new dependencies could cause conflicts. Using base R ensures that the function remains lightweight, compatible, and reliable across various environments.
+
+** Use Cases
+- *Updating R Packages.* When performing package updates, it is generally recommended to close other R sessions to avoid conflicts or file locks. This function can ensure that only the current session remains open, reducing the likelihood of errors during the update process.
+
+- *Freeing System Resources.* Multiple R sessions can consume significant system resources, especially when working with large datasets or memory-intensive tasks. This function can help reclaim memory or CPU by closing unnecessary sessions.
+
+- *Handling Debugging and Crashes.* During development, sometimes rogue or zombie R processes may hang, causing issues like port conflicts, frozen sessions, or debugging delays. This function can clear out those stuck processes, allowing for a fresh start.
+
+* Limitations
+** Cross-Platform Considerations
+This function only supports Linux and Windows environments. MacOS is not explicitly covered, but extending support could be done by modifying the function to handle macOS-specific process management commands. Also, some particular Linux distributions might produce a different result when calling `ps`.
+
+** Permissions
+Depending on the system's configuration, users may need appropriate permissions to kill processes, especially when R sessions were started by other users.
+
+* Conclusion
+This simple function leverages only base R to kill other R sessions and can be a handy tool for managing resources, avoiding package conflicts, and debugging. By keeping dependencies minimal, it ensures stability and broad compatibility. You can easily adapt it for your own workflows and make sure that your R environment stays tidy and efficient.
+
+Feel free to copy and customize this function to suit your needs!

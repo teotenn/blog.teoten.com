@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title>{{ metadata.title }} | Teoten's blog</title>
+<meta name="description" content="{{ metadata.description }}">
+
+{% blog-head %}
+
+{% endblock %}
+
+
+{% block content %}
+<div class="article-top">
+  <img src="{{ metadata.image }}"
+       class="article-top-image"
+       alt="{{ metadata.title }}">
+  <div class="article-title-container">
+    <h1 class="article-title">{{ metadata.title }}</h1>
+    </div>
+  <div class="article-meta">
+    <span>
+      <i class="fa fa-calendar"> {{ metadata.date }}</i>
+      </span>
+  </div>
+</div>
+
+{% blog-content %}
+
+<div class="article-comments">
+  <script src="https://utteranc.es/client.js"
+	  repo="teotenn/blog.teoten.com"
+	  issue-term="pathname"
+	  theme="github-light"
+	  crossorigin="anonymous"
+	  async>
+  </script>
+</div>
+
+{% endblock %}
