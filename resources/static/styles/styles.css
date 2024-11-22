@@ -211,23 +211,20 @@ body.dark-theme #sidebar {
 /* TODO keep editing here until sidebar looks like a bar on the top */
 @media (max-width: 600px) {
     #sidebar {
-	width: 100%; /* Sidebar full width on small screens */
 	position: fixed;
 	top: 5;
-	background-color: var(--sidebar-bg-stacked);
+	/* background-color: var(--sidebar-bg-stacked); */
     }
 
     #sidebar.expanded {
-	width: 90%;
+	display: flex;
+	width: 50%;
+	justify-content: flex-end;
+	z-index: 2000;
     }
 
     .h-sidebar {
-	justify-content: left;
-	justify-content: left;
-    }
-
-    body.dark-theme #sidebar {
-	background-color: var(--sidebar-bg-stacked);
+	justify-content: flex-end;
     }
 
     #sidebar.collapsed {
@@ -572,7 +569,7 @@ article {
 	height: 4px;
 	width: 100%;
 	border-radius: 10px;
-	background: #333;
+	background: var(--text-color);
     }
 
     .navbar-container .hamburger-lines .line1 {
