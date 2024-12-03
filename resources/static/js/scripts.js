@@ -22,12 +22,14 @@ window.onload = function() {
 const toggleButton = document.getElementById('toggle-button');
 const sidebar = document.getElementById('sidebar');
 
-toggleButton.addEventListener('click', function() {
+toggleButton.addEventListener('click', function(e) {
     if (sidebar.classList.contains('collapsed')) {
         sidebar.classList.remove('collapsed');
         sidebar.classList.add('expanded');
+	e.target.textContent = ">";
     } else {
         sidebar.classList.remove('expanded');
         sidebar.classList.add('collapsed');
+	e.target.textContent = "<";
     }
 });

@@ -1,10 +1,10 @@
 * Plans
 ** Dev
 *** DONE Change unique id for path itself
-*** TODO Add favicons
-*** TODO Improve css
-**** About section
-**** View on mobile
+*** DONE Add favicons
+*** DONE Improve css
+**** DONE About section
+**** DONE View on mobile
 **** DONE In posts content
 **** DONE The code blocks
 *** TODO Sort list of all posts per year
