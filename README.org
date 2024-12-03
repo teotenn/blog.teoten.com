@@ -1,7 +1,7 @@
 * About
 This is the code of my personal blog, you can see the end result by visiting [[https://blog.teoten.com/][blog.teoten.com]]
 
-It is a static website generator written purely in Clojure. The engine that builds the static site can be reused with minimal knowledge of Clojure itself, by simply modifying the content inside resources (see details below). The engine is built under good programming standards of functional programming and thus, it is quite stable and reliable as a static site generator, as well as generic: it can render =org=, =markdown= and =html= files, and it has its own local server, apart from the builder, to preview content changes. However, the main aim is to build my personal blog and thus, the Clojure code might be changing without previous notice.
+It is a static website generator written purely in Clojure. The engine that builds the static site can be reused with minimal knowledge of Clojure itself, by simply modifying the content inside the =resources= folder (see details below). The engine is built under high quality standards of functional programming and thus, it is quite stable and reliable as a static site generator, as well as generic: it can render =org=, =markdown= and =html= files, and it has its own local server, apart from the builder, to preview content changes. However, the main aim is to build my personal blog and thus, the Clojure code might be changing without previous notice.
 
 Therefore, feel free to use the code and re distribute it, but WITHOUT ANY WARRANTY.
 ** Copy
@@ -34,18 +34,41 @@ For the rest, it uses =deps.edn=, the native Clojure [[https://clojure.org/guide
 + Templating is done thanks to the wonderful package [[https://github.com/yogthos/Selmer][selmer]], "A fast, Django inspired template system in pure Clojure".
 + I was trying out =enlive= for DOM manipulation, however the library is not actively maintained. I also tried =jsoup= directly in Java (from Clojure, of course). Thus, some code from both libraries is still in the stack.
 + The libraries [[https://github.com/weavejester/hiccup][hiccup]] and [[https://github.com/clj-commons/hickory][hickory]] are the main engine for DOM manipulation and thus, I expect to remove the use of =enlive= and =jsoup= completely in the future.
-
-** Modify ./resources/ files
+  
+* Modify ./resources/ files
 A completely different static site can be built (and served) by simply modifying the files inside the directory =resources=.
 
-*** content
-**** Markdown
-Metadata must be all quoted.
-**** Org
-Metadata must be all unquoted, but lists inside =[ ]= must be quoted, or numeric.
-**** HTML
-Metadata must be as in org
+** templates
+The =templates= folder contains the html files as [[https://github.com/yogthos/Selmer][selmer]] templates. See the [[https://github.com/yogthos/Selmer][selmer]] documentation for more details.
 
-*** static
+The templates are grouped into 3 sections:
+- Templates at the main =templates/= directory are rendered to the static site with relative path. For example =index.html= is built as the root (=blog.teoten.com=) while =about.html= is the template rendered under =blog.teoten.com/about=.
+- Templates under =/templates/partials/= folder are not rendered to final html format, but used only by the main templates.
+- =posts.html= is the template used for the posts. In other words, everything found inside the folder =content= will be built using this template.
 
-*** templates
+The clojure map passed to the template =posts.html= is defined in the clojure code file =content/content_extractor.clj= and it includes the metadata (passed as =yml= in =markdown= and =html=, or as metadata in =org= files) in proper clojure formats per post. So, for example, to pass tags you can add to your metadata =tags: ["tag1", "tag2", "tag3"]= for yaml, or =#+tags: ["tag1", "tag2", "tag3"]= for org. One important thing is that, if you have content in =html= format, you can add metadata in the form of =yaml= format as the first =<p>= tag in the body content and it will be recognized as metadata and thus, it will be omitted from the rendered file.
+
+As for the clojure map passed to the main and partial templates, a similar map to the one for posts is created, but containing the information of every file inside content. See the template =post_boxes_all.html= to see examples of how to use it.
+
+** content
+The main content is in this directory and it can be in either =markdown=, =org= or =html= format. The last one can be partial, starting at =<body>= or a complete =html= file. In either case, the final rendering of this files will depend on the template used to build the content (default to =posts.html=).
+
+Some details:
++ Markdown: Metadata must be all quoted.
++ Org: Metadata must be all unquoted, but lists inside =[ ]= must be quoted, or numeric.
++ HTML: Metadata must be in yml format, but formatted as in org (unquoted, etc.).
+
+** static
+Contains static files, including images, javascript, css or any other static files that you might wish to use.
+
+When calling images from a post, it can be done as the complete, absolute or relative path. For example, if the image =foo.jpg= is inside =./resources/static/img/= then the options to call it from a content file are:
+- The complete path =/resources/static/img/foo.jpg= can be used.
+- It is enough to call =/img/foo.jpg=.
+- But it can also be possible =../../static/img/foo.jpg=. This works well for rendering properly the image in the text editor, and at the same time, the Clojure engine recognizes and removes the =../..= to render the final image in the static folder.
+
+** config.edn
+Finally, the file =config.edn= contains the details for different profiles (environments, aliases, etc.). Modifying this file (or rather it is recommended to only ADD parameters) we can indicate, to either the builder or the server, to use different values such as a different port for the server, different directory naming, different template for the content, whether to build =draft='s or not, or to build only particular extensions (i.e., you have all, =md=, =org= and =html= but want to use only your end =html= files you can pass =:content-opts {:extensions ["html"]}= and the =md= and =org= will be ignored).
+
+This file pairs well with the function =-main= in =core.clj= to define aliases.
+
+See the original files to get the clear example of how to use them. If you are not familiar with =deps.edn= aliases, get a deep dive into the [[https://clojure.org/reference/deps_edn][official documentation]] first.
