@@ -1,8 +1,51 @@
-* TODO Write a real readme
-* Content
-** Markdown
+* About
+This is the code of my personal blog, you can see the end result by visiting [[https://blog.teoten.com/][blog.teoten.com]]
+
+It is a static website generator written purely in Clojure. The engine that builds the static site can be reused with minimal knowledge of Clojure itself, by simply modifying the content inside resources (see details below). The engine is built under good programming standards of functional programming and thus, it is quite stable and reliable as a static site generator, as well as generic: it can render =org=, =markdown= and =html= files, and it has its own local server, apart from the builder, to preview content changes. However, the main aim is to build my personal blog and thus, the Clojure code might be changing without previous notice.
+
+Therefore, feel free to use the code and re distribute it, but WITHOUT ANY WARRANTY.
+** Copy
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see [[https://www.gnu.org/licenses/]].
+
+* Usage
+
+** Requirements: Clojure
+The only requirement to serve (locally) and build a static site is a Clojure development environment. This also means that you need to have Java installed. See the official documentation for [[https://clojure.org/guides/getting_started][Getting Started]] and [[https://clojure.org/guides/install_clojure][Install Clojure]].
+
+For the rest, it uses =deps.edn=, the native Clojure [[https://clojure.org/guides/deps_and_cli][Deps and CLI]] and thus, the aliases and dependencies can be called without further dependencies or frameworks like Leiningen or Luminus.
+
+*** Stack
++ It is currently developed under Clojure 1.11.1
++ It uses [[https://github.com/magnars/stasis][stasis]] for building the static pages, and [[https://github.com/magnars/optimus][optimus]] for performance optimization.
++ It takes advantage of [[https://github.com/ring-clojure/ring][ring]] not only as a local server for drafting (with the =jetty= adapter), but also =ring-core= for some optimization and middleware.
++ Content can be parsed from =markdown= files using [[https://github.com/yogthos/markdown-clj][markdown-clj]], =org= files (Emacs org-mode) using [[https://github.com/eigenhombre/clj-org][clj-org]] and it can also use direct =html= files.
++ =xml= maps (mainly for RSS) are generated with [[https://github.com/clojure/data.xml][data.xml]]
++ Templating is done thanks to the wonderful package [[https://github.com/yogthos/Selmer][selmer]], "A fast, Django inspired template system in pure Clojure".
++ I was trying out =enlive= for DOM manipulation, however the library is not actively maintained. I also tried =jsoup= directly in Java (from Clojure, of course). Thus, some code from both libraries is still in the stack.
++ The libraries [[https://github.com/weavejester/hiccup][hiccup]] and [[https://github.com/clj-commons/hickory][hickory]] are the main engine for DOM manipulation and thus, I expect to remove the use of =enlive= and =jsoup= completely in the future.
+
+** Modify ./resources/ files
+A completely different static site can be built (and served) by simply modifying the files inside the directory =resources=.
+
+*** content
+**** Markdown
 Metadata must be all quoted.
-** Org
+**** Org
 Metadata must be all unquoted, but lists inside =[ ]= must be quoted, or numeric.
-** HTML
+**** HTML
 Metadata must be as in org
+
+*** static
+
+*** templates
