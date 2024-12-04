@@ -1,0 +1,36 @@
+#+author: Manuel Teodoro Tenango
+#+title: Nuevo canal de Youtube: Programación en R
+#+image: /img/ttprogramando_banner.png
+#+draft: false
+#+date: 2024-12-04
+#+description: Presentación de mi nuevo canal de Youtube sobre programación en R
+#+tags: ["R basics", "R'dev", "R tips"]
+#+categories: ["R"]
+#+archives: ["2024"]
+
+Nuevo canal sobre programación en R en Español: [[https://www.youtube.com/@teoten.programando][https://www.youtube.com/@teoten.programando]]
+
+*Teoten Programando* es un canal donde aprender a programar es accesible, relajado y libre de complicaciones. Aquí encontrarás tutoriales claros y prácticos sobre R, ideales para quienes buscan adentrarse en el mundo del análisis estadístico, la ciencia de datos y la visualización, incluso sin experiencia previa.
+
+Mi enfoque es que cualquier persona pueda comenzar desde cero: yo mismo soy ecólogo con más de 10 años de experiencia en R y cinco años como programador en la industria farmacéutica. Además, exploraremos el desarrollo de aplicaciones web con Shiny, HTML, CSS, JavaScript, las bases para usar Linux y un toque de Clojure/ClojureScript. Si te interesa aprender a programar de manera relajada, útil y sin tecnicismos abrumadores, este es tu espacio. 
+
+* Presentación
+Hace un par de semanas inicié un canal de youtube nuevo bajo el nombre de *"Teoten programando"* y lo pueden encontrar bajo el usuario [[https://www.youtube.com/@teoten.programando][@teoten.programando]].
+
+La idea es mantener el canal con contenido en español, con alguno que otro vídeo en inglés de vez en cuando sobre temas que pueden ser mas populares o mas requeridos, como la publicación de aplicaciones Shiny en diferentes tipos de servers.
+
+** Temas
+Por ahora el tema principal es la programación en R. Comenzamos con un playlist llamado [[https://youtube.com/playlist?list=PLWj4ViKoWAEkr1xFJxsH6tAHVdml4sh8y&si=hWdYi_4qobi1l08E][R Desde Ceros]] que pretende enseñar R sin conocimiento previo de ningún tipo y utilizando sólo 15 minutos por vídeo. La idea es abordar conceptos básicos de R para generar las bases y poder utilizar R en temas mas complejos o elaborados como el análisis estadístico, generación de visualizaciones, exploración y análisis de datos, aplicaciones Shiny, entre otros. Por el momento estoy publicando vídeos nuevos cada semana los jueves a las 10:00 pm hora de Madrid, 3:00 pm hora de Ciudad de México, con la única excepción del jueves 5 de diciembre ya que el vídeo ha sido publicado un día antes y ya está disponible.
+
+Además de R, existe un vídeo sobre la [[https://youtu.be/4TJlUnqfrkA?si=mhkcFVb4Se-KKAHt][instalación de Debian]] que considero mas bien un piloto: aunque el contenido es bueno y directo y muestra como descargar e instalar Debian, el audio no es tan bueno y la edición del vídeo en general es mas pobre. Sin embargo, decidí dejarlo por que me permitió aprender cosas básicas, ya que es mi primer intento de crear un canal de Youtube. El tema también se alinea con el contenido del canal, ya que pretendo agregar vídeos sobre otras herramientas de programación tales como Linux shell, bash, servers, etc.
+
+Así que en concreto, el canal esta orientado a enseñar programación de manera fácil y sencilla sin conocimientos previos. Por ahora está orientado a la programación en R, ya que es mi herramienta principal de trabajo. Sin embargo, pretendo agregar también conceptos básicos de CSS, HTML y JavaScript para mejorar la creación de aplicaciones Shiny. En el largo plazo me gustaría también agregar otros lenguajes que he utilizado como Python y Clojure, o explorar alguno nuevo directamente en el canal como Julia.
+
+También, con el inicio de 2025 pretendo incluir un segundo vídeo en algunas semanas sobre otras herramientas que me han resultado importantes como programador. Algunas muy conocidas y útiles como git, Linux Servers, shell, ssh, entre otros. Otras quizá un poco menos conocidas pero igualmente importantes, tales como Emacs y las librerías Magit y org-mode que han facilitado y mejorado mucho mi trabajo como programador.
+
+Finalmente, consideraré también incluir como he tomado ventaja de los LLMs y la AI generativa utilizando el modelo de programación funcional, del cual R y Clojure se benefician mucho.
+
+* Visítanos
+Espero que algunas de las personas que siguen mi blog puedan visitar el canal y dejar sus comentarios. Los vídeos son cortos y concretos en un determinado tema.
+
+Si les gusta el contenido, también les agradeceré mucho la difusión, los "like" y las subscripciones. Bien sabemos que Youtube funciona bajo dichos términos y es la única manera de promover un canal.
