@@ -1,0 +1,128 @@
+#+author: Manuel Teodoro Tenango
+#+title: Leveraging AI to Enhance Functional Programming in 2025
+#+image: 
+#+draft: false
+#+date: 2024-12-31
+#+description: A review on how to take advantage of AI to enhance functional programming
+#+tags: ["R", "R tips", "clojure", "AI"]
+#+categories: ["R", "clojure"]
+#+archives: ["2024"]
+
+* Leveraging AI to Enhance Functional Programming in 2025
+
+Functional programming has always stood out as an elegant approach to software development. Its focus on pure functions, immutability, and composability ensures clarity, predictability, and easier debugging. Languages like R, Python, and Clojure, each with their unique strengths, are particularly well-suited for functional programming paradigms. But what happens when we combine this structured approach with the power of modern AI tools? A world of efficiency and creativity opens up.
+
+In this post, we’ll explore how to use AI to create individual functions that can later be composed into a complete program using functional programming principles. Let’s start by revisiting the core advantages of functional programming and then delve into how AI can enhance this workflow.
+
+
+** Advantages of Functional Programming
+
+1. *Modularity:* Functions are independent and self-contained, making them easy to compose and reuse.
+
+2. *Testability:* Pure functions depend solely on their inputs and produce consistent outputs, simplifying debugging and testing.
+
+3. *Concurrency:* Immutability and statelessness reduce race conditions, making functional programs naturally suited for parallelism.
+
+4. *Readability and Maintainability:* Code is more predictable and easier to understand when side effects are minimized.
+
+With these principles in mind, functional programming thrives on creating reliable, isolated functions. This makes it a natural match for AI tools, which excel at generating discrete, task-specific code snippets.
+
+
+** Using AI to Generate Functions
+
+AI engines can help you efficiently generate functions tailored to specific tasks. Here’s how you can incorporate AI into your functional programming workflow:
+
+*** 1. *Defining the Task*
+Clearly articulate the task you want the function to perform. You can be as specific as you want. I have noticed that, the more specific you are in one single prompt, the better. On the contrary, I have noticed that when you allow the engine to get context through a long conversation it usually does more mistakes. Here are some hints:
+ - Start by telling which programming language it should use, and if you have some preferences in libraries include it here. Example: "Create a function in R using the purrr library that does...".
+
+ - Continue by telling what exactly the function should do. Example: "... a function that filters even numbers from a list".
+
+ - At this step it can help by telling the engine what to expect as an input and what to give as an output. From the previous example: "... a function that, given a list of numbers as a single string, filters even numbers and returns them as a vector".
+
+ - It is also helpful to provide examples and give some data. Example: "for example, from the string '1, 2, 3, 4, 5, 6, 7' it should return the vector with the values 2, 4 and 6 only".
+
+ - You can also request additional parameters to take, and specify what should they do. For example: "add a parameter 'length' to specify the maximum length of the vector to be returned". 
+
+The key is to be specific about inputs, outputs, and any constraints or edge cases. The example above can end up in something like this:
+
+/Using R and the library purrr, create a function that, given a string of numbers, returns a vector with only the even numbers in it. In the string, the numbers are separated by comma. For example, from the string "1, 2, 3, 4, 5, 6, 7" it should return c(2, 4, 6). Additionally, add a parameter called "length" to specify the maximum size of the final vector./
+
+*** 2. *Testing in the REPL*
+   Once the AI generates the function, the REPL (Read-Eval-Print Loop) environments, also known simply as consoles, allow you to test and refine it in isolation. Here’s an example workflow:
+   - Paste the generated function into your script with a commented note that it is a work in progress.
+   - Evaluate the function into the REPL. You could as well paste it directly into the REPL but it gives you less space for tuning it.
+   - Test it with various inputs to verify correctness.
+   - Debug or tune the function as necessary.
+
+If issues arise, you can return to the AI with detailed feedback, asking it to refine or enhance the function. For example, you might request better error handling, additional parameters, optimizations for edge cases or a particular library/function to be used within it.
+
+
+** Building a Complete Program
+
+Once you have a collection of tested functions, the next step is composition. Functional programming encourages composing small, tested functions into larger workflows. This step is typically less dependent on AI since you're now applying domain-specific business logic. Here it is more of a personal choice how to place the functions together, how they call each other, and what is your final main function(s). At this engineering stage we can also tune the details of the business logic, in case that particular details are needed.
+
+However, you can still consult the AI for advice, such as:
+   - Strategies for composing functions.
+   - Suggestions for structuring the program to maintain functional purity.
+   - Recommendations for efficient data flow between functions.
+   - Recommendations for optimization.
+   - Advice on how to handle sensitive information, such as login credentials.
+
+
+** Documentation and Unit Testing with AI
+
+AI tools are not only great at generating code but can also help you finalize your project by:
+
+*** *Generating Documentation*
+   - Ask the AI to create comprehensive docstrings or external documentation based on your code.
+   - Ensure the documentation highlights inputs, outputs, and edge cases, maintaining clarity and professionalism.
+   - You can also ask the AI engine to create simple reproducible examples for it.
+
+*** *Creating Unit Tests*
+   - Request the AI to generate unit tests for each function. For example:
+     - In Python, ask for =unittest= or =pytest= test cases.
+     - In R, request =testthat= test scripts.
+     - In Clojure, ask for test functions using its native testing tools.
+   - AI can provide thorough coverage by suggesting test cases you might not have considered.
+
+With documentation and tests generated, you have a robust, production-ready program created efficiently and collaboratively with AI.
+
+
+** The AI-Functional Programming Symbiosis
+
+Combining functional programming with AI tools offers several benefits:
+
+1. *Efficiency:* AI accelerates the creation of task-specific functions and peripheral code like tests and documentation.
+
+2. *Focus:* Developers can concentrate on high-level design and logic while offloading repetitive or boilerplate tasks to the AI.
+
+3. *Error Reduction:* By iterating with AI, you can quickly address edge cases, improve error handling, and refine implementations.
+
+4. *Accessibility:* Functional programming’s modular nature aligns well with AI’s ability to handle isolated problems, making the entire workflow approachable and scalable.
+
+* The options
+ By the end of 2024 many options have appeared and made available publicly. Here are some that I have tried:
+
+ - [[https://chatgpt.com/][Chat GPT]]
+ - [[https://claude.ai][claude]]
+ - [[https://codeium.com][codeium]]
+ - [[https://copilot.microsoft.com][copilot]]
+ - [[https://gemini.google.com/][gemini]]
+
+
+* Dealing with bugs
+
+As we enter into 2025, most of the models have been refined and the resulting code is performing better. Nevertheless, there are still a lot of details that are unknown by the engine that can cause trouble to your code. Here are some that I have faced myself:
+
+ - The function does not actually do what you expect: Here it helps to be more specific and provide examples. You can develop this along the chat, but in my experience, the longer the chat gets, the more confused the engine becomes. When this happens, it is useful to start from scratch again with a new prompt that is more specific and learned from the previous mistakes.
+ - Simple bugs: Sometime the function is simply bugged. Here you can simply copy and paste the error message and the AI will help you to troubleshoot. However, there are cases that are not so easily identifiable by the engine. Such as the ones below:
+ - Recommending outdated libraries: I have been suggested to use libraries that haven't been maintained for over 5 years and thus, some functions are buggy. However, the AI engines knew nothing about it and were suggesting solutions that did not work. I solving by asking it to use a different library.
+ - Using non-existent parameters: Very rarely, the AI model would recommend to use a function in a certain way, by passing specific parameters that are actually not used by the function. This usually happens in less popular libraries or languages (such as emacs lisp) and my guess is that the engine is not well trained because the info about it is scarce. It is usually solved by telling it that it does not take such parameter, adding the documentation, or simply suggesting to use a different function or library.
+
+* Conclusion
+
+The combination of AI tools and functional programming paradigms unlocks new levels of productivity and creativity in software development. By leveraging AI to generate, test, document, and enhance individual functions, you can efficiently build robust and maintainable programs, deal more efficiently with potential bugs and learn along the way about new functions or different implementations of the same old ones. The iterative nature of this workflow—moving between the AI and your REPL—ensures that each piece of the puzzle fits perfectly before assembling the whole.
+
+As AI continues to evolve, its role in programming will only grow, complementing the structured, thoughtful approach that functional programming embodies. So, whether you're working in R, Python, Clojure or something else, embrace this synergy and see how it transforms your coding experience.
+

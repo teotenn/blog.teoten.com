@@ -14,3 +14,5 @@
 *** TODO The =#+ATTR_HTML:= part before org images does not work. Consider fix.
 *** TODO Generate pages for tags and categories
 *** TODO Refactor code that uses jsoup and enlive for [[https://github.com/clj-commons/hickory][hickory]] and hiccup
+*** TODO Minor bugs
+**** TODO When a post has empty tags or categories (or other) the building fails without a clear msg
