@@ -1,0 +1,210 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+ <head>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather">
+  <link href="/styles/1207b02cb143/styles.css" rel="stylesheet">
+  <title>Leveraging AI to Enhance Functional Programming in 2025 | Teoten's blog</title>
+  <meta name="description" content="A review on how to take advantage of AI to enhance functional programming">
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Teoten">
+  <meta name="fediverse:creator" content="@teoten@social.linux.pizza">
+ </head>
+ <body>
+  <!-- Top nav bar -->
+  <div>
+   <!-- Toggle Button -->
+   <button id="theme-toggle-btn" onclick="toggleTheme()"><i class="fas fa-sun"></i></button>
+   <div id="wrapper">
+    <nav id="navbar" class="navbar">
+     <div class="navbar-container">
+      <input type="checkbox" name="" id="">
+      <div class="hamburger-lines">
+       <span class="line line1"></span> <span class="line line2"></span> <span class="line line3"></span>
+      </div>
+      <ul class="menu-items">
+       <li><a href="https://blog.teoten.com/">Home</a></li>
+       <li><a href="https://blog.teoten.com/list/">Posts</a></li>
+       <li><a href="https://blog.teoten.com/about/">About</a></li>
+      </ul>
+     </div>
+    </nav>
+   </div>
+  </div>
+  <div id="shadow-block">
+   <div id="container">
+    <div id="wide-content">
+     <!-- Main content -->
+     <div class="article-top">
+      <img src="https://blog.teoten.com/" class="article-top-image" alt="Leveraging AI to Enhance Functional Programming in 2025">
+      <div class="article-title-container">
+       <h1 class="article-title">Leveraging AI to Enhance Functional Programming in 2025</h1>
+      </div>
+      <div class="article-meta">
+       <span> <i class="fa fa-calendar"> 2024-12-31</i> </span>
+      </div>
+     </div>
+     <article id="post-/posts/2024/ai_to_enhance_functional_programming/" data-post-id="/posts/2024/ai_to_enhance_functional_programming/">
+      <div>
+       <h1 class="article-header">Leveraging AI to Enhance Functional Programming in 2025</h1><span> </span>
+       <p>Functional programming has always stood out as an elegant approach to software development. Its focus on pure functions, immutability, and composability ensures clarity, predictability, and easier debugging. Languages like R, Python, and Clojure, each with their unique strengths, are particularly well-suited for functional programming paradigms. But what happens when we combine this structured approach with the power of modern AI tools? A world of efficiency and creativity opens up.</p>
+       <p>In this post, we’ll explore how to use AI to create individual functions that can later be composed into a complete program using functional programming principles. Let’s start by revisiting the core advantages of functional programming and then delve into how AI can enhance this workflow.</p>
+       <p></p>
+       <h2 class="article-header">Advantages of Functional Programming</h2><span> </span>
+       <p><span>1. <strong>Modularity:</strong> Functions are independent and self-contained, making them easy to compose and reuse. </span></p>
+       <p><span>2. <strong>Testability:</strong> Pure functions depend solely on their inputs and produce consistent outputs, simplifying debugging and testing. </span></p>
+       <p><span>3. <strong>Concurrency:</strong> Immutability and statelessness reduce race conditions, making functional programs naturally suited for parallelism. </span></p>
+       <p><span>4. <strong>Readability and Maintainability:</strong> Code is more predictable and easier to understand when side effects are minimized. </span></p>
+       <p>With these principles in mind, functional programming thrives on creating reliable, isolated functions. This makes it a natural match for AI tools, which excel at generating discrete, task-specific code snippets.</p>
+       <p></p>
+       <h2 class="article-header">Using AI to Generate Functions</h2>
+       <p>AI engines can help you efficiently generate functions tailored to specific tasks. Here’s how you can incorporate AI into your functional programming workflow:</p>
+       <h3 class="article-header">1. Defining the Task</h3><span> </span>
+       <p>Clearly articulate the task you want the function to perform. You can be as specific as you want. I have noticed that, the more specific you are in one single prompt, the better. On the contrary, I have noticed that when you allow the engine to get context through a long conversation it usually does more mistakes. Here are some hints:</p>
+       <ul>
+        <li>
+         <p>Start by telling which programming language it should use, and if you have some preferences in libraries include it here. Example: "Create a function in R using the purrr library that does...".</p></li>
+       </ul>
+       <ul>
+        <li>
+         <p>Continue by telling what exactly the function should do. Example: "... a function that filters even numbers from a list".</p></li>
+       </ul>
+       <ul>
+        <li>
+         <p>At this step it can help by telling the engine what to expect as an input and what to give as an output. From the previous example: "... a function that, given a list of numbers as a single string, filters even numbers and returns them as a vector".</p></li>
+       </ul>
+       <ul>
+        <li>
+         <p>It is also helpful to provide examples and give some data. Example: "for example, from the string '1, 2, 3, 4, 5, 6, 7' it should return the vector with the values 2, 4 and 6 only".</p></li>
+       </ul>
+       <ul>
+        <li>
+         <p>You can also request additional parameters to take, and specify what should they do. For example: "add a parameter 'length' to specify the maximum length of the vector to be returned".</p></li>
+       </ul><span> </span>
+       <p>The key is to be specific about inputs, outputs, and any constraints or edge cases. The example above can end up in something like this:</p>
+       <p><span><em>Using R and the library purrr, create a function that, given a string of numbers, returns a vector with only the even numbers in it. In the string, the numbers are separated by comma. For example, from the string "1, 2, 3, 4, 5, 6, 7" it should return c(2, 4, 6). Additionally, add a parameter called "length" to specify the maximum size of the final vector.</em> </span></p>
+       <h3 class="article-header">2. Testing in the REPL</h3><span> </span>
+       <p>Once the AI generates the function, the REPL (Read-Eval-Print Loop) environments, also known simply as consoles, allow you to test and refine it in isolation. Here’s an example workflow:</p>
+       <ul>
+        <li>
+         <p>Paste the generated function into your script with a commented note that it is a work in progress.</p></li>
+        <li>
+         <p>Evaluate the function into the REPL. You could as well paste it directly into the REPL but it gives you less space for tuning it.</p></li>
+        <li>
+         <p>Test it with various inputs to verify correctness.</p></li>
+        <li>
+         <p>Debug or tune the function as necessary.</p></li>
+       </ul><span> </span>
+       <p>If issues arise, you can return to the AI with detailed feedback, asking it to refine or enhance the function. For example, you might request better error handling, additional parameters, optimizations for edge cases or a particular library/function to be used within it.</p>
+       <p></p>
+       <h2 class="article-header">Building a Complete Program</h2><span><span> </span></span>
+       <p>Once you have a collection of tested functions, the next step is composition. Functional programming encourages composing small, tested functions into larger workflows. This step is typically less dependent on AI since you're now applying domain-specific business logic. Here it is more of a personal choice how to place the functions together, how they call each other, and what is your final main function(s). At this engineering stage we can also tune the details of the business logic, in case that particular details are needed.</p>
+       <p>However, you can still consult the AI for advice, such as:</p>
+       <ul>
+        <li>
+         <p>Strategies for composing functions.</p></li>
+        <li>
+         <p>Suggestions for structuring the program to maintain functional purity.</p></li>
+        <li>
+         <p>Recommendations for efficient data flow between functions.</p></li>
+        <li>
+         <p>Recommendations for optimization.</p></li>
+        <li>
+         <p>Advice on how to handle sensitive information, such as login credentials.</p></li>
+       </ul>
+       <p></p>
+       <h2 class="article-header">Documentation and Unit Testing with AI</h2>
+       <p>AI tools are not only great at generating code but can also help you finalize your project by:</p>
+       <h3 class="article-header">Generating Documentation</h3><span> </span>
+       <ul>
+        <li>
+         <p>Ask the AI to create comprehensive docstrings or external documentation based on your code.</p></li>
+        <li>
+         <p>Ensure the documentation highlights inputs, outputs, and edge cases, maintaining clarity and professionalism.</p></li>
+        <li>
+         <p>You can also ask the AI engine to create simple reproducible examples for it.</p></li>
+       </ul>
+       <h3 class="article-header">Creating Unit Tests</h3><span> </span>
+       <ul>
+        <li>
+         <p>Request the AI to generate unit tests for each function. For example:</p></li>
+       </ul>
+       <ul>
+        <li>
+         <p><span>In Python, ask for <code>unittest</code> or <code>pytest</code> test cases. </span></p></li>
+        <li>
+         <p><span>In R, request <code>testthat</code> test scripts. </span></p></li>
+        <li>
+         <p>In Clojure, ask for test functions using its native testing tools.</p></li>
+       </ul>
+      </div>
+      <li>
+       <p>AI can provide thorough coverage by suggesting test cases you might not have considered.</p></li><span> </span>
+      <p>With documentation and tests generated, you have a robust, production-ready program created efficiently and collaboratively with AI.</p>
+      <p></p>
+      <h2 class="article-header">The AI-Functional Programming Symbiosis</h2><span> </span>
+      <p>Combining functional programming with AI tools offers several benefits:</p>
+      <p><span>1. <strong>Efficiency:</strong> AI accelerates the creation of task-specific functions and peripheral code like tests and documentation. </span></p>
+      <p><span>2. <strong>Focus:</strong> Developers can concentrate on high-level design and logic while offloading repetitive or boilerplate tasks to the AI. </span></p>
+      <p><span>3. <strong>Error Reduction:</strong> By iterating with AI, you can quickly address edge cases, improve error handling, and refine implementations. </span></p>
+      <p><span>4. <strong>Accessibility:</strong> Functional programming’s modular nature aligns well with AI’s ability to handle isolated problems, making the entire workflow approachable and scalable. </span></p>
+      <h1 class="article-header">The options</h1><span> </span>
+      <p>By the end of 2024 many options have appeared and made available publicly. Here are some that I have tried:</p>
+      <ul>
+       <li>
+        <p><span><a href="https://chatgpt.com/">Chat GPT</a> </span></p></li>
+       <li>
+        <p><span><a href="https://claude.ai">claude</a> </span></p></li>
+       <li>
+        <p><span><a href="https://codeium.com">codeium</a> </span></p></li>
+       <li>
+        <p><span><a href="https://copilot.microsoft.com">copilot</a> </span></p></li>
+       <li>
+        <p><span><a href="https://gemini.google.com/">gemini</a> </span></p></li>
+      </ul>
+      <p></p>
+      <h1 class="article-header">Dealing with bugs</h1><span> </span>
+      <p>As we enter into 2025, most of the models have been refined and the resulting code is performing better. Nevertheless, there are still a lot of details that are unknown by the engine that can cause trouble to your code. Here are some that I have faced myself:</p>
+      <ul>
+       <li>
+        <p>The function does not actually do what you expect: Here it helps to be more specific and provide examples. You can develop this along the chat, but in my experience, the longer the chat gets, the more confused the engine becomes. When this happens, it is useful to start from scratch again with a new prompt that is more specific and learned from the previous mistakes.</p></li>
+       <li>
+        <p>Simple bugs: Sometimes the function is simply bugged. Here you can simply copy and paste the error message and the AI will help you to troubleshoot. However, there are cases that are not so easily identifiable by the engine. Such as the ones below:</p></li>
+       <li>
+        <p>Recommending outdated libraries: I have been suggested to use libraries that haven't been maintained for over 5 years and thus, some functions are buggy. However, the AI engines knew nothing about it and were suggesting solutions that did not work. I solved it by asking it to use a different library.</p></li>
+       <li>
+        <p>Using non-existent parameters: Very rarely, the AI model would recommend to use a function in a certain way, by passing specific parameters that are actually not used by the function. This usually happens in less popular libraries or languages (such as emacs lisp) and my guess is that the engine is not well trained because the info about it is scarce. It is usually solved by telling it that it does not take such parameter, adding the documentation, or simply suggesting to use a different function or library.</p></li>
+      </ul>
+      <h1 class="article-header">Conclusion</h1><span> </span>
+      <p>The combination of AI tools and functional programming paradigms unlocks new levels of productivity and creativity in software development. By leveraging AI to generate, test, document, and enhance individual functions, you can efficiently build robust and maintainable programs, deal more efficiently with potential bugs and learn along the way about new functions or different implementations of the same old ones. The iterative nature of this workflow - moving between the AI and your REPL - ensures that each piece of the puzzle fits perfectly before assembling the whole.</p>
+      <p>As AI continues to evolve, its role in programming will only grow, complementing the structured, thoughtful approach that functional programming embodies. So, whether you're working in R, Python, Clojure or something else, embrace this synergy and see how it transforms your coding experience.</p>
+     </article>
+     <div class="article-comments">
+      <script src="https://utteranc.es/client.js" repo="teotenn/blog.teoten.com" issue-term="pathname" theme="github-light" crossorigin="anonymous" async>
+  </script>
+     </div>
+    </div>
+    <button id="toggle-button">&lt;</button>
+    <div id="sidebar" class="collapsed">
+     <a href="https://blog.teoten.com/about/"> <img src="https://blog.teoten.com/img/tt-avatar.jpg" alt="Teoten" class="sidebar-image"> </a>
+     <h2 class="h-sidebar">Links</h2>
+     <ul>
+      <li><a href="https://www.r-project.org/">The R Project</a></li>
+      <li><a href="https://www.r-bloggers.com/">R-bloggers</a></li>
+      <li><a href="https://clojure.org/">Clojure</a></li>
+      <li><a href="https://www.gnu.org/software/emacs/">GNU Emacs</a></li>
+     </ul>
+     <h2 class="h-sidebar">Socials</h2>
+     <ul class="horizontal-list">
+      <li><a href="https://www.linkedin.com/in/teoten/"><i class="fab fa-linkedin-in"></i></a></li>
+      <li><a href="https://codeberg.org/teoten"><i class="fab fa-github"></i></a></li>
+      <li><a rel="me" href="https://social.linux.pizza/@teoten"><i class="fab fa-mastodon"></i></a></li>
+     </ul>
+    </div>
+   </div>
+  </div>
+  <script src="/js/9c70eb7a56f7/scripts.js"></script>
+ </body>
+</html>
