@@ -5,14 +5,16 @@
                       :content "content"}
           :content-opts {:content-template "partials/posts.html"
                          :extensions ["html" "org" "md"]
-                         :build-drafts true}}
+                         :build-drafts true
+                         :category-list-template "partials/category_template.html"}}
  :builder {:function "builder"
            :inherit :server
            :export-dir "public"
            :base-url "https://blog.teoten.com"
            :content-opts {:build-drafts false
                           :content-template "partials/posts.html"
-                          :extensions ["html" "org" "md"]}
+                          :extensions ["html" "org" "md"]
+                          :category-list-template "partials/category_template.html"}
            ;; FIXME: Line above not inheriting the remaining params so, all have to be written
            }
  :test {:inherit :server

@@ -71,11 +71,11 @@
   (filter #(some #{value} (get-in % [:metadata key])) (retrieve-content-info)))
 
 
-(defn process-categories [category-name]
+(defn process-categories [category-name template]
   (let [cats-list (reduce-metadata-lists (keyword category-name))]
     (zipmap (map #(str "/" category-name "/" % "/") cats-list)
             (map #(fn [req] (selmer/render-file
-                             "partials/category_template.html"
+                             template
                              (merge
                               {:req req}
                               {:category %}
