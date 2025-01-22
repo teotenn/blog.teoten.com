@@ -9,7 +9,17 @@
             [teoten.ttblog.config :refer [app-env]]
             [teoten.ttblog.content.org :refer [prepare-org-page]]))
 
-(def posts-map (atom []))
+(def posts-map
+  "Vector of maps, one map per content element. Each containing the following:
+  `:id` Identifier, thus, relative path.
+  `:metadata` All the metadata from yml in md or metadata in org
+  files. In html takes yml as the first paragraph.
+  `:head` If an hatml `<head>` section exists, its content is stored here.
+  `:body` The hamlt `<body>` section.
+  `:path` Relative path to the file -> website.
+  `:format` of the source file.
+  "
+  (atom []))
 
 
 ;; Selmer support
@@ -27,7 +37,7 @@
   (str "<article id=\"post-" uid "\" data-post-id=\"" uid "\">" p "</article>"))
 
 
-(defn map-pages [pages-extracted extension]
+(defn map-pages
   "Convert `pages` extracted from `stasis/slurp-directory` into a map with:
  `:id` Unique ID
  `:metadata` parsed from yml or org headers
@@ -36,6 +46,7 @@
  `:format` Origin format of the post (org or md)
 
 `extension` is the file extension (org or md)."
+  [pages-extracted extension]
   (let [xt (str/lower-case extension)]
     (if (not (some #(= % xt) ["org" "md" "html"]))
       (throw (Exception. (str "Unsupported extension: " extension)))
@@ -72,7 +83,15 @@
                        :format xt}))
                   pages))))))
 
-(defn merge-vectors-with-unique-paths [x y]
+(defn merge-vectors-with-unique-paths
+  "Merges two vectors of maps, ensuring each map has a unique `:path` key.
+  
+  Each map in the vectors is expected to have a `:path` key. If any duplicate 
+  `:path` values are found across the two vectors, an exception is thrown.
+  
+  Returns:
+  - A single vector containing all maps from `x` and `y` if no duplicates are found."
+  [x y]
   (let [merged (concat x y)
         paths (map :path merged)
         duplicates (->> paths
