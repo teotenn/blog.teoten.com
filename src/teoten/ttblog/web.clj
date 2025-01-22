@@ -100,6 +100,8 @@
       (ce/post-pages! (stasis/slurp-directory (glue-dir "content") regexp-ext))
       :templates
       (temp/process-templates (glue-dir "templates"))
+      :categories
+      (temp/process-categories)
       :rss
       {"/index.xml" (rss/atom-xml @ce/posts-map)
        "/categories/r/index.xml" (rss/filter-rss-by-category (rss/atom-xml @ce/posts-map) "R")

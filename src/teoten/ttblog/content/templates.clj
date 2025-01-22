@@ -49,11 +49,50 @@
            (map #(str "/" %)))
       (throw (Exception. (str dir " not found or not a directory."))))))
 
+(defn reduce-metadata-lists
+  "Reduces all the lists found in the metadata `element` to a single
+  vector with unique values."
+  [element]
+  (let [values (map #(get-in % [:metadata element]) (retrieve-content-info))]
+    (vec (reduce into #{} values))))
+
+(defn map-supportive-info
+  "Generates the map of supportive info to be used by the templates.
+
+  `:categories` Vector. List of categories in content.
+  `:tags` Vector. List of tags in content.
+  "
+  []
+  {:categories (reduce-metadata-lists :categories)
+   :tags (reduce-metadata-lists :tags)})
+
+(defn filter-by-category [category]
+  "Filters a list of maps by a given category. Returns only the elements
+   where the `:categories` vector from `:metadata` which contains the specified category.
+
+   Parameters:
+   - `category`: The category to search for (a string).
+
+   Returns:
+   - A list of maps containing the given category in their `:metadata :categories`."
+  (filter #(some #{category} (get-in % [:metadata :categories])) (retrieve-content-info)))
+
+
+(defn process-categories []
+  (let [cats-list (reduce-metadata-lists :categories)]
+    (zipmap (map #(str "/categories/" % "/") cats-list)
+            (map #(fn [req] (selmer/render-file
+                             "partials/category_template.html"
+                             (merge
+                              {:req req}
+                              {:category %}
+                              {:content (filter-by-category %)})))
+                 cats-list))))
+
 
 (defn process-templates [path]
   (let [html-files (list-end-templates path)
-        templates-map (merge {:to-be-determine "NOT USED YET"}
-                                        ; FIXME: NOT USED YET in the line above
+        templates-map (merge {:supportive-info (map-supportive-info)}
                              {:content (retrieve-content-info)})]
     (zipmap (map #(if (= % "/index.html") "/" (str/replace % #"\.html$" "/")) html-files)
             (map #(fn [req] (selmer/render-file % (merge templates-map {:req req}))) html-files))))
