@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title>Posts by tag | Teoten's blog</title>
+{% endblock %}
+
+{% block content %}
+<h2>Posts tags</h2>
+<br>
+
+<div class="list-category">
+  <ul>
+    {% for cat in supportive-info.tags %}
+    <li><a href="/tags/{{ cat }}" class="list-category-link">{{ cat }}</a></li>
+    {% endfor %}
+  </ul>
+</div>
+
+
+
+{% endblock %}

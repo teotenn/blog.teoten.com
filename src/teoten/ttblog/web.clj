@@ -101,7 +101,9 @@
       :templates
       (temp/process-templates (glue-dir "templates"))
       :categories
-      (temp/process-categories)
+      (temp/process-categories "categories")
+      :tags
+      (temp/process-categories "tags")
       :rss
       {"/index.xml" (rss/atom-xml @ce/posts-map)
        "/categories/r/index.xml" (rss/filter-rss-by-category (rss/atom-xml @ce/posts-map) "R")

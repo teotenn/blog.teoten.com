@@ -49,12 +49,39 @@
            (map #(str "/" %)))
       (throw (Exception. (str dir " not found or not a directory."))))))
 
+
+;; CATEGORIES AND TAGS
 (defn reduce-metadata-lists
   "Reduces all the lists found in the metadata `element` to a single
   vector with unique values."
   [element]
   (let [values (map #(get-in % [:metadata element]) (retrieve-content-info))]
     (vec (reduce into #{} values))))
+
+
+(defn filter-by-field [value key]
+  "Filters a list of maps by a given category. Returns only the elements
+   where the `:categories` vector from `:metadata` which contains the specified category.
+
+   Parameters:
+   - `category`: The category to search for (a string).
+
+   Returns:
+   - A list of maps containing the given category in their `:metadata :categories`."
+  (filter #(some #{value} (get-in % [:metadata key])) (retrieve-content-info)))
+
+
+(defn process-categories [category-name]
+  (let [cats-list (reduce-metadata-lists (keyword category-name))]
+    (zipmap (map #(str "/" category-name "/" % "/") cats-list)
+            (map #(fn [req] (selmer/render-file
+                             "partials/category_template.html"
+                             (merge
+                              {:req req}
+                              {:category %}
+                              {:content (filter-by-field % (keyword category-name))})))
+                 cats-list))))
+
 
 (defn map-supportive-info
   "Generates the map of supportive info to be used by the templates.
@@ -66,28 +93,6 @@
   {:categories (reduce-metadata-lists :categories)
    :tags (reduce-metadata-lists :tags)})
 
-(defn filter-by-category [category]
-  "Filters a list of maps by a given category. Returns only the elements
-   where the `:categories` vector from `:metadata` which contains the specified category.
-
-   Parameters:
-   - `category`: The category to search for (a string).
-
-   Returns:
-   - A list of maps containing the given category in their `:metadata :categories`."
-  (filter #(some #{category} (get-in % [:metadata :categories])) (retrieve-content-info)))
-
-
-(defn process-categories []
-  (let [cats-list (reduce-metadata-lists :categories)]
-    (zipmap (map #(str "/categories/" % "/") cats-list)
-            (map #(fn [req] (selmer/render-file
-                             "partials/category_template.html"
-                             (merge
-                              {:req req}
-                              {:category %}
-                              {:content (filter-by-category %)})))
-                 cats-list))))
 
 
 (defn process-templates [path]
