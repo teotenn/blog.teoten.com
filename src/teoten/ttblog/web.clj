@@ -95,7 +95,7 @@
   (let [regexp-ext (generate-extensions-regexp (get-in @app-env [:content-opts :extensions] ["org" "html" "md"]))]
     (stasis/merge-page-sources
      {:static
-      (stasis/slurp-directory (glue-dir "static") #".*\.(css|js)$")
+      (stasis/slurp-directory (glue-dir "static") #".*\.(css|js|txt)$")
       :content
       (ce/post-pages! (stasis/slurp-directory (glue-dir "content") regexp-ext))
       :templates
@@ -106,6 +106,7 @@
       (temp/process-categories "tags" (get-in @app-env [:content-opts :category-list-template]))
       :rss
       {"/index.xml" (rss/atom-xml @ce/posts-map)
+       "/sitemap.xml" (rss/atom-xml @ce/posts-map)
        "/categories/r/index.xml" (rss/filter-rss-by-category (rss/atom-xml @ce/posts-map) "R")
        "/categories/web-dev/index.xml" (rss/filter-rss-by-category (rss/atom-xml @ce/posts-map) "web-dev")
        "/categories/clojure/index.xml" (rss/filter-rss-by-category (rss/atom-xml @ce/posts-map) "clojure")

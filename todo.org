@@ -10,13 +10,46 @@
 *** DONE Pass clj map to render post template
 *** DONE Generate pages for tags and categories
 *** TODO Improve SEO
+**** TODO Submite sitemal-xml to search engines
+**** TODO Create robots.txt
 *** TODO Refactor code that uses jsoup and enlive for [[https://github.com/clj-commons/hickory][hickory]] and hiccup
 *** TODO Minor bugs
 **** TODO When a post has empty tags or categories (or other) the building fails without a clear msg
 **** TODO As introduced list of posts by tag and category, both are needed or the whole program will break. Change this to make it flexible.
 **** TODO Inheritance of =config.edn= not inheriting sub maps
+**** TODO Mobile view of side bar is buggy
 ** Backlog
+*** TODO Allow users to search for content
 *** TODO The =#+ATTR_HTML:= part before org images does not work. Consider fix.
 
 *** TODO Sort list of all posts per year?
 *** TODO Add ToC to the sidebar?
+
+* Critical SEO optimizations
+
+** Technical SEO
+- [X] Website Speed: Ensure your blog loads quickly on both desktop and mobile devices.
+- [X] Mobile-Friendliness: Use a responsive design so your blog looks good and functions well on all screen sizes.
+- [X] Secure Website (HTTPS): Use an SSL certificate to ensure your blog is secure.
+- [ ] XML Sitemap: Create and submit an XML sitemap to search engines to help them crawl your blog.
+- [ ] Robots.txt File: Use this file to control which parts of your blog are crawled by search engines.
+- [ ] Canonical Tags: Prevent duplicate content issues by setting canonical URLs.
+- [X] URL Structure: Ensure URLs are clean, descriptive, and include relevant keywords.
+- [ ] Schema Markup: Implement structured data (e.g., for articles, breadcrumbs, FAQs) to improve how your blog appears in SERPs.
+- [ ] Fix Broken Links: Ensure there are no dead links on your blog.
+- [ ] Core Web Vitals: Optimize for metrics like Largest Contentful Paint (LCP), First Input Delay (FID), and Cumulative Layout Shift (CLS).
+
+** On-Page SEO
+- [ ] Keyword Research: Identify and target the right keywords for each blog post.
+- [ ] Title Tags: Create compelling, keyword-optimized titles.
+- [ ] Meta Descriptions: Write enticing meta descriptions that summarize the content and include the primary keyword.
+- [X] Header Tags (H1, H2, H3): Use headings to structure your content logically and include keywords.
+- [X] Internal Linking: Link to other relevant blog posts within your site to improve navigation and SEO.
+- [X] External Linking: Link to authoritative external sources to add value to your content.
+- [X] Content-Length and Quality: Ensure your posts are long enough to cover the topic comprehensively and provide value.
+- [ ] Image Optimization: Compress images, use descriptive file names, and add alt text with keywords.
+- [X] Content Formatting: Use bullet points, numbered lists, and short paragraphs for readability.
+- [X] Keyword Density: Use your target keyword naturally throughout the content without overstuffing.
+
+** Content Strategy
+- [ ] Topic Clusters and Pillar Pages: Use a content structure where related posts link to a central "pillar" page.
