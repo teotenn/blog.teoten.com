@@ -106,7 +106,7 @@
       (temp/process-categories "tags" (get-in @app-env [:content-opts :category-list-template]))
       :rss
       {"/index.xml" (rss/atom-xml @ce/posts-map)
-       "/sitemap.xml" (rss/atom-xml @ce/posts-map)
+       "/sitemap.xml" (rss/sitemap-xml @ce/posts-map)
        "/categories/r/index.xml" (rss/filter-rss-by-category (rss/atom-xml @ce/posts-map) "R")
        "/categories/web-dev/index.xml" (rss/filter-rss-by-category (rss/atom-xml @ce/posts-map) "web-dev")
        "/categories/clojure/index.xml" (rss/filter-rss-by-category (rss/atom-xml @ce/posts-map) "clojure")
