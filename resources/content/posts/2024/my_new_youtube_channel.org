@@ -3,6 +3,7 @@
 #+image: /img/ttprogramando_banner.png
 #+draft: false
 #+date: 2024-12-04
+#+language: es
 #+description: Presentación de mi nuevo canal de Youtube sobre programación en R
 #+tags: ["R basics", "R-dev", "R tips"]
 #+categories: ["R"]

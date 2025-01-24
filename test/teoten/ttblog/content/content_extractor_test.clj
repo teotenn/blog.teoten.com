@@ -19,7 +19,7 @@
           (is (= (:id page) "file1/"))
           (is (= (:path page) "file1/"))
           (is (= (:format page) "org"))
-          (is (= (:metadata page) {:draft "false" :title "Org Title"}))
+          (is (= (:metadata page) {:draft "false" :title "Org Title" :image "/img/default.jpg"}))
           (is (= (:head page) "")))))
 
     (testing "Filtering out drafts when build-drafts is false"

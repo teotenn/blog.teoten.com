@@ -8,6 +8,7 @@
             [teoten.ttblog.content.html :refer [prepare-html-page]]
             [selmer.parser :as selmer]
             [teoten.ttblog.config :refer [app-env]]
+            [teoten.ttblog.utils :as utils]
             [teoten.ttblog.content.org :refer [prepare-org-page]]))
 
 (def posts-map
@@ -76,12 +77,11 @@
      :keywords (str/join ", " (get metadata :tags ["programming" "software"]))
      :mainEntityOfPage {:ld/type "WebPage"
                         :ld/id (str base-url (:path post-map))}
-     :image (str base-url (:image metadata))
+     :image (utils/regularize-link (:image metadata) base-url)
      :about (vec (map #(hash-map :ld/type "Thing" :name %) (:categories metadata)))
      :inLanguage (get metadata :language "en")
      :publisher {:ld/type "Person"
-                 :name "teoten"}
-     }))
+                 :name "teoten"}}))
 
 (defn schema-to-html-str [schema-map]
   (str "<script type=\"application/ld+json\">"
