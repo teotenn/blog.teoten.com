@@ -1,7 +1,9 @@
 (ns teoten.ttblog.utils
   (:require [clojure.string :as str]
             [teoten.ttblog.config :refer [app-env]])
-  (:import [org.jsoup Jsoup]
+  (:import [java.time LocalDate LocalTime ZonedDateTime ZoneId]
+           [java.time.format DateTimeFormatter]
+           [org.jsoup Jsoup]
            [org.jsoup.nodes Document]))
 
 
@@ -12,7 +14,7 @@
   - `s`: A string representing a file path, potentially containing '../' references.
 
   Returns:
-  - A string with all '../' occurrences removed from the start of the input. 
+  - A string with all '../' occurrences removed from the start of the input.
     Any '../' references in the middle or end of the string are left untouched.
 
   Example usage:
@@ -43,16 +45,27 @@
   (let [base-url (if (= "server" (:function @app-env))
                    (str "http://localhost:" (:port @app-env) "/")
                    (:base-url @app-env))
-        doc (Jsoup/parse html-str)  
+        doc (Jsoup/parse html-str)
         imgs (.select doc "img[src]")
         links (.select doc "a[href]")]
     (doseq [link links]
       (let [old-href (.attr link "href")
-            new-href (regularize-link old-href base-url)] 
+            new-href (regularize-link old-href base-url)]
         (.attr link "href" new-href)))
     (doseq [img imgs]
       (let [old-src (.attr img "src")
-            new-src (regularize-link old-src base-url)]  
-        (.attr img "src" new-src))) 
+            new-src (regularize-link old-src base-url)]
+        (.attr img "src" new-src)))
     (.html doc)))
 
+
+
+(defn format-google-datetime
+  "Converts a date string in 'yyyy-MM-dd' format to Google's datetime
+  format 'yyyy-MM-ddTHH:mm:ss+HH:mm', accounting for Warsaw's time
+  zone."
+  [date-str]
+  (let [local-date (LocalDate/parse date-str)
+        zoned-date-time (ZonedDateTime/of local-date (LocalTime/of 8 0) (ZoneId/of "Europe/Warsaw"))
+        formatter (DateTimeFormatter/ofPattern "yyyy-MM-dd'T'HH:mm:ssXXX")]
+    (.format zoned-date-time formatter)))

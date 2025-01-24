@@ -67,8 +67,8 @@
                 :name (get @app-env :blog-name "")
                 :url base-url}
      :headline (:title metadata)
-     :datePublished (:date metadata)
-     :dateModified (get metadata :modified (:date metadata))
+     :datePublished (utils/format-google-datetime (:date metadata))
+     :dateModified (utils/format-google-datetime (get metadata :modified (:date metadata)))
      :author {:ld/type "Person"
               :name (:author metadata)
               :url (get-in @app-env [:schema-markup :personal-url])
