@@ -31,11 +31,11 @@
 - [X] Website Speed: Ensure your blog loads quickly on both desktop and mobile devices.
 - [X] Mobile-Friendliness: Use a responsive design so your blog looks good and functions well on all screen sizes.
 - [X] Secure Website (HTTPS): Use an SSL certificate to ensure your blog is secure.
-- [ ] XML Sitemap: Create and submit an XML sitemap to search engines to help them crawl your blog.
+- [X] XML Sitemap: Create and submit an XML sitemap to search engines to help them crawl your blog.
 - [X] Robots.txt File: Use this file to control which parts of your blog are crawled by search engines.
 - [X] Canonical Tags: Prevent duplicate content issues by setting canonical URLs.
 - [X] URL Structure: Ensure URLs are clean, descriptive, and include relevant keywords.
-- [ ] Schema Markup: Implement structured data (e.g., for articles, breadcrumbs, FAQs) to improve how your blog appears in SERPs.
+- [X] Schema Markup: Implement structured data (e.g., for articles, breadcrumbs, FAQs) to improve how your blog appears in SERPs.
 - [ ] Fix Broken Links: Ensure there are no dead links on your blog.
 - [ ] Core Web Vitals: Optimize for metrics like Largest Contentful Paint (LCP), First Input Delay (FID), and Cumulative Layout Shift (CLS).
 

@@ -2,6 +2,7 @@
   (:require [clojure.string :as str]
             [optimus.link :as link]
             [hiccup.page :refer [html5]]
+            [cheshire.core :as json]
             [teoten.ttblog.content.highlight :as hl]
             [teoten.ttblog.content.md :refer [prepare-md-page]]
             [teoten.ttblog.content.html :refer [prepare-html-page]]
@@ -36,6 +37,57 @@
 (defn wrap-post-as-article [p uid]
   (str "<article id=\"post-" uid "\" data-post-id=\"" uid "\">" p "</article>"))
 
+;; JSON
+(defn normalize-namespaced-keys [clojure-map]
+  "Converts namespaced keys like :ld/context to @context."
+  (let [transform-key (fn [k]
+                        (if (and (keyword? k) (= "ld" (namespace k)))
+                          (str "@" (name k)) ;; Replace :ld/context -> @context
+                          k))]
+    (clojure.walk/postwalk
+     (fn [x]
+       (if (map? x)
+         (into {} (map (fn [[k v]] [(transform-key k) v]) x))
+         x))
+     clojure-map)))
+
+
+(defn schema-to-json-ld [schema-map]
+  "Converts a prepared schema map to a JSON-LD string."
+  (json/generate-string (normalize-namespaced-keys schema-map)))
+
+(defn create-schema-map-from-post-map [post-map]
+  (let [metadata (:metadata post-map)
+        base-url (get @app-env :base-url "")]
+    {:ld/context "https://schema.org"
+     :ld/type "BlogPosting"
+     :articleSection "Programming"
+     :isPartOf {:ld/type "Blog"
+                :name (get @app-env :blog-name "")
+                :url base-url}
+     :headline (:title metadata)
+     :datePublished (:date metadata)
+     :dateModified (get metadata :modified (:date metadata))
+     :author {:ld/type "Person"
+              :name (:author metadata)
+              :url (get-in @app-env [:schema-markup :personal-url])
+              :sameAs (get-in @app-env [:schema-markup :socials])}
+     :description (get metadata :description "")
+     :keywords (str/join ", " (get metadata :tags ["programming" "software"]))
+     :mainEntityOfPage {:ld/type "WebPage"
+                        :ld/id (str base-url (:path post-map))}
+     :image (str base-url (:image metadata))
+     :about (vec (map #(hash-map :ld/type "Thing" :name %) (:categories metadata)))
+     :inLanguage (get metadata :language "en")
+     :publisher {:ld/type "Person"
+                 :name "teoten"}
+     }))
+
+(defn schema-to-html-str [schema-map]
+  (str "<script type=\"application/ld+json\">"
+       (schema-to-json-ld schema-map)
+       "</script>"))
+;; --
 
 (defn map-pages
   "Convert `pages` extracted from `stasis/slurp-directory` into a map with:
@@ -70,10 +122,15 @@
                     (let [name (str/replace filename regexp  "/")
                           uuid name
                           parsed-content (parse-f content)
-                          title (get-in parsed-content [:metadata :title] "Quick Post")]
+                          title (get-in parsed-content [:metadata :title] "Quick Post")
+                          raw-metadata (:metadata parsed-content)
+                          metadata (if (= "" (get raw-metadata :image ""))
+                                     (update raw-metadata :image
+                                             (fn [_] (get @app-env :default-img  "/img/default.jpg")))
+                                     raw-metadata)]
                       ;; Construct the new map entry
                       {:id uuid
-                       :metadata (:metadata parsed-content)
+                       :metadata metadata
                        :head (:head parsed-content)
                        :body (let [p (:body parsed-content)]
                                (-> p
@@ -112,7 +169,9 @@
         p (selmer/render-file template (merge post-map {:req req}))]
     (-> p
         (str/replace "!!!--- ADD CONTENT,,,!!!" (:body post-map))
-        (str/replace "!!!--- ADD HEAD,,,!!!" (:head post-map)))))
+        (str/replace "!!!--- ADD HEAD,,,!!!" (str (:head post-map)
+                                                  (schema-to-html-str
+                                                   (create-schema-map-from-post-map post-map)))))))
 
 
 (defn post-pages! [pages]
@@ -123,3 +182,6 @@
     (register-pages! pages "html")
     (zipmap (map :path @posts-map)
             (map #(fn [req] (wrap-content-template % req)) @posts-map))))
+
+
+;; TODO: in wrap-content-template change `schema` for a real schema based on the content map. Create a fun for that
