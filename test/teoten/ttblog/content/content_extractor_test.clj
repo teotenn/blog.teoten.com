@@ -5,7 +5,9 @@
 
 (deftest test-map-pages
     (testing "Processing pages with supported extensions"
-      (let [pages-extracted {"file1.org" "#+draft: false\n#+title: Org Title\nOrg content"
+      (let [pages-extracted {"file1.org" (str "#+draft: false\n#+title: Org Title\n"
+                                              "#+date: 2024-01-01\n"
+                                              "#+description: Description\nOrg content")
                              "file2.md" "Markdown content"
                              "file3.html" "HTML content"}
             app-env (atom {:content-opts {:build-drafts true}})
@@ -19,12 +21,22 @@
           (is (= (:id page) "file1/"))
           (is (= (:path page) "file1/"))
           (is (= (:format page) "org"))
-          (is (= (:metadata page) {:draft "false" :title "Org Title" :image "/img/default.jpg"}))
+          (is (= (:metadata page) {:draft "false"
+                                   :title "Org Title"
+                                   :description "Description"
+                                   :categories ["uncategorized"],
+                                   :date "2024-01-01",
+                                   :tags []
+                                   :image "/img/default.jpg"}))
           (is (= (:head page) "")))))
 
     (testing "Filtering out drafts when build-drafts is false"
-      (let [pages-extracted {"file1.org" "#+draft: true\nOrg content"
-                             "file2.org" "#+draft: false\nContent"}
+      (let [pages-extracted {"file1.org" (str "#+draft: true\n#+title: Org Title 1\n"
+                                              "#+date: 2024-01-01\n"
+                                              "#+description: Description\nOrg content")
+                             "file2.org" (str "#+draft: false\n#+title: Org Title 2\n"
+                                              "#+date: 2024-01-01\n"
+                                              "#+description: Description\nOrg content")}
             app-env (atom {:content-opts {:build-drafts false}})
             result (map-pages pages-extracted "org")]
         (is (= 1 (count result)))))

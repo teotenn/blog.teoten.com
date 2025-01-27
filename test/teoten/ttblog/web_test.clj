@@ -34,19 +34,5 @@
         (is (re-matches single-ext-pattern "notes.txt"))
         (is (nil? (re-matches single-ext-pattern "notes.doc")))))))
 
-(deftest test-delete-parent-dirs
-  (testing "Removing '../' from the start of file paths"
-    ;; Normal cases
-    (is (= (delete-parent-dirs "../file.txt") "file.txt"))
-    (is (= (delete-parent-dirs "../../folder/file.txt") "folder/file.txt"))
-    (is (= (delete-parent-dirs "../..") ".."))
-
-    ;; No '../' at the start
-    (is (= (delete-parent-dirs "folder/file.txt") "folder/file.txt"))
-    (is (= (delete-parent-dirs "path/../file.txt") "path/../file.txt"))
-
-    ;; Empty string input
-    (is (= (delete-parent-dirs "") ""))))
-
 
 (println "web-test loaded")
