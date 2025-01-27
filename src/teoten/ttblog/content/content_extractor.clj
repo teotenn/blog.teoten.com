@@ -88,6 +88,43 @@
        (schema-to-json-ld schema-map)
        "</script>"))
 ;; --
+(def good-map {:id "ID"
+               :image "/path/image/img.jpg"
+               :tags ["A" "B"]
+               :categories ["cat1" "cat2"]})
+(def empty-map {:id "ID" :image "" :tags "" :categories ""})
+(def miss-map {:id "ID"})
+
+
+(defn standardize-metadata
+  "Standardizes the following fields in the map `m` (ideally metadata
+  section) when missing or empty: `image`, `draft`, `tags` and
+  `categories`.
+
+  Additionally, throws informative errors when missing `title`,
+  `description` and `date`, for the last one also when format is not
+  acceptable. The errors are rendered by `selmer` in server mode."
+  [m]
+  (let [m-image (if (= "" (get m :image ""))
+                  (get @app-env :default-img  "/img/default.jpg")
+                  (:image m))
+        m-draft (get m :draft true)
+        m-tags (get m :tags [])
+        m-cats (get m :categories ["uncategorized"])
+        raw-date (get m :date "")]
+    (if (= "" (get m :title "")) (throw (Exception. (str "Post without a title: " m))))
+    (if (= "" (get m :description ""))
+      (throw (Exception. (str "Post \"" (:title m) "\" needs a description."))))
+    (if (= "" raw-date)
+      (throw (Exception. (str "Post \"" (:title m) "\" missing date.")))
+      (if (not (re-matches #"[0-9]{4}-[0-1][0-9]-[0-3][0-9]" raw-date))
+        (throw (Exception. (str "Wrong date format in \"" (:title m) "\".")))))
+    (-> m
+        (assoc :image m-image)
+        (assoc :draft m-draft)
+        (assoc :tags m-tags)
+        (assoc :categories m-cats))))
+
 
 (defn map-pages
   "Convert `pages` extracted from `stasis/slurp-directory` into a map with:
@@ -123,8 +160,9 @@
                           uuid name
                           parsed-content (parse-f content)
                           title (get-in parsed-content [:metadata :title] "Quick Post")
-                          raw-metadata (:metadata parsed-content)
-                          metadata (if (= "" (get raw-metadata :image ""))
+                          metadata (standardize-metadata (:metadata parsed-content))
+                          ;; metadata
+                          #_(if (= "" (get raw-metadata :image ""))
                                      (update raw-metadata :image
                                              (fn [_] (get @app-env :default-img  "/img/default.jpg")))
                                      raw-metadata)]
