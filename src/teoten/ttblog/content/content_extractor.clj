@@ -88,12 +88,6 @@
        (schema-to-json-ld schema-map)
        "</script>"))
 ;; --
-(def good-map {:id "ID"
-               :image "/path/image/img.jpg"
-               :tags ["A" "B"]
-               :categories ["cat1" "cat2"]})
-(def empty-map {:id "ID" :image "" :tags "" :categories ""})
-(def miss-map {:id "ID"})
 
 
 (defn standardize-metadata
