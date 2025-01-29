@@ -208,7 +208,6 @@ body.dark-theme #sidebar {
 }
 
 
-/* TODO keep editing here until sidebar looks like a bar on the top */
 @media (max-width: 600px) {
     /* General sidebar styles */
     #sidebar {
