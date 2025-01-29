@@ -72,11 +72,3 @@ Finally, the file =config.edn= contains the details for different profiles (envi
 This file pairs well with the function =-main= in =core.clj= to define aliases.
 
 See the original files to get the clear example of how to use them. If you are not familiar with =deps.edn= aliases, get a deep dive into the [[https://clojure.org/reference/deps_edn][official documentation]] first.
-
-* Known issues
-** Categories and tags
-If a post has no =categories= and =tags= listed, the posts are not rendered. Therefore, for now both are required.
-
-Also, new elements to list posts by category and tag has been introduced in <2025-01-22 Wed> and as for now, both are necessary for the whole program to run properly.
-
-It is expected to change this in the near future to make it more flexible about including it or not, both, or under different naming.
