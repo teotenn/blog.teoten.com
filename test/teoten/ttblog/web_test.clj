@@ -16,6 +16,23 @@
           #_(println "Response:" response) ; Debugging: Check the full response
           (is (= [url status] [url 200])))))))
 
+(deftest test-generate-extensions-regexp
+  (testing "Regex pattern for file extensions"
+    (let [pattern (generate-extensions-regexp ["jpg" "png" "gif"])]
+      ;; Ensure the pattern matches the expected filenames
+      (is (re-matches pattern "image.jpg"))
+      (is (re-matches pattern "photo.png"))
+      (is (re-matches pattern "animation.gif"))
+      
+      ;; Ensure the pattern does not match non-matching filenames
+      (is (nil? (re-matches pattern "document.pdf")))
+      (is (nil? (re-matches pattern "archive.zip")))
+      (is (nil? (re-matches pattern "file.jpg.doc")))
+      
+      ;; Ensure it works with a single extension
+      (let [single-ext-pattern (generate-extensions-regexp ["txt"])]
+        (is (re-matches single-ext-pattern "notes.txt"))
+        (is (nil? (re-matches single-ext-pattern "notes.doc")))))))
 
 
 (println "web-test loaded")

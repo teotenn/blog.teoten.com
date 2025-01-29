@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title>Category {{ category }} | Teoten's blog</title>
+<meta name="description" content="List of posts about {{ category }}">
+{% endblock %}
+
+{% block content %}
+<h2>Posts about {{ category }}</h2>
+<br>
+
+{% include "partials/post_boxes_all.html" %}
+
+{% endblock %}

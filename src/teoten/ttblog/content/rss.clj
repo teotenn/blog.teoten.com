@@ -38,6 +38,22 @@
         (map entry sorted-posts)]]))))
 
 
+(defn sitemap-element [post]
+  (let [base-url (get-base-url)
+        path (str base-url (:path post))]
+    [:url
+     [:loc path]
+     [:lastmod (get-in post [:metadata :date])]]))
+
+(defn sitemap-xml [posts]
+  (let [base-url (get-base-url)
+        sorted-posts (sort-by #(get-in % [:metadata :date]) #(compare %2 %1) posts)]
+    (xml/emit-str
+     (xml/sexp-as-element
+      [:urlset {:xmlns "http://www.sitemaps.org/schemas/sitemap/0.9"}
+       (map sitemap-element sorted-posts)]))))
+
+
 ;; XML by Category
 (defn item-has-category? [item category]
   "Helper function to check if an `item` contains a specific `category`."

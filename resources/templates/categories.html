@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title>Posts categories | Teoten's blog</title>
+<meta name="description" content="List of categories in posts.">
+{% endblock %}
+
+{% block content %}
+<h2>Posts categories</h2>
+<br>
+
+<div class="list-category">
+  <ul>
+    {% for cat in supportive-info.categories %}
+    <li><a href="/categories/{{ cat }}" class="list-category-link">{{ cat }}</a></li>
+    {% endfor %}
+  </ul>
+</div>
+
+
+
+{% endblock %}

@@ -4,8 +4,8 @@
 #+draft: false
 #+date: 2024-10-21
 #+description: One R session to rule them all
-#+tags: ["R"]
-#+categories: ["R basics", "R functions"]
+#+tags: ["R basics", "R functions"]
+#+categories: ["R"]
 #+archives: ["2024"]
 
 When working in R, there are times when managing multiple R sessions becomes essential. For instance, if you are updating packages, troubleshooting conflicts, or managing system resources, it may be necessary to terminate all the sessions, or to keep only the current R session.

@@ -7,12 +7,25 @@
 **** DONE View on mobile
 **** DONE In posts content
 **** DONE The code blocks
-*** TODO Sort list of all posts per year
-*** TODO Improve SEO
 *** DONE Pass clj map to render post template
-*** TODO Add ToC to the sidebar?
-*** TODO The =#+ATTR_HTML:= part before org images does not work. Consider fix.
-*** TODO Generate pages for tags and categories
+*** DONE Generate pages for tags and categories
+*** DONE Improve SEO
+**** DONE Submite sitemap.xml to search engines
+**** DONE Create robots.txt
 *** TODO Refactor code that uses jsoup and enlive for [[https://github.com/clj-commons/hickory][hickory]] and hiccup
 *** TODO Minor bugs
-**** TODO When a post has empty tags or categories (or other) the building fails without a clear msg
+**** DONE When a post has empty tags or categories (or other) the building fails without a clear msg
+**** DONE As introduced list of posts by tag and category, both are needed or the whole program will break. Change this to make it flexible.
+**** TODO Inheritance of =config.edn= not inheriting sub maps
+**** DONE Mobile view of side bar is buggy
+** Backlog
+*** TODO More SEO
+**** TODO Image Optimization: Compress images, use descriptive file names, and add alt text with keywords.
+**** TODO Ensure there are no dead links.
+**** TODO Core Web Vitals: Optimize for metrics like Largest Contentful Paint (LCP), First Input Delay (FID), and Cumulative Layout Shift (CLS).
+**** TODO Fix missing 40X pages
+*** TODO Allow users to search for content
+*** TODO The =#+ATTR_HTML:= part before org images does not work. Consider fix.
+
+*** TODO Sort list of all posts per year?
+*** TODO Add ToC to the sidebar?

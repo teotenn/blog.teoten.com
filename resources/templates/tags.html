@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title>List of tags | Teoten's blog</title>
+<meta name="description" content="Lists of tags in posts">
+{% endblock %}
+
+{% block content %}
+<h2>Posts tags</h2>
+<br>
+
+<div class="list-category">
+  <ul>
+    {% for cat in supportive-info.tags %}
+    <li><a href="/tags/{{ cat }}" class="list-category-link">{{ cat }}</a></li>
+    {% endfor %}
+  </ul>
+</div>
+
+
+
+{% endblock %}
