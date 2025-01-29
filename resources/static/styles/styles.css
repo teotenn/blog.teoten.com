@@ -210,26 +210,62 @@ body.dark-theme #sidebar {
 
 /* TODO keep editing here until sidebar looks like a bar on the top */
 @media (max-width: 600px) {
+    /* General sidebar styles */
     #sidebar {
 	position: fixed;
-	top: 5;
-	/* background-color: var(--sidebar-bg-stacked); */
+	top: 0;
+	left: 0;
+	width: 250px;
+	height: 100vh;
+	padding: 20px;
     }
 
-    #sidebar.expanded {
-	display: flex;
-	width: 50%;
-	justify-content: flex-end;
-	z-index: 2000;
-    }
-
-    .h-sidebar {
-	justify-content: flex-end;
-    }
-
+    /* Sidebar collapsed state */
     #sidebar.collapsed {
+	/* transform: scaleX(0); */
 	transform: scaleY(0);
-	width: 1%;
+	height: 0%;
+    }
+
+    /* When expanded, make it a top bar */
+    #sidebar.expanded {
+	width: 80%;
+	height: auto;
+	position: fixed;
+	top: 0;
+	left: 2vh;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+	align-items: center;
+	padding: 10px 20px;
+	z-index: 1000;
+    }
+
+    #sidebar.expanded .sidebar-image {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+    }
+
+    #sidebar.expanded ul {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+    }
+
+    #sidebar.expanded ul.horizontal-list {
+	justify-content: center;
+    }
+
+    #sidebar.expanded ul li {
+	display: inline-block;
+    }
+
+    #sidebar.expanded h2 {
+	display: none; /* Hide section headers when expanded */
     }
 }
 
@@ -550,8 +586,8 @@ article {
 	left: 20px;
 	z-index: 1500;
 	opacity: 0;
-    }    
-    
+    }
+
 
     .navbar-container .hamburger-lines {
 	display: block;
@@ -598,7 +634,7 @@ article {
     .navbar-container input[type="checkbox"]:checked ~ .hamburger-lines .line3 {
 	transform: rotate(-35deg);
     }
-    
+
     .navbar .menu-items {
 	padding-top: 80px;
 	padding-left: 5px;
@@ -611,8 +647,8 @@ article {
 	transition: transform 0.5s ease-in-out;
 	box-shadow: 0 8px 16px var(--image-shadow-color);
     }
-    
-    
+
+
     .navbar .menu-items li {
 	font-size: 1.3rem;
 	margin-bottom: 1.5rem;
