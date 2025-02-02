@@ -1,0 +1,31 @@
+#+author: Manuel Teodoro Tenango
+#+title: Nuevo vídeo sobre como crear funciones en R 
+#+image: /img/ttprogramando_banner.png
+#+draft: false
+#+date: 2025-02-02
+#+language: es
+#+description: Aprende a crear funciones en R sin conocimientos previos.
+#+tags: ["R basics", "R-dev", "R tips", "R functions"]
+#+categories: ["R"]
+#+archives: ["2025"]
+
+Nuevo vídeo de R en Español sobre cómo [[https://youtu.be/u7FljPU3r2s][Crear Funciones]].
+
+Este vídeo es parte de mi playlist [[https://www.youtube.com/playlist?list=PLWj4ViKoWAEkr1xFJxsH6tAHVdml4sh8y][R Desde Ceros]] que pretende enseñar los aspectos mas básicos del uso de R para generar las bases para programación y análisis de datos.
+
+En este vídeo muestro los elementos básicos para generar una función, comenzando por una función simple y sin variables. De ahí nos movemos a agregar variables y pasarlas de diferentes maneras, y terminamos con un uso básico del manejo de errores.
+
+** Sobre el canal
+
+Hace un par de semanas inicié un canal de youtube nuevo bajo el nombre de *"Teoten programando"* que se puede encontrar bajo el usuario [[https://www.youtube.com/@teoten.programando][@teoten.programando]].
+
+Es un canal donde aprender a programar es accesible, relajado y libre de complicaciones. Aquí encontrarás tutoriales claros y prácticos sobre R, ideales para quienes buscan adentrarse en el mundo del análisis estadístico, la ciencia de datos y la visualización, incluso sin experiencia previa.
+
+Mi enfoque es que cualquier persona pueda comenzar desde cero: yo mismo soy ecólogo con más de 10 años de experiencia en R y cinco años como programador en la industria farmacéutica. Entre los planes a futuro están el explorar el desarrollo de aplicaciones web con Shiny, HTML, CSS y JavaScript. También planeo profundizar en el uso de =ggplot= para la generación de gráficos, algunos análisis estadísticos y otros análisis de datos con big data y sets interesantes.
+
+La idea es mantener el canal con contenido en español, con alguno que otro vídeo en inglés de vez en cuando sobre temas que pueden ser mas populares o mas requeridos, como la publicación de aplicaciones Shiny en diferentes tipos de servers.
+
+** Visítanos
+Espero que algunas de las personas que siguen mi blog puedan visitar el canal y dejar sus comentarios. Los vídeos son cortos y concretos en un determinado tema.
+
+Si les gusta el contenido, también les agradeceré mucho la difusión, los "like" y las subscripciones. Bien sabemos que Youtube funciona bajo dichos términos y es la única manera de promover un canal.
