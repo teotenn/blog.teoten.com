@@ -1,0 +1,282 @@
+#+author: Manuel Teodoro Tenango
+#+title: SEO improvements on my Blog Generator
+#+image: /img/seo.jpg
+#+draft: false
+#+date: 2025-01-29
+#+description: Writting XML and JSON for a static site using Clojure
+#+tags: ["clojure"]
+#+categories: ["clojure", "web-dev"]
+#+archives: ["2025"]
+
+For the last couple of weeks I have been working on many improvements to my blog, mainly SEO and the creation of pages to list posts by both, categories and tags. A couple of months ago I wrote a post about [[posts/2024/building_my_blog_from_scratch][how I built my blog from scratch]] coding my own site generator in Clojure and mentioned that, although it's been hard work, I have been enjoying it a lot. I also mentioned that it gives me full control on the changes, improvements and optimizations that I want to do. And the work for the last couple of weeks definitely showed that.
+
+It was very easy to add a bunch of SEO optimizations for the pages, such as metadata, descriptions and others by simply including the right html code in the right templates. Then, my current generator that uses [[https://github.com/yogthos/Selmer][Selmer]] does automatically the rest.
+
+The creation of new pages for Categories and Tags was a bit of extra work, but since it was functional programming in Clojure, I enjoyed it a lot. I basically do some iterations over my metadata, which is in the form of maps, to extract the lists of both, categories and tags, which I use to create the lists in the corresponding pages. Then I filter all the posts by each category (or tag), and include the metadata in the lists of posts for the given category. All that took only 4 new functions, 2 of them simple 2-liners, one to wrap the filtering and the other to generate the map structure to be passed to =selmer=.
+
+But the part that I enjoyed the most and that I want to share in this post was the generation of a =sitemap.xml= and a =JSON-LD= schema to help search engines understand the content of my pages.
+
+** A whole website as data
+One of the key messages I have learned from [[https://www.rickhickey.com/][Rick Hickey]] is that everything is data. That i the reason why Clojure includes the data structure called [[https://clojure.org/guides/learn/hashed_colls#_maps][maps]].
+
+/Maps are commonly used for two purposes - to manage an association of keys to values and to represent domain application data. The first use case is often referred to as dictionaries or hash maps in other languages./
+
+So, I basically keep all the info about each of my posts as a map. The pipeline goes like this:
+
+1. I write a post either in markdown or org-mode.
+
+2. Each format is parsed by the corresponding functions using the corresponding libraries.
+
+3. The information generates a map.
+
+4. The map of each post goes to an atom that collects all maps.
+
+5. The atom is used by different elements to render pages (i.e., =stasis=), pass data (i.e., =selmer=) and other functions.
+
+The map goes more or less like this:
+
+#+begin_src clojure
+(def posts-map
+  "Vector of maps, one map per content element. Each containing the following:
+  `:id` Identifier, thus, relative path.
+  `:metadata` All the metadata from yml in md or metadata in org
+  files. In html takes yml as the first paragraph.
+  `:head` If an html `<head>` section exists, its content is stored here.
+  `:body` The hmlt `<body>` section.
+  `:path` Relative path to the file -> website.
+  `:format` of the source file.
+  "
+  (atom []))
+#+end_src
+
+As for the metadata, it depends on the specific post, but it usually has a structure like the following:
+
+- author
+- title
+- description
+- image: The path, either relative to the images folders or to the position of the post file. I have a function to normalize this to the url path.
+- draft: Boolean to decide if it should be rendered or not.
+- date: Publication date in the format =%Y-%m-%d=.
+- updated: If it's been updated, the date.
+- tags: Strings inside a clojure vector. For markdown, they have to be comma separated (YAML).
+- categories: Same as tags, but for categories.
+
+It goes without saying that having maps like this has a lot of benefits for my workflow. Among other things, I use it to generate =xml= and =json= formatted data about the content.
+
+** Generating a sitemap.xml
+
+Generating =xml= is extremely simple using the =data.xml= library from Clojure:
+
+#+begin_src clojure
+(ns teoten.ttblog.content.rss
+  (:require
+   [clojure.data.xml :as xml]
+   [clj-time.coerce :as coerce]))
+
+(defn sitemap-element [post]
+  (let [base-url (get-base-url)
+        path (str base-url (:path post))]
+    [:url
+     [:loc path]
+     [:lastmod (get-in post [:metadata :date])]]))
+
+(defn sitemap-xml [posts]
+  (let [base-url (get-base-url)
+        sorted-posts (sort-by #(get-in % [:metadata :date]) #(compare %2 %1) posts)]
+    (xml/emit-str
+     (xml/sexp-as-element
+      [:urlset {:xmlns "http://www.sitemaps.org/schemas/sitemap/0.9"}
+       (map sitemap-element sorted-posts)]))))
+#+end_src
+
+Basically, a Clojure map with the required fields. Then it uses =xml/emit-str= to emit the element to string, and =xml/sexp-as-element= to convert a single sexp into an element. So, something like =[:lastmod "2024-01-01]= is converted to its xml version =<lastmod>2024-01-01</lastmod>=.
+
+The =get-base-url= function extracts the base URL from my app, which can be either the localhost on server mode, or my blog url. But for the sitemap it can as well be replaced for a hardcoded path, although in this way is easier to change from the configuration file if I ever change the domain of my blog.
+
+Another little detail is that my name space is called =teoten.ttblog.content.rss= because the rest of the code (which was originally placed in this script) is used to generate the =rss= xml file. Probably I should rename it to =teoten.ttblog.content.xml=.
+
+But I think that everybody would agree that this is a very simple and easy way to generate a =sitemap.xml= string. Then is simply rendered and merged with the other pages with =stasis/merge-page-sources=.
+
+** Generating a schema using JSON-LD format
+The JSON-LD schema was a bit more complicated and thus, a bit more fun to code. The final result should look like this:
+
+#+begin_src json
+{
+  "description":"POST'S DESCRIPTION",
+  "headline":"POST'S TITLE",
+  "@context":"https://schema.org",
+  "publisher": {
+    "@type":"Person",
+    "name":"NAME"},
+  "articleSection":"Programming",
+  "mainEntityOfPage": {
+    "@type":"WebPage",
+    "@id":"CANNONICAL PATH OF THE POST"},
+  "datePublished":"DATE IN FORMAT 2024-01-01T08:00:00+02:00",
+  "keywords":"KEYWORDS AS SINGLE STRING, COMMA SEPPARATED",
+  "author": {
+    "@type":"Person",
+    "name":"NAME",
+    "url":"PERSONAL URL",
+    "sameAs":[
+      "LINK TO PERSONAL i.e., LINKEDIN",
+      "MORE LINKS TO SOCIALS"]},
+  "dateModified":"LAST MODIFIED DATE",
+  "inLanguage":"en",
+  "image":"CANNONICAL PATH TO THE IMAGE",
+  "isPartOf": {
+    "@type":"Blog",
+    "name":"BLOG'S NAME",
+    "url":"BLOG'S URL"},
+  "@type":"BlogPosting",
+  "about":[{
+    "name":"CATEGORY 1",
+    "@type":"Thing"}]
+}
+#+end_src
+
+If you are not familiar with it (I wasn't), you can see the JSON string for this very post (or any in this blog) by right clicking on the page, =Inspect=, find the =Element= with the html code, expand the =<head>= section to find a  =script= tag with JSON code in it.
+
+I guess it goes without saying that the task was to generate a Clojure map with such structure. Then I used =[cheshire.core :as json]= to parse it to a JSON string. Here is the code:
+
+#+begin_src clojure
+(defn format-google-datetime
+  "Converts a date string in 'yyyy-MM-dd' format to Google's datetime
+  format 'yyyy-MM-ddTHH:mm:ss+HH:mm', accounting for Warsaw's time
+  zone."
+  [date-str]
+  (let [local-date (LocalDate/parse date-str)
+        zoned-date-time (ZonedDateTime/of local-date (LocalTime/of 8 0) (ZoneId/of "Europe/Warsaw"))
+        formatter (DateTimeFormatter/ofPattern "yyyy-MM-dd'T'HH:mm:ssXXX")]
+    (.format zoned-date-time formatter)))
+
+
+(defn normalize-namespaced-keys
+    "Converts namespaced keys like :ld/context to @context."
+  [clojure-map]
+  (let [transform-key (fn [k]
+                        (if (and (keyword? k) (= "ld" (namespace k)))
+                          (str "@" (name k)) ;; Replace :ld/context -> @context
+                          k))]
+    (clojure.walk/postwalk
+     (fn [x]
+       (if (map? x)
+         (into {} (map (fn [[k v]] [(transform-key k) v]) x))
+         x))
+     clojure-map)))
+
+
+(defn schema-to-json-ld
+    "Converts a prepared schema map to a JSON-LD string."
+  [schema-map]
+  (json/generate-string (normalize-namespaced-keys schema-map)))
+
+(defn create-schema-map-from-post-map [post-map]
+  (let [metadata (:metadata post-map)
+        base-url (get @app-env :base-url "")]
+    {:ld/context "https://schema.org"
+     :ld/type "BlogPosting"
+     :articleSection "Programming"
+     :isPartOf {:ld/type "Blog"
+                :name (get @app-env :blog-name "")
+                :url base-url}
+     :headline (:title metadata)
+     :datePublished (format-google-datetime (:date metadata))
+     :dateModified (format-google-datetime (get metadata :modified (:date metadata)))
+     :author {:ld/type "Person"
+              :name (:author metadata)
+              :url (get-in @app-env [:schema-markup :personal-url] "")
+              :sameAs (get-in @app-env [:schema-markup :socials] "")}
+     :description (get metadata :description "")
+     :keywords (str/join ", " (get metadata :tags ["programming" "software"]))
+     :mainEntityOfPage {:ld/type "WebPage"
+                        :ld/id (str base-url (:path post-map))}
+     :image (get metadata :image "")
+     :about (vec (map #(hash-map :ld/type "Thing" :name %) (:categories metadata)))
+     :inLanguage (get metadata :language "en")
+     :publisher {:ld/type "Person"
+                 :name "teoten"}}))
+
+(defn schema-to-html-str [schema-map]
+  (str "<script type=\"application/ld+json\">"
+       (schema-to-json-ld schema-map)
+       "</script>"))
+#+end_src
+
+Neat, right?
+
+The function =schema-to-json-ld= is simply a wrapper to create the json string using =chesire=, and the =schema-to-html-str= wraps the resulted json string to the html =script= tag. The =create-schema-map-from-post-map= does the main task of creating the map in the right format. It is basically a series of calls to =get= to extract the right info from a posts map, which later can be mapped to all the posts stored in the atom.
+
+The tricky part was to generate the ="@element"=. I thought of few solutions:
+
+- Create a list of elements that need to be prepended by =@= and implement it at the parsing step.
+- Use ="@element"= instead of keys.
+- Create namespaced keys which can be parsed to =@element=.
+
+I wanted to use the most clojurist approach and so, I went for the last option. The function =normalize-namespaced-keys= helps me to achieve this while keeping only keys in my map.
+
+Another tricky part was to generate the right format for the datetime. As I mention above, and according to google and bing standards, it has to be a format like this =2024-01-01T08:00:00+02:00=. Thus, I crafted =format-google-datetime= to convert the format from my posts to the format requested. It is basically a wrapper around =Java.time= functions that I created with the help of AI chats. I hardcoded it for =Europe/Warsaw= time zone since it is the area where I currently am. But it can be easily changed in the function itself.
+
+** Testing the functions
+One of the things I hate the most of finding useful functions in blog posts is that often, they are quite difficult to reproduce. Unlike the ones in stackoverflow and other help platforms, where people add reproducible examples, in the blogs and many tutorials (including some books) the functions often depend on other components of the code that are not shown and, often, not shared. Not my case.
+
+On the other hand, one of the things I like the most about functional programming is that the functions can be tested very easily. No need to create or mock complicated objects with tons of parameters. As I mention above, the only complications are other functions or components from other elements of my app. But in this case, those can easily be mocked as well.
+
+In this case, I just need a map like the =posts-map= described in the first section of this post. Since all the =get='s for =@app-env= have default values, we can mock it with an empty map.
+
+Try it yourself by evaluating my functions and passing a map for =posts-map=. Something like this should work:
+
+#+begin_src clojure
+(ns user
+  (:require [cheshire.core :as json]
+            [clojure.data.xml :as xml]
+            [clojure.string :as str])
+  (:import [java.time LocalDate LocalTime ZonedDateTime ZoneId]
+           [java.time.format DateTimeFormatter]))
+
+(defn get-base-url [] "https://mocked.site.com")
+
+(def app-env (atom {}))
+
+;; Evaluate the functions or paste them in the REPL.
+
+;; Mock posts-map
+(def posts-map
+  (atom [{:id "fake_post"
+          :metadata {:author "John Doe"
+                     :title "A fake post"
+                     :image "/img/fake.jpg"
+                     :draft false
+                     :date "2024-01-01"
+                     :description "Post generated for testing"
+                     :tags ["none" "fake"]
+                     :categories ["test"]}
+          :head ""
+          :body "Minimal content"
+          :path "fake_post"
+          :format "org"}]))
+
+;; Test the functions:
+(sitemap-element (first @posts-map))
+
+(sitemap-xml @posts-map)
+
+(format-google-datetime "2024-01-01")
+
+(normalize-namespaced-keys {:key "normal key" :ld/at "at key"})
+
+(create-schema-map-from-post-map (first @posts-map))
+
+(schema-to-json-ld (create-schema-map-from-post-map (first @posts-map)))
+
+(schema-to-html-str (create-schema-map-from-post-map (first @posts-map)))
+#+end_src
+
+** Conclusions
+Writing my own static site generator engine for my blog has been both, rewarding and fun. It starts showing the advantages of knowing your stack, which makes it much more fun to add elements, or know how exactly you want them. I am not big fan of black boxes were you input personal info and you get some output, not knowing what is there in between. Especially now in the age of surveillance capitalism.
+
+Also, Clojure really exploits the advantages of functional programming. And coding my own site generator is speeding up my learning process.
+
+There are still a few improvements to make for my blog, but so far I really like what I have accomplished so far and I'm liking more and more the current state of my blog. By the way, creating the Categories and Tags sections also was an interesting process. I might share it in a future post. Let me know if there is some interest.
+
+In the meantime, I would also love to hear your opinion about the look and UI of the current state of my blog. Maybe there is more that I can add or change than what is planned. Please, leave us a comment.

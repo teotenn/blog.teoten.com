@@ -16,8 +16,8 @@
   `:id` Identifier, thus, relative path.
   `:metadata` All the metadata from yml in md or metadata in org
   files. In html takes yml as the first paragraph.
-  `:head` If an hatml `<head>` section exists, its content is stored here.
-  `:body` The hamlt `<body>` section.
+  `:head` If an html `<head>` section exists, its content is stored here.
+  `:body` The hmlt `<body>` section.
   `:path` Relative path to the file -> website.
   `:format` of the source file.
   "

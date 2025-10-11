@@ -24,6 +24,11 @@
 **** TODO Ensure there are no dead links.
 **** TODO Core Web Vitals: Optimize for metrics like Largest Contentful Paint (LCP), First Input Delay (FID), and Cumulative Layout Shift (CLS).
 **** TODO Fix missing 40X pages
+*** TODO Minor bugs
+**** TODO Links standardizer not working as expected.
+For =../2024/post.org= is not adding the =posts/= before and not removing the =.org= part.
+**** TODO Numbered lists in org not parsing correctly to html
+**** TODO Org parser not parsing =<tag>=. Same goes for =src= blocks.
 *** TODO Allow users to search for content
 *** TODO The =#+ATTR_HTML:= part before org images does not work. Consider fix.
 
