@@ -1,0 +1,19 @@
+#+author: Manuel Teodoro Tenango
+#+title: Personal Plans for 2026
+#+image: 
+#+draft: true
+#+date: 2025-02-02
+#+language: en
+#+description: Some thoughts about the blog
+#+tags: ["personal"]
+#+categories: ["personal"]
+#+archives: ["2026"]
+
+Lately I've been considering a lot shutting down the blog. The reasons are many. Mainly lack of time: my family is growing, I got a new job, I'm starting a side hustle and getting into an apparently new passion. I also think that people are less interested in blogs since the big hit of AI. And it is not like mine is so well known to be considered of high value by someone. Specially given my lack of consistency. But it is interesting how the same reasons that reduce my availability of time are of value for the topics of this blog. And considering the increase of vibe coding and generative AI, it becomes more and more useful to have documented real experience in the use of code that can sum up to an automatically generated code snippet.
+
+At the beginning of the year I started a new job as Statistical Programmer with R. It is quite interesting given that I've worked in the past as statistician and later as a software engineer. This new positions requires me to take the best of each and learn a bunch of new things. I will be working with clinical data with R, which by its own is quite a challenge. I will be developing new packages and Shiny apps for the company. I am in charge of training users in R, as it seems I am the most experienced with the language. And all this with the challenges of a Posit platform that requires a lot of adjustments and maintenance, which by the way, is also within my field of expertise. All of this will bring up a lot of topics that are worth sharing
+
+As a support to my work in R, I have been working on an Emacs package to implement tree sitter. It started as a simple wrapper for ESS around the latest library treesit included in Emacs. However, I've been growing frustrated of ESS for quite a while and wanted to direct this to the path of freedom from ESS. The problem was the time. Fortunately the package gained popularity quickly and one particular person got so interested that started contributing with code for a REPL. Quickly we had a functional REPL, interaction mode, help, auto completions and xref support. I am also thankful that he has been pushing for the inclusion of modern tools such as vterm and eglot, which pair very well with air and radian. Here I learned a lot about the Emacs buffer, major and minor modes, completion functions, xref backends, and elisp of course. I also had to work a lot on back end functionality in R, particularly for completion candidates and references. It's been quite a journey that should not be wasted staying in my head only.
+
+Having children definitely makes me think of the kind of world I want to leave them behind, and among other things, I definitely want them to have a world where free and open source software is a reality. After all, freedom is one or the most valuable elements we must have. Thus, contributing and supporting FOSS is something I want to encourage even more on myself and my kids. And in the end, this blog is right about that.
+
