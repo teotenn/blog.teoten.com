@@ -29,13 +29,13 @@ Additionally to all that fuss, ESS can be too opinionated about certain topics. 
 
 All that takes us to their inability to have a tree sitter implementation for ESS. I will save my comments on this, you can check the details yourself at the [[https://github.com/emacs-ess/ESS/issues/1239][Issue 1239]], which was initiated on February 5th, 2023. Three years later, make your own conclusions.
 
-It seems that they have too much on their plate simply. Even when R is their main focus, it has to drag all the rest of their code base, which is huge. ESR was born because we believe that the R users deserve a better Emacs experience. We deserve a major mode where R is a first class citizen, just like python or java script. And that allow us to keep up with latest R tools like radian and air. The target of ESR is to be a minimalist package focused on R, with the support of tree sitter.
+It seems that they have too much on their plate simply. Even when R is their main focus, it has to drag all the rest of their code base, which is huge. [[https://codeberg.org/teoten/esr][ESR]] was born because we believe that the R users deserve a better Emacs experience. We deserve a major mode where R is a first class citizen, just like python or java script. And that allow us to keep up with latest R tools like radian and air. The target of [[https://codeberg.org/teoten/esr][ESR]] is to be a minimalist package focused on R, with the support of tree sitter.
 
 There are some remarkable differences with ESS:
-- Emacs Speaks R instead of Emacs Speaks Statistics. ESR focuses on R.
+- Emacs Speaks R instead of Emacs Speaks Statistics. [[https://codeberg.org/teoten/esr][ESR]] focuses on R.
 - Use of tree sitter. This opens up a lot of new possibilities for syntax highlighting, code navigation and code editing.
 - Use of Emacs built-in functionality. Do not re-invent the wheel and update to newer Emacs tools.
-- Minimal key map. ESS provides a huge key map which resembles the buttons and menus of Rstudio. ESR attempts to move away from that strategy by keeping the key map clean.
+- Minimal key map. ESS provides a huge key map which resembles the buttons and menus of Rstudio. [[https://codeberg.org/teoten/esr][ESR]] attempts to move away from that strategy by keeping the key map clean.
 - Use of modern tools to power R development, such as [[https://www.gnu.org/software/emacs/manual/html_node/eglot/Quick-Start.html][Eglot]] and [[https://github.com/akermu/emacs-libvterm][Vterm]], which can support [[https://github.com/randy3k/radian][Radian]] and [[https://tidyverse.org/blog/2025/02/air/][Air]].
 
-ESR was born as a tree sitter mode for R, but thanks to the support of the community interested in it, it keeps growing as an alternative to ESS. We are greatly thankful for the work that the ESS has put throughout this years, and we decided to name the package to honor that. We will work hard to make sure that Emacs Speak R.
+[[https://codeberg.org/teoten/esr][ESR]] was born as a tree sitter mode for R, but thanks to the support of the community interested in it, it keeps growing as an alternative to ESS. We are greatly thankful for the work that the ESS has put throughout this years, and we decided to name the package to honor that. We will work hard to make sure that Emacs Speak R.
