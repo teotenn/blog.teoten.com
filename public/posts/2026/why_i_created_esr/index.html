@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+ <head>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather">
+  <link href="/styles/cf08ab1aa727/styles.css" rel="stylesheet">
+  <title>Why did I create ESR (my thoughts on ESS) | Teoten's blog</title>
+  <meta name="description" content="My motivation to create ESR has a lot to do with my opinion about ESS.">
+  <link rel="canonical" href="https://blog.teoten.com/posts/2026/why_i_created_esr/">
+  <script type="application/ld+json">{"description":"My motivation to create ESR has a lot to do with my opinion about ESS.","headline":"Why did I create ESR (my thoughts on ESS)","@context":"https://schema.org","publisher":{"@type":"Person","name":"teoten"},"articleSection":"Programming","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.teoten.com/posts/2026/why_i_created_esr/"},"datePublished":"2026-03-03T08:00:00+01:00","keywords":"R, R-dev, R tips, exploring, emacs, ESR","author":{"@type":"Person","name":"Manuel Teodoro Tenango","url":"https://resume.teoten.com/","sameAs":["https://social.linux.pizza/@teoten","https://www.youtube.com/@teoten.programando"]},"dateModified":"2026-03-03T08:00:00+01:00","inLanguage":"en","image":"https://blog.teoten.com/img/grant-ritchie-Jd2fqoX3z_0-unsplash.jpg","isPartOf":{"@type":"Blog","name":"Teoten's Blog","url":"https://blog.teoten.com"},"@type":"BlogPosting","about":[{"name":"R","@type":"Thing"},{"name":"emacs","@type":"Thing"}]}</script>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Teoten">
+ </head>
+ <body>
+  <!-- Top nav bar -->
+  <div>
+   <!-- Toggle Button -->
+   <button id="theme-toggle-btn" onclick="toggleTheme()"><i class="fas fa-sun"></i></button>
+   <div id="wrapper">
+    <nav id="navbar" class="navbar">
+     <div class="navbar-container">
+      <input type="checkbox" name="" id="">
+      <div class="hamburger-lines">
+       <span class="line line1"></span> <span class="line line2"></span> <span class="line line3"></span>
+      </div>
+      <ul class="menu-items">
+       <li><a href="https://blog.teoten.com/">Home</a></li>
+       <li><a href="https://blog.teoten.com/list/">Posts</a></li>
+       <li><a href="https://blog.teoten.com/categories/">Categories</a></li>
+       <li><a href="https://blog.teoten.com/tags/">Tags</a></li>
+       <li><a href="https://blog.teoten.com/about/">About</a></li>
+      </ul>
+     </div>
+    </nav>
+   </div>
+  </div>
+  <div id="shadow-block">
+   <div id="container">
+    <div id="wide-content">
+     <!-- Main content -->
+     <div class="article-top">
+      <img src="https://blog.teoten.com/img/grant-ritchie-Jd2fqoX3z_0-unsplash.jpg" class="article-top-image" alt="Why did I create ESR (my thoughts on ESS)">
+      <div class="article-title-container">
+       <h1 class="article-title">Why did I create ESR (my thoughts on ESS)</h1>
+      </div>
+      <div class="article-meta">
+       <span> <i class="fa fa-calendar"> 2026-03-03</i> </span>
+      </div>
+     </div>
+     <article id="post-/posts/2026/why_i_created_esr/" data-post-id="/posts/2026/why_i_created_esr/">
+      <div>
+       <span><span> </span></span>
+       <p>Ever since I was using a text editor for R I have been using ESS. That makes it 10 years now. And so, I have decided that it is enough.</p>
+       <p>I started using R during my masters studies for my statistical analysis. I wanted to learn the core of the language and so, I decided that I didn't want to have any interface between me and the language. I was writing all my code directly in the console, saving some Rdata, and keeping history track. And I learned a lot.</p>
+       <p>A few years later I started my PhD and decided that this was too archaic. For some reason I wanted to keep away from Rstudio and started searching for a good text editor for R. I was surprised to find that there are a lot of good options. But I had a plan: I decided to try a few to see how I feel with each and then choose. I made a list of 3 or 4 and started with the first one. It was Emacs with ESS. I never made it to the 2nd one.</p>
+       <p>From the very beginning, Emacs felt very natural and intuitive to me. I guess that its structure and way of working fits my mindset. I adopted ESS in the same way, simply as part of my Emacs experience. I learned the basic key bindings, the connection to the R console and a few shortcuts for package development and plots. In no time I had a great working environment for R. It was the falling in love phase and I just loved all of it.</p>
+       <p><span>ESS has an interesting aim: to make statistics easy and possible with Emacs. If you think about it beyond the scope of R, the task is huge. ESS provides a lot of functionality for other statistical languages, such as SAS, S-plus and recently even Julia. According to <a href="https://en.wikipedia.org/wiki/Emacs_Speaks_Statistics">wikipedia</a>, "it has the capability to submit a batch job for statistical packages like SAS, BUGS or JAGS when an interactive session is unwanted due to the potentially lengthy time required for the task to complete". It could possibly be one of the very first editors for R, way before Rstudio was even imagined. </span></p>
+       <p>Its backlog goes down to 1992 with version 3.41. That could be at around Emacs version 18. At the moment of writing this post, ESS is at version 25.01.0 and Emacs at 30.2. It is evident that ESS was crafted under very old and limited Emacs tools. And for the experienced user, it is also clear that ESS has been having problems to adapt to the evolution of Emacs. The team of developers behind Emacs have been very smart at incorporating libraries that are of high value both, for the end user and for the elisp programmer. Emacs is so flexible and versatile that it is good at keeping up with cutting edge technology such as LSP, tree sitter and more recently generative AI. Unfortunately, we cannot say the same about ESS.</p>
+       <p><span>The ESS team really did an outstanding job with this package. It not only works, but goes beyond and tries to give you a lot of tools to make working with statistics easy. R is the star of the package, it has 9 elisp files dedicated exclusively for it and a lot of additional or supportive functionality scattered over the code. It receives special attention for adding new features and solving bugs. I always liked how easy is to start a new R console and to pair any R script buffer to it. I like a lot its debugging system. And I have a bunch of R functions wrapped around simple elisp code to execute upon keybindings. They did create an excellent development environment for R code. Unfortunately, this is also very traditionalist in the old R way, and things start getting foggy when you try alternative methods to develop R code, such as <a href="https://klmr.me/box/">box</a> and <a href="https://appsilon.github.io/rhino/">rhino</a>. </span></p>
+       <p>Despite of all the wonderful things it offers, it has also a lot of drawbacks. The code base is too big and too old. When you try to contribute, or simply to fix or change something that suppose to be simple, you can easily get lost in a labyrinth of elisp functions and variables scattered all over the place. There is certain structure though, so once you start getting used to it and learn which script is for what, the labyrinth can be navigable with the help of xref. But then, the code is too old, it has been growing along 40 years. More than once I have had situations that, when updating to a new Emacs version, a bunch if warnings and/or errors suddenly pop up for a few packages. That is because Emacs has changed certain things in certain functions, sometimes it can be new variables, different defaults, change in the location or implementation of something, etc. Generally I just wait for the maintainers to fix it. There are always some users running the pre-released newest Emacs and they report it quickly so, the maintainers can fix it fast. Unfortunately, this is not the case of ESS. In my experience, ESS has always been the last one on fixing bugs like this. And when you dive into the code, it is full of comments of what would be a good implementation, code commented out and many work around to fix this kind of bugs, rather than trying to implement it in the new way that Emacs is suggesting. And I don't blame them. Their code is so big and interdependent, that sometimes fixing something that suppose to be simple, can break other functions down the stream, or break its implementation as required from upstream.</p>
+       <p><span>Additionally to all that fuss, ESS can be too opinionated about certain topics. My favorite example is <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Projects.html">working with projects</a>. Unlike any other major mode for a programming language, ESS has it's own definition for a Project. There is a whole discussion in the <a href="https://github.com/emacs-ess/ESS/issues/1289">issue 1289</a> if you want to read the opinions. It is intended so set projects the R way, but then, if you choose to work with <a href="https://appsilon.github.io/rhino/">Rhino</a><span> you only get headaches. I used to work on an R project for a big data pipeline that was a well structured code base, outside of "the R way" so, whenever I wanted to use project functionality, it was not available to me. I ended up adding an <code>.Rprofile</code> just for that. But it is upsetting that the package developers get to decide what an R project should look like. </span></span></p>
+       <p><span>All that takes us to their inability to have a tree sitter implementation for ESS. I will save my comments on this, you can check the details yourself at the <a href="https://github.com/emacs-ess/ESS/issues/1239">Issue 1239</a>, which was initiated on February 5th, 2023. Three years later, make your own conclusions. </span></p>
+       <p>It seems that they have too much on their plate simply. Even when R is their main focus, it has to drag all the rest of their code base, which is huge. ESR was born because we believe that the R users deserve a better Emacs experience. We deserve a major mode where R is a first class citizen, just like python or java script. And that allow us to keep up with latest R tools like radian and air. The target of ESR is to be a minimalist package focused on R, with the support of tree sitter.</p>
+       <p>There are some remarkable differences with ESS:</p>
+       <ul>
+        <li>
+         <p>Emacs Speaks R instead of Emacs Speaks Statistics. ESR focuses on R.</p></li>
+        <li>
+         <p>Use of tree sitter. This opens up a lot of new possibilities for syntax highlighting, code navigation and code editing.</p></li>
+        <li>
+         <p>Use of Emacs built-in functionality. Do not re-invent the wheel and update to newer Emacs tools.</p></li>
+        <li>
+         <p>Minimal key map. ESS provides a huge key map which resembles the buttons and menus of Rstudio. ESR attempts to move away from that strategy by keeping the key map clean.</p></li>
+        <li>
+         <p><span>Use of modern tools to power R development, such as <a href="https://www.gnu.org/software/emacs/manual/html_node/eglot/Quick-Start.html">Eglot</a> and <a href="https://github.com/akermu/emacs-libvterm">Vterm</a>, which can support <a href="https://github.com/randy3k/radian">Radian</a> and <a href="https://tidyverse.org/blog/2025/02/air/">Air</a>. </span></p></li>
+       </ul>
+       <p>ESR was born as a tree sitter mode for R, but thanks to the support of the community interested in it, it keeps growing as an alternative to ESS. We are greatly thankful for the work that the ESS has put throughout this years, and we decided to name the package to honor that. We will work hard to make sure that Emacs Speak R.</p>
+      </div>
+     </article>
+     <div class="article-comments">
+      <script src="https://utteranc.es/client.js" repo="teotenn/blog.teoten.com" issue-term="pathname" theme="github-light" crossorigin="anonymous" async>
+  </script>
+     </div>
+    </div>
+    <button id="toggle-button">&lt;</button>
+    <div id="sidebar" class="collapsed">
+     <a href="https://blog.teoten.com/about/"> <img src="https://blog.teoten.com/img/tt-avatar.jpg" alt="Teoten" class="sidebar-image"> </a>
+     <h2 class="h-sidebar">Links</h2>
+     <ul>
+      <li><a href="https://www.r-project.org/">The R Project</a></li>
+      <li><a href="https://www.r-bloggers.com/">R-bloggers</a></li>
+      <li><a href="https://clojure.org/">Clojure</a></li>
+      <li><a href="https://www.gnu.org/software/emacs/">GNU Emacs</a></li>
+     </ul>
+     <h2 class="h-sidebar">Socials</h2>
+     <ul class="horizontal-list">
+      <li><a href="https://www.linkedin.com/in/teoten/"><i class="fab fa-linkedin-in"></i></a></li>
+      <li><a href="https://codeberg.org/teoten"><i class="fab fa-github"></i></a></li>
+      <li><a rel="me" href="https://social.linux.pizza/@teoten"><i class="fab fa-mastodon"></i></a></li>
+     </ul>
+    </div>
+   </div>
+  </div>
+  <script src="/js/9c70eb7a56f7/scripts.js"></script>
+ </body>
+</html>
